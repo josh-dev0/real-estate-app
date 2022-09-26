@@ -7,7 +7,7 @@ import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
   const { data, error, loading } = useGetPostQuery();
-  data?.getPosts?.map
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,14 +21,16 @@ const Home: NextPage = () => {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
+        <div>
+          <h3>Datepicker from Ant Design</h3>
+          <DatePicker />
+        </div>
+
         <p className={styles.description}>
           {loading && "Loading"}
           {error && "Error happened!"}
+          {!loading && !error && "Data loaded successfully"}
         </p>
-
-        <div>
-          <DatePicker />
-        </div>
 
         <div className={styles.grid}>
           {data && data.getPosts?.map(post => (
@@ -37,20 +39,10 @@ const Home: NextPage = () => {
               href="https://nextjs.org/docs"
               className={styles.card}
             >
-              <h2>{post?.id} &rarr;</h2>
+              <p>id: {post?.id}</p>
               <p>{post?.body}</p>
             </a>
           ))}
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
         </div>
       </main>
 
