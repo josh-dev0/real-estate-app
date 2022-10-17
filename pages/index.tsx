@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <div>
+        <div className="mt-8">
           <h3>Datepicker from Ant Design</h3>
           <DatePicker />
         </div>
