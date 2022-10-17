@@ -22,16 +22,16 @@ module.exports = {
       },
     },
   ],
-  framework: "@storybook/react", //?
+  framework: "@storybook/react",
   core: {
     builder: "@storybook/builder-webpack5",
   },
-  // webpackFinal: (config) => {
-  //   config.module.rules.push({
-  //     test: /\.scss$/,
-  //     use: ["style-loader", "css-loader"],
-  //   });
+  webpackFinal: (config) => {
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ["style-loader", "css-loader"],
+    });
 
-  //   return config;
-  // },
+    return config;
+  },
 };

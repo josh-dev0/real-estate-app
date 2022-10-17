@@ -1,5 +1,5 @@
-import '../styles/globals.css'
-import 'antd/dist/antd.css'
+import 'antd/dist/antd.css';
+import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
 import MyApolloProvider from '../graphql/apollo'
 
