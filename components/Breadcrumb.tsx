@@ -18,7 +18,9 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
           </AntdBreadcrumb.Item>
         ))
       }
-      <AntdBreadcrumb.Item className="font-bold text-gray-500">{items[items.length - 1].name}</AntdBreadcrumb.Item>
+      <AntdBreadcrumb.Item className="font-bold opacity-[.45]">
+        {items[items.length - 1].name}
+      </AntdBreadcrumb.Item>
     </AntdBreadcrumb>
   )
 }

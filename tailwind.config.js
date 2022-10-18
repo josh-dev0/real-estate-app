@@ -12,6 +12,14 @@ module.exports = {
         secondary: "var(theme-color-text-secondary)",
       },
       colors: {},
+      fontSize: {
+        sm: [
+          "0.875rem",
+          {
+            lineHeight: "1.375rem",
+          },
+        ],
+      },
     },
   },
   plugins: [],
