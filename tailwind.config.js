@@ -1,13 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-function withOpacity(cssVariable) {
-  return ({ opacityValue }) => {
-    return opacityValue
-      ? `rgba(var(${cssVariable}), ${opacityValue})`
-      : `rgb(var(${cssVariable}))`;
-  };
-}
-
 module.exports = {
   important: true,
   content: [
@@ -16,10 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        default: "#365272",
-        greene: withOpacity("--color-greene"), // option for the theme test
+      textColor: {
+        secondary: "var(theme-color-text-secondary)",
       },
+      colors: {},
     },
   },
   plugins: [],

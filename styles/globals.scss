@@ -3,12 +3,13 @@
 @tailwind utilities;
 @import "./antd-supplement.scss";
 
-/* Define the different themes here */
+/** Define the different themes here 
+  * Refer to https://tailwindcss.com/blog/tailwindcss-v3-1#easier-css-variable-color-configuration
+  */
 
 @layer base {
   [data-theme="light"] {
-    --text-color-gray: rgba(0, 0, 0, 0.45);
-    --color-greene: 0, 255, 0;
+    --theme-color-text-secondary: rgba(0, 0, 0, 0.45);
   }
 }
 

@@ -11,7 +11,11 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
     <AntdBreadcrumb>
       {
         items.slice(0, items.length - 1).map(item => (
-          <AntdBreadcrumb.Item key={item.name}><a href={item.link}>{item.name}</a></AntdBreadcrumb.Item>
+          <AntdBreadcrumb.Item
+            key={item.name}
+          >
+            <a href={item.link}>{item.name}</a>
+          </AntdBreadcrumb.Item>
         ))
       }
       <AntdBreadcrumb.Item className="font-bold text-gray-500">{items[items.length - 1].name}</AntdBreadcrumb.Item>
