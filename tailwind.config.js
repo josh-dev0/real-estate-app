@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   important: true,
   content: [
@@ -7,9 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        default: "#365272",
+      textColor: {
+        secondary: "var(theme-color-text-secondary)",
       },
+      colors: {},
     },
   },
   plugins: [],
