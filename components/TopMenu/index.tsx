@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
 import type { MenuProps } from 'antd';
-import { Badge, Layout, Menu } from 'antd';
-import type { IUser } from '../../common/types';
+import { Layout, Menu } from 'antd';
+import type { IUser, IdentityType } from '../../common/types';
 import { leftMenuItems, getRightMenuItems } from './menus';
 import { AuthLocale } from './AuthLocale';
-import { MenuOutlined, SearchOutlined, BellOutlined } from '@ant-design/icons';
-import { locales } from '../../common/constants/locale';
 
 const { Header } = Layout;
 
@@ -15,13 +12,15 @@ type TopMenuProps = {
   user?: IUser;
   notifications: number;
   onLocaleChange?: (locale: string) => void;
+  onIdentify?: (identity: IdentityType) => void;
 }
 
 export const TopMenu: React.FC<TopMenuProps> = ({
   locale,
   user,
   notifications,
-  onLocaleChange
+  onLocaleChange,
+  onIdentify,
 }) => {
   const [currentL, setCurrentL] = useState('mail');
 
@@ -57,17 +56,10 @@ export const TopMenu: React.FC<TopMenuProps> = ({
         <AuthLocale
           locale={locale}
           onLocaleChange={onLocaleChange}
+          user={user}
+          onIdentify={onIdentify}
         />
       </div>
     </Header>
   );
-}
-
-const ProfileAvatar: React.FC = () => {
-  return (
-    <div className="relative inline-block w-[40px] h-[40px] mt-[6px]">
-      <Image src="/images/user.png" layout="responsive" width="40" height="40" />
-      <span className="absolute bottom-[1.5px] right-[1.5px] block w-[10px] h-[10px] rounded-full bg-green-400"></span>
-    </div>
-  )
 }
