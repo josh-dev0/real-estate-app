@@ -3,6 +3,15 @@
 @tailwind utilities;
 @import "./antd-supplement.scss";
 
+/* Define the different themes here */
+
+@layer base {
+  [data-theme="light"] {
+    --text-color-gray: rgba(0, 0, 0, 0.45);
+    --color-greene: 0, 255, 0;
+  }
+}
+
 body {
   color: #365272;
 }
