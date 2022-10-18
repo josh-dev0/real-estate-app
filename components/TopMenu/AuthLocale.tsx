@@ -29,10 +29,10 @@ const localeMenu = (
 
 type AuthLocaleProps = {
   locale: string;
+  onLocaleChange?: (locale: string) => void;
 };
 
-export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale: initLocale }) => {
-  const [locale, setLocale] = useState(initLocale);
+export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange }) => {
 
   return (
     <Space direction="horizontal" size="middle">

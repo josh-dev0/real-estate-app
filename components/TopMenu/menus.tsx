@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import { Badge, Menu } from 'antd';
 import type { MenuProps } from 'antd';
 import { MenuOutlined, SearchOutlined, BellOutlined } from '@ant-design/icons';
+import type { IUser } from '../../common/types';
 
 export const leftMenuItems: MenuProps['items'] = [
   {
     label: 'Menu',
     key: 'menu',
-    icon: <MenuOutlined />,
+    icon: <MenuOutlined className="text-sm leading-none align-baseline" />,
     children: [
       {
         label: 'Buy',
@@ -94,26 +95,29 @@ export const leftMenuItems: MenuProps['items'] = [
   },
 ];
 
-export const rightMenuItems: MenuProps['items'] = [
-  {
-    label: 'Estimation tool',
-    key: 'r:estimation-tool',
-  },
-  {
-    label: 'Publish',
-    key: 'r:publish',
-  },
-  {
-    label: '',
-    key: 'r:search',
-    icon: <SearchOutlined />,
-  },
-  {
-    label: '',
+export const getRightMenuItems = (user: IUser | undefined, notifications: number): MenuProps['items'] => {
+  const items = [
+    {
+      label: 'Estimation tool',
+      key: 'r:estimation-tool',
+    },
+    {
+      label: 'Publish',
+      key: 'r:publish',
+
+    },
+    {
+      key: 'r:search',
+      icon: <SearchOutlined className="text-2xl align-baseline" />,
+    },
+  ];
+
+  const notificationItem = {
     key: 'r:notifications',
-    icon: <>
-      <BellOutlined />
-      <span>badge her</span>
-    </>
-  },
-];
+    icon: <Badge count={notifications}>
+      <BellOutlined className="text-2xl align-baseline" />
+    </Badge>,
+  };
+
+  return !user ? items : [...items, notificationItem];
+};

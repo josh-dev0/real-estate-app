@@ -1,6 +1,7 @@
+import * as NextImage from "next/image";
+
 import "antd/dist/antd.css";
 import "../styles/globals.scss";
-import * as NextImage from "next/image";
 
 const OriginalNextImage = NextImage.default;
 
