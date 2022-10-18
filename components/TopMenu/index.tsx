@@ -54,7 +54,10 @@ export const TopMenu: React.FC<TopMenuProps> = ({
           disabledOverflow={true}
           items={getRightMenuItems(user, notifications)}
         />
-        <AuthLocale locale={locale} />
+        <AuthLocale
+          locale={locale}
+          onLocaleChange={onLocaleChange}
+        />
       </div>
     </Header>
   );

@@ -18,14 +18,7 @@ const menu = (
   />
 );
 
-const localeMenu = (
-  <Menu
-    items={locales.map(locale => ({
-      key: locale,
-      label: locale,
-    }))}
-  />
-);
+
 
 type AuthLocaleProps = {
   locale: string;
@@ -33,6 +26,16 @@ type AuthLocaleProps = {
 };
 
 export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange }) => {
+
+  const localeMenu = (
+    <Menu
+      items={locales.map(locale => ({
+        key: locale,
+        label: locale,
+      }))}
+      onClick={(e) => onLocaleChange!(e.key)}
+    />
+  );
 
   return (
     <Space direction="horizontal" size="middle">
@@ -47,10 +50,12 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange }
       <Dropdown overlay={localeMenu}>
         <div>
           <div className="leading-4 flex items-center">
-            <GlobalOutlined className="text-3xl" />
+            <div>
+              <GlobalOutlined className="text-3xl" />
+              <span className="block leading-4 text-center text-xs">{locale}</span>
+            </div>
             <CaretDownOutlined className="ml-2" />
           </div>
-          <span className="block leading-4 text-center text-xs">{locale}</span>
         </div>
       </Dropdown>
     </Space>
