@@ -17,6 +17,7 @@ import { Dropdown, Menu, Space } from 'antd';
 import { locales } from '../../common/constants/locale';
 import type { IUser, IdentityType } from '../../common/types';
 import { IDENTITY } from '../../common/constants';
+import { OnlineIcon } from './icons/online';
 
 const loginDropdownMenu = (
   <Menu
@@ -29,8 +30,7 @@ const loginDropdownMenu = (
       {
         key: 'dd:status',
         label: 'Status',
-        icon: <div
-          className="block w-[10px] h-[10px] bg-online"></div>
+        icon: <OnlineIcon className="mr-2" />
       },
       {
         key: 'dd:my-messages',
