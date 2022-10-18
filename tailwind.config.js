@@ -8,8 +8,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      textColor: {
-        secondary: "var(theme-color-text-secondary)",
+      backgroundColor: {
+        online: "var(--theme-color-bg-green)",
       },
       colors: {},
       fontSize: {
@@ -19,6 +19,9 @@ module.exports = {
             lineHeight: "1.375rem",
           },
         ],
+      },
+      textColor: {
+        secondary: "var(theme-color-text-secondary)",
       },
     },
   },

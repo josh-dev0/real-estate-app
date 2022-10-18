@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { CaretDownOutlined, GlobalOutlined } from '@ant-design/icons';
+import {
+  CaretDownOutlined,
+  CrownOutlined,
+  EyeInvisibleFilled,
+  FormOutlined,
+  GlobalOutlined,
+  HeartOutlined,
+  LoginOutlined,
+  MessageOutlined,
+  NotificationOutlined,
+  ProfileOutlined,
+  SearchOutlined,
+} from '@ant-design/icons';
 import { Dropdown, Menu, Space } from 'antd';
 import { locales } from '../../common/constants/locale';
 import type { IUser, IdentityType } from '../../common/types';
 import { IDENTITY } from '../../common/constants';
-
 
 const loginDropdownMenu = (
   <Menu
@@ -13,26 +24,62 @@ const loginDropdownMenu = (
       {
         key: 'dd:my-profile',
         label: 'My Profile',
+        icon: <ProfileOutlined />
       },
       {
         key: 'dd:status',
         label: 'Status',
+        icon: <div
+          className="block w-[10px] h-[10px] bg-online"></div>
       },
       {
         key: 'dd:my-messages',
         label: 'My Messages',
+        icon: <MessageOutlined />
       },
       {
         key: 'dd:my-ads',
         label: 'My ads',
+        icon: <NotificationOutlined />
+      },
+      {
+        key: 'dd:saved-searches',
+        label: 'My Saved Searches',
+        icon: <SearchOutlined />,
+      },
+      {
+        key: 'dd:my-favorites',
+        label: 'My Favorites',
+        icon: <HeartOutlined />,
+      },
+      {
+        key: 'dd:my-hidden-ads',
+        label: 'My Hidden Ads',
+        icon: <EyeInvisibleFilled />,
+      },
+      {
+        key: 'dd:my-subscriptions',
+        label: 'My Subscriptons',
+        icon: <FormOutlined />,
+      },
+      {
+        key: 'dd:loyalty-program',
+        label: 'Loyalty Program',
+        icon: <CrownOutlined />,
+      },
+      {
+        key: 'dd:logout',
+        label: 'Logout',
+        icon: <LoginOutlined />,
       },
     ]}
+    onClick={e => console.log(`Clicked ${e.key.replace('dd:', '')} menu. Will redirect to page properly.`)}
   />
 );
 
 const ProfileAvatar: React.FC = () => {
   return (
-    <div className="relative inline-block w-[40px] h-[40px] mt-[6px]">
+    <div className="relative w-[40px] h-[40px] mt-[6px]">
       <Image src="/images/user.png" layout="responsive" width="40" height="40" />
       <span className="absolute bottom-[1.5px] right-[1.5px] block w-[10px] h-[10px] rounded-full bg-green-400"></span>
     </div>
