@@ -134,7 +134,10 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
         </Dropdown>
       }
       {
-        user && <Dropdown overlay={loginDropdownMenu}>
+        user && <Dropdown
+          overlay={loginDropdownMenu}
+          trigger={['click']}
+        >
           <a className="text-default" onClick={e => e.preventDefault()}>
             <div className="flex items-center">
               <ProfileAvatar />
