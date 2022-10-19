@@ -7,6 +7,11 @@ type CustomInputProps = {
   icon: ReactNode;
 } & InputProps;
 
+/**
+ * @name CustomInput
+ * @describe input box with icon prefix
+ * @deprecated use `CustomAutoComplete` instead
+ */
 export const CustomInput: React.FC<CustomInputProps> = ({ icon, className, ...props }) => {
   return (
     <div className={classNames(

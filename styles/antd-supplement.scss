@@ -1,3 +1,12 @@
-.ant-menu-item-icon {
-  vertical-align: 0.425rem !important;
+/* added due to the auto complete component in search component */
+div.ant-select[class*="h-"] {
+  .ant-select-selector {
+    height: 100% !important;
+
+    .ant-select-selection-search {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
 }

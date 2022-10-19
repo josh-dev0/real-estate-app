@@ -4,6 +4,7 @@ import { CustomInput } from './CustomInput';
 import { CustomSelect } from './CustomSelect';
 import { CustomCheckbox } from './CustomCheckbox';
 import { CustomDropdown } from './CustomDropdown';
+import { CustomAutoComplete } from './CustomAutoComplete';
 import { BedFilled } from './icons';
 import {
   AimOutlined,
@@ -33,7 +34,7 @@ const items = [
 ];
 
 type SearchbarProps = {
-  location?: string;
+  locationOptions?: string[];
   radius?: string;
   propertyType?: string;
   bedrooms?: number;
@@ -41,7 +42,7 @@ type SearchbarProps = {
   includeResultsWithoutPictures?: boolean;
   habitableSurface?: string;
   landSurface?: string;
-  onLocationChange?: (val: string) => void;
+  onLocationSearch?: (val: string) => void;
   onRadiusChange?: (val: string) => void;
   onPropertyTypeChange?: (val: string) => void;
   onBedroomsChange?: (val: number) => void;
@@ -53,14 +54,14 @@ type SearchbarProps = {
 };
 
 export const Searchbar: React.FC<SearchbarProps> = ({
-  location,
+  locationOptions = [],
   radius,
   propertyType,
   bedrooms,
   price,
   includeResultsWithoutPictures,
+  onLocationSearch,
   onClickSearch,
-  onLocationChange,
   onRadiusChange,
   onPropertyTypeChange,
   onBedroomsChange,
@@ -70,12 +71,11 @@ export const Searchbar: React.FC<SearchbarProps> = ({
   return (
     <div className="bg-secondaryLight rounded-[4px] overflow-hidden">
       <div className="flex gap-[5px] items-center bg-secondary px-[5px] py-[4px]">
-        <CustomInput
-          className="bg-primary"
-          icon={<EnvironmentFilled />}
-          placeholder="Search Location"
-          value={location}
-          onChange={e => onLocationChange!(e.target['value'])}
+        <CustomAutoComplete
+          className="h-[48px]"
+          placeholder={<div className="flex items-center h-full"><EnvironmentFilled /><p className="grow text-center">eg. Luxemburg</p></div>}
+          optionValues={locationOptions}
+          onSearch={onLocationSearch!}
         />
         <CustomSelect
           className="min-w-[100px] bg-primary"
