@@ -8,7 +8,7 @@
   */
 
 @layer base {
-  [data-theme="light"] {
+  :root {
     --theme-color-text-primary: #ffffff;
     --theme-color-text-secondary: rgba(0, 0, 0, 0.45);
 
@@ -16,6 +16,9 @@
     --theme-color-bg-primary: #f5f5f5;
     --theme-color-bg-secondary: #365272;
     --theme-color-bg-secondary-light: #55708f;
+  }
+  [data-theme="light"] {
+    // describe your theme here
   }
 }
 
