@@ -14,6 +14,6 @@ export const Empty = Template.bind({});
 
 export const WithLocation = Template.bind({});
 WithLocation.args = {
-  location: 'Exmaple Location',
+  locationOptions: ['Location A', 'Location B', 'Location C'],
   includeResultsWithoutPictures: true,
 };
