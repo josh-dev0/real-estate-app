@@ -1,10 +1,11 @@
 import React, { ReactNode } from 'react';
 import { Input } from 'antd';
+import type { InputProps } from 'antd';
 import classNames from 'classnames';
 
 type CustomInputProps = {
   icon: ReactNode;
-} & React.HTMLAttributes<HTMLInputElement>;
+} & InputProps;
 
 export const CustomInput: React.FC<CustomInputProps> = ({ icon, className, ...props }) => {
   return (
