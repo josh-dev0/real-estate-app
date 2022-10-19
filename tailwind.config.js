@@ -10,8 +10,13 @@ module.exports = {
     extend: {
       backgroundColor: {
         online: "var(--theme-color-bg-green)",
+        primary: "var(--theme-color-bg-primary)",
+        secondary: "var(--theme-color-bg-secondary)",
+        secondaryLight: "var(--theme-color-bg-secondary-light)",
       },
-      colors: {},
+      colors: {
+        textPrimary: "var(--theme-color-text-primary)",
+      },
       fontSize: {
         sm: [
           "0.875rem",
@@ -21,7 +26,8 @@ module.exports = {
         ],
       },
       textColor: {
-        secondary: "var(theme-color-text-secondary)",
+        primary: "var(--theme-color-text-primary)",
+        secondary: "var(--theme-color-text-secondary)",
       },
     },
   },
