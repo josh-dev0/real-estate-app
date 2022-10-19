@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from 'antd';
-import { CustomInput } from './CustomInput';
 import { CustomSelect } from './CustomSelect';
 import { CustomCheckbox } from './CustomCheckbox';
 import { CustomDropdown } from './CustomDropdown';
