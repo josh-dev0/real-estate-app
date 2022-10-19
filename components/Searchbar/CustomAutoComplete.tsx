@@ -23,7 +23,11 @@ export const CustomAutoComplete: React.FC<CustomAutoCompleteProps> = ({
 
   const options = useMemo(() => optionValues.map(value => ({
     value,
-    label: <p><EnvironmentFilled />{value}</p>
+    label: (<div className="flex items-center">
+      <p>
+        <EnvironmentFilled className="align-middle mr-3" />
+        {value}</p>
+    </div>)
   })), [optionValues]);
 
   const handleOnFocus = () => options.length && setOpen(true);
