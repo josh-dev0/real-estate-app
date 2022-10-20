@@ -10,3 +10,14 @@ div.ant-select[class*="h-"] {
     }
   }
 }
+
+/* for `/components/DealType.tsx`, adjust the border radius of the Radio.Group */
+.deal-type-radio {
+  .ant-radio-button-wrapper:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+
+  .ant-radio-button-wrapper:last-child {
+    border-radius: 0 4px 4px 0;
+  }
+}

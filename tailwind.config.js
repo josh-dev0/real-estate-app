@@ -13,6 +13,7 @@ module.exports = {
         primary: "var(--theme-color-bg-primary)",
         secondary: "var(--theme-color-bg-secondary)",
         secondaryLight: "var(--theme-color-bg-secondary-light)",
+        focused: "var(--theme-color-bg-focused)",
       },
       colors: {
         textPrimary: "var(--theme-color-text-primary)",
