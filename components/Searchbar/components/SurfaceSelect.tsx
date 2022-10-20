@@ -76,7 +76,10 @@ export const SurfaceSelect: React.FC<SurfaceSelectProps> = ({
     >
       <div
         ref={triggerRef}
-        className="text-primary cursor-pointer flex items-center justify-between gap-[40px] pl-4 pr-5 h-[52px]"
+        className={classNames("text-primary cursor-pointer flex items-center justify-between gap-[40px] pl-4 pr-5 h-[42px] border border-solid rounded-[2px]", {
+          "border-gray-200 ": open,
+          "border-white": !open,
+        })}
         onClick={handleOnClick}
       >
         <label className="cursor-pointer block text-center text-bgSecondaryLight font-medium text-xs leading-[22px]">
