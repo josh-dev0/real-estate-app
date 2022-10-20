@@ -5,6 +5,7 @@ import { CustomSelect } from './components/CustomSelect';
 import { CustomCheckbox } from './components/CustomCheckbox';
 import { CustomDropdown } from './components/CustomDropdown';
 import { CustomAutoComplete } from './components/CustomAutoComplete';
+import { NumberSelect } from './components/NumberSelect';
 import { BedFilled } from './components/icons';
 import {
   AimOutlined,
@@ -35,17 +36,17 @@ const items = [
 
 type SearchbarProps = {
   locationOptions?: string[];
-  radius?: string;
+  radius?: string | number | null;
   propertyType?: string;
-  bedrooms?: number;
+  bedrooms?: string | number | null;
   price?: string;
   includeResultsWithoutPictures?: boolean;
   habitableSurface?: string;
   landSurface?: string;
   onLocationSearch?: (val: string) => void;
-  onRadiusChange?: (val: string) => void;
+  onRadiusChange?: (val: string | number | null) => void;
   onPropertyTypeChange?: (val: string) => void;
-  onBedroomsChange?: (val: number) => void;
+  onBedroomsChange?: (val: string | number | null) => void;
   onPriceChange?: (val: string) => void;
   onChangeOfIncludeResultsWithoutPictures?: (val: boolean) => void;
   onHabitableSurfaceChange?: (val: string) => void;
@@ -78,28 +79,16 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           optionValues={locationOptions}
           onSearch={onLocationSearch!}
         />
-        <CustomSelect
-          className="min-w-[100px] bg-primary basis-1/5"
-          icon={<AimOutlined className="text-secondaryLight" />}
-          placeholder={<div className="text-center text-secondary font-medium">Radius</div>}
-          suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
+
+        <NumberSelect
+          className="basis-1/5"
+          icon={<AimOutlined className="text-secondaryLight text-lg" />}
+          label="Radius"
+          unit="km"
           value={radius}
-          onChange={e => onRadiusChange!(e.target.value)}
-          options={[
-            {
-              value: '0-50',
-              label: '0-50Km'
-            },
-            {
-              value: '50-100',
-              label: '0-50Km'
-            },
-            {
-              value: '100-',
-              label: '> 100Km'
-            },
-          ]}
+          onChange={onRadiusChange}
         />
+
         <CustomSelect
           className="min-w-[100px] bg-primary basis-1/5"
           icon={<HomeOutlined className="text-secondaryLight" />}
@@ -122,28 +111,16 @@ export const Searchbar: React.FC<SearchbarProps> = ({
             },
           ]}
         />
-        <CustomSelect
-          className="min-w-[100px] bg-primary basis-1/5"
-          icon={<BedFilled className="text-secondaryLight" />}
-          placeholder={<div className="text-center text-secondary font-medium">Bedrooms</div>}
-          suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
+
+        <NumberSelect
+          className="basis-1/5"
+          icon={<BedFilled className="text-secondaryLight text-lg" />}
+          label="Bedrooms"
+          unit="Bedrooms"
           value={bedrooms}
           onChange={onBedroomsChange}
-          options={[
-            {
-              value: '0-50',
-              label: '0-50Km'
-            },
-            {
-              value: '50-100',
-              label: '0-50Km'
-            },
-            {
-              value: '100-',
-              label: '> 100Km'
-            },
-          ]}
         />
+
         <CustomSelect
           className="min-w-[100px] bg-primary basis-1/5"
           icon={<EuroCircleOutlined className="text-secondaryLight" />}

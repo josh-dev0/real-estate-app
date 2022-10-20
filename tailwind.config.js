@@ -31,6 +31,9 @@ module.exports = {
         secondary: "var(--theme-color-text-secondary)",
         secondaryLight: "var(--theme-color-text-secondary-light)",
       },
+      boxShadow: {
+        el: "0px 1px 12px rgba(0, 0, 0, 0.15)",
+      },
     },
   },
   plugins: [],
