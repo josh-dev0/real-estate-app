@@ -1,21 +1,21 @@
 import React from 'react';
 import { Button } from 'antd';
 import classNames from 'classnames';
-import { CustomSelect } from './components/CustomSelect';
 import { PropertyTypeSelect } from './components/PropertyTypeSelect';
 import { CustomCheckbox } from './components/CustomCheckbox';
 import { CustomDropdown } from './components/CustomDropdown';
 import { CustomAutoComplete } from './components/CustomAutoComplete';
 import { NumberSelect } from './components/NumberSelect';
+import { PriceSelect } from './components/PriceSelect';
 import { BedFilled } from './components/icons';
 import {
   AimOutlined,
-  CaretDownFilled,
   EnvironmentFilled,
   EuroCircleOutlined,
   HomeOutlined,
   SearchOutlined,
 } from '@ant-design/icons';
+import type { PriceRange } from '../../common/types';
 
 const items = [
   {
@@ -40,15 +40,15 @@ type SearchbarProps = {
   radius?: string | number | null;
   propertyType?: string;
   bedrooms?: string | number | null;
-  price?: string;
+  price?: PriceRange;
   includeResultsWithoutPictures?: boolean;
   habitableSurface?: string;
   landSurface?: string;
   onLocationSearch?: (val: string) => void;
   onRadiusChange?: (val: string | number | null) => void;
-  onPropertyTypeChange?: (val: string) => void;
+  onPropertyTypeChange?: (val?: string) => void;
   onBedroomsChange?: (val: string | number | null) => void;
-  onPriceChange?: (val: string) => void;
+  onPriceChange?: (val?: PriceRange) => void;
   onChangeOfIncludeResultsWithoutPictures?: (val: boolean) => void;
   onHabitableSurfaceChange?: (val: string) => void;
   onLandSurfaceChange?: (val: string) => void;
@@ -129,27 +129,12 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           onChange={onBedroomsChange}
         />
 
-        <CustomSelect
-          className="min-w-[100px] bg-primary basis-1/5"
-          icon={<EuroCircleOutlined className="text-secondaryLight" />}
-          placeholder={<div className="text-center text-secondary font-medium">Price</div>}
-          suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
+        <PriceSelect
+          className="basis-1/5"
+          icon={<EuroCircleOutlined className="text-secondaryLight text-lg" />}
+          label="Price"
           value={price}
-          onChange={e => onPriceChange!(e.target.value)}
-          options={[
-            {
-              value: '0-50',
-              label: '0-50Km'
-            },
-            {
-              value: '50-100',
-              label: '0-50Km'
-            },
-            {
-              value: '100-',
-              label: '> 100Km'
-            },
-          ]}
+          onChange={onPriceChange!}
         />
 
         <Button

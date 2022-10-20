@@ -13,3 +13,8 @@ export interface IUser {
 type ReverseMap<T> = T[keyof T];
 
 export type IdentityType = ReverseMap<typeof IDENTITY>;
+
+export type PriceRange = {
+  min?: number;
+  max?: number;
+};

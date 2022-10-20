@@ -3,22 +3,21 @@ import classNames from 'classnames';
 import { CaretDownOutlined } from "@ant-design/icons";
 import { Dropdown, InputNumber } from "antd";
 import type { InputNumberProps } from 'antd';
+import { PriceRange } from '../../../common/types';
 
-type NumberSelectProps = {
-  unit: string;
-  value?: string | number | null;
+type PriceSelectProps = Partial<Omit<InputNumberProps, 'value' | 'onChange'>> & {
+  value?: PriceRange;
   label: string;
   icon?: ReactNode;
   position?: string;
-} & Partial<InputNumberProps>;
+  onChange: (val?: PriceRange) => void;
+};
 
-export const NumberSelect: React.FC<NumberSelectProps> = ({
+export const PriceSelect: React.FC<PriceSelectProps> = ({
   className,
   value,
-  unit,
   min,
   max,
-  defaultValue,
   label,
   icon,
   onChange,
@@ -28,16 +27,22 @@ export const NumberSelect: React.FC<NumberSelectProps> = ({
   const [open, setOpen] = useState(false);
 
   const menu = (
-    <div className="bg-primary flex items-center justify-center px-4 py-2 border border-solid border-secondary shadow-el"
+    <div className="bg-primary flex items-center justify-center gap-[20px] px-4 py-2 border border-solid border-secondary shadow-el"
       ref={overlayRef}>
-      <InputNumber
-        min={min || 1}
-        max={max || 100}
-        defaultValue={defaultValue || 1}
-        value={value}
-        onChange={onChange}
+      <PriceItem
+        label="Minimum"
+        min={min}
+        max={max}
+        value={value?.min}
+        onChange={val => onChange!({ ...value, min: val as number })}
       />
-      <span className="ml-5">{unit}</span>
+      <PriceItem
+        label="Maximum"
+        min={min}
+        max={max}
+        value={value?.max}
+        onChange={val => onChange!({ ...value, max: val as number })}
+      />
     </div>
   );
 
@@ -72,10 +77,35 @@ export const NumberSelect: React.FC<NumberSelectProps> = ({
       >
         {icon}
         <label className="cursor-pointer block text-center text-secondary font-medium text-xs leading-[22px]">
-          {value ? `${value} ${unit}` : label}
+          {
+            (value?.min || value?.max)
+              ? `${value.min || ""}-${value.max || ""}`
+              : label
+          }
         </label>
         <CaretDownOutlined className="text-bgSecondaryLight align-middle" />
       </div>
     </Dropdown>
   );
 };
+
+type PriceItemProps = {
+  label: string;
+} & InputNumberProps;
+
+const PriceItem: React.FC<PriceItemProps> = ({
+  min, max, defaultValue, value, onChange,
+}) => {
+  return (
+    <div>
+      <p className="text-sm leading-[24px] text-secondary pb-[6px]">Minimum</p>
+      <InputNumber
+        min={min || 1}
+        max={max || 100}
+        defaultValue={defaultValue || 1}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
+  )
+}
