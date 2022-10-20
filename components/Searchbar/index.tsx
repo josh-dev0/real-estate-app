@@ -1,8 +1,7 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, Checkbox } from 'antd';
 import classNames from 'classnames';
 import { PropertyTypeSelect } from './components/PropertyTypeSelect';
-import { CustomCheckbox } from './components/CustomCheckbox';
 import { CustomDropdown } from './components/CustomDropdown';
 import { CustomAutoComplete } from './components/CustomAutoComplete';
 import { NumberSelect } from './components/NumberSelect';
@@ -72,7 +71,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
   onChangeOfIncludeResultsWithoutPictures,
 }) => {
   return (
-    <div className={classNames("bg-secondaryLight rounded-[4px] overflow-hidden max-w-[1055px] w-full", className)}>
+    <div className={classNames("rounded-[4px] overflow-hidden max-w-[1055px] w-full", className)}>
       <div className="w-full flex gap-[5px] items-center bg-secondary px-[5px] py-[4px]">
         <CustomAutoComplete
           className="h-[52px] basis-1/5"
@@ -145,11 +144,13 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         >Search</Button>
       </div>
       <div className="flex items-center gap-[60px] pt-[9px] pb-[11px] px-[22px]">
-        <CustomCheckbox
-          label="Include results with no pictures"
-          checked={!!includeResultsWithoutPictures}
-          onChange={onChangeOfIncludeResultsWithoutPictures!}
-        />
+        <Checkbox
+          checked={includeResultsWithoutPictures}
+          onChange={e => onChangeOfIncludeResultsWithoutPictures!(e.target.checked)}
+        >
+          <label className="text-bgSecondaryLight text-sm">Include results with no pictures</label>
+        </Checkbox>
+
         <CustomDropdown
           label="Habitable Surface"
           labelClass="block min-w-[120px]"
