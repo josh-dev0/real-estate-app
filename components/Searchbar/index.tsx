@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button } from 'antd';
 import classNames from 'classnames';
-import { CustomSelect } from './CustomSelect';
-import { CustomCheckbox } from './CustomCheckbox';
-import { CustomDropdown } from './CustomDropdown';
-import { CustomAutoComplete } from './CustomAutoComplete';
-import { BedFilled } from './icons';
+import { CustomSelect } from './components/CustomSelect';
+import { CustomCheckbox } from './components/CustomCheckbox';
+import { CustomDropdown } from './components/CustomDropdown';
+import { CustomAutoComplete } from './components/CustomAutoComplete';
+import { BedFilled } from './components/icons';
 import {
   AimOutlined,
   CaretDownFilled,
@@ -70,16 +70,16 @@ export const Searchbar: React.FC<SearchbarProps> = ({
   onChangeOfIncludeResultsWithoutPictures,
 }) => {
   return (
-    <div className={classNames("bg-secondaryLight rounded-[4px] overflow-hidden max-w-[1055px]", className)}>
-      <div className="flex gap-[5px] items-center bg-secondary px-[5px] py-[4px]">
+    <div className={classNames("bg-secondaryLight rounded-[4px] overflow-hidden max-w-[1055px] w-full", className)}>
+      <div className="w-full flex gap-[5px] items-center bg-secondary px-[5px] py-[4px]">
         <CustomAutoComplete
-          className="h-[48px]"
+          className="h-[52px] basis-1/5"
           placeholder={<div className="flex items-center h-full px-[7px]"><EnvironmentFilled className="text-base" /><p className="grow text-center">eg. Luxemburg</p></div>}
           optionValues={locationOptions}
           onSearch={onLocationSearch!}
         />
         <CustomSelect
-          className="min-w-[100px] bg-primary"
+          className="min-w-[100px] bg-primary basis-1/5"
           icon={<AimOutlined className="text-secondaryLight" />}
           placeholder={<div className="text-center text-secondary font-medium">Radius</div>}
           suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
@@ -101,7 +101,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           ]}
         />
         <CustomSelect
-          className="min-w-[100px] bg-primary"
+          className="min-w-[100px] bg-primary basis-1/5"
           icon={<HomeOutlined className="text-secondaryLight" />}
           placeholder={<div className="text-center text-secondary font-medium">Property Type</div>}
           suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
@@ -123,7 +123,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           ]}
         />
         <CustomSelect
-          className="min-w-[100px] bg-primary"
+          className="min-w-[100px] bg-primary basis-1/5"
           icon={<BedFilled className="text-secondaryLight" />}
           placeholder={<div className="text-center text-secondary font-medium">Bedrooms</div>}
           suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
@@ -145,7 +145,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           ]}
         />
         <CustomSelect
-          className="min-w-[100px] bg-primary"
+          className="min-w-[100px] bg-primary basis-1/5"
           icon={<EuroCircleOutlined className="text-secondaryLight" />}
           placeholder={<div className="text-center text-secondary font-medium">Price</div>}
           suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
@@ -168,7 +168,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         />
 
         <Button
-          className="bg-secondaryLight text-white border-none h-[50px] text-sm leading-[16px] px-3"
+          className="bg-secondaryLight text-primary border-none h-[52px] text-sm leading-[16px] px-3"
           shape="default"
           icon={<SearchOutlined className="leading-none align-baseline mb-0 h-[14px]" />}
           onClick={onClickSearch}

@@ -2866,6 +2866,11 @@
   dependencies:
     core-js "^3.8.2"
 
+"@storybook/preset-scss@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@storybook/preset-scss/-/preset-scss-1.0.3.tgz#8ac834545c642dada0f64f510ef08dfb882e9737"
+  integrity sha512-o9Iz6wxPeNENrQa2mKlsDKynBfqU2uWaRP80HeWp4TkGgf7/x3DVF2O7yi9N0x/PI1qzzTTpxlQ90D62XmpiTw==
+
 "@storybook/preview-web@6.5.12":
   version "6.5.12"
   resolved "https://registry.yarnpkg.com/@storybook/preview-web/-/preview-web-6.5.12.tgz#09f67908513b9e85254b0b3adea498c8a3e6f7e3"
@@ -11790,13 +11795,16 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass-loader@^13.1.0:
-  version "13.1.0"
-  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-13.1.0.tgz#e5b9acf14199a9bc6eaed7a0b8b23951c2cebf6f"
-  integrity sha512-tZS1RJQ2n2+QNyf3CCAo1H562WjL/5AM6Gi8YcPVVoNxQX8d19mx8E+8fRrMWsyc93ZL6Q8vZDSM0FHVTJaVnQ==
+sass-loader@10:
+  version "10.3.1"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-10.3.1.tgz#a45f0d1dd7ea90de7eb099239a18c83dea6e6341"
+  integrity sha512-y2aBdtYkbqorVavkC3fcJIUDGIegzDWPn3/LAFhsf3G+MzPKTJx37sROf5pXtUeggSVbNbmfj8TgRaSLMelXRA==
   dependencies:
     klona "^2.0.4"
+    loader-utils "^2.0.0"
     neo-async "^2.6.2"
+    schema-utils "^3.0.0"
+    semver "^7.3.2"
 
 sass@^1.55.0:
   version "1.55.0"
