@@ -5,19 +5,21 @@ import { Dropdown, InputNumber } from "antd";
 import type { InputNumberProps } from 'antd';
 import { IRange } from '../../../common/types';
 
-type PriceSelectProps = Partial<Omit<InputNumberProps, 'value' | 'onChange'>> & {
+type SurfaceSelectProps = Partial<Omit<InputNumberProps, 'value' | 'onChange'>> & {
   value?: IRange;
   label: string;
+  unit?: string;
   icon?: ReactNode;
   position?: string;
   onChange: (val?: IRange) => void;
 };
 
-export const PriceSelect: React.FC<PriceSelectProps> = ({
+export const SurfaceSelect: React.FC<SurfaceSelectProps> = ({
   className,
   value,
   min,
   max,
+  unit,
   label,
   icon,
   onChange,
@@ -33,6 +35,7 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
         label="Minimum"
         min={min}
         max={max}
+        unit={unit}
         value={value?.min}
         onChange={val => onChange!({ ...value, min: val as number })}
       />
@@ -40,6 +43,7 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
         label="Maximum"
         min={min}
         max={max}
+        unit={unit}
         value={value?.max}
         onChange={val => onChange!({ ...value, max: val as number })}
       />
@@ -64,7 +68,7 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
 
   return (
     <Dropdown
-      className={classNames("bg-primary min-w-[120px] py-[12px]", className)}
+      className={classNames("bg-primary py-[12px]", className)}
       overlay={menu}
       trigger={["click"]}
       open={open}
@@ -72,11 +76,10 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
     >
       <div
         ref={triggerRef}
-        className="text-primary cursor-pointer flex items-center justify-between pl-4 pr-5 h-[52px]"
+        className="text-primary cursor-pointer flex items-center justify-between gap-[40px] pl-4 pr-5 h-[52px]"
         onClick={handleOnClick}
       >
-        {icon}
-        <label className="cursor-pointer block text-center text-secondary font-medium text-xs leading-[22px]">
+        <label className="cursor-pointer block text-center text-bgSecondaryLight font-medium text-xs leading-[22px]">
           {
             (value?.min || value?.max)
               ? `${value.min || ""}-${value.max || ""}`
@@ -91,22 +94,26 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
 
 type PriceItemProps = {
   label: string;
+  unit?: string;
 } & InputNumberProps;
 
 const PriceItem: React.FC<PriceItemProps> = ({
-  min, max, defaultValue, value, onChange,
+  min, max, unit, defaultValue, value, onChange,
 }) => {
   return (
     <div>
       <p className="text-sm leading-[24px] text-secondary pb-[6px]">Minimum</p>
-      <InputNumber
-        size="small"
-        min={min || 1}
-        max={max || 100}
-        defaultValue={defaultValue || 1}
-        value={value}
-        onChange={onChange}
-      />
+      <div className="flex items-center justify-center gap-[7px]">
+        <InputNumber
+          size="small"
+          min={min || 1}
+          max={max || 100}
+          defaultValue={defaultValue || 1}
+          value={value}
+          onChange={onChange}
+        />
+        <span className="text-secondary text-sm leading-[24px]">{unit}</span>
+      </div>
     </div>
   )
 }

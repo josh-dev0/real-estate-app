@@ -14,7 +14,7 @@ type ReverseMap<T> = T[keyof T];
 
 export type IdentityType = ReverseMap<typeof IDENTITY>;
 
-export type PriceRange = {
+export type IRange = {
   min?: number;
   max?: number;
 };

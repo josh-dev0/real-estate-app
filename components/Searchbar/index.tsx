@@ -6,6 +6,7 @@ import { CustomDropdown } from './components/CustomDropdown';
 import { CustomAutoComplete } from './components/CustomAutoComplete';
 import { NumberSelect } from './components/NumberSelect';
 import { PriceSelect } from './components/PriceSelect';
+import { SurfaceSelect } from './components/SurfaceSelect';
 import { BedFilled } from './components/icons';
 import {
   AimOutlined,
@@ -14,7 +15,7 @@ import {
   HomeOutlined,
   SearchOutlined,
 } from '@ant-design/icons';
-import type { PriceRange } from '../../common/types';
+import type { IRange } from '../../common/types';
 
 const items = [
   {
@@ -39,18 +40,18 @@ type SearchbarProps = {
   radius?: string | number | null;
   propertyType?: string;
   bedrooms?: string | number | null;
-  price?: PriceRange;
+  price?: IRange;
   includeResultsWithoutPictures?: boolean;
-  habitableSurface?: string;
-  landSurface?: string;
+  habitableSurface?: IRange;
+  landSurface?: IRange;
   onLocationSearch?: (val: string) => void;
   onRadiusChange?: (val: string | number | null) => void;
   onPropertyTypeChange?: (val?: string) => void;
   onBedroomsChange?: (val: string | number | null) => void;
-  onPriceChange?: (val?: PriceRange) => void;
+  onPriceChange?: (val?: IRange) => void;
   onChangeOfIncludeResultsWithoutPictures?: (val: boolean) => void;
-  onHabitableSurfaceChange?: (val: string) => void;
-  onLandSurfaceChange?: (val: string) => void;
+  onHabitableSurfaceChange?: (val?: IRange) => void;
+  onLandSurfaceChange?: (val?: IRange) => void;
   onClickSearch?: () => void;
 } & React.HTMLAttributes<HTMLDivElement>;
 
@@ -62,6 +63,8 @@ export const Searchbar: React.FC<SearchbarProps> = ({
   bedrooms,
   price,
   includeResultsWithoutPictures,
+  habitableSurface,
+  landSurface,
   onLocationSearch,
   onClickSearch,
   onRadiusChange,
@@ -69,6 +72,8 @@ export const Searchbar: React.FC<SearchbarProps> = ({
   onBedroomsChange,
   onPriceChange,
   onChangeOfIncludeResultsWithoutPictures,
+  onHabitableSurfaceChange,
+  onLandSurfaceChange,
 }) => {
   return (
     <div className={classNames("rounded-[4px] overflow-hidden max-w-[1055px] w-full", className)}>
@@ -150,16 +155,21 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         >
           <label className="text-bgSecondaryLight text-sm">Include results with no pictures</label>
         </Checkbox>
-
-        <CustomDropdown
+        <SurfaceSelect
+          className=""
+          icon={<EuroCircleOutlined className="text-secondaryLight text-lg" />}
           label="Habitable Surface"
-          labelClass="block min-w-[120px]"
-          items={items as any}
+          unit="Sqm"
+          value={landSurface}
+          onChange={onLandSurfaceChange!}
         />
-        <CustomDropdown
+        <SurfaceSelect
+          className=""
+          icon={<EuroCircleOutlined className="text-secondaryLight text-lg" />}
           label="Land Surface"
-          labelClass="block min-w-[100px]"
-          items={items as any}
+          unit="Sqm"
+          value={habitableSurface}
+          onChange={onHabitableSurfaceChange!}
         />
       </div>
     </div>
