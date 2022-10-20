@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import classNames from 'classnames';
 import { CustomSelect } from './components/CustomSelect';
+import { PropertyTypeSelect } from './components/PropertyTypeSelect';
 import { CustomCheckbox } from './components/CustomCheckbox';
 import { CustomDropdown } from './components/CustomDropdown';
 import { CustomAutoComplete } from './components/CustomAutoComplete';
@@ -89,25 +90,32 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           onChange={onRadiusChange}
         />
 
-        <CustomSelect
+        <PropertyTypeSelect
           className="min-w-[100px] bg-primary basis-1/5"
           icon={<HomeOutlined className="text-secondaryLight" />}
-          placeholder={<div className="text-center text-secondary font-medium">Property Type</div>}
-          suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
+          placeholder="Property Type"
           value={propertyType}
-          onChange={e => onPropertyTypeChange!(e.target.value)}
+          onChange={val => onPropertyTypeChange!(val)}
           options={[
             {
-              value: '0-50',
-              label: '0-50Km'
+              value: 'all',
+              label: 'All'
             },
             {
-              value: '50-100',
-              label: '0-50Km'
+              value: 'detached',
+              label: 'Detached'
             },
             {
-              value: '100-',
-              label: '> 100Km'
+              value: 'semi-detached',
+              label: 'Semi-detached'
+            },
+            {
+              value: 'flats',
+              label: 'Flats'
+            },
+            {
+              value: 'terraced',
+              label: 'Terraced'
             },
           ]}
         />

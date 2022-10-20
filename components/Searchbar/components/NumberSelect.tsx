@@ -3,14 +3,12 @@ import classNames from 'classnames';
 import { CaretDownOutlined } from "@ant-design/icons";
 import { Dropdown, InputNumber, Menu, Space } from "antd";
 import type { DropdownProps, InputNumberProps } from 'antd';
-import { valueType } from "antd/lib/statistic/utils";
 
 type RadiusSelectProps = {
   unit: string;
   value?: string | number | null;
   label: string;
   icon?: ReactNode;
-  // onChange?: (val: number | null) => void;
   position?: string;
 } & Partial<InputNumberProps>;
 
@@ -70,7 +68,7 @@ export const NumberSelect: React.FC<RadiusSelectProps> = ({
     >
       <div
         ref={triggerRef}
-        className="text-primary cursor-pointer flex items-center justify-between pl-4 pr-5"
+        className="text-primary cursor-pointer flex items-center justify-between pl-4 pr-5 h-[52px]"
         onClick={handleOnClick}
       >
         {icon}
