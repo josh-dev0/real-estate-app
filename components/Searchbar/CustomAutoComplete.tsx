@@ -25,7 +25,7 @@ export const CustomAutoComplete: React.FC<CustomAutoCompleteProps> = ({
     value,
     label: (<div className="flex items-center">
       <p>
-        <EnvironmentFilled className="align-middle mr-3" />
+        <EnvironmentFilled className="align-middle text-sm text-secondaryLight mr-3" />
         {value}</p>
     </div>)
   })), [optionValues]);
@@ -43,6 +43,7 @@ export const CustomAutoComplete: React.FC<CustomAutoCompleteProps> = ({
   return (
     <AutoComplete
       className={className}
+      popupClassName="pl-[6px] py-3"
       style={{ minWidth: 180 }}
       open={open}
       options={options}

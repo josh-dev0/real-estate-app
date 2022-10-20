@@ -1,16 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "./antd-supplement.scss";
-
-/** Define the different themes here 
-  * Refer to https://tailwindcss.com/blog/tailwindcss-v3-1#easier-css-variable-color-configuration
-  */
 
 @layer base {
   :root {
     --theme-color-text-primary: #ffffff;
     --theme-color-text-secondary: rgba(0, 0, 0, 0.45);
+    --theme-color-text-secondary-light: rgba(174, 173, 173, 0.85);
 
     --theme-color-bg-green: #05cc49;
     --theme-color-bg-primary: #f5f5f5;
@@ -21,6 +17,12 @@
     // describe your theme here
   }
 }
+
+@import "./antd-supplement.scss";
+
+/** Define the different themes here 
+  * Refer to https://tailwindcss.com/blog/tailwindcss-v3-1#easier-css-variable-color-configuration
+  */
 
 body {
   color: #365272;

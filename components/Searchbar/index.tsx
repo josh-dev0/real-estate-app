@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
+import classNames from 'classnames';
 import { CustomSelect } from './CustomSelect';
 import { CustomCheckbox } from './CustomCheckbox';
 import { CustomDropdown } from './CustomDropdown';
@@ -50,9 +51,10 @@ type SearchbarProps = {
   onHabitableSurfaceChange?: (val: string) => void;
   onLandSurfaceChange?: (val: string) => void;
   onClickSearch?: () => void;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
 export const Searchbar: React.FC<SearchbarProps> = ({
+  className,
   locationOptions = [],
   radius,
   propertyType,
@@ -68,19 +70,19 @@ export const Searchbar: React.FC<SearchbarProps> = ({
   onChangeOfIncludeResultsWithoutPictures,
 }) => {
   return (
-    <div className="bg-secondaryLight rounded-[4px] overflow-hidden">
+    <div className={classNames("bg-secondaryLight rounded-[4px] overflow-hidden max-w-[1055px]", className)}>
       <div className="flex gap-[5px] items-center bg-secondary px-[5px] py-[4px]">
         <CustomAutoComplete
           className="h-[48px]"
-          placeholder={<div className="flex items-center h-full"><EnvironmentFilled /><p className="grow text-center">eg. Luxemburg</p></div>}
+          placeholder={<div className="flex items-center h-full px-[7px]"><EnvironmentFilled className="text-base" /><p className="grow text-center">eg. Luxemburg</p></div>}
           optionValues={locationOptions}
           onSearch={onLocationSearch!}
         />
         <CustomSelect
           className="min-w-[100px] bg-primary"
-          icon={<AimOutlined />}
-          placeholder={<div className="text-center">Radius</div>}
-          suffixIcon={<CaretDownFilled />}
+          icon={<AimOutlined className="text-secondaryLight" />}
+          placeholder={<div className="text-center text-secondary font-medium">Radius</div>}
+          suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
           value={radius}
           onChange={e => onRadiusChange!(e.target.value)}
           options={[
@@ -100,9 +102,9 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         />
         <CustomSelect
           className="min-w-[100px] bg-primary"
-          icon={<HomeOutlined />}
-          placeholder={<div className="text-center">Property Type</div>}
-          suffixIcon={<CaretDownFilled />}
+          icon={<HomeOutlined className="text-secondaryLight" />}
+          placeholder={<div className="text-center text-secondary font-medium">Property Type</div>}
+          suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
           value={propertyType}
           onChange={e => onPropertyTypeChange!(e.target.value)}
           options={[
@@ -122,9 +124,9 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         />
         <CustomSelect
           className="min-w-[100px] bg-primary"
-          icon={<BedFilled />}
-          placeholder={<div className="text-center">Bedrooms</div>}
-          suffixIcon={<CaretDownFilled />}
+          icon={<BedFilled className="text-secondaryLight" />}
+          placeholder={<div className="text-center text-secondary font-medium">Bedrooms</div>}
+          suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
           value={bedrooms}
           onChange={onBedroomsChange}
           options={[
@@ -144,9 +146,9 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         />
         <CustomSelect
           className="min-w-[100px] bg-primary"
-          icon={<EuroCircleOutlined />}
-          placeholder={<div className="text-center">Price</div>}
-          suffixIcon={<CaretDownFilled />}
+          icon={<EuroCircleOutlined className="text-secondaryLight" />}
+          placeholder={<div className="text-center text-secondary font-medium">Price</div>}
+          suffixIcon={<CaretDownFilled className="text-bgSecondaryLight" />}
           value={price}
           onChange={e => onPriceChange!(e.target.value)}
           options={[

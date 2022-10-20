@@ -16,6 +16,7 @@ module.exports = {
       },
       colors: {
         textPrimary: "var(--theme-color-text-primary)",
+        bgSecondaryLight: "var(--theme-color-bg-secondary-light)",
       },
       fontSize: {
         sm: [
@@ -28,6 +29,7 @@ module.exports = {
       textColor: {
         primary: "var(--theme-color-text-primary)",
         secondary: "var(--theme-color-text-secondary)",
+        secondaryLight: "var(--theme-color-text-secondary-light)",
       },
     },
   },
