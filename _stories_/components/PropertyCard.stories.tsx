@@ -18,6 +18,8 @@ Primary.args = {
   price: 865000,
   bedrooms: 3,
   surface: 450,
+  loading: false,
+  review: 4.5,
 };
 
 export const WithEmptyValues = Template.bind({});
