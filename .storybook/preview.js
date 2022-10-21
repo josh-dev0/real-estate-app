@@ -1,6 +1,7 @@
 import * as NextImage from "next/image";
+import { ThemeProvider } from "next-themes";
+import { AntdThemeConfig } from "../common/providers/AntdThemeConfig";
 
-import "antd/dist/antd.css";
 import "../styles/globals.scss";
 
 const OriginalNextImage = NextImage.default;
@@ -19,3 +20,13 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider attribute="data-theme" defaultTheme="light">
+      <AntdThemeConfig>
+        <Story />
+      </AntdThemeConfig>
+    </ThemeProvider>
+  ),
+];

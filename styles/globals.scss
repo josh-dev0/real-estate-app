@@ -1,10 +1,23 @@
+/* --> Tailwind CSS Config */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* <-- Tailwind CSS Config */
+
+/* import google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
-$theme-color-purple-monster: #922c88;
+/* --> Ant Design Configuration */
+@import "../node_modules/antd/dist/antd.variable.min.css";
+@import "./antd-supplement.scss";
+/* <-- Ant Design Configuration */
 
+/* import customized colors */
+@import "./variables.module.scss";
+
+/** Define the different themes here 
+  * Refer to https://tailwindcss.com/blog/tailwindcss-v3-1#easier-css-variable-color-configuration
+  */
 @layer base {
   :root {
     --theme-color-text-primary: #ffffff;
@@ -26,13 +39,4 @@ $theme-color-purple-monster: #922c88;
   }
 }
 
-@import "./antd-supplement.scss";
-
-/** Define the different themes here 
-  * Refer to https://tailwindcss.com/blog/tailwindcss-v3-1#easier-css-variable-color-configuration
-  */
-
-body {
-  color: #365272;
-  /* font-family: "Roboto"; */
-}
+body {}

@@ -1,0 +1,10 @@
+/**
+ * Here, define the different theme colors.
+ * @naming: theme-color-[theme-name]-[color-name]. eg. "theme-color-light-primary".
+ * @export name: [themeName][colorName]
+ */
+$primary-color: #55708F;
+
+:export {
+  primaryColor: $primary-color;
+}
