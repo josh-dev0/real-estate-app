@@ -3,10 +3,12 @@ import classNames from 'classnames';
 import { CaretDownOutlined } from "@ant-design/icons";
 import { Dropdown, InputNumber } from "antd";
 import type { InputNumberProps } from 'antd';
+import { formatNumber } from '../../../common/utils';
 import { IRange } from '../../../common/types';
 
 type PriceSelectProps = Partial<Omit<InputNumberProps, 'value' | 'onChange'>> & {
   value?: IRange;
+  unit?: string;
   label: string;
   icon?: ReactNode;
   position?: string;
@@ -16,6 +18,7 @@ type PriceSelectProps = Partial<Omit<InputNumberProps, 'value' | 'onChange'>> & 
 export const PriceSelect: React.FC<PriceSelectProps> = ({
   className,
   value,
+  unit,
   min,
   max,
   label,
@@ -33,6 +36,7 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
         label="Minimum"
         min={min}
         max={max}
+        unit={unit}
         value={value?.min}
         onChange={val => onChange!({ ...value, min: val as number })}
       />
@@ -40,6 +44,7 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
         label="Maximum"
         min={min}
         max={max}
+        unit={unit}
         value={value?.max}
         onChange={val => onChange!({ ...value, max: val as number })}
       />
@@ -55,6 +60,14 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
     if (!overlayRef.current?.contains(e.target) && !triggerRef.current?.contains(e.target)) {
       setOpen(false);
     }
+  }
+
+  /** format the value(min/max)  */
+  const formatCurrentValue = () => {
+    const _f = (val: number | undefined) => val ? `${formatNumber(val)} ${unit}` : '';
+    return (value?.min || value?.max)
+      ? `${_f(value.min)}-${_f(value.max)}`
+      : label;
   }
 
   useEffect(() => {
@@ -77,11 +90,7 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
       >
         {icon}
         <label className="cursor-pointer block text-center text-secondary font-medium text-xs leading-[22px]">
-          {
-            (value?.min || value?.max)
-              ? `${value.min || ""}-${value.max || ""}`
-              : label
-          }
+          {formatCurrentValue()}
         </label>
         <CaretDownOutlined className="text-bgSecondaryLight align-middle" />
       </div>
@@ -91,22 +100,23 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
 
 type PriceItemProps = {
   label: string;
+  unit?: string;
 } & InputNumberProps;
 
 const PriceItem: React.FC<PriceItemProps> = ({
-  min, max, defaultValue, value, onChange,
+  label, unit, ...props
 }) => {
   return (
     <div>
-      <p className="text-sm leading-[24px] text-secondary pb-[6px]">Minimum</p>
-      <InputNumber
-        size="small"
-        min={min || 1}
-        max={max || 100}
-        defaultValue={defaultValue || 1}
-        value={value}
-        onChange={onChange}
-      />
+      <p className="text-sm leading-[24px] text-secondary pb-[6px]">{label}</p>
+      <div className="flex items-center justify-center gap-[7px]">
+        <InputNumber
+          size="small"
+          formatter={formatNumber}
+          {...props}
+        />
+        <span className="text-secondary text-sm leading-[24px]">{unit}</span>
+      </div>
     </div>
   )
 }

@@ -14,3 +14,7 @@ export const debounce = (n: number, fn: (...params: any[]) => any, immed: boolea
     return timer;
   }
 };
+
+export const formatNumber = (val: any): string => {
+  return parseInt(val as string).toLocaleString();
+}

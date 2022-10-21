@@ -138,6 +138,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           icon={<EuroCircleOutlined className="text-secondaryLight text-lg leading-[12px]" />}
           label="Price"
           value={price}
+          unit="EUR"
           onChange={onPriceChange!}
         />
 
