@@ -30,6 +30,8 @@ module.exports = {
       textColor: {
         primary: "var(--theme-color-text-primary)",
         secondary: "var(--theme-color-text-secondary)",
+        secondary1: "var(--theme-color-text-1)",
+        secondary2: "var(--theme-color-text-2)",
         secondaryLight: "var(--theme-color-text-secondary-light)",
       },
       boxShadow: {

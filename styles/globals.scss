@@ -3,11 +3,15 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
+$theme-color-purple-monster: #922c88;
+
 @layer base {
   :root {
     --theme-color-text-primary: #ffffff;
     /* --theme-color-text-secondary: rgba(0, 0, 0, 0.45); */
     --theme-color-text-secondary: #828282;
+    --theme-color-text-1: #575656;
+    --theme-color-text-2: #365272;
     --theme-color-text-secondary-light: rgba(174, 173, 173, 0.85);
 
     --theme-color-bg-green: #05cc49;
@@ -16,6 +20,7 @@
     --theme-color-bg-secondary-light: #55708f;
     --theme-color-bg-focused: #bdd1e8;
   }
+
   [data-theme="light"] {
     // describe your theme here
   }
