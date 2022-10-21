@@ -65,7 +65,6 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           optionValues={locationOptions}
           onSearch={onLocationSearch!}
         />
-
         <NumberSelect
           className="basis-1/5"
           icon={<AimOutlined className="text-secondaryLight text-lg  leading-[12px]" />}
@@ -74,7 +73,6 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           value={radius}
           onChange={onRadiusChange}
         />
-
         <PropertyTypeSelect
           className="min-w-[100px] bg-primary basis-1/5"
           icon={<HomeOutlined className="text-secondaryLight" />}
@@ -104,7 +102,6 @@ export const Searchbar: React.FC<SearchbarProps> = ({
             },
           ]}
         />
-
         <NumberSelect
           className="basis-1/5"
           icon={<BedFilled className="text-secondaryLight text-lg" />}
@@ -113,7 +110,6 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           value={bedrooms}
           onChange={onBedroomsChange}
         />
-
         <PriceSelect
           className="basis-1/5"
           icon={<EuroCircleOutlined className="text-secondaryLight text-lg leading-[12px]" />}
@@ -122,32 +118,27 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           unit="EUR"
           onChange={onPriceChange!}
         />
-
         <Button
           className="bg-secondaryLight text-primary border-none h-[52px] text-sm leading-[16px] px-3"
           shape="default"
           icon={<SearchOutlined className="leading-none align-baseline mb-0 h-[14px]" />}
           onClick={onClickSearch}
-        >Search</Button>
+          children="Search"
+        />
       </div>
       <div className="flex items-center gap-[60px] pt-[9px] pb-[11px] px-[22px]">
         <Checkbox
           checked={includeResultsWithoutPictures}
           onChange={e => onChangeOfIncludeResultsWithoutPictures!(e.target.checked)}
-        >
-          <label className="text-bgSecondaryLight text-sm">Include results with no pictures</label>
-        </Checkbox>
+          children={<label className="text-bgSecondaryLight text-sm">Include results with no pictures</label>}
+        />
         <SurfaceSelect
-          className=""
-          icon={<EuroCircleOutlined className="text-secondaryLight text-lg" />}
           label="Habitable Surface"
           unit="Sqm"
           value={landSurface}
           onChange={onLandSurfaceChange!}
         />
         <SurfaceSelect
-          className=""
-          icon={<EuroCircleOutlined className="text-secondaryLight text-lg" />}
           label="Land Surface"
           unit="Sqm"
           value={habitableSurface}

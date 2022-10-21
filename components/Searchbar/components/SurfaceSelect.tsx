@@ -4,13 +4,12 @@ import { CaretDownOutlined } from "@ant-design/icons";
 import { Dropdown, InputNumber } from "antd";
 import type { InputNumberProps } from 'antd';
 import { IRange } from '../../../common/types';
+import { formatNumber } from "common/utils";
 
 type SurfaceSelectProps = Partial<Omit<InputNumberProps, 'value' | 'onChange'>> & {
   value?: IRange;
   label: string;
   unit?: string;
-  icon?: ReactNode;
-  position?: string;
   onChange: (val?: IRange) => void;
 };
 
@@ -21,8 +20,8 @@ export const SurfaceSelect: React.FC<SurfaceSelectProps> = ({
   max,
   unit,
   label,
-  icon,
   onChange,
+  ...inputNumberProps
 }) => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
@@ -33,19 +32,17 @@ export const SurfaceSelect: React.FC<SurfaceSelectProps> = ({
       ref={overlayRef}>
       <PriceItem
         label="Minimum"
-        min={min}
-        max={max}
         unit={unit}
         value={value?.min}
         onChange={val => onChange!({ ...value, min: val as number })}
+        {...inputNumberProps}
       />
       <PriceItem
         label="Maximum"
-        min={min}
-        max={max}
         unit={unit}
         value={value?.max}
         onChange={val => onChange!({ ...value, max: val as number })}
+        {...inputNumberProps}
       />
     </div>
   );
@@ -59,6 +56,14 @@ export const SurfaceSelect: React.FC<SurfaceSelectProps> = ({
     if (!overlayRef.current?.contains(e.target) && !triggerRef.current?.contains(e.target)) {
       setOpen(false);
     }
+  }
+
+  /** format the value(min/max)  */
+  const formatCurrentValue = () => {
+    const _f = (val: number | undefined) => val ? `${formatNumber(val)} ${unit}` : '';
+    return (value?.min || value?.max)
+      ? `${_f(value.min)}-${_f(value.max)}`
+      : label;
   }
 
   useEffect(() => {
@@ -83,11 +88,7 @@ export const SurfaceSelect: React.FC<SurfaceSelectProps> = ({
         onClick={handleOnClick}
       >
         <label className="cursor-pointer block text-center text-bgSecondaryLight font-medium text-xs leading-[22px]">
-          {
-            (value?.min || value?.max)
-              ? `${value.min || ""}-${value.max || ""}`
-              : label
-          }
+          {formatCurrentValue()}
         </label>
         <CaretDownOutlined className="text-bgSecondaryLight align-middle" />
       </div>
@@ -101,19 +102,16 @@ type PriceItemProps = {
 } & InputNumberProps;
 
 const PriceItem: React.FC<PriceItemProps> = ({
-  min, max, unit, defaultValue, value, onChange,
+  unit, label, ...props
 }) => {
   return (
     <div>
-      <p className="text-sm leading-[24px] text-secondary pb-[6px]">Minimum</p>
+      <p className="text-sm leading-[24px] text-secondary pb-[6px]">{label}</p>
       <div className="flex items-center justify-center gap-[7px]">
         <InputNumber
           size="small"
-          min={min || 1}
-          max={max || 100}
-          defaultValue={defaultValue || 1}
-          value={value}
-          onChange={onChange}
+          formatter={formatNumber}
+          {...props}
         />
         <span className="text-secondary text-sm leading-[24px]">{unit}</span>
       </div>
