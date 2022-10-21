@@ -76,8 +76,8 @@ export const Searchbar: React.FC<SearchbarProps> = ({
   onLandSurfaceChange,
 }) => {
   return (
-    <div className={classNames("rounded-[4px] overflow-hidden max-w-[1055px] w-full", className)}>
-      <div className="w-full flex gap-[5px] items-center bg-secondary px-[5px] py-[4px]">
+    <div className={classNames("overflow-hidden max-w-[1055px] w-full", className)}>
+      <div className="w-full flex gap-[5px] items-center bg-secondary rounded-[4px] px-[5px] py-[4px]">
         <CustomAutoComplete
           className="h-[52px] basis-1/5"
           placeholder={<div className="flex items-center h-full px-[7px]"><EnvironmentFilled className="text-base" /><p className="grow text-center">eg. Luxemburg</p></div>}
@@ -87,7 +87,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
 
         <NumberSelect
           className="basis-1/5"
-          icon={<AimOutlined className="text-secondaryLight text-lg" />}
+          icon={<AimOutlined className="text-secondaryLight text-lg  leading-[12px]" />}
           label="Radius"
           unit="km"
           value={radius}
@@ -135,7 +135,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
 
         <PriceSelect
           className="basis-1/5"
-          icon={<EuroCircleOutlined className="text-secondaryLight text-lg" />}
+          icon={<EuroCircleOutlined className="text-secondaryLight text-lg leading-[12px]" />}
           label="Price"
           value={price}
           onChange={onPriceChange!}
