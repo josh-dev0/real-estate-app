@@ -15,6 +15,7 @@ import {
   SearchOutlined,
 } from '@ant-design/icons';
 import type { IRange } from '../../common/types';
+import styles from './styles.module.scss';
 
 type SearchbarProps = {
   locationOptions?: string[];
@@ -58,7 +59,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
 }) => {
   return (
     <div className={classNames("overflow-hidden max-w-[1055px] w-full", className)}>
-      <div className="w-full flex gap-[5px] items-center bg-secondary rounded-[4px] px-[5px] py-[4px]">
+      <div className={styles.topFilter}>
         <CustomAutoComplete
           className="h-[52px] basis-1/5"
           placeholder={<div className="flex items-center h-full px-[7px]"><EnvironmentFilled className="text-base" /><p className="grow text-center">eg. Luxemburg</p></div>}
