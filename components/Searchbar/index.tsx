@@ -68,7 +68,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         />
         <NumberSelect
           className="basis-1/5"
-          icon={<AimOutlined className="text-secondaryLight text-lg  leading-[12px]" />}
+          icon={<AimOutlined className={styles.filterIcon} />}
           label="Radius"
           unit="km"
           value={radius}
@@ -76,7 +76,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         />
         <PropertyTypeSelect
           className="min-w-[100px] bg-primary basis-1/5"
-          icon={<HomeOutlined className="text-secondaryLight" />}
+          icon={<HomeOutlined className={styles.filterIcon} />}
           placeholder="Property Type"
           value={propertyType}
           onChange={val => onPropertyTypeChange!(val)}
@@ -105,7 +105,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         />
         <NumberSelect
           className="basis-1/5"
-          icon={<BedFilled className="text-secondaryLight text-lg" />}
+          icon={<BedFilled className={styles.filterIcon} />}
           label="Bedrooms"
           unit="Bedrooms"
           value={bedrooms}
@@ -113,7 +113,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         />
         <PriceSelect
           className="basis-1/5"
-          icon={<EuroCircleOutlined className="text-secondaryLight text-lg leading-[12px]" />}
+          icon={<EuroCircleOutlined className={styles.filterIcon} />}
           label="Price"
           value={price}
           unit="EUR"

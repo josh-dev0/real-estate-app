@@ -5,3 +5,8 @@
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
   gap: 5px;
 }
+
+.filterIcon {
+  @apply text-secondaryLight text-xl;
+  line-height: 12px;
+}
