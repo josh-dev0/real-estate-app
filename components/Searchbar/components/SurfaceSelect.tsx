@@ -81,16 +81,16 @@ export const SurfaceSelect: React.FC<SurfaceSelectProps> = ({
     >
       <div
         ref={triggerRef}
-        className={classNames("text-primary cursor-pointer flex items-center justify-between gap-[40px] pl-4 pr-5 h-[42px] border border-solid rounded-[2px]", {
+        className={classNames("cursor-pointer flex items-center justify-between gap-[40px] pl-4 pr-5 h-[42px] border border-solid rounded-[2px]", {
           "border-gray-200 ": open,
           "border-white": !open,
         })}
         onClick={handleOnClick}
       >
-        <label className="cursor-pointer block text-center text-bgSecondaryLight font-medium text-xs leading-[22px]">
+        <label className="cursor-pointer block text-center text-bg-secondary-light font-medium text-xs leading-[22px]">
           {formatCurrentValue()}
         </label>
-        <CaretDownOutlined className="text-bgSecondaryLight align-middle" />
+        <CaretDownOutlined className="text-bg-secondary-light align-middle" />
       </div>
     </Dropdown>
   );

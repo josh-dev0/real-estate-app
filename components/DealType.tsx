@@ -32,7 +32,7 @@ export const DealType: React.FC<DealTypeProps> = ({
             <Radio.Button
               key={option.value}
               className={classNames("text-black bg-[#f8f8f8] border-[#575656] before:bg-black font-medium", {
-                "bg-focused": option.value === props.value,
+                "bg-secondary-focused": option.value === props.value,
               })}
               value={option.value}
             >

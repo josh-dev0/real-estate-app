@@ -14,7 +14,7 @@ export const AntdThemeConfig: React.FC<ThemeProviderProps> = (props) => {
   useEffect(() => {
     ConfigProvider.config({
       theme: {
-        primaryColor: themeColors.primaryColor,
+        primaryColor: themeColors[`${theme}BgSecondaryLight`],
       }
     })
   }, [theme]);

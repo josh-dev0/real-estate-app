@@ -20,18 +20,15 @@
   */
 @layer base {
   :root {
-    --theme-color-text-primary: #ffffff;
-    /* --theme-color-text-secondary: rgba(0, 0, 0, 0.45); */
-    --theme-color-text-secondary: #828282;
-    --theme-color-text-1: #575656;
-    --theme-color-text-2: #365272;
-    --theme-color-text-secondary-light: rgba(174, 173, 173, 0.85);
+    --theme-color-fg-primary: #{$theme-light-fg-primary};
+    --theme-color-fg-secondary: #{$theme-light-fg-secondary};
+    --theme-color-fg-secondary-1: #{$theme-light-fg-secondary-1};
+    --theme-color-fg-icon: #{$theme-light-fg-icon};
 
-    --theme-color-bg-green: #05cc49;
-    --theme-color-bg-primary: #ffffff;
-    --theme-color-bg-secondary: #365272;
-    --theme-color-bg-secondary-light: #55708f;
-    --theme-color-bg-focused: #bdd1e8;
+    --theme-color-bg-primary: #{$theme-light-bg-primary};
+    --theme-color-bg-secondary: #{$theme-light-bg-secondary};
+    --theme-color-bg-secondary-light: #{$theme-light-bg-secondary-light};
+    --theme-color-bg-focused: #{$theme-light-bg-focused};
   }
 
   [data-theme="light"] {

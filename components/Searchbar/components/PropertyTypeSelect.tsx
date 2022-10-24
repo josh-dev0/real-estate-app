@@ -24,7 +24,7 @@ export const PropertyTypeSelect: React.FC<PropertyTypeSelectProps> = ({
     items={options?.map(option => ({
       key: option.value,
       label: <div className="flex items-center px-4">
-        <HomeOutlined className="align-middle text-sm text-secondaryLight mr-3" />
+        <HomeOutlined className="align-middle text-sm text-icon mr-3" />
         {option.label}
       </div>
     }))}
@@ -43,13 +43,13 @@ export const PropertyTypeSelect: React.FC<PropertyTypeSelectProps> = ({
       placement={"bottom"}
     >
       <div
-        className="text-primary cursor-pointer flex items-center justify-between pl-4 pr-5 h-[52px]"
+        className="cursor-pointer flex items-center justify-between pl-4 pr-5 h-[52px]"
       >
         {icon}
         <label className="cursor-pointer block text-center text-secondary font-medium text-xs leading-[22px]">
           {labelByValue(value) || placeholder}
         </label>
-        <CaretDownFilled className="text-bgSecondaryLight align-middle" />
+        <CaretDownFilled className="text-bg-secondary-light align-middle" />
       </div>
     </Dropdown>
   );

@@ -120,7 +120,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           onChange={onPriceChange!}
         />
         <Button
-          className="bg-secondaryLight text-primary border-none h-[52px] text-sm leading-[16px] px-3"
+          className="bg-secondary-light text-bg-primary border-none h-[52px] text-sm leading-[16px] px-3"
           shape="default"
           icon={<SearchOutlined className="leading-none align-baseline mb-0 h-[14px]" />}
           onClick={onClickSearch}
@@ -131,7 +131,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         <Checkbox
           checked={includeResultsWithoutPictures}
           onChange={e => onChangeOfIncludeResultsWithoutPictures!(e.target.checked)}
-          children={<label className="text-bgSecondaryLight text-sm">Include results with no pictures</label>}
+          children={<label className="text-bg-secondary-light text-sm">Include results with no pictures</label>}
         />
         <SurfaceSelect
           label="Habitable Surface"

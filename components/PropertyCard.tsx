@@ -40,18 +40,18 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
       </div>
       <div className="pl-[18px] pr-[18px] pt-[9px] pb-[9px]">
         <Skeleton className="w-3/5 mt-1 mb-[5px]" paragraph={false} loading={loading} active>
-          <p className="text-sm leading-[16px] font-bold text-bgSecondaryLight mb-[5px]">{title || '-'}</p>
+          <p className="text-sm leading-[16px] font-bold text-bg-secondary-light mb-[5px]">{title || '-'}</p>
         </Skeleton>
         <div className="w-full flex justify-between">
           <div>
             <Skeleton className="w-full min-w-[100px]" paragraph={false} loading={loading} active>
-              <p className="text-secondary1 text-[12px] leading-[14px] font-bold">${_formatForNull(price)}</p>
+              <p className="text-secondary-1 text-[12px] leading-[14px] font-bold">${_formatForNull(price)}</p>
             </Skeleton>
             <Skeleton className="w-full mt-[6px]" paragraph={false} loading={loading} active>
-              <p className="text-secondary1 text-[10px] leading-[12px] mt-[6px]">{_formatForNull(bedrooms)} bedrooms</p>
+              <p className="text-secondary-1 text-[10px] leading-[12px] mt-[6px]">{_formatForNull(bedrooms)} bedrooms</p>
             </Skeleton>
             <Skeleton className="w-full mt-[3px]" paragraph={false} loading={loading} active>
-              <p className="text-secondary1 text-[10px] leading-[12px] mt-[3px]">{_formatForNull(surface)}m<sup>2</sup></p>
+              <p className="text-secondary-1 text-[10px] leading-[12px] mt-[3px]">{_formatForNull(surface)}m<sup>2</sup></p>
             </Skeleton>
           </div>
 
@@ -73,7 +73,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
         <div className="flex justify-end mt-[3px]">
           <Skeleton className="w-2/5" paragraph={false} loading={loading}>
             <a
-              className="text-secondary2 font-bold text-[12px] leading-[24px]"
+              className="text-bg-secondary font-bold text-[12px] leading-[24px]"
               href="#">
               read more ...
             </a>

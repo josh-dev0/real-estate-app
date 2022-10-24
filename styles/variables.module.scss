@@ -1,10 +1,27 @@
 /**
  * Here, define the different theme colors.
- * @naming: theme-color-[theme-name]-[color-name]. eg. "theme-color-light-primary".
+ * @naming: theme-[theme-name]-[color-name]. eg. "theme-light-primary".
  * @export name: [themeName][colorName]
  */
-$primary-color: #55708F;
+
+// Light Theme(default)
+$theme-light-fg-primary: #000000;
+$theme-light-fg-secondary: #828282;
+$theme-light-fg-secondary-1: #575656;
+$theme-light-fg-icon: rgba(174, 173, 173, 0.85);
+
+$theme-light-bg-primary: #ffffff;
+$theme-light-bg-secondary: #365272;
+$theme-light-bg-secondary-light: #55708f;
+$theme-light-bg-focused: #bdd1e8;
 
 :export {
-  primaryColor: $primary-color;
+  lightFgPrimary: $theme-light-fg-primary;
+  lightFgSecondary: $theme-light-fg-secondary;
+  lightFgSecondary1: $theme-light-fg-secondary-1;
+  lightFgIcon: $theme-light-fg-icon;
+  lightBgPrimary: $theme-light-bg-primary;
+  lightBgSecondary: $theme-light-bg-secondary;
+  lightBgSecondaryLight: $theme-light-bg-secondary-light;
+  lightBgFocused: $theme-light-bg-focused;
 }

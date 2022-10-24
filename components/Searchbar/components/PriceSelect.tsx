@@ -85,14 +85,14 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
     >
       <div
         ref={triggerRef}
-        className="text-primary cursor-pointer flex items-center justify-between pl-4 pr-5 h-[52px]"
+        className="cursor-pointer flex items-center justify-between pl-4 pr-5 h-[52px]"
         onClick={handleOnClick}
       >
         {icon}
         <label className="cursor-pointer block text-center text-secondary font-medium text-xs leading-[22px]">
           {formatCurrentValue()}
         </label>
-        <CaretDownOutlined className="text-bgSecondaryLight align-middle" />
+        <CaretDownOutlined className="text-bg-secondary-light align-middle" />
       </div>
     </Dropdown>
   );
