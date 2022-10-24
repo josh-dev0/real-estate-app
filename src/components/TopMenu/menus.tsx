@@ -3,7 +3,7 @@ import React from 'react';
 import { Badge } from 'antd';
 import type { MenuProps } from 'antd';
 import { MenuOutlined, SearchOutlined, BellOutlined } from '@ant-design/icons';
-import type { IUser } from '../../types';
+import type { IUser } from '@app/types';
 
 export const leftMenuItems: MenuProps['items'] = [
   {

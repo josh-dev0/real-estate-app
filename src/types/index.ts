@@ -1,4 +1,4 @@
-import { IDENTITY } from "./constants";
+import { IDENTITY } from "@constants/index";
 
 export type BreadcrumbItem = {
   name: string;

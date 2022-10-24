@@ -14,9 +14,9 @@ import {
   SearchOutlined,
 } from '@ant-design/icons';
 import { Dropdown, Menu, Space } from 'antd';
-import { locales } from '../../constants/locale';
-import type { IUser, IdentityType } from '../../types';
-import { IDENTITY } from '../../constants';
+import { locales } from '@app/constants/locale';
+import type { IUser, IdentityType } from '@app/types';
+import { IDENTITY } from '@app/constants';
 import { OnlineIcon } from './icons/online';
 
 const loginDropdownMenu = (

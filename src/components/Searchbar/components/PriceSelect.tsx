@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import { CaretDownOutlined } from "@ant-design/icons";
 import { Dropdown, InputNumber } from "antd";
 import type { InputNumberProps } from 'antd';
-import { formatNumber } from '../../../utils';
-import { IRange } from '../../../types';
+import { formatNumber } from '@app/utils';
+import { IRange } from '@app/types';
 
 type PriceSelectProps = Partial<Omit<InputNumberProps, 'value' | 'onChange'>> & {
   value?: IRange;

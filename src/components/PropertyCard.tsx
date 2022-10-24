@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Rate, Skeleton } from 'antd';
 import { CardProps } from 'antd';
-import { formatNumber } from '../utils';
+import { formatNumber } from '@app/utils';
 
 type PropertyCardProps = {
   title: string;

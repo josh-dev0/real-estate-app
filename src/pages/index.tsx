@@ -2,12 +2,10 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react';
-import { useGetPostQuery } from '../graphql/types'
-import { Searchbar } from '../components/Searchbar';
-import { DealType } from '../components/DealType';
-import { PropertyCard } from '../components/PropertyCard';
-import type { IRange } from '../types';
-import styles from '../styles/Home.module.scss'
+import type { IRange } from '@app/types';
+import { useGetPostQuery } from '@app/graphql/types'
+import { DealType, Searchbar, PropertyCard } from '@app/components';
+import styles from '@app/styles/Home.module.scss'
 
 const Home: NextPage = () => {
   const { data, error, loading } = useGetPostQuery();
