@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
-import type { IUser, IdentityType } from '../../common/types';
+import type { IUser, IdentityType } from '../../types';
 import { leftMenuItems, getRightMenuItems } from './menus';
 import { AuthLocale } from './AuthLocale';
 

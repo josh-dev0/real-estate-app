@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import { CaretDownOutlined } from "@ant-design/icons";
 import { Dropdown, InputNumber } from "antd";
 import type { InputNumberProps } from 'antd';
-import { IRange } from '../../../common/types';
-import { formatNumber } from "../../../common/utils";
+import { IRange } from '../../../types';
+import { formatNumber } from "../../../utils";
 
 type SurfaceSelectProps = Partial<Omit<InputNumberProps, 'value' | 'onChange'>> & {
   value?: IRange;

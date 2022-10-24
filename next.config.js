@@ -6,8 +6,8 @@ const nextConfig = {
   swcMinify: true,
   sassOptions: {
     includePaths: [
-      path.join(__dirname, "styles"),
-      path.join(__dirname, "components"),
+      path.join(__dirname, "src/styles"),
+      path.join(__dirname, "src/components"),
     ],
   },
 };

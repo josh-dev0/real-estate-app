@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { ConfigProvider } from 'antd';
-import themeColors from '../../styles/variables.module.scss';
+import themeColors from '../styles/variables.module.scss';
 
 type ThemeProviderProps = {
   children: ReactNode | ReactNode[] | null;

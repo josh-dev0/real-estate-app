@@ -4,7 +4,7 @@ import type { AutoCompleteProps } from 'antd';
 import {
   EnvironmentFilled,
 } from '@ant-design/icons';
-import { usePrevious } from '../../../common/hooks/usePrevious';
+import { usePrevious } from '../../../hooks/usePrevious';
 
 type CustomAutoCompleteProps = {
   optionValues: string[];

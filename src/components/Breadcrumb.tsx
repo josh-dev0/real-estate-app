@@ -1,6 +1,6 @@
 import React from 'react';
 import { Breadcrumb as AntdBreadcrumb } from 'antd';
-import { BreadcrumbItem } from '../common/types';
+import { BreadcrumbItem } from '../types';
 
 type BreadcrumbProps = {
   items: BreadcrumbItem[];

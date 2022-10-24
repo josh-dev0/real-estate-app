@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes';
-import { AntdThemeConfig } from '../common/providers/AntdThemeConfig';
+import { AntdThemeConfig } from '../containers/AntdThemeConfig';
 import MyApolloProvider from '../graphql/apollo'
 
 import '../styles/globals.scss'

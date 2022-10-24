@@ -14,7 +14,7 @@ import {
   HomeOutlined,
   SearchOutlined,
 } from '@ant-design/icons';
-import type { IRange } from '../../common/types';
+import type { IRange } from '../../types';
 import styles from './styles.module.scss';
 
 type SearchbarProps = {
