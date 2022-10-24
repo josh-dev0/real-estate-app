@@ -1,8 +1,8 @@
 import * as NextImage from "next/image";
 import { ThemeProvider } from "next-themes";
-import { AntdThemeConfig } from "../common/providers/AntdThemeConfig";
+import { AntdThemeConfig } from "../src/containers/AntdThemeConfig";
 
-import "../styles/globals.scss";
+import "../src/styles/globals.scss";
 
 const OriginalNextImage = NextImage.default;
 

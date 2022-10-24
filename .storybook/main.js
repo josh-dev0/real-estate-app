@@ -2,8 +2,8 @@ const path = require("path");
 
 module.exports = {
   stories: [
-    "../_stories_/**/*.stories.mdx",
-    "../_stories_/**/*.stories.@(js|jsx|ts|tsx)",
+    "../src/_stories_/**/*.stories.mdx",
+    "../src/_stories_/**/*.stories.@(js|jsx|ts|tsx)",
   ],
   /** Expose public folder to storybook as static */
   staticDirs: ["../public"],
@@ -62,7 +62,7 @@ module.exports = {
           },
         },
       ],
-      include: path.resolve(__dirname, "../"),
+      include: path.resolve(__dirname, "../src"),
     });
 
     return config;
