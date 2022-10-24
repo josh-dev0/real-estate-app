@@ -102,7 +102,7 @@ type PriceItemProps = {
 } & InputNumberProps;
 
 const PriceItem: React.FC<PriceItemProps> = ({
-  unit, label, ...props
+  unit, label, defaultValue, ...props
 }) => {
   return (
     <div>
@@ -111,6 +111,7 @@ const PriceItem: React.FC<PriceItemProps> = ({
         <InputNumber
           size="small"
           formatter={formatNumber}
+          defaultValue={defaultValue || 0}
           {...props}
         />
         <span className="text-secondary text-sm leading-[24px]">{unit}</span>

@@ -21,6 +21,7 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
   unit,
   min,
   max,
+  defaultValue,
   label,
   icon,
   onChange,
@@ -36,6 +37,7 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
         label="Minimum"
         min={min}
         max={max}
+        defaultValue={defaultValue}
         unit={unit}
         value={value?.min}
         onChange={val => onChange!({ ...value, min: val as number })}
@@ -44,6 +46,7 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
         label="Maximum"
         min={min}
         max={max}
+        defaultValue={defaultValue}
         unit={unit}
         value={value?.max}
         onChange={val => onChange!({ ...value, max: val as number })}
@@ -101,10 +104,11 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
 type PriceItemProps = {
   label: string;
   unit?: string;
+  defaultValue: any;
 } & InputNumberProps;
 
 const PriceItem: React.FC<PriceItemProps> = ({
-  label, unit, ...props
+  label, unit, defaultValue, ...props
 }) => {
   return (
     <div>
@@ -113,6 +117,7 @@ const PriceItem: React.FC<PriceItemProps> = ({
         <InputNumber
           size="small"
           formatter={formatNumber}
+          defaultValue={defaultValue | 0}
           {...props}
         />
         <span className="text-secondary text-sm leading-[24px]">{unit}</span>
