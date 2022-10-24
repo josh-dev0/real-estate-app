@@ -1,12 +1,11 @@
 .topFilter {
   @apply w-full flex items-center bg-secondary;
-  padding: 4px 5px 4px 5px;
-  border-radius: 4px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
-  gap: 5px;
+  padding: 0.25rem 0.313rem 0.25rem 0.313rem;
+  border-radius: 0.25rem;
+  box-shadow: 0rem 0.125rem 0.5rem rgba(0, 0, 0, 0.15);
+  gap: 0.313rem;
 }
 
 .filterIcon {
-  @apply text-icon text-xl;
-  line-height: 12px;
+  @apply text-icon text-xl leading-xs;
 }

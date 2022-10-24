@@ -28,7 +28,7 @@ export const SurfaceSelect: React.FC<SurfaceSelectProps> = ({
   const [open, setOpen] = useState(false);
 
   const menu = (
-    <div className="bg-primary flex items-center justify-center gap-[20px] px-4 py-2 border border-solid border-secondary shadow-el"
+    <div className="bg-primary flex items-center justify-center gap-[1.25rem] px-4 py-2 border border-solid border-secondary shadow-el"
       ref={overlayRef}>
       <PriceItem
         label="Minimum"
@@ -73,7 +73,7 @@ export const SurfaceSelect: React.FC<SurfaceSelectProps> = ({
 
   return (
     <Dropdown
-      className={classNames("bg-primary py-[12px]", className)}
+      className={classNames("bg-primary py-3", className)}
       overlay={menu}
       trigger={["click"]}
       open={open}
@@ -81,13 +81,13 @@ export const SurfaceSelect: React.FC<SurfaceSelectProps> = ({
     >
       <div
         ref={triggerRef}
-        className={classNames("cursor-pointer flex items-center justify-between gap-[40px] pl-4 pr-5 h-[42px] border border-solid rounded-[2px]", {
+        className={classNames("cursor-pointer flex items-center justify-between gap-[2.5rem] pl-4 pr-5 h-[2.625rem] border border-solid rounded-[0.125rem]", {
           "border-gray-200 ": open,
           "border-white": !open,
         })}
         onClick={handleOnClick}
       >
-        <label className="cursor-pointer block text-center text-bg-secondary-light font-medium text-xs leading-[22px]">
+        <label className="cursor-pointer block text-center text-bg-secondary-light font-medium text-xs leading-[1.375rem]">
           {formatCurrentValue()}
         </label>
         <CaretDownOutlined className="text-bg-secondary-light align-middle" />
@@ -106,15 +106,15 @@ const PriceItem: React.FC<PriceItemProps> = ({
 }) => {
   return (
     <div>
-      <p className="text-sm leading-[24px] text-secondary pb-[6px]">{label}</p>
-      <div className="flex items-center justify-center gap-[7px]">
+      <p className="text-sm leading-2xl text-secondary pb-[0.375rem]">{label}</p>
+      <div className="flex items-center justify-center gap-[0.438rem]">
         <InputNumber
           size="small"
           formatter={formatNumber}
           defaultValue={defaultValue || 0}
           {...props}
         />
-        <span className="text-secondary text-sm leading-[24px]">{unit}</span>
+        <span className="text-secondary text-sm leading-2xl">{unit}</span>
       </div>
     </div>
   )

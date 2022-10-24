@@ -30,9 +30,9 @@ export const TopMenu: React.FC<TopMenuProps> = ({
 
   return (
     <Header
-      className="flex justify-between bg-white h-[72px]"
+      className="flex justify-between bg-white h-[4.5rem]"
       style={{
-        boxShadow: '0px -2px 18px rgba(0, 0, 0, 0.08)'
+        boxShadow: '0 -0.125rem 1.125rem rgba(0, 0, 0, 0.08)'
       }}
     >
       <div className="flex items-center">

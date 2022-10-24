@@ -66,7 +66,7 @@ const Home: NextPage = () => {
         />
 
         <PropertyCard
-          className="w-[300px]"
+          className="w-[18.75rem]"
           title="Penthouse in Howald"
           image="/images/card-image.png"
           price={865000}

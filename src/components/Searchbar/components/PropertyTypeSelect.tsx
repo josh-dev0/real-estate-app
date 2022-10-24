@@ -37,16 +37,16 @@ export const PropertyTypeSelect: React.FC<PropertyTypeSelectProps> = ({
 
   return (
     <Dropdown
-      className={classNames("bg-primary min-w-[120px] py-[12px]", className)}
+      className={classNames("bg-primary min-w-[7.5rem] py-3", className)}
       overlay={menu}
       trigger={["click"]}
       placement={"bottom"}
     >
       <div
-        className="cursor-pointer flex items-center justify-between pl-4 pr-5 h-[52px]"
+        className="cursor-pointer flex items-center justify-between pl-4 pr-5 h-[3.25rem]"
       >
         {icon}
-        <label className="cursor-pointer block text-center text-secondary font-medium text-xs leading-[22px]">
+        <label className="cursor-pointer block text-center text-secondary font-medium text-xs leading-[1.375rem]">
           {labelByValue(value) || placeholder}
         </label>
         <CaretDownFilled className="text-bg-secondary-light align-middle" />

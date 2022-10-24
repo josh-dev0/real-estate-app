@@ -59,7 +59,7 @@ export const NumberSelect: React.FC<NumberSelectProps> = ({
 
   return (
     <Dropdown
-      className={classNames("bg-primary min-w-[120px] py-[12px]", className)}
+      className={classNames("bg-primary min-w-[7.5rem] py-3", className)}
       overlay={menu}
       trigger={["click"]}
       open={open}
@@ -67,11 +67,11 @@ export const NumberSelect: React.FC<NumberSelectProps> = ({
     >
       <div
         ref={triggerRef}
-        className="cursor-pointer flex items-center justify-between pl-4 pr-5 h-[52px]"
+        className="cursor-pointer flex items-center justify-between pl-4 pr-5 h-[3.25rem]"
         onClick={handleOnClick}
       >
         {icon}
-        <label className="cursor-pointer block text-center text-secondary font-medium text-xs leading-[22px]">
+        <label className="cursor-pointer block text-center text-secondary font-medium text-xs leading-[1.375rem]">
           {value ? `${value} ${unit}` : label}
         </label>
         <CaretDownOutlined className="text-bg-secondary-light align-middle" />

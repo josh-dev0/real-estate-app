@@ -11,7 +11,7 @@ type CustomSelectProps = {
 
 export const CustomSelect: React.FC<CustomSelectProps> = ({ icon, options, className, ...props }) => {
   return (
-    <div className={classNames("flex items-center border border-solid border-gray rounded-[2px] px-4 py-[9px]", className)}>
+    <div className={classNames("flex items-center border border-solid border-gray rounded-[0.125rem] px-4 py-[0.563rem]", className)}>
       {icon}
       <Select
         className="grow"

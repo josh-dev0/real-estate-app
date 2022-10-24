@@ -15,7 +15,7 @@ type CustomInputProps = {
 export const CustomInput: React.FC<CustomInputProps> = ({ icon, className, ...props }) => {
   return (
     <div className={classNames(
-      "flex items-center border border-solid border-gray rounded-[2px] px-4 py-2",
+      "flex items-center border border-solid border-gray rounded-[0.125rem] px-4 py-2",
       className)}
     >
       {icon}

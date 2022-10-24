@@ -31,7 +31,7 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
   const [open, setOpen] = useState(false);
 
   const menu = (
-    <div className="bg-primary flex items-center justify-center gap-[20px] px-4 py-2 border border-solid border-secondary shadow-el"
+    <div className="bg-primary flex items-center justify-center gap-[1.25rem] px-4 py-2 border border-solid border-secondary shadow-el"
       ref={overlayRef}>
       <PriceItem
         label="Minimum"
@@ -80,7 +80,7 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
 
   return (
     <Dropdown
-      className={classNames("bg-primary min-w-[120px] py-[12px]", className)}
+      className={classNames("bg-primary min-w-[7.5rem] py-3", className)}
       overlay={menu}
       trigger={["click"]}
       open={open}
@@ -88,11 +88,11 @@ export const PriceSelect: React.FC<PriceSelectProps> = ({
     >
       <div
         ref={triggerRef}
-        className="cursor-pointer flex items-center justify-between pl-4 pr-5 h-[52px]"
+        className="cursor-pointer flex items-center justify-between pl-4 pr-5 h-[3.25rem]"
         onClick={handleOnClick}
       >
         {icon}
-        <label className="cursor-pointer block text-center text-secondary font-medium text-xs leading-[22px]">
+        <label className="cursor-pointer block text-center text-secondary font-medium text-xs leading-[1.375rem]">
           {formatCurrentValue()}
         </label>
         <CaretDownOutlined className="text-bg-secondary-light align-middle" />
@@ -112,15 +112,15 @@ const PriceItem: React.FC<PriceItemProps> = ({
 }) => {
   return (
     <div>
-      <p className="text-sm leading-[24px] text-secondary pb-[6px]">{label}</p>
-      <div className="flex items-center justify-center gap-[7px]">
+      <p className="text-sm leading-2xl text-secondary pb-[0.375rem]">{label}</p>
+      <div className="flex items-center justify-center gap-[0.438rem]">
         <InputNumber
           size="small"
           formatter={formatNumber}
           defaultValue={defaultValue | 0}
           {...props}
         />
-        <span className="text-secondary text-sm leading-[24px]">{unit}</span>
+        <span className="text-secondary text-sm leading-2xl">{unit}</span>
       </div>
     </div>
   )

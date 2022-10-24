@@ -29,33 +29,33 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
     <Card
       bodyStyle={{
         padding: 0,
-        boxShadow: "0px 1px 12px rgba(0, 0, 0, 0.15)",
+        boxShadow: "0 0.063rem 0.75rem rgba(0, 0, 0, 0.15)",
       }}
       bordered={true}
       {...cardProps}
     >
-      <div className="w-full h-[167px] overflow-hidden">
+      <div className="w-full h-[10.438rem] overflow-hidden">
         {(loading || !image) && <Skeleton.Image className="w-full h-full" active={loading} />}
         <img className="w-full" src={image} />
       </div>
-      <div className="pl-[18px] pr-[18px] pt-[9px] pb-[9px]">
-        <Skeleton className="w-3/5 mt-1 mb-[5px]" paragraph={false} loading={loading} active>
-          <p className="text-sm leading-[16px] font-bold text-bg-secondary-light mb-[5px]">{title || '-'}</p>
+      <div className="pl-[1.125rem] pr-[1.125rem] py-[0.563rem]">
+        <Skeleton className="w-3/5 mt-1 mb-1" paragraph={false} loading={loading} active>
+          <p className="text-sm leading-[1rem] font-bold text-bg-secondary-light mb-[0.313rem]">{title || '-'}</p>
         </Skeleton>
         <div className="w-full flex justify-between">
           <div>
-            <Skeleton className="w-full min-w-[100px]" paragraph={false} loading={loading} active>
-              <p className="text-secondary-1 text-[12px] leading-[14px] font-bold">${_formatForNull(price)}</p>
+            <Skeleton className="w-full min-w-[6.25rem]" paragraph={false} loading={loading} active>
+              <p className="text-secondary-1 text-xs leading-sm font-bold">${_formatForNull(price)}</p>
             </Skeleton>
-            <Skeleton className="w-full mt-[6px]" paragraph={false} loading={loading} active>
-              <p className="text-secondary-1 text-[10px] leading-[12px] mt-[6px]">{_formatForNull(bedrooms)} bedrooms</p>
+            <Skeleton className="w-full mt-[0.375rem]" paragraph={false} loading={loading} active>
+              <p className="text-secondary-1 text-2xs leading-xs mt-[0.375rem]">{_formatForNull(bedrooms)} bedrooms</p>
             </Skeleton>
-            <Skeleton className="w-full mt-[3px]" paragraph={false} loading={loading} active>
-              <p className="text-secondary-1 text-[10px] leading-[12px] mt-[3px]">{_formatForNull(surface)}m<sup>2</sup></p>
+            <Skeleton className="w-full mt-[0.188rem]" paragraph={false} loading={loading} active>
+              <p className="text-secondary-1 text-2xs leading-xs mt-[0.188rem]">{_formatForNull(surface)}m<sup>2</sup></p>
             </Skeleton>
           </div>
 
-          <div className="flex gap-[3px] pr-[6px] pt-2">
+          <div className="flex gap-[0.188rem] pr-[0.375rem] pt-2">
             {loading && new Array(5).fill(null).map((_, i) =>
               <Skeleton.Avatar
                 key={i}
@@ -70,10 +70,10 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
             disabled={true}
           />}
         </div>
-        <div className="flex justify-end mt-[3px]">
+        <div className="flex justify-end mt-[0.188rem]">
           <Skeleton className="w-2/5" paragraph={false} loading={loading}>
             <a
-              className="text-bg-secondary font-bold text-[12px] leading-[24px]"
+              className="text-bg-secondary font-bold text-xs leading-2xl"
               href="#">
               read more ...
             </a>

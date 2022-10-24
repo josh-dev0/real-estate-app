@@ -79,9 +79,9 @@ const loginDropdownMenu = (
 
 const ProfileAvatar: React.FC = () => {
   return (
-    <div className="relative w-[40px] h-[40px] mt-[6px]">
+    <div className="relative w-[2.5rem] h-[2.5rem] mt-[0.375]">
       <Image src="/images/user.png" layout="responsive" width="40" height="40" />
-      <span className="absolute bottom-[1.5px] right-[1.5px] block w-[10px] h-[10px] rounded-full bg-green-400"></span>
+      <span className="absolute bottom-[0.094rem] right-[0.094rem] block w-[0.625rem] h-[0.625rem] rounded-full bg-green-400"></span>
     </div>
   )
 }

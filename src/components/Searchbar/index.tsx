@@ -58,11 +58,11 @@ export const Searchbar: React.FC<SearchbarProps> = ({
   onLandSurfaceChange,
 }) => {
   return (
-    <div className={classNames("overflow-hidden max-w-[1055px] w-full", className)}>
+    <div className={classNames("overflow-hidden max-w-[65.938rem] w-full", className)}>
       <div className={styles.topFilter}>
         <CustomAutoComplete
-          className="h-[52px] basis-1/5"
-          placeholder={<div className="flex items-center h-full px-[7px]"><EnvironmentFilled className="text-base" /><p className="grow text-center">eg. Luxemburg</p></div>}
+          className="h-[3.25rem] basis-1/5"
+          placeholder={<div className="flex items-center h-full px-[0.438rem]"><EnvironmentFilled className="text-base" /><p className="grow text-center">eg. Luxemburg</p></div>}
           optionValues={locationOptions}
           onSearch={onLocationSearch!}
         />
@@ -75,7 +75,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           onChange={onRadiusChange}
         />
         <PropertyTypeSelect
-          className="min-w-[100px] bg-primary basis-1/5"
+          className="min-w-[6.25rem] bg-primary basis-1/5"
           icon={<HomeOutlined className={styles.filterIcon} />}
           placeholder="Property Type"
           value={propertyType}
@@ -120,14 +120,14 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           onChange={onPriceChange!}
         />
         <Button
-          className="bg-secondary-light text-bg-primary border-none h-[52px] text-sm leading-[16px] px-3"
+          className="bg-secondary-light text-bg-primary border-none h-[3.25rem] text-sm leading-base px-3"
           shape="default"
-          icon={<SearchOutlined className="leading-none align-baseline mb-0 h-[14px]" />}
+          icon={<SearchOutlined className="leading-none align-baseline mb-0 h-[0.875rem]" />}
           onClick={onClickSearch}
           children="Search"
         />
       </div>
-      <div className="flex items-center gap-[60px] pt-[9px] pb-[11px] px-[22px]">
+      <div className="flex items-center gap-[3.75rem] pt-[0.563rem] pb-[0.688rem] px-[1.375rem]">
         <Checkbox
           checked={includeResultsWithoutPictures}
           onChange={e => onChangeOfIncludeResultsWithoutPictures!(e.target.checked)}

@@ -43,7 +43,7 @@ export const CustomAutoComplete: React.FC<CustomAutoCompleteProps> = ({
   return (
     <AutoComplete
       className={className}
-      popupClassName="pl-[6px] py-3"
+      popupClassName="pl-[0.375rem] py-3"
       style={{ minWidth: 180 }}
       open={open}
       options={options}
