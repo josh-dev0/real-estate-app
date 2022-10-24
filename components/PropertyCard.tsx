@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Rate, Skeleton } from 'antd';
 import { CardProps } from 'antd';
-import { formatNumber } from '../../common/utils';
+import { formatNumber } from '../common/utils';
 
 type PropertyCardProps = {
   title: string;
@@ -29,6 +29,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
     <Card
       bodyStyle={{
         padding: 0,
+        boxShadow: "0px 1px 12px rgba(0, 0, 0, 0.15)",
       }}
       bordered={true}
       {...cardProps}
