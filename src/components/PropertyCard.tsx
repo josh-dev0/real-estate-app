@@ -3,7 +3,7 @@ import { Card, Rate, Skeleton } from 'antd';
 import { CardProps } from 'antd';
 import { formatNumber } from '@app/utils';
 
-type PropertyCardProps = {
+export type PropertyCardProps = {
   title: string;
   image?: string;
   price: number;
@@ -36,7 +36,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
     >
       <div className="w-full h-[10.438rem] overflow-hidden">
         {(loading || !image) && <Skeleton.Image className="w-full h-full" active={loading} />}
-        <img className="w-full" src={image} />
+        <img className="min-w-full min-h-full" src={image} />
       </div>
       <div className="pl-[1.125rem] pr-[1.125rem] py-[0.563rem]">
         <Skeleton className="w-3/5 mt-1 mb-1" paragraph={false} loading={loading} active>
