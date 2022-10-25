@@ -1,4 +1,5 @@
 const path = require("path");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   stories: [
@@ -64,6 +65,14 @@ module.exports = {
       ],
       include: path.resolve(__dirname, "../src"),
     });
+
+    // enable absolute path import in storybook
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
+      new TsconfigPathsPlugin({
+        extensions: config.resolve.extensions,
+      }),
+    ];
 
     return config;
   },
