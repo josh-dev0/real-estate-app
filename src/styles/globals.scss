@@ -23,11 +23,18 @@
     --theme-color-fg-primary: #{$theme-light-fg-primary};
     --theme-color-fg-secondary: #{$theme-light-fg-secondary};
     --theme-color-fg-secondary-1: #{$theme-light-fg-secondary-1};
+    --theme-color-fg-secondary-2: #{$theme-light-fg-secondary-2};
+    --theme-color-fg-secondary-3: #{$theme-light-fg-secondary-3};
     --theme-color-fg-icon: #{$theme-light-fg-icon};
+    --theme-color-fg-icon-1: #{$theme-light-fg-icon-1};
+    --theme-color-fg-icon-2: #{$theme-light-fg-icon-2};
+    --theme-color-fg-shadow: #{$theme-light-fg-shadow};
+    --theme-color-fg-shadow-1: #{$theme-light-fg-shadow-1};
 
     --theme-color-bg-primary: #{$theme-light-bg-primary};
     --theme-color-bg-secondary: #{$theme-light-bg-secondary};
     --theme-color-bg-secondary-light: #{$theme-light-bg-secondary-light};
+    --theme-color-bg-secondary-1: #{$theme-light-bg-secondary-1};
     --theme-color-bg-focused: #{$theme-light-bg-focused};
   }
 

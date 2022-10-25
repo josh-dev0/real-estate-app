@@ -6,6 +6,7 @@ const backgroundColor = {
     DEFAULT: "var(--theme-color-bg-secondary)",
     light: "var(--theme-color-bg-secondary-light)",
     focused: "var(--theme-color-bg-focused)",
+    1: "var($theme-light-bg-secondary-1)",
   },
 };
 
@@ -14,8 +15,18 @@ const textColor = {
   secondary: {
     DEFAULT: "var(--theme-color-fg-secondary)",
     1: "var(--theme-color-fg-secondary-1)",
+    2: "var(--theme-color-fg-secondary-2)",
+    3: "var(--theme-color-fg-secondary-3)",
   },
-  icon: "var(--theme-color-fg-icon)",
+  icon: {
+    DEFAULT: "var(--theme-color-fg-icon)",
+    1: "var(--theme-color-fg-icon-1)",
+    2: "var(--theme-color-fg-icon-2)",
+  },
+  shadow: {
+    DEFAULT: "var(--theme-color-fg-shadow)",
+    1: "var(--theme-color-fg-shadow-1)",
+  },
 };
 
 module.exports = {

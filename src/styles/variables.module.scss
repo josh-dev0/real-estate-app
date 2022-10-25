@@ -8,20 +8,38 @@
 $theme-light-fg-primary: #000000;
 $theme-light-fg-secondary: #828282;
 $theme-light-fg-secondary-1: #575656;
+/* carousel handle border color*/
+$theme-light-fg-secondary-2: #bdbdbd;
+$theme-light-fg-secondary-3: #D9D9D9;
+/* box shadow color */
+$theme-light-fg-shadow: rgba(0, 0, 0, 0.1);
+$theme-light-fg-shadow-1: rgba(0, 0, 0, 0.043);
+// Icon colors
 $theme-light-fg-icon: rgba(174, 173, 173, 0.85);
+$theme-light-fg-icon-1: rgba(0, 0, 0, 0.85);
+$theme-light-fg-icon-2: rgba(0, 0, 0, 0.25);
 
 $theme-light-bg-primary: #ffffff;
 $theme-light-bg-secondary: #365272;
 $theme-light-bg-secondary-light: #55708f;
+$theme-light-bg-secondary-1: #F5F5F5;
 $theme-light-bg-focused: #bdd1e8;
 
 :export {
   lightFgPrimary: $theme-light-fg-primary;
   lightFgSecondary: $theme-light-fg-secondary;
   lightFgSecondary1: $theme-light-fg-secondary-1;
+  lightFgSecondary2: $theme-light-fg-secondary-2;
+  lightFgSecondary3: $theme-light-fg-secondary-3;
+  lightFgShadow: $theme-light-fg-shadow;
+  lightFgShadow1: $theme-light-fg-shadow-1;
   lightFgIcon: $theme-light-fg-icon;
+  lightFgIcon1: $theme-light-fg-icon-1;
+  lightFbIcon2: $theme-light-fg-icon-2;
+
   lightBgPrimary: $theme-light-bg-primary;
   lightBgSecondary: $theme-light-bg-secondary;
   lightBgSecondaryLight: $theme-light-bg-secondary-light;
+  lightBgSecondary1: $theme-light-bg-secondary-1;
   lightBgFocused: $theme-light-bg-focused;
 }
