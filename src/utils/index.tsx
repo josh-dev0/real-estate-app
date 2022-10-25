@@ -18,3 +18,7 @@ export const debounce = (n: number, fn: (...params: any[]) => any, immed: boolea
 export const formatNumber = (val: any): string => {
   return parseInt(val as string).toLocaleString();
 }
+
+export const random = (min: number, max: number): number => {
+  return min + Math.floor(Math.random() * (max - min));
+}
