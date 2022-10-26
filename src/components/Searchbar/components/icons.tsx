@@ -1,6 +1,6 @@
 import React from 'react';
 
-type SVGAttributes = React.HTMLAttributes<HTMLOrSVGElement>;
+type SVGAttributes = React.SVGProps<SVGSVGElement>;
 
 export const LocationPin: React.FC<SVGAttributes> = (props) => (
   <svg
