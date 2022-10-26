@@ -1,0 +1,10 @@
+.iconContainer {
+  @apply flex;
+  gap: 1.75rem;
+}
+
+.iconWrapper {
+  @apply bg-fg-secondary rounded-full flex items-center justify-center;
+  width: 1.563rem;
+  height: 1.563rem;
+}

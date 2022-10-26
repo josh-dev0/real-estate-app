@@ -7,6 +7,7 @@ const backgroundColor = {
     light: "var(--theme-color-bg-secondary-light)",
     focused: "var(--theme-color-bg-focused)",
     1: "var($theme-light-bg-secondary-1)",
+    2: "var(--theme-color-bg-secondary-2)",
   },
 };
 

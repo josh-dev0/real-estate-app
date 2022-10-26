@@ -23,6 +23,7 @@ $theme-light-bg-primary: #ffffff;
 $theme-light-bg-secondary: #365272;
 $theme-light-bg-secondary-light: #55708f;
 $theme-light-bg-secondary-1: #F5F5F5;
+$theme-light-bg-secondary-2: #5784B8; // footer submit button
 $theme-light-bg-focused: #bdd1e8;
 
 :export {
@@ -41,5 +42,6 @@ $theme-light-bg-focused: #bdd1e8;
   lightBgSecondary: $theme-light-bg-secondary;
   lightBgSecondaryLight: $theme-light-bg-secondary-light;
   lightBgSecondary1: $theme-light-bg-secondary-1;
+  lightBgSecondary2: $theme-light-bg-secondary-2;
   lightBgFocused: $theme-light-bg-focused;
 }
