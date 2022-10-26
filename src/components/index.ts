@@ -1,5 +1,6 @@
 export * from "./Breadcrumb";
 export * from "./DealType";
+export * from "./Filterbar";
 export * from "./Footer";
 export * from "./PropertyCard";
 export * from "./PropertyCarousel";

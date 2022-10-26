@@ -1,3 +1,12 @@
+.ant-switch {
+  /* overwritten by tailwindcss */
+  background-color: rgba(0, 0, 0, 0.25) !important;
+
+  &.ant-switch-checked {
+    background-color: var(--theme-color-bg-secondary-3) !important;
+  }
+}
+
 /* added due to the auto complete component in search component */
 div.ant-select[class*="h-"] {
   .ant-select-selector {
@@ -43,6 +52,33 @@ div.ant-select[class*="h-"] {
     div[role="button"] {
       padding-top: 5px;
       padding-bottom: 5px;
+    }
+  }
+}
+
+/* 
+ * /components/Searchbar/components/Filterbar/index.tsx
+ * remove border of select box of Select.custom-filter-select
+ */
+.ant-select {
+  &.custom-filter-select {
+    & > .ant-select-selector {
+      border: none !important;
+    }
+    &.ant-select-open::before,
+    &.ant-select-open::after {
+      border-color: red !important;
+    }
+  }
+}
+
+.ant-select-dropdown {
+  .custom-filter-select-option {
+    padding-left: 17px;
+    padding-right: 17px;
+    &.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+      background-color: var(--theme-color-bg-primary) !important;
+      font-weight: 400;
     }
   }
 }

@@ -11,9 +11,12 @@ $theme-light-fg-secondary-1: #575656;
 /* carousel handle border color*/
 $theme-light-fg-secondary-2: #bdbdbd;
 $theme-light-fg-secondary-3: #d9d9d9;
+$theme-light-fg-secondary-4: #979797; // filter border color.
+$theme-light-fg-secondary-5: #535151; // filter sub-title(seniority, ratings, etc)
 /* box shadow color */
 $theme-light-fg-shadow: rgba(0, 0, 0, 0.1);
 $theme-light-fg-shadow-1: rgba(0, 0, 0, 0.043);
+$theme-light-fg-shadow-2: rgba(10, 9, 9, 0.08); // filter box shadow.
 // Icon colors
 $theme-light-fg-icon: rgba(174, 173, 173, 0.85);
 $theme-light-fg-icon-1: rgba(0, 0, 0, 0.85);
@@ -24,6 +27,7 @@ $theme-light-bg-secondary: #365272;
 $theme-light-bg-secondary-light: #55708f;
 $theme-light-bg-secondary-1: #f5f5f5;
 $theme-light-bg-secondary-2: #5784b8; // footer submit button
+$theme-light-bg-secondary-3: #7899BF; // background color of filter switch.
 $theme-light-bg-focused: #bdd1e8;
 
 :export {
@@ -32,8 +36,11 @@ $theme-light-bg-focused: #bdd1e8;
   lightFgSecondary1: $theme-light-fg-secondary-1;
   lightFgSecondary2: $theme-light-fg-secondary-2;
   lightFgSecondary3: $theme-light-fg-secondary-3;
+  lightFgSecondary4: $theme-light-fg-secondary-4;
+  lightFgSecondary5: $theme-light-fg-secondary-5;
   lightFgShadow: $theme-light-fg-shadow;
   lightFgShadow1: $theme-light-fg-shadow-1;
+  lightFgShadow2: $theme-light-fg-shadow-2;
   lightFgIcon: $theme-light-fg-icon;
   lightFgIcon1: $theme-light-fg-icon-1;
   lightFbIcon2: $theme-light-fg-icon-2;
@@ -43,5 +50,6 @@ $theme-light-bg-focused: #bdd1e8;
   lightBgSecondaryLight: $theme-light-bg-secondary-light;
   lightBgSecondary1: $theme-light-bg-secondary-1;
   lightBgSecondary2: $theme-light-bg-secondary-2;
+  lightBgSecondary3: $theme-light-bg-secondary-3;
   lightBgFocused: $theme-light-bg-focused;
 }
