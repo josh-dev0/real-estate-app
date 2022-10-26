@@ -67,7 +67,7 @@ div.ant-select[class*="h-"] {
     }
     &.ant-select-open::before,
     &.ant-select-open::after {
-      border-color: red !important;
+      border: 1px solid red !important; // not working.
     }
   }
 }
@@ -79,6 +79,10 @@ div.ant-select[class*="h-"] {
     &.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
       background-color: var(--theme-color-bg-primary) !important;
       font-weight: 400;
+    }
+    &.ant-select-item-option-selected:not(.ant-select-item-option-disabled)
+      .ant-select-item-option-state {
+      color: var(--theme-color-bg-secondary-light) !important;
     }
   }
 }
