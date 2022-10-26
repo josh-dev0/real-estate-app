@@ -8,3 +8,9 @@
   width: 1.563rem;
   height: 1.563rem;
 }
+
+.bottomText {
+  @apply text-secondary-2;
+  font-size: 0.688rem;
+  line-height: 1.375rem;
+}

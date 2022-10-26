@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link'
 import { Col, Divider, Row, Layout, Space, Typography, Input, Button } from 'antd';
 import { footerMenu } from './data';
-import { FacebookIcon, TwitterIcon, GoogleplusIcon, LinkedInIcon } from './icons';
+import { FacebookIcon, TwitterIcon, GoogleplusIcon, LinkedInIcon, SecuredIcon } from './icons';
 import styles from './styles.module.scss';
 
 const AntdFooter = Layout.Footer;
@@ -57,6 +57,33 @@ export const Footer: React.FC = () => {
               }
             </Col>)
         }
+      </Row>
+      <Row justify="space-between" align="bottom">
+        <Col>
+          <div
+            className="flex items-center gap-[4px] text-secondary-2"
+          >
+            <span className={styles.bottomText}><Link href="#">Terms of Service</Link></span>|
+            <span className={styles.bottomText}><Link href="#">Privacy & Cookies policy</Link></span>|
+            <span className={styles.bottomText}><Link href="#">Sitemap</Link></span>|
+            <span className={styles.bottomText}>Cozzinest LTD @copyright 2022</span>|
+            <span className={styles.bottomText}>16 rue de la gare Glacis, L-1640 Luxembourg</span>
+          </div>
+        </Col>
+        <Col>
+          <div className="flex flex-col gap-[5px]">
+            <Space size={7} align="start">
+              <SecuredIcon className="fill-bg-primary" />
+              <span className="text-bg-primary text-sm leading-[22px] font-bold">Secured Payment</span>
+            </Space>
+            <Space className="">
+              <img src="/images/Visa.png" alt="Visa" />
+              <img src="/images/Mastercard.png" alt="Mastercard" />
+              <img src="/images/Amex.png" alt="Amex" />
+              <img src="/images/Stripe.png" alt="Stripe" />
+            </Space>
+          </div>
+        </Col>
       </Row>
     </AntdFooter>
   )
