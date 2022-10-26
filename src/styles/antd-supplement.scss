@@ -21,3 +21,28 @@ div.ant-select[class*="h-"] {
     border-radius: 0 0.25rem 0.25rem 0;
   }
 }
+
+/* /components/Searchbar/components/PropertyTypeSelect2.tsx
+ * remove the background color of the selected options.
+ */
+
+.property-type-option {
+  &.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background-color: var(--theme-color-bg-primary) !important;
+  }
+}
+
+/* 
+ * /components/Searchbar/components/PropertyTypeSelect.tsx
+ * 
+ */
+.property-type-overlay-menu {
+  .ant-dropdown-menu-item.ant-dropdown-menu-item-only-child {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    div[role="button"] {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}

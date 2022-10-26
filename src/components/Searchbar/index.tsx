@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Checkbox } from 'antd';
 import classNames from 'classnames';
-import { PropertyTypeSelect } from './components/PropertyTypeSelect';
+import { PropertyTypeSelect } from './components/PropertyTypeSelect'
+// import { PropertyTypeSelect } from './components/PropertyTypeSelect2';
 import { CustomAutoComplete } from './components/CustomAutoComplete';
 import { NumberSelect } from './components/NumberSelect';
 import { PriceSelect } from './components/PriceSelect';
@@ -20,7 +21,7 @@ import styles from './styles.module.scss';
 type SearchbarProps = {
   locationOptions?: string[];
   radius?: string | number | null;
-  propertyType?: string;
+  propertyType?: string[];
   bedrooms?: string | number | null;
   price?: IRange;
   includeResultsWithoutPictures?: boolean;
@@ -28,7 +29,7 @@ type SearchbarProps = {
   landSurface?: IRange;
   onLocationSearch?: (val: string) => void;
   onRadiusChange?: (val: string | number | null) => void;
-  onPropertyTypeChange?: (val?: string) => void;
+  onPropertyTypeChange?: (val?: string[]) => void;
   onBedroomsChange?: (val: string | number | null) => void;
   onPriceChange?: (val?: IRange) => void;
   onChangeOfIncludeResultsWithoutPictures?: (val: boolean) => void;
