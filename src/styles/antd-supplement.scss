@@ -62,12 +62,11 @@ div.ant-select[class*="h-"] {
  */
 .ant-select {
   &.custom-filter-select {
-    & > .ant-select-selector {
+    &:not(.ant-select-open) > .ant-select-selector {
       border: none !important;
     }
-    &.ant-select-open::before,
-    &.ant-select-open::after {
-      border: 1px solid red !important; // not working.
+    &.ant-select-open > .ant-select-selector {
+      border: 1px solid var(--theme-color-bg-secondary-light) !important;
     }
   }
 }
