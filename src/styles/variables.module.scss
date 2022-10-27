@@ -12,13 +12,14 @@ $theme-light-fg-secondary-1: #575656;
 /* carousel handle border color*/
 $theme-light-fg-secondary-2: #bdbdbd;
 $theme-light-fg-secondary-3: #d9d9d9;
-$theme-light-fg-secondary-4: #979797; // filter border color.
+$theme-light-fg-secondary-4: #ededed; // filter border color.
 $theme-light-fg-secondary-5: #535151; // filter sub-title(seniority, ratings, etc)
 $theme-light-fg-secondary-6: rgba(0, 0, 0, 0.65); // filter bar/select/option text color.
 /* box shadow color */
 $theme-light-fg-shadow: rgba(0, 0, 0, 0.1);
 $theme-light-fg-shadow-1: rgba(0, 0, 0, 0.043);
 $theme-light-fg-shadow-2: rgba(10, 9, 9, 0.08); // filter box shadow.
+$theme-light-fg-shadow-3: rgba(0, 0, 0, 0.15); // status bar/search input: inner box shadow
 // Icon colors
 $theme-light-fg-icon: rgba(174, 173, 173, 0.85);
 $theme-light-fg-icon-1: rgba(0, 0, 0, 0.85);
@@ -45,6 +46,7 @@ $theme-light-bg-focused: #bdd1e8;
   lightFgShadow: $theme-light-fg-shadow;
   lightFgShadow1: $theme-light-fg-shadow-1;
   lightFgShadow2: $theme-light-fg-shadow-2;
+  lightFgShadow3: $theme-light-fg-shadow-3;
   lightFgIcon: $theme-light-fg-icon;
   lightFgIcon1: $theme-light-fg-icon-1;
   lightFbIcon2: $theme-light-fg-icon-2;

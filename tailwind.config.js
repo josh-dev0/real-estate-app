@@ -33,6 +33,7 @@ const textColor = {
     DEFAULT: "var(--theme-color-fg-shadow)",
     1: "var(--theme-color-fg-shadow-1)",
     2: "var(--theme-color-fg-shadow-2)",
+    3: "var(--theme-color-fg-shadow-3)",
   },
 };
 
