@@ -3,6 +3,7 @@ import { Divider, Rate, Space, Switch, Typography } from 'antd';
 import { FilterSelect } from './components/FilterSelect';
 import type { FilterResult } from './types';
 import styles from './styles.module.scss';
+import classNames from 'classnames';
 
 const { Text } = Typography;
 
@@ -55,7 +56,7 @@ export const Filterbar: React.FC<FilterbarProps> = ({
             Seniority <span className="text-xs">({data.seniority})</span>
           </Text>
           <Switch
-            className="pl-2 pr-1 text-[9px]"
+            className={classNames("pl-2 pr-1 text-[9px]", styles.switch)}
             size="small"
             checkedChildren={<span className="text-[9px]">New</span>}
             unCheckedChildren={<span className="text-[9px]">New</span>}

@@ -16,11 +16,13 @@ const textColor = {
   primary: "var(--theme-color-fg-primary)",
   secondary: {
     DEFAULT: "var(--theme-color-fg-secondary)",
+    light: "var(--theme-color-fg-secondary-light)",
     1: "var(--theme-color-fg-secondary-1)",
     2: "var(--theme-color-fg-secondary-2)",
     3: "var(--theme-color-fg-secondary-3)",
     4: "var(--theme-color-fg-secondary-4)",
     5: "var(--theme-color-fg-secondary-5)",
+    6: "var(--theme-color-fg-secondary-6)",
   },
   icon: {
     DEFAULT: "var(--theme-color-fg-icon)",
