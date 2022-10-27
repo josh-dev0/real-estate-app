@@ -36,13 +36,13 @@ export const PropertyTypeSelect2: React.FC<PropertyTypeSelect2Props> = ({
         mode="multiple"
         optionLabelProp="label"
         placeholder={
-          <span className="block text-center text-xs leadning-[22px] text-secondary pr-6">
+          <span className="block text-center text-xs leadning-[22px] text-secondary pr-8">
             {placeholder}
           </span>
         }
         placement="bottomRight"
         showArrow={true}
-        suffixIcon={<CaretDownFilled className="text-bg-secondary-light" />}
+        suffixIcon={<CaretDownFilled className="text-bg-secondary-light text-sm pr-2" />}
         {...otherProps}
       >
         {options.map(option =>

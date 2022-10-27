@@ -60,13 +60,13 @@ export const Searchbar: React.FC<SearchbarProps> = ({
     <div className={classNames("max-w-[65.938rem] w-full", className)}>
       <div className={styles.topFilter}>
         <CustomAutoComplete
-          className="h-[3.25rem] basis-1/5"
+          className="h-[3.25rem] basis-1/6"
           placeholder={<div className="flex items-center h-full px-[0.438rem]"><EnvironmentFilled className="text-base" /><p className="grow text-xs text-secondary text-center">Location</p></div>}
           optionValues={locationOptions}
           onSearch={onLocationSearch!}
         />
         <NumberSelect
-          className="basis-1/5"
+          className="basis-1/6"
           icon={<AimOutlined className={styles.filterIcon} />}
           label="Radius"
           unit="km"
@@ -74,7 +74,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           onChange={onRadiusChange}
         />
         <PropertyTypeSelect2
-          className="min-w-[6.25rem] h-[52px] bg-primary basis-1/5"
+          className="min-w-[6.25rem] h-[52px] bg-primary grow"
           placeholder="Property Type"
           value={propertyType}
           onChange={val => onPropertyTypeChange!(val)}
@@ -102,7 +102,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           ]}
         />
         <NumberSelect
-          className="basis-1/5"
+          className="basis-1/6"
           icon={<BedFilled className={styles.filterIcon} />}
           label="Bedrooms"
           unit="Bedrooms"
@@ -110,7 +110,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           onChange={onBedroomsChange}
         />
         <PriceSelect
-          className="basis-1/5"
+          className="basis-1/6"
           icon={<EuroCircleOutlined className={styles.filterIcon} />}
           label="Price"
           value={price}
