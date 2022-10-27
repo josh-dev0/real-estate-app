@@ -31,7 +31,12 @@ export const Footer: React.FC = () => {
         <Col>
           <div className={styles.iconContainer}>
             {
-              [<FacebookIcon />, <TwitterIcon />, <GoogleplusIcon />, <LinkedInIcon />].map(icon =>
+              [
+                <FacebookIcon className={styles.socialIcon} />,
+                <TwitterIcon className={styles.socialIcon} />,
+                <GoogleplusIcon className={styles.socialIcon} />,
+                <LinkedInIcon className={styles.socialIcon} />
+              ].map(icon =>
                 <div className={styles.iconWrapper}>{icon}</div>
               )
             }
