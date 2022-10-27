@@ -36,8 +36,8 @@ export const Footer: React.FC = () => {
                 <TwitterIcon className={styles.socialIcon} />,
                 <GoogleplusIcon className={styles.socialIcon} />,
                 <LinkedInIcon className={styles.socialIcon} />
-              ].map(icon =>
-                <div className={styles.iconWrapper}>{icon}</div>
+              ].map((icon, i) =>
+                <div key={i} className={styles.iconWrapper}>{icon}</div>
               )
             }
           </div>
@@ -51,7 +51,10 @@ export const Footer: React.FC = () => {
               <Text className="text-sm leading-[22px] text-secondary-2 uppercase">{menu.category}</Text>
               {
                 menu.items.map(item =>
-                  <div className="text-bg-primary text-xs leading-[22px]">
+                  <div
+                    key={item.title}
+                    className="text-bg-primary text-xs leading-[22px]"
+                  >
                     <Link
                       href={item.link}
                     >
