@@ -52,7 +52,7 @@ export const Filterbar: React.FC<FilterbarProps> = ({
         <Text className="text-lg leading-2xl font-bold text-bg-secondary-light">Filter by</Text>
         <div className="flex items-center justify-between mt-[1.625rem]">
           <Text className={styles.filterTitle}>
-            Seniority ({data.seniority})
+            Seniority <span className="text-xs">({data.seniority})</span>
           </Text>
           <Switch
             className="pl-2 pr-1 text-[9px]"
@@ -66,22 +66,21 @@ export const Filterbar: React.FC<FilterbarProps> = ({
       </section>
       <Divider />
       <section>
-        <Text className={styles.filterTitle}>Ratings ({data.rate})</Text>
+        <Text className={styles.filterTitle}>Ratings <span className="text-xs">({data.rate})</span></Text>
         <div className="flex items-center justify-between pl-3 mt-5">
-          <Space size={12}>
+          <div className="flex items-end gap-[13px]">
             <Rate
               allowHalf={true}
               value={rate}
               onChange={onRateChange}
             />
-            <span className="text-secondary-1 text-base leading-2xl">{Math.floor(rate)}+</span>
-          </Space>
-          <span className="text-secondary-5 text-[0.688rem] leading-2xl">({data.rate})</span>
+            <span className="text-secondary-1 text-xl leading-2xl pb-[2px]">{Math.floor(rate)}+</span>
+          </div>
         </div>
       </section>
       <Divider />
       <section>
-        <Text className={styles.filterTitle}>Service Type (226)</Text>
+        <Text className={styles.filterTitle}>Service Type <span className="text-xs">(226)</span></Text>
         <FilterSelect
           className="w-full mt-5"
           placeholder="Select Service Type"
@@ -92,7 +91,7 @@ export const Filterbar: React.FC<FilterbarProps> = ({
       </section>
       <Divider />
       <section>
-        <Text className={styles.filterTitle}>Region ({data.region})</Text>
+        <Text className={styles.filterTitle}>Region <span className="text-xs">({data.region})</span></Text>
         <FilterSelect
           className="w-full mt-5"
           placeholder="Select Region"
@@ -103,7 +102,7 @@ export const Filterbar: React.FC<FilterbarProps> = ({
       </section>
       <Divider />
       <section>
-        <Text className={styles.filterTitle}>Location ({data.location})</Text>
+        <Text className={styles.filterTitle}>Location <span className="text-xs">({data.location})</span></Text>
         <FilterSelect
           className="border-none w-full mt-5"
           placeholder="Select Location"
