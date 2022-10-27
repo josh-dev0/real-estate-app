@@ -42,7 +42,7 @@ export const AgencyCard: React.FC<AgencyCardProps> = ({
           </Avatar>
           <Rate
             disabled
-            allowHalf
+            allowHalf={true}
             value={rate}
           />
         </div>
