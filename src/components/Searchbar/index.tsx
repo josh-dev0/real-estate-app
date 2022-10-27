@@ -1,8 +1,7 @@
 import React from 'react';
 import { Button, Checkbox } from 'antd';
 import classNames from 'classnames';
-import { PropertyTypeSelect } from './components/PropertyTypeSelect'
-// import { PropertyTypeSelect } from './components/PropertyTypeSelect2';
+import { PropertyTypeSelect2 } from './components/PropertyTypeSelect2';
 import { CustomAutoComplete } from './components/CustomAutoComplete';
 import { NumberSelect } from './components/NumberSelect';
 import { PriceSelect } from './components/PriceSelect';
@@ -12,7 +11,6 @@ import {
   AimOutlined,
   EnvironmentFilled,
   EuroCircleOutlined,
-  HomeOutlined,
   SearchOutlined,
 } from '@ant-design/icons';
 import type { IRange } from '../../types';
@@ -59,7 +57,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
   onLandSurfaceChange,
 }) => {
   return (
-    <div className={classNames("overflow-hidden max-w-[65.938rem] w-full", className)}>
+    <div className={classNames("max-w-[65.938rem] w-full", className)}>
       <div className={styles.topFilter}>
         <CustomAutoComplete
           className="h-[3.25rem] basis-1/5"
@@ -75,9 +73,8 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           value={radius}
           onChange={onRadiusChange}
         />
-        <PropertyTypeSelect
-          className="min-w-[6.25rem] bg-primary basis-1/5"
-          icon={<HomeOutlined className={styles.filterIcon} />}
+        <PropertyTypeSelect2
+          className="min-w-[6.25rem] h-[52px] bg-primary basis-1/5"
           placeholder="Property Type"
           value={propertyType}
           onChange={val => onPropertyTypeChange!(val)}

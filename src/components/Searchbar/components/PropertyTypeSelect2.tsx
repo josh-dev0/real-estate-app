@@ -1,59 +1,56 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import classNames from 'classnames';
-import { Checkbox, Dropdown, Menu, Select } from 'antd';
-import type { DropdownProps } from 'antd';
+import { Select } from 'antd';
+import type { SelectProps } from 'antd';
 import { CaretDownFilled, HomeOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
-type PropertyTypeSelectProps = {
-  icon: ReactNode;
+type PropertyTypeSelect2Props = {
   options: Array<{ value: string, label: string }>;
   value?: string[];
-  placeholder: string;
   onChange: (val: string[]) => void;
-} & Partial<DropdownProps>;
+} & Partial<SelectProps>;
 
-export const PropertyTypeSelect: React.FC<PropertyTypeSelectProps> = ({
+export const PropertyTypeSelect2: React.FC<PropertyTypeSelect2Props> = ({
   className,
   options,
-  value,
   placeholder,
-  icon,
-  onChange,
+  ...otherProps
 }) => {
-  return (
-    <Select
-      mode="multiple"
-      showArrow={true}
-      suffixIcon={<CaretDownFilled />}
-      style={{ width: '100%' }}
-      placeholder={<><HomeOutlined /><span>Property Type</span></>}
-      value={value}
-      onChange={onChange}
-      optionLabelProp="label"
-      menuItemSelectedIcon=""
-      maxTagPlaceholder="What is this?"
-      maxTagTextLength={10}
-      tagRender={(props) => <p>Helo</p>}
-      tokenSeparators={[","]}
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  return (
+    <div
+      className={classNames("custom-property-type-select-2 relative z-50 flex items-center bg-primary pl-4 gap-[0.5rem]", className)}
+      ref={containerRef}
+      id="property-type-select-container"
     >
-      {
-        options.map(option =>
-          <Option
-            className="property-type-option"
-            key={option.value}
-            value={option.value}
-          >
-            <div className="demo-option-label-item">
-              <Checkbox
-                checked={value?.includes(option.value)}
-                children={<label className="cursor-pointer" onClick={(e) => { e.preventDefault() }}>{option.label}</label>}
-              />
-            </div>
+      <HomeOutlined className="text-icon text-xl" />
+      <Select
+        className={classNames("w-full text-xs leading-2xl text-icon-1")}
+        bordered={false}
+        dropdownStyle={{ minWidth: containerRef.current?.clientWidth }}
+        getPopupContainer={() => document.getElementById('property-type-select-container')!}
+        maxTagCount="responsive"
+        mode="multiple"
+        optionLabelProp="label"
+        placeholder={
+          <span className="block text-center text-xs leadning-[22px] text-secondary pr-4">
+            {placeholder}
+          </span>
+        }
+        placement="bottomRight"
+        showArrow={true}
+        suffixIcon={<CaretDownFilled className="text-bg-secondary-light" />}
+        {...otherProps}
+      >
+        {options.map(option =>
+          <Option key={option.value}>
+            <span className="text-secondary-6 text-2xs leading-[22px] font-medium">{option.label}</span>
           </Option>
         )}
-    </Select>
+      </Select>
+    </div >
   );
 };

@@ -34,10 +34,18 @@ div.ant-select[class*="h-"] {
 /* /components/Searchbar/components/PropertyTypeSelect2.tsx
  * remove the background color of the selected options.
  */
-
-.property-type-option {
-  &.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+.custom-property-type-select-2 {
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
     background-color: var(--theme-color-bg-primary) !important;
+    font-weight: normal;
+  }
+
+  .ant-select.ant-select-open {
+    .ant-select-selection-overflow {
+      border-radius: 2px;
+      box-shadow: 0px 0px 0px 2px rgba(24, 144, 255, 0.2);
+      border: 1px solid var(--theme-color-fg-secondary-light);
+    }
   }
 }
 

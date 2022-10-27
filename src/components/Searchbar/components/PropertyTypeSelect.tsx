@@ -12,6 +12,10 @@ type PropertyTypeSelectProps = {
   onChange: (val: string[]) => void;
 } & Partial<DropdownProps>;
 
+/**
+ * @deprecated use `PropertyTypeSelect2` instead;
+ * @reason decided to use the antd select.
+ */
 export const PropertyTypeSelect: React.FC<PropertyTypeSelectProps> = ({
   className,
   options,
