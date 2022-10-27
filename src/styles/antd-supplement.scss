@@ -47,6 +47,11 @@ div.ant-select[class*="h-"] {
       border: 1px solid var(--theme-color-fg-secondary-light);
     }
   }
+
+  // remove suffix space
+  .ant-select-selection-overflow-item.ant-select-selection-overflow-item-suffix {
+    width: 0 !important;
+  }
 }
 
 /* 

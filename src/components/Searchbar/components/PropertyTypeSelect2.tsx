@@ -36,7 +36,7 @@ export const PropertyTypeSelect2: React.FC<PropertyTypeSelect2Props> = ({
         mode="multiple"
         optionLabelProp="label"
         placeholder={
-          <span className="block text-center text-xs leadning-[22px] text-secondary pr-4">
+          <span className="block text-center text-xs leadning-[22px] text-secondary pr-6">
             {placeholder}
           </span>
         }
