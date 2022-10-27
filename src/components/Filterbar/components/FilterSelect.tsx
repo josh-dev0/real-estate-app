@@ -19,7 +19,7 @@ export const FilterSelect: React.FC<FilterSelectProps> = ({
       className={classNames("custom-filter-select text-icon-1 text-xs leading-2xl w-full mt-5", className)} // custom-filter-select: Don't remove it. Used in antd-supplement.scss
       maxTagCount="responsive"
       mode="multiple"
-      placeholder={<span className="text-secondary text-[15px] font-medium leading-[22px]">{placeholder}</span>}
+      placeholder={<span className="text-secondary text-xs font-medium leading-[22px]">{placeholder}</span>}
       showArrow={true}
       suffixIcon={<CaretDownFilled className="text-bg-secondary-light" />}
       {...otherProps}
