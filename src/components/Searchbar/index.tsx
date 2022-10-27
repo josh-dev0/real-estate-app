@@ -61,7 +61,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
       <div className={styles.topFilter}>
         <CustomAutoComplete
           className="h-[3.25rem] basis-1/5"
-          placeholder={<div className="flex items-center h-full px-[0.438rem]"><EnvironmentFilled className="text-base" /><p className="grow text-center">eg. Luxemburg</p></div>}
+          placeholder={<div className="flex items-center h-full px-[0.438rem]"><EnvironmentFilled className="text-base" /><p className="grow text-xs text-secondary text-center">Location</p></div>}
           optionValues={locationOptions}
           onSearch={onLocationSearch!}
         />
