@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link'
 import { Col, Divider, Row, Layout, Space, Typography, Input, Button } from 'antd';
+import type { LayoutProps } from 'antd';
+import classNames from 'classnames';
 import { footerMenu } from './data';
 import { FacebookIcon, TwitterIcon, GoogleplusIcon, LinkedInIcon, SecuredIcon } from './icons';
 import styles from './styles.module.scss';
@@ -8,9 +10,9 @@ import styles from './styles.module.scss';
 const AntdFooter = Layout.Footer;
 const { Text } = Typography;
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC<LayoutProps> = ({ className }) => {
   return (
-    <AntdFooter className="w-full bg-secondary"
+    <AntdFooter className={classNames("w-full bg-secondary", className)}
     >
       <Row justify='space-between' align="middle">
         <Col>
