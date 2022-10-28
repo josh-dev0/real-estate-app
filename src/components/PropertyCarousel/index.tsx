@@ -10,13 +10,12 @@ import styles from './styles.module.scss';
 type PropertyCarouselProps = {
   label: string;
   properties: PropertyCardProps[],
-} & CarouselProps;
+} & Omit<CarouselProps, 'infinite'>;
 
 export const PropertyCarousel: React.FC<PropertyCarouselProps> = ({
   className,
   label,
   properties,
-  infinite,
   ...carouselProps
 }) => {
   const carouselRef = useRef<CarouselRef>(null);
@@ -70,13 +69,14 @@ export const PropertyCarousel: React.FC<PropertyCarouselProps> = ({
           new Array(numOfSlides).fill(null).map((_, slideIndex) =>
             <div
               key={slideIndex}
-              className="flex justify-between gap-[1rem]"
+              className="flex gap-[1rem]"
             >
-              {new Array(numInSlide).fill(null).map((_, propertyIndexInSlide) => <PropertyCard
-                key={`${slideIndex}-${propertyIndexInSlide}`}
-                className="w-full"
-                {...properties[slideIndex * numInSlide + propertyIndexInSlide]}
-              />
+              {new Array(Math.min(numInSlide, properties.length - numInSlide * slideIndex)).fill(null).map((_, propertyIndexInSlide) =>
+                <PropertyCard
+                  key={`${slideIndex}-${propertyIndexInSlide}`}
+                  className={`w-1/${numInSlide}`}
+                  {...properties[slideIndex * numInSlide + propertyIndexInSlide]}
+                />
               )}
             </div>
           )
