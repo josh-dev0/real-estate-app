@@ -1,29 +1,37 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import {
   DealType,
   Footer,
   PropertyCarousel,
+  RewardCard,
   Searchbar,
   TopMenu,
 } from '@app/components';
-import type { PropertyCardProps } from '@app/components';
+import type {
+  PropertyCardProps,
+  RewardCardProps,
+} from '@app/components';
 import { HCenter } from '@app/containers/HCenter';
-import { generateProperties } from '@app/utils/demo';
+import {
+  generateProperties,
+  getRewardCardData
+} from '@app/utils/demo';
 import styles from '@app/styles/pages/Home.module.scss';
 
 const Home: NextPage = () => {
   const [propertiesAroundMe, setPropertiesAroundMe] = useState<PropertyCardProps[]>([]);
   const [matchedProperties, setMatchedProperties] = useState<PropertyCardProps[]>([]);
   const [recentlyViewedProperties, setRecentlyViewedProperties] = useState<PropertyCardProps[]>([]);
+  const [rewardCardData, setRewardCardData] = useState<RewardCardProps[]>([]);
 
   useEffect(() => {
     setPropertiesAroundMe(generateProperties(10));
     setMatchedProperties(generateProperties(10));
     setRecentlyViewedProperties(generateProperties(10));
+    setRewardCardData(getRewardCardData());
   }, [])
 
   return (
@@ -58,8 +66,20 @@ const Home: NextPage = () => {
             label="Properties recently viewed"
             properties={recentlyViewedProperties}
           />
+          <section className="mt-[6.5rem]">
+            <p className="font-medium text-xl leading-2xl text-secondary-1">Featured Services</p>
+            <div className="flex justify-between mt-[4.25rem] gap-[2rem]">
+              {
+                rewardCardData.map(data =>
+                  <RewardCard
+                    className="w-1/4"
+                    {...data}
+                  />
+                )
+              }
+            </div>
+          </section>
         </section>
-
       </main>
       <Footer />
     </>
