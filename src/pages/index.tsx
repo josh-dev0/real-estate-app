@@ -3,8 +3,12 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import {
+  CozziCarousel,
   DealType,
   Footer,
+  ProfessionalCard,
+  ProfessionalCardProps,
+  PropertyCard,
   PropertyCarousel,
   RewardCard,
   Searchbar,
@@ -17,6 +21,7 @@ import type {
 import { HCenter } from '@app/containers/HCenter';
 import {
   generateProperties,
+  getFeaturedProfessionals,
   getRewardCardData
 } from '@app/utils/demo';
 import styles from '@app/styles/pages/Home.module.scss';
@@ -26,12 +31,14 @@ const Home: NextPage = () => {
   const [matchedProperties, setMatchedProperties] = useState<PropertyCardProps[]>([]);
   const [recentlyViewedProperties, setRecentlyViewedProperties] = useState<PropertyCardProps[]>([]);
   const [rewardCardData, setRewardCardData] = useState<RewardCardProps[]>([]);
+  const [professionalCards, setProfessionalCards] = useState<ProfessionalCardProps[]>([]);
 
   useEffect(() => {
     setPropertiesAroundMe(generateProperties(10));
     setMatchedProperties(generateProperties(10));
     setRecentlyViewedProperties(generateProperties(10));
     setRewardCardData(getRewardCardData());
+    setProfessionalCards(getFeaturedProfessionals());
   }, [])
 
   return (
@@ -66,12 +73,18 @@ const Home: NextPage = () => {
             label="Properties recently viewed"
             properties={recentlyViewedProperties}
           />
-          <section className="mt-[6.5rem]">
+          <CozziCarousel
+            className="mt-[10rem]"
+            label="Featured Professionals"
+            items={professionalCards.map(props => <ProfessionalCard {...props} />)}
+          />
+          <section className="mt-[9.375rem]">
             <p className="font-medium text-xl leading-2xl text-secondary-1">Featured Services</p>
             <div className="flex justify-between mt-[4.25rem] gap-[2rem]">
               {
-                rewardCardData.map(data =>
+                rewardCardData.map((data, i) =>
                   <RewardCard
+                    key={i}
                     className="w-1/4"
                     {...data}
                   />

@@ -1,5 +1,8 @@
 import { random } from "./index";
-import { RewardCardProps } from "@app/components";
+import {
+  ProfessionalCardProps,
+  RewardCardProps,
+} from "@app/components";
 import {
   FormOutlined,
   EuroCircleOutlined,
@@ -47,6 +50,60 @@ export const getRewardCardData = (): RewardCardProps[] => {
       link: '#',
       isFlex: true,
       icon: <CrownOutlined />,
+    },
+  ];
+}
+
+export const getFeaturedProfessionals = (): ProfessionalCardProps[] => {
+  return [
+    {
+      company: 'Lotiself Inc',
+      name: 'Neudorf',
+      rate: 4,
+      summary: 'A tout juste cinq minutes du quartier des ...',
+      link: '#',
+    },
+    {
+      company: 'Immo Inc',
+      name: 'Neudorf',
+      rate: 4.5,
+      summary: 'A tout juste cinq minutes du quartier des ...',
+      link: '#',
+    },
+    {
+      company: 'Lotiself Inc',
+      name: 'Neudorf',
+      rate: 4,
+      summary: 'A tout juste cinq minutes du quartier des ...',
+      link: '#',
+    },
+    {
+      company: 'Immosphere Inc',
+      name: 'Neudorf',
+      rate: 3.7,
+      summary: 'A tout juste cinq minutes du quartier des ...',
+      link: '#',
+    },
+    {
+      company: 'Immo Inc',
+      name: 'Neudorf',
+      rate: 4.5,
+      summary: 'A tout juste cinq minutes du quartier des ...',
+      link: '#',
+    },
+    {
+      company: 'Lotiself Inc',
+      name: 'Neudorf',
+      rate: 4,
+      summary: 'A tout juste cinq minutes du quartier des ...',
+      link: '#',
+    },
+    {
+      company: 'Immosphere Inc',
+      name: 'Neudorf',
+      rate: 3.7,
+      summary: 'A tout juste cinq minutes du quartier des ...',
+      link: '#',
     },
   ];
 }
