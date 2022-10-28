@@ -10,7 +10,7 @@ const { Header } = Layout;
 type TopMenuProps = {
   locale: string;
   user?: IUser;
-  notifications: number;
+  notifications?: number;
   onLocaleChange?: (locale: string) => void;
   onIdentify?: (identity: IdentityType) => void;
 }

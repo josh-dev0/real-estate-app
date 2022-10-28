@@ -95,7 +95,7 @@ export const leftMenuItems: MenuProps['items'] = [
   },
 ];
 
-export const getRightMenuItems = (user: IUser | undefined, notifications: number): MenuProps['items'] => {
+export const getRightMenuItems = (user: IUser | undefined, notifications?: number): MenuProps['items'] => {
   const items = [
     {
       label: 'Estimation tool',
