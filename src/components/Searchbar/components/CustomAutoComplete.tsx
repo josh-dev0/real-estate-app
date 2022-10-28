@@ -37,7 +37,7 @@ export const CustomAutoComplete: React.FC<CustomAutoCompleteProps> = ({
   }, [prevInputValue, inputValue]);
 
   useEffect(() => {
-    onSearch!(inputValue);
+    if (inputValue && inputValue.length > 3) onSearch!(inputValue);
   }, [inputValue]);
 
   return (
