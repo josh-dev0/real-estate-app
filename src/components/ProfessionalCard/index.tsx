@@ -4,13 +4,14 @@ import randomColor from 'randomcolor';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
 
-type ProfessionalCardProps = {
-  company: string;
-  name: string;
-  summary: string;
-  rate: number;
+export type ProfessionalCardProps = {
   avatar?: string;
   backgroundColor?: string;
+  company: string;
+  link?: string;
+  name: string;
+  rate: number;
+  summary: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const ProfessionalCard: React.FC<ProfessionalCardProps> = ({
@@ -18,6 +19,7 @@ export const ProfessionalCard: React.FC<ProfessionalCardProps> = ({
   avatar,
   backgroundColor,
   company,
+  link,
   name,
   rate,
   summary,
@@ -65,7 +67,7 @@ export const ProfessionalCard: React.FC<ProfessionalCardProps> = ({
         <div className="flex justify-end">
           <a
             className="text-bg-secondary font-bold text-xs leading-2xl"
-            href="#">
+            href={link}>
             read more ...
           </a>
         </div>
