@@ -23,6 +23,7 @@ const textColor = {
     4: "var(--theme-color-fg-secondary-4)",
     5: "var(--theme-color-fg-secondary-5)",
     6: "var(--theme-color-fg-secondary-6)",
+    7: "var(--theme-color-fg-secondary-7)",
   },
   icon: {
     DEFAULT: "var(--theme-color-fg-icon)",

@@ -15,6 +15,7 @@ $theme-light-fg-secondary-3: #d9d9d9;
 $theme-light-fg-secondary-4: #ededed; // filter border color.
 $theme-light-fg-secondary-5: #535151; // filter sub-title(seniority, ratings, etc)
 $theme-light-fg-secondary-6: rgba(0, 0, 0, 0.65); // filter bar/select/option text color.
+$theme-light-fg-secondary-7: #393838; // professional card summary color.
 /* box shadow color */
 $theme-light-fg-shadow: rgba(0, 0, 0, 0.1);
 $theme-light-fg-shadow-1: rgba(0, 0, 0, 0.043);
@@ -43,6 +44,7 @@ $theme-light-bg-focused: #bdd1e8;
   lightFgSecondary4: $theme-light-fg-secondary-4;
   lightFgSecondary5: $theme-light-fg-secondary-5;
   lightFgSecondary6: $theme-light-fg-secondary-6;
+  lightFgSecondary7: $theme-light-fg-secondary-7;
   lightFgShadow: $theme-light-fg-shadow;
   lightFgShadow1: $theme-light-fg-shadow-1;
   lightFgShadow2: $theme-light-fg-shadow-2;
