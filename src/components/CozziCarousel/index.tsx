@@ -74,14 +74,7 @@ export const CozziCarousel: React.FC<CozziCarouselProps> = ({
               className="flex gap-[1rem]"
             >
               {new Array(Math.min(numInSlide, items.length - numInSlide * slideIndex)).fill(null).map((_, itemIndexInSlide) =>
-                <div
-                  key={`${slideIndex}-${itemIndexInSlide}`}
-                  className={`w-1/${numInSlide}`}
-                >
-                  {
-                    withExtraClass(items[slideIndex * numInSlide + itemIndexInSlide], `w-full`)
-                  }
-                </div>
+                withExtraClass(items[slideIndex * numInSlide + itemIndexInSlide], `w-1/${numInSlide}`, { key: `${slideIndex}-${itemIndexInSlide}` })
               )}
             </div>
           )
