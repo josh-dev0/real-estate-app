@@ -5,6 +5,7 @@ export * from "./Filterbar";
 export * from "./Footer";
 export * from "./PropertyCard";
 export * from "./PropertyCarousel";
+export * from "./RewardCard";
 export * from "./Searchbar";
 export * from "./Statusbar";
 export * from "./TopMenu";
