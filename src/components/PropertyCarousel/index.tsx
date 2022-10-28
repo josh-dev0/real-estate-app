@@ -10,7 +10,7 @@ import styles from './styles.module.scss';
 type PropertyCarouselProps = {
   label: string;
   properties: PropertyCardProps[],
-} & Omit<CarouselProps, 'infinite'>;
+} & Omit<CarouselProps, 'infinite' | 'dots'>;
 
 export const PropertyCarousel: React.FC<PropertyCarouselProps> = ({
   className,
@@ -62,6 +62,7 @@ export const PropertyCarousel: React.FC<PropertyCarouselProps> = ({
       </div>
       <Carousel
         ref={carouselRef}
+        dots={false}
         infinite={false}
         {...carouselProps}
       >
