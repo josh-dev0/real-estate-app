@@ -1,5 +1,6 @@
 export * from "./AgencyCard";
 export * from "./Breadcrumb";
+export * from "./CozziCarousel";
 export * from "./DealType";
 export * from "./Filterbar";
 export * from "./Footer";

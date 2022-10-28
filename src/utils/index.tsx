@@ -1,3 +1,5 @@
+export * from './dom';
+
 /**
  * @name debounce
  * @referred https://stackoverflow.com/a/59104900/9644424
