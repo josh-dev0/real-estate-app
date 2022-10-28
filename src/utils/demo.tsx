@@ -1,7 +1,8 @@
 import { random } from "./index";
-import {
+import type {
   ProfessionalCardProps,
   RewardCardProps,
+  ServiceCardProps,
 } from "@app/components";
 import {
   FormOutlined,
@@ -107,3 +108,48 @@ export const getFeaturedProfessionals = (): ProfessionalCardProps[] => {
     },
   ];
 }
+
+export const getServices = (): ServiceCardProps[] => [
+  {
+    image: "images/demo/service-financing.png",
+    title: 'Financing',
+    summary: 'Finance your project...this is a temporry text',
+    link: '',
+  },
+  {
+    image: "images/demo/service-insurance.png",
+    title: 'Insurance',
+    summary: 'Insuring your house .. another temporary text',
+    link: '',
+  },
+  {
+    image: "images/demo/service-energy.png",
+    title: 'Energy',
+    summary: 'Insuring your house .. another temporary text',
+    link: '',
+  },
+  {
+    image: "images/demo/service-removal.png",
+    title: 'Removal',
+    summary: 'Insuring your house .. another temporary text',
+    link: '',
+  },
+  {
+    image: "images/demo/service-insurance.png",
+    title: 'Insurance',
+    summary: 'Insuring your house .. another temporary text',
+    link: '',
+  },
+  {
+    image: "images/demo/service-energy.png",
+    title: 'Energy',
+    summary: 'Insuring your house .. another temporary text',
+    link: '',
+  },
+  {
+    image: "images/demo/service-removal.png",
+    title: 'Removal',
+    summary: 'Insuring your house .. another temporary text',
+    link: '',
+  },
+]

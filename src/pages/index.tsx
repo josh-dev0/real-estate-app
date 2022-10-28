@@ -7,22 +7,24 @@ import {
   DealType,
   Footer,
   ProfessionalCard,
-  ProfessionalCardProps,
-  PropertyCard,
   PropertyCarousel,
   RewardCard,
   Searchbar,
+  ServiceCard,
   TopMenu,
 } from '@app/components';
 import type {
+  ProfessionalCardProps,
   PropertyCardProps,
   RewardCardProps,
+  ServiceCardProps,
 } from '@app/components';
 import { HCenter } from '@app/containers/HCenter';
 import {
   generateProperties,
   getFeaturedProfessionals,
-  getRewardCardData
+  getRewardCardData,
+  getServices,
 } from '@app/utils/demo';
 import styles from '@app/styles/pages/Home.module.scss';
 
@@ -32,6 +34,7 @@ const Home: NextPage = () => {
   const [recentlyViewedProperties, setRecentlyViewedProperties] = useState<PropertyCardProps[]>([]);
   const [rewardCardData, setRewardCardData] = useState<RewardCardProps[]>([]);
   const [professionalCards, setProfessionalCards] = useState<ProfessionalCardProps[]>([]);
+  const [services, setServices] = useState<ServiceCardProps[]>([]);
 
   useEffect(() => {
     setPropertiesAroundMe(generateProperties(10));
@@ -39,6 +42,7 @@ const Home: NextPage = () => {
     setRecentlyViewedProperties(generateProperties(10));
     setRewardCardData(getRewardCardData());
     setProfessionalCards(getFeaturedProfessionals());
+    setServices(getServices());
   }, [])
 
   return (
@@ -52,7 +56,7 @@ const Home: NextPage = () => {
         <TopMenu
           locale="EN/EN"
         />
-        <section className={classNames("min-h-[11.25rem] overflow-auto", styles.topImgContainer)}>
+        <section className={classNames("min-h-[11.25rem]", styles.topImgContainer)}>
           <HCenter><DealType className="mt-[7.125rem] mb-3" /></HCenter>
           <HCenter><Searchbar /></HCenter>
         </section>
@@ -92,6 +96,11 @@ const Home: NextPage = () => {
               }
             </div>
           </section>
+          <CozziCarousel
+            className="mt-[7.688rem]"
+            label="Associate Services"
+            items={services.map(props => <ServiceCard {...props} />)}
+          />
         </section>
       </main>
       <Footer />
