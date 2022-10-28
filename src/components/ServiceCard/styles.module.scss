@@ -1,0 +1,24 @@
+.container {
+  border: 0.2px solid theme("colors.fg.secondary.4");
+  box-shadow: 0px 1px 5px theme("colors.fg.shadow.3");
+  filter: drop-shadow(0px 1px 12px rgba(10, 9, 9, 0.08));
+}
+
+.imageWrapper {
+  @apply w-full bg-secondary-4 overflow-hidden;
+  height: 10.438rem;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.summary {
+  @apply font-bold text-xs text-secondary-1;
+  margin-top: 11px;
+  line-height: 15px;
+  text-shadow: 0px 1px 12px theme("colors.fg.icon.2");
+}
+
+.readmore {
+  @apply text-bg-secondary font-bold text-xs leading-2xl;
+  text-shadow: 0px 1px 12px theme("colors.fg.icon.2");
+}

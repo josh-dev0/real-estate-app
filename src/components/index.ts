@@ -9,5 +9,6 @@ export * from "./PropertyCard";
 export * from "./PropertyCarousel";
 export * from "./RewardCard";
 export * from "./Searchbar";
+export * from "./ServiceCard";
 export * from "./Statusbar";
 export * from "./TopMenu";

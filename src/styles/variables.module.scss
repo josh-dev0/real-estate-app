@@ -32,6 +32,7 @@ $theme-light-bg-secondary-light: #55708f;
 $theme-light-bg-secondary-1: #f5f5f5;
 $theme-light-bg-secondary-2: #5784b8; // footer submit button
 $theme-light-bg-secondary-3: #7899BF; // background color of filter switch.
+$theme-light-bg-secondary-4: #979797;
 $theme-light-bg-focused: #bdd1e8;
 
 :export {
@@ -59,5 +60,6 @@ $theme-light-bg-focused: #bdd1e8;
   lightBgSecondary1: $theme-light-bg-secondary-1;
   lightBgSecondary2: $theme-light-bg-secondary-2;
   lightBgSecondary3: $theme-light-bg-secondary-3;
+  lightBgSecondary4: $theme-light-bg-secondary-4;
   lightBgFocused: $theme-light-bg-focused;
 }
