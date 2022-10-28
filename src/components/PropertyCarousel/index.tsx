@@ -24,7 +24,7 @@ export const PropertyCarousel: React.FC<PropertyCarouselProps> = ({
   const [numInSlide, setNumInSlide] = useState(4);
   const numOfSlides = useMemo(() => Math.ceil(properties.length / numInSlide), [properties.length, numInSlide]);
 
-  const handleOnPrev = useCallback(() => setSlide(Math.max(slide - 1, 0)), [slide, carouselRef]);
+  const handleOnPrev = useCallback(() => setSlide(Math.max(slide - 1, 0)), [slide]);
   const handleOnNext = () => setSlide(Math.min(slide + 1, numOfSlides - 1))
 
   useEffect(() => {
