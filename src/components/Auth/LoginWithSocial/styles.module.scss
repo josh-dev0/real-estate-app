@@ -1,0 +1,14 @@
+.button {
+  @apply w-full flex items-center py-3 text-bg-secondary-light text-lg leading-2xl;
+  height: unset !important;
+
+  &:not(:first-child) {
+    margin-top: 2.25rem;
+  }
+
+  svg {
+    /* color: theme("colors.bg.secondary.light"); */
+    width: 2rem;
+    height: 2rem;
+  }
+}
