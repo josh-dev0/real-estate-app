@@ -38,6 +38,7 @@ import {
 import styles from '@app/styles/pages/Home.module.scss';
 
 const Home: NextPage = () => {
+  const [dealType, setDealType] = useState('');
   const [propertiesAroundMe, setPropertiesAroundMe] = useState<PropertyCardProps[]>([]);
   const [matchedProperties, setMatchedProperties] = useState<PropertyCardProps[]>([]);
   const [recentlyViewedProperties, setRecentlyViewedProperties] = useState<PropertyCardProps[]>([]);
@@ -78,7 +79,12 @@ const Home: NextPage = () => {
           locale="EN/EN"
         />
         <section className={classNames("min-h-[11.25rem]", styles.topImgContainer)}>
-          <HCenter><DealType className="mt-[7.125rem] mb-3" /></HCenter>
+          <HCenter>
+            <DealType className="mt-[7.125rem] mb-3"
+              value={dealType}
+              onChange={e => setDealType(e.target.value)}
+            />
+          </HCenter>
           <HCenter><Searchbar /></HCenter>
         </section>
 
