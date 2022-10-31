@@ -41,8 +41,8 @@ export const CozziCarousel: React.FC<CozziCarouselProps> = ({
   if (isSSR) return null;
 
   return (
-    <div className={classNames("w-full", className)}>
-      <div className="flex items-center justify-between mb-3">
+    <div className={classNames(styles.container, className)}>
+      <div className="flex items-center justify-between px-2">
         <label className="text-base leading-2xl text-secondary-1 font-medium">{label}</label>
         <div className="flex items-center gap-[0.875rem]">
           <LeftOutlined
@@ -71,7 +71,7 @@ export const CozziCarousel: React.FC<CozziCarouselProps> = ({
           new Array(numOfSlides).fill(null).map((_, slideIndex) =>
             <div
               key={slideIndex}
-              className="flex gap-[1rem]"
+              className="flex gap-[1rem] px-2 pb-4 pt-3"
             >
               {new Array(Math.min(numInSlide, items.length - numInSlide * slideIndex)).fill(null).map((_, itemIndexInSlide) =>
                 withExtraClass(items[slideIndex * numInSlide + itemIndexInSlide], `w-1/${numInSlide}`, { key: `${slideIndex}-${itemIndexInSlide}` })
