@@ -29,6 +29,7 @@ $theme-light-fg-icon-2: rgba(0, 0, 0, 0.25);
 $theme-light-bg-primary: #ffffff;
 $theme-light-bg-secondary: #365272;
 $theme-light-bg-secondary-light: #55708f;
+$theme-light-bg-secondary-dark: #132C4A; // auth title color
 $theme-light-bg-secondary-1: #f5f5f5;
 $theme-light-bg-secondary-2: #5784b8; // footer submit button
 $theme-light-bg-secondary-3: #7899BF; // background color of filter switch.
@@ -57,6 +58,7 @@ $theme-light-bg-focused: #bdd1e8;
   lightBgPrimary: $theme-light-bg-primary;
   lightBgSecondary: $theme-light-bg-secondary;
   lightBgSecondaryLight: $theme-light-bg-secondary-light;
+  lightBgSecondaryDark: $theme-light-bg-secondary-dark;
   lightBgSecondary1: $theme-light-bg-secondary-1;
   lightBgSecondary2: $theme-light-bg-secondary-2;
   lightBgSecondary3: $theme-light-bg-secondary-3;

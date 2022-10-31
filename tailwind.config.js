@@ -4,6 +4,7 @@ const backgroundColor = {
   primary: "var(--theme-color-bg-primary)",
   secondary: {
     DEFAULT: "var(--theme-color-bg-secondary)",
+    dark: "var(--theme-color-bg-secondary-dark)",
     light: "var(--theme-color-bg-secondary-light)",
     focused: "var(--theme-color-bg-focused)",
     1: "var(--theme-color-bg-secondary-1)",

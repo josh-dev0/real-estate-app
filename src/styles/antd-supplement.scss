@@ -141,3 +141,18 @@ div.ant-select[class*="h-"] {
     font-weight: normal;
   }
 }
+
+/**
+* @for: /components/Auth/Header
+* @description: center the subtitle
+*/
+.custom-auth-header {
+  .ant-page-header-heading-left {
+    width: 100%;
+
+    .ant-page-header-heading-sub-title {
+      display: block;
+      flex-grow: 1;
+    }
+  }
+}
