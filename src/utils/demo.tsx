@@ -3,6 +3,7 @@ import type {
   ProfessionalCardProps,
   RewardCardProps,
   ServiceCardProps,
+  SimpleCardProps,
 } from "@app/components";
 import {
   FormOutlined,
@@ -151,5 +152,207 @@ export const getServices = (): ServiceCardProps[] => [
     title: 'Removal',
     summary: 'Insuring your house .. another temporary text',
     link: '',
+  },
+]
+
+export const getPropertyTypes = (): SimpleCardProps[] => {
+  return [
+    {
+      title: 'Flats',
+      image: 'images/demo/property-types/flats.png',
+    },
+    {
+      title: 'Semi-Detached',
+      image: 'images/demo/property-types/semi-detached.png',
+    },
+    {
+      title: 'Detached',
+      image: 'images/demo/property-types/detached.png',
+    },
+    {
+      title: 'Terraced',
+      image: 'images/demo/property-types/terraced.png',
+    },
+    {
+      title: 'Building',
+      image: 'images/demo/property-types/building.png',
+    },
+    {
+      title: 'Studios',
+      image: 'images/demo/property-types/studios.png',
+    },
+    {
+      title: 'Offices',
+      image: 'images/demo/property-types/offices.png',
+    },
+    {
+      title: 'Farm Land',
+      image: 'images/demo/property-types/farm-land.png',
+    },
+    {
+      title: 'Land',
+      image: 'images/demo/property-types/land.png',
+    },
+    {
+      title: 'Parking & Garages',
+      image: 'images/demo/property-types/parking-garages.png',
+    },
+    {
+      title: 'Warehouse',
+      image: 'images/demo/property-types/warehouse.png',
+    },
+    {
+      title: 'Commercial Premisses',
+      image: 'images/demo/property-types/commercial-premisses.png',
+    },
+    {
+      title: 'Bungalow',
+      image: 'images/demo/property-types/bungalow.png',
+    },
+    {
+      title: 'Loft',
+      image: 'images/demo/property-types/loft.png',
+    },
+    {
+      title: 'Penthouse',
+      image: 'images/demo/property-types/penthouse.png',
+    },
+    {
+      title: 'Chalet',
+      image: 'images/demo/property-types/chalet.png',
+    },
+  ];
+}
+
+export const getDreamProperties = (): SimpleCardProps[] => {
+  return [
+    {
+      title: 'Greek Revival',
+      image: 'images/demo/dream-properties/greek-revival.png',
+    },
+    {
+      title: 'Victorian Houses',
+      image: 'images/demo/dream-properties/victorian-houses.png',
+    },
+    {
+      title: 'Gothic Revival',
+      image: 'images/demo/dream-properties/gothic-revival.png',
+    },
+    {
+      title: 'Mansion',
+      image: 'images/demo/dream-properties/mansion.png',
+    },
+    {
+      title: 'French Country',
+      image: 'images/demo/dream-properties/french-country.png',
+    },
+  ];
+}
+
+export const getRegions = (): SimpleCardProps[] => {
+  return [
+    {
+      title: 'Esch-Sur-Alzette',
+      image: 'images/demo/regions/esch-sur-alzette.png',
+    },
+    {
+      title: 'Capellen',
+      image: 'images/demo/regions/capellen.png',
+    },
+    {
+      title: 'Grevenmacher',
+      image: 'images/demo/regions/grevenmacher.png',
+    },
+    {
+      title: 'Echternach',
+      image: 'images/demo/regions/echternach.png',
+    },
+    {
+      title: 'Capellen',
+      image: 'images/demo/regions/capellen.png',
+    },
+    {
+      title: 'Grevenmacher',
+      image: 'images/demo/regions/grevenmacher.png',
+    },
+  ];
+}
+
+export const getFeaturedServices = (): RewardCardProps[] => {
+  return [
+    {
+      title: 'Estimation',
+      summary: 'Subscribe and get notified on  great deals and events',
+      link: '#',
+      isFlex: true,
+      icon: <FormOutlined />,
+    },
+    {
+      title: 'Commuting Tool',
+      summary: 'Get discounts, promo codes ...',
+      link: '#',
+      isFlex: true,
+      icon: <EuroCircleOutlined />,
+    },
+    {
+      title: 'Mached Agnecies',
+      summary: 'Earn while networking ...',
+      link: '#',
+      isFlex: true,
+      icon: <ClusterOutlined />,
+    },
+    {
+      title: 'Publishing your ad',
+      summary: 'Climb the ladder by earning points ...',
+      link: '#',
+      isFlex: true,
+      icon: <CrownOutlined />,
+    },
+  ];
+}
+
+export const getLifeStyles = (): SimpleCardProps[] => [
+  {
+    title: 'Urban Area',
+    image: 'images/demo/lifestyles/urban-area.png',
+  },
+  {
+    title: 'Country Side',
+    image: 'images/demo/lifestyles/country-side.png',
+  },
+  {
+    title: 'Sea',
+    image: 'images/demo/lifestyles/sea.png',
+  },
+  {
+    title: 'Mountain',
+    image: 'images/demo/lifestyles/mountain.png',
+  },
+]
+
+export const getCountries = (): SimpleCardProps[] => [
+  {
+    title: 'France',
+    image: 'images/demo/countries/france.png',
+  },
+  {
+    title: 'Luxemburg',
+    image: 'images/demo/countries/luxemburg.png',
+  },
+  {
+    title: 'Belgium',
+    image: 'images/demo/countries/belgium.png',
+  },
+  {
+    title: 'Germany',
+    image: 'images/demo/countries/germany.png',
+  },
+  {
+    title: 'Luxemburg',
+    image: 'images/demo/countries/luxemburg.png',
+  },
+  {
+    title: 'Belgium',
+    image: 'images/demo/countries/belgium.png',
   },
 ]

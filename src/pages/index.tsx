@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { Col, Row } from 'antd';
 import {
   CozziCarousel,
   DealType,
@@ -11,6 +12,7 @@ import {
   RewardCard,
   Searchbar,
   ServiceCard,
+  SimpleCard,
   TopMenu,
 } from '@app/components';
 import type {
@@ -18,11 +20,18 @@ import type {
   PropertyCardProps,
   RewardCardProps,
   ServiceCardProps,
+  SimpleCardProps,
 } from '@app/components';
 import { HCenter } from '@app/containers/HCenter';
 import {
   generateProperties,
+  getCountries,
+  getDreamProperties,
   getFeaturedProfessionals,
+  getFeaturedServices,
+  getLifeStyles,
+  getPropertyTypes,
+  getRegions,
   getRewardCardData,
   getServices,
 } from '@app/utils/demo';
@@ -35,6 +44,12 @@ const Home: NextPage = () => {
   const [rewardCardData, setRewardCardData] = useState<RewardCardProps[]>([]);
   const [professionalCards, setProfessionalCards] = useState<ProfessionalCardProps[]>([]);
   const [services, setServices] = useState<ServiceCardProps[]>([]);
+  const [propertyTypes, setPropertyTypes] = useState<SimpleCardProps[]>([]);
+  const [dreamProperties, setDreamProperties] = useState<SimpleCardProps[]>([]);
+  const [regions, setRegions] = useState<SimpleCardProps[]>([]);
+  const [featuredServices, setFeaturedServices] = useState<RewardCardProps[]>([]);
+  const [lifeStyles, setLifeStyles] = useState<SimpleCardProps[]>([]);
+  const [countries, setCountries] = useState<SimpleCardProps[]>([]);
 
   useEffect(() => {
     setPropertiesAroundMe(generateProperties(10));
@@ -43,6 +58,12 @@ const Home: NextPage = () => {
     setRewardCardData(getRewardCardData());
     setProfessionalCards(getFeaturedProfessionals());
     setServices(getServices());
+    setPropertyTypes(getPropertyTypes());
+    setDreamProperties(getDreamProperties());
+    setRegions(getRegions());
+    setFeaturedServices(getFeaturedServices());
+    setLifeStyles(getLifeStyles());
+    setCountries(getCountries());
   }, [])
 
   return (
@@ -86,7 +107,7 @@ const Home: NextPage = () => {
             <p className="font-medium text-xl leading-2xl text-secondary-1">Featured Services</p>
             <div className="flex justify-between mt-[4.25rem] gap-[2rem]">
               {
-                rewardCardData.map((data, i) =>
+                featuredServices.map((data, i) =>
                   <RewardCard
                     key={i}
                     className="w-1/4"
@@ -101,9 +122,84 @@ const Home: NextPage = () => {
             label="Associate Services"
             items={services.map(props => <ServiceCard {...props} />)}
           />
+          <div className="mt-[9.75rem]">
+            <p className="font-medium text-xl leading-2xl text-secondary-1">Offers</p>
+            <p className="text-sm leading-[22px] text-primary">Deals, promotions, special offers, gifts</p>
+            <img
+              className="mt-[1.313rem]"
+              src="images/demo/home-offers.png"
+              alt="Offers"
+            />
+          </div>
+
+          <div className="mt-[9.313rem]">
+            <p className="font-medium text-xl leading-2xl text-secondary-1 mb-[2.625rem]">Browse by Property Type</p>
+            <Row gutter={[41, 72]}>
+              {propertyTypes.map((propertyType) =>
+                <Col span={6}>
+                  <SimpleCard {...propertyType} />
+                </Col>
+              )}
+            </Row>
+          </div>
+
+          <div className="mt-[8.5rem]">
+            <p className="font-medimum text-xl leading-2xl text-secondary-1">Find your dream property</p>
+            <Row
+              className="mt-[2.625rem]"
+              gutter={[41, 72]}
+            >
+              {
+                dreamProperties.map(dreamProperty =>
+                  <Col span={6}>
+                    <SimpleCard {...dreamProperty} />
+                  </Col>
+                )
+              }
+            </Row>
+          </div>
+          <CozziCarousel
+            className="mt-[8.25rem]"
+            label="Browse by Region"
+            items={regions.map(props => <SimpleCard {...props} />)}
+          />
+          <div className="mt-[6.5rem]">
+            <p className="font-medium text-xl leading-2xl text-secondary-1">Rewards</p>
+            <div className="flex justify-between mt-[4.25rem] gap-[2rem]">
+              {
+                rewardCardData.map((data, i) =>
+                  <RewardCard
+                    key={i}
+                    className="w-1/4"
+                    {...data}
+                  />
+                )
+              }
+            </div>
+          </div>
+          <div className="mt-[5.938rem]">
+            <p className="font-medimum text-xl leading-2xl text-secondary-1">Browse by lifestyle</p>
+            <Row
+              className="mt-6"
+              gutter={[41, 72]}
+            >
+              {
+                lifeStyles.map(dreamProperty =>
+                  <Col span={6}>
+                    <SimpleCard {...dreamProperty} />
+                  </Col>
+                )
+              }
+            </Row>
+          </div>
+          <CozziCarousel
+            className="mt-[5.875rem]"
+            label="Browse by Country"
+            items={countries.map(props => <SimpleCard {...props} />)}
+          />
         </section>
       </main>
-      <Footer />
+      <Footer className="mt-[6.625rem]" />
     </>
   )
 }
