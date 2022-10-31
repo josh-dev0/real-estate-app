@@ -41,7 +41,10 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({
           <p className="text-center text-xl leading-2xl text-primary mb-8 mt-6 max-w-[36.625rem] mx-auto">{subtitle}</p>
         }
         <section className="flex items-center">
-          <div className={classNames("flex justify-between w-full max-w-[64rem] px-4 mx-auto gap-[2.5rem]")}>
+          <div className={classNames("flex w-full max-w-[64rem] px-4 mx-auto gap-[2.5rem]", {
+            "justify-between": columns === 2,
+            "justify-center": columns === 1,
+          })}>
             {
               columns === 2 ? withExtraClass(left as JSX.Element, 'w-1/2') : children
             }
