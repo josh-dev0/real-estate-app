@@ -74,7 +74,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Home page of Cozzinest" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">
+      <main>
         <TopMenu
           locale="EN/EN"
         />
