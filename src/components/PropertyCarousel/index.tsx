@@ -12,6 +12,9 @@ type PropertyCarouselProps = {
   properties: PropertyCardProps[],
 } & Omit<CarouselProps, 'infinite' | 'dots'>;
 
+/**
+ * @deprecated use 'CozziCarousel' instead
+ */
 export const PropertyCarousel: React.FC<PropertyCarouselProps> = ({
   className,
   label,

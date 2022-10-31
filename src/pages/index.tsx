@@ -8,7 +8,7 @@ import {
   DealType,
   Footer,
   ProfessionalCard,
-  PropertyCarousel,
+  PropertyCard,
   RewardCard,
   Searchbar,
   ServiceCard,
@@ -83,20 +83,20 @@ const Home: NextPage = () => {
         </section>
 
         <section className="max-w-[66.125rem] mx-auto">
-          <PropertyCarousel
+          <CozziCarousel
             className="mt-[5.5rem]"
             label="Properties around me"
-            properties={propertiesAroundMe}
+            items={propertiesAroundMe.map(props => <PropertyCard {...props} />)}
           />
-          <PropertyCarousel
+          <CozziCarousel
             className="mt-[7.5rem]"
             label="Matched Properties"
-            properties={matchedProperties}
+            items={matchedProperties.map(props => <PropertyCard {...props} />)}
           />
-          <PropertyCarousel
+          <CozziCarousel
             className="mt-[7.5rem]"
             label="Properties recently viewed"
-            properties={recentlyViewedProperties}
+            items={recentlyViewedProperties.map(props => <PropertyCard {...props} />)}
           />
           <CozziCarousel
             className="mt-[10rem]"
