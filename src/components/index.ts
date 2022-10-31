@@ -10,5 +10,6 @@ export * from "./PropertyCarousel";
 export * from "./RewardCard";
 export * from "./Searchbar";
 export * from "./ServiceCard";
+export * from "./SimpleCard";
 export * from "./Statusbar";
 export * from "./TopMenu";
