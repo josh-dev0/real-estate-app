@@ -1,5 +1,5 @@
 import React from 'react';
-import type { RadioChangeEvent, RadioProps } from 'antd';
+import type { RadioProps } from 'antd';
 import { Radio } from 'antd';
 import classNames from 'classnames';
 import styles from './styles.module.scss';
