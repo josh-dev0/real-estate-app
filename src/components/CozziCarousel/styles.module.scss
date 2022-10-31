@@ -1,5 +1,5 @@
 .container {
-  @apply -mx-2;
+  @apply relative -mx-2;
   width: calc(100% + 1rem) !important;
   max-width: calc(100% + 1rem) !important;
 }
@@ -21,4 +21,24 @@
   @apply bg-secondary-1 text-icon-2;
   border: 1px solid theme("colors.fg.secondary.3");
   box-shadow: 0px 2px 0px theme("colors.fg.shadow.1");
+}
+
+.arrowSide {
+  @apply absolute border-solid rounded-full flex items-center justify-center text-2xl;
+  width: 3.75rem;
+  height: 3.75rem;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.arrowSideLeft {
+  left: 0;
+  top: 50%;
+  transform: translate(calc(-50% + 0.5rem), -50%);
+}
+
+.arrowSideRight {
+  right: 0;
+  top: 50%;
+  transform: translate(calc(50% - 0.5rem), -50%);
 }

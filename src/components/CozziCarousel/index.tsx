@@ -11,12 +11,14 @@ import styles from './styles.module.scss';
 type CozziCarouselProps = {
   label: string;
   items: JSX.Element[];
+  handlePosition?: 'top' | 'side'
 } & Omit<CarouselProps, 'infinite' | 'dots'>;
 
 export const CozziCarousel: React.FC<CozziCarouselProps> = ({
   className,
   label,
   items,
+  handlePosition = 'side',
   ...carouselProps
 }) => {
   const carouselRef = useRef<CarouselRef>(null);
@@ -42,44 +44,69 @@ export const CozziCarousel: React.FC<CozziCarouselProps> = ({
 
   return (
     <div className={classNames(styles.container, className)}>
-      <div className="flex items-center justify-between px-2">
+      <div className={classNames("flex items-center px-2", {
+        "justify-between": handlePosition === 'top',
+      })}>
         <label className="text-base leading-2xl text-secondary-1 font-medium">{label}</label>
-        <div className="flex items-center gap-[0.875rem]">
-          <LeftOutlined
-            className={classNames(styles.arrow, {
+        {
+          handlePosition === 'top' && <div className="flex items-center gap-[0.875rem]">
+            <LeftOutlined
+              className={classNames(styles.arrow, {
+                [styles.arrowEnabled]: slide > 0,
+                [styles.arrowDisabled]: slide === 0,
+              })}
+              onClick={handleOnPrev}
+            />
+            <RightOutlined
+              className={classNames(styles.arrow, {
+                [styles.arrowEnabled]: slide < numOfSlides - 1,
+                [styles.arrowDisabled]: slide === numOfSlides - 1,
+              })}
+              onClick={handleOnNext}
+            />
+          </div>
+        }
+      </div>
+      <div className="relative">
+        {/* Side Arrow Handles */}
+        {
+          handlePosition === 'side' && <LeftOutlined
+            className={classNames(styles.arrowSide, styles.arrowSideLeft, {
               [styles.arrowEnabled]: slide > 0,
               [styles.arrowDisabled]: slide === 0,
             })}
             onClick={handleOnPrev}
           />
-          <RightOutlined
-            className={classNames(styles.arrow, {
+        }
+        {
+          handlePosition === 'side' && <RightOutlined
+            className={classNames(styles.arrowSide, styles.arrowSideRight, {
               [styles.arrowEnabled]: slide < numOfSlides - 1,
               [styles.arrowDisabled]: slide === numOfSlides - 1,
             })}
             onClick={handleOnNext}
           />
-        </div>
-      </div>
-      <Carousel
-        ref={carouselRef}
-        dots={false}
-        infinite={false}
-        {...carouselProps}
-      >
-        {
-          new Array(numOfSlides).fill(null).map((_, slideIndex) =>
-            <div
-              key={slideIndex}
-              className="flex gap-[1rem] px-2 pb-4 pt-3"
-            >
-              {new Array(Math.min(numInSlide, items.length - numInSlide * slideIndex)).fill(null).map((_, itemIndexInSlide) =>
-                withExtraClass(items[slideIndex * numInSlide + itemIndexInSlide], `w-1/${numInSlide}`, { key: `${slideIndex}-${itemIndexInSlide}` })
-              )}
-            </div>
-          )
         }
-      </Carousel >
+        <Carousel
+          ref={carouselRef}
+          dots={false}
+          infinite={false}
+          {...carouselProps}
+        >
+          {
+            new Array(numOfSlides).fill(null).map((_, slideIndex) =>
+              <div
+                key={slideIndex}
+                className="flex gap-[1rem] px-2 pb-4 pt-3"
+              >
+                {new Array(Math.min(numInSlide, items.length - numInSlide * slideIndex)).fill(null).map((_, itemIndexInSlide) =>
+                  withExtraClass(items[slideIndex * numInSlide + itemIndexInSlide], `w-1/${numInSlide}`, { key: `${slideIndex}-${itemIndexInSlide}` })
+                )}
+              </div>
+            )
+          }
+        </Carousel >
+      </div>
     </div >
   );
 }
