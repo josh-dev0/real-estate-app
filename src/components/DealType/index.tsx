@@ -2,13 +2,14 @@ import React from 'react';
 import type { RadioChangeEvent, RadioProps } from 'antd';
 import { Radio } from 'antd';
 import classNames from 'classnames';
+import styles from './styles.module.scss';
 
 type DealItem = {
   value: string;
   label: string;
 }
 
-type DealTypeProps = {
+export type DealTypeProps = {
   options?: DealItem[];
 } & RadioProps;
 
@@ -20,6 +21,7 @@ const options = [
 
 export const DealType: React.FC<DealTypeProps> = ({
   className,
+  onChange,
   ...props
 }) => {
   return (
@@ -31,10 +33,11 @@ export const DealType: React.FC<DealTypeProps> = ({
           options.map(option =>
             <Radio.Button
               key={option.value}
-              className={classNames("text-black bg-[#f8f8f8] border-[#575656] before:bg-black font-medium", {
+              className={classNames(styles.radioButton, "text-black bg-[#f8f8f8] font-medium", {
                 "bg-secondary-focused": option.value === props.value,
               })}
               value={option.value}
+              onChange={onChange}
             >
               {option.label}
             </Radio.Button>
