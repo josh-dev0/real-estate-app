@@ -11,6 +11,7 @@ import {
   ClusterOutlined,
   CrownOutlined,
 } from '@ant-design/icons';
+import { ICountry } from '@app/types';
 
 export const generateProperties = (n: number = 16) =>
   new Array(n).fill(null).map((_, i) => ({
@@ -159,67 +160,67 @@ export const getPropertyTypes = (): SimpleCardProps[] => {
   return [
     {
       title: 'Flats',
-      image: 'images/demo/property-types/flats.png',
+      image: '/images/demo/property-types/flats.png',
     },
     {
       title: 'Semi-Detached',
-      image: 'images/demo/property-types/semi-detached.png',
+      image: '/images/demo/property-types/semi-detached.png',
     },
     {
       title: 'Detached',
-      image: 'images/demo/property-types/detached.png',
+      image: '/images/demo/property-types/detached.png',
     },
     {
       title: 'Terraced',
-      image: 'images/demo/property-types/terraced.png',
+      image: '/images/demo/property-types/terraced.png',
     },
     {
       title: 'Building',
-      image: 'images/demo/property-types/building.png',
+      image: '/images/demo/property-types/building.png',
     },
     {
       title: 'Studios',
-      image: 'images/demo/property-types/studios.png',
+      image: '/images/demo/property-types/studios.png',
     },
     {
       title: 'Offices',
-      image: 'images/demo/property-types/offices.png',
+      image: '/images/demo/property-types/offices.png',
     },
     {
       title: 'Farm Land',
-      image: 'images/demo/property-types/farm-land.png',
+      image: '/images/demo/property-types/farm-land.png',
     },
     {
       title: 'Land',
-      image: 'images/demo/property-types/land.png',
+      image: '/images/demo/property-types/land.png',
     },
     {
       title: 'Parking & Garages',
-      image: 'images/demo/property-types/parking-garages.png',
+      image: '/images/demo/property-types/parking-garages.png',
     },
     {
       title: 'Warehouse',
-      image: 'images/demo/property-types/warehouse.png',
+      image: '/images/demo/property-types/warehouse.png',
     },
     {
       title: 'Commercial Premisses',
-      image: 'images/demo/property-types/commercial-premisses.png',
+      image: '/images/demo/property-types/commercial-premisses.png',
     },
     {
       title: 'Bungalow',
-      image: 'images/demo/property-types/bungalow.png',
+      image: '/images/demo/property-types/bungalow.png',
     },
     {
       title: 'Loft',
-      image: 'images/demo/property-types/loft.png',
+      image: '/images/demo/property-types/loft.png',
     },
     {
       title: 'Penthouse',
-      image: 'images/demo/property-types/penthouse.png',
+      image: '/images/demo/property-types/penthouse.png',
     },
     {
       title: 'Chalet',
-      image: 'images/demo/property-types/chalet.png',
+      image: '/images/demo/property-types/chalet.png',
     },
   ];
 }
@@ -228,23 +229,23 @@ export const getDreamProperties = (): SimpleCardProps[] => {
   return [
     {
       title: 'Greek Revival',
-      image: 'images/demo/dream-properties/greek-revival.png',
+      image: '/images/demo/dream-properties/greek-revival.png',
     },
     {
       title: 'Victorian Houses',
-      image: 'images/demo/dream-properties/victorian-houses.png',
+      image: '/images/demo/dream-properties/victorian-houses.png',
     },
     {
       title: 'Gothic Revival',
-      image: 'images/demo/dream-properties/gothic-revival.png',
+      image: '/images/demo/dream-properties/gothic-revival.png',
     },
     {
       title: 'Mansion',
-      image: 'images/demo/dream-properties/mansion.png',
+      image: '/images/demo/dream-properties/mansion.png',
     },
     {
       title: 'French Country',
-      image: 'images/demo/dream-properties/french-country.png',
+      image: '/images/demo/dream-properties/french-country.png',
     },
   ];
 }
@@ -253,27 +254,27 @@ export const getRegions = (): SimpleCardProps[] => {
   return [
     {
       title: 'Esch-Sur-Alzette',
-      image: 'images/demo/regions/esch-sur-alzette.png',
+      image: '/images/demo/regions/esch-sur-alzette.png',
     },
     {
       title: 'Capellen',
-      image: 'images/demo/regions/capellen.png',
+      image: '/images/demo/regions/capellen.png',
     },
     {
       title: 'Grevenmacher',
-      image: 'images/demo/regions/grevenmacher.png',
+      image: '/images/demo/regions/grevenmacher.png',
     },
     {
       title: 'Echternach',
-      image: 'images/demo/regions/echternach.png',
+      image: '/images/demo/regions/echternach.png',
     },
     {
       title: 'Capellen',
-      image: 'images/demo/regions/capellen.png',
+      image: '/images/demo/regions/capellen.png',
     },
     {
       title: 'Grevenmacher',
-      image: 'images/demo/regions/grevenmacher.png',
+      image: '/images/demo/regions/grevenmacher.png',
     },
   ];
 }
@@ -314,45 +315,73 @@ export const getFeaturedServices = (): RewardCardProps[] => {
 export const getLifeStyles = (): SimpleCardProps[] => [
   {
     title: 'Urban Area',
-    image: 'images/demo/lifestyles/urban-area.png',
+    image: '/images/demo/lifestyles/urban-area.png',
   },
   {
     title: 'Country Side',
-    image: 'images/demo/lifestyles/country-side.png',
+    image: '/images/demo/lifestyles/country-side.png',
   },
   {
     title: 'Sea',
-    image: 'images/demo/lifestyles/sea.png',
+    image: '/images/demo/lifestyles/sea.png',
   },
   {
     title: 'Mountain',
-    image: 'images/demo/lifestyles/mountain.png',
+    image: '/images/demo/lifestyles/mountain.png',
   },
 ]
 
 export const getCountries = (): SimpleCardProps[] => [
   {
     title: 'France',
-    image: 'images/demo/countries/france.png',
+    image: '/images/demo/countries/france.png',
   },
   {
     title: 'Luxemburg',
-    image: 'images/demo/countries/luxemburg.png',
+    image: '/images/demo/countries/luxemburg.png',
   },
   {
     title: 'Belgium',
-    image: 'images/demo/countries/belgium.png',
+    image: '/images/demo/countries/belgium.png',
   },
   {
     title: 'Germany',
-    image: 'images/demo/countries/germany.png',
+    image: '/images/demo/countries/germany.png',
   },
   {
     title: 'Luxemburg',
-    image: 'images/demo/countries/luxemburg.png',
+    image: '/images/demo/countries/luxemburg.png',
   },
   {
     title: 'Belgium',
-    image: 'images/demo/countries/belgium.png',
+    image: '/images/demo/countries/belgium.png',
+  },
+]
+
+export const getCountryList = (): ICountry[] => [
+  {
+    name: 'United Kingdom',
+    code: '+44',
+    flag: '/images/flags/sh.png',
+  },
+  {
+    name: 'France',
+    code: '+33',
+    flag: '/images/flags/fr.png',
+  },
+  {
+    name: 'Germany',
+    code: '+49',
+    flag: '/images/flags/de.png',
+  },
+  {
+    name: 'Spain',
+    code: '+34',
+    flag: '/images/flags/es.png',
+  },
+  {
+    name: 'Portugal',
+    code: '+351',
+    flag: '/images/flags/pt.png',
   },
 ]

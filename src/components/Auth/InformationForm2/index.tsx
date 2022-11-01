@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { AutoComplete, Button, Form, Input, Select } from 'antd';
+import { Button, Form, Input, Select } from 'antd';
+import { CountrySelect } from './CountrySelect';
+import { ICountry } from '@app/types';
+import { getCountryList } from '@app/utils/demo';
 import styles from './styles.module.scss';
 
 const { Option } = Select;
-
-const layout = {
-  labelCol: { span: 6 },
-  wrapperCol: { span: 18 },
-};
 
 const validateMessages = {
   required: '${label} is required!',
@@ -28,6 +26,14 @@ export type InformationForm2Props = {
 export const InformationForm2: React.FC<InformationForm2Props> = ({
   className,
 }) => {
+  const [countries, setCountries] = useState<ICountry[]>([]);
+  const [country, setCountry] = useState('');
+
+  useEffect(() => {
+    const countryList = getCountryList();
+    setCountries(countryList);
+    setCountry(countryList[0].code);
+  }, []);
 
   return (
     <Form className={classNames(styles.container, className)}>
@@ -46,7 +52,6 @@ export const InformationForm2: React.FC<InformationForm2Props> = ({
         />
       </Form.Item>
       <Form.Item
-        // className="mt-11"
         name={['user', 'lastname']}
         rules={[{ required: true }]}
       >
@@ -55,16 +60,22 @@ export const InformationForm2: React.FC<InformationForm2Props> = ({
         />
       </Form.Item>
       <Form.Item
-        // className="mt-11"
         name={['user', 'phone']}
         rules={[{ required: true }]}
       >
-        <Input.Group compact>
-          <Select defaultValue="Sign Up" style={{ width: '30%' }}>
-            <Option value="Sign Up">UK</Option>
-            <Option value="Sign In">France</Option>
-          </Select>
-          <Input style={{ width: '70%' }} defaultValue="Xihu District, Hangzhou" />
+        <Input.Group
+          className="flex"
+          compact
+        >
+          <CountrySelect
+            className="min-w-[5.4rem]"
+            countries={countries}
+            value={country}
+            onChange={setCountry}
+          />
+          <Input
+            className="border-l-0"
+          />
         </Input.Group>
       </Form.Item>
       <Form.Item
@@ -104,8 +115,8 @@ export const InformationForm2: React.FC<InformationForm2Props> = ({
         rules={[{ required: true }]}
       >
         <Select
-          className="w-full"
-          defaultValue="lucy"
+          className="w-full items-center"
+          // defaultValue="lucy"
           // style={{ width: 120 }}
           loading={false}
         >

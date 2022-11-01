@@ -18,3 +18,9 @@ export type IRange = {
   min?: number;
   max?: number;
 };
+
+export type ICountry = {
+  name?: string;
+  code: string;
+  flag: string;
+};
