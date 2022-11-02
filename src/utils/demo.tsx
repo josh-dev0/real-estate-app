@@ -1,3 +1,4 @@
+import Router from "next/router";
 import { random } from "./index";
 import type {
   ProfessionalCardProps,
@@ -11,7 +12,8 @@ import {
   ClusterOutlined,
   CrownOutlined,
 } from '@ant-design/icons';
-import { ICountry } from '@app/types';
+import { ICountry, IdentityType } from '@app/types';
+import { notification } from './notification';
 
 export const generateProperties = (n: number = 16) =>
   new Array(n).fill(null).map((_, i) => ({
@@ -385,3 +387,17 @@ export const getCountryList = (): ICountry[] => [
     flag: '/images/flags/pt.png',
   },
 ]
+
+export const fakeLogin = (val: any, identityType: IdentityType) => {
+  console.log('submitting authentication...', val);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const result = Math.random() > 0.5;
+      if (!result)
+        notification.error({
+          description: <span>Either username or password is incorrect.<br /> Please try again!!</span>,
+        });
+      else Router.push(`/${identityType}/auth/information1`);
+    }, 500);
+  });
+}
