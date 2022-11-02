@@ -14,7 +14,7 @@ const errorResultTemplate: ValidateResult = {
 
 export const validatePassword = (password: string): ValidateResult => {
   if (!password)
-    return { ...errorResultTemplate, help: "Password is required" };
+    return { ...errorResultTemplate, help: "Password must not be empty!" };
   if (password.length < 8)
     return {
       ...errorResultTemplate,
@@ -58,7 +58,7 @@ export const validateUsername = async (
   username: string
 ): Promise<ValidateResult> => {
   if (!username)
-    return { ...errorResultTemplate, help: "Username is required!" };
+    return { ...errorResultTemplate, help: "Username must not be empty!" };
 
   return { ...successResult, hasFeedback: false };
 };
