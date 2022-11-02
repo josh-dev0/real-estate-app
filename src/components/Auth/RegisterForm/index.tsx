@@ -116,6 +116,8 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
         <NonFormItem className="mt-8">
           <Button
             className={styles.button}
+            type="primary"
+            htmlType="submit"
             disabled={!readyToFinish}
           >Create my account</Button>
         </NonFormItem>

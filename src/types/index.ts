@@ -31,6 +31,10 @@ export type LoginInput = {
   remember: boolean;
 };
 
+export type RegisterInput = {
+  newsletter: boolean;
+} & LoginInput;
+
 export type ValidateResult = {
   hasFeedback?: boolean;
   validateStatus: "warning" | "success" | "error" | "validating";

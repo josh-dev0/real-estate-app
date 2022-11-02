@@ -4,7 +4,7 @@ import { LoginForm } from './LoginForm';
 import { LoginWithSocial } from './LoginWithSocial';
 import { RegisterForm } from './RegisterForm';
 import { IDENTITY } from '@app/constants';
-import type { IdentityType, LoginInput } from '@app/types';
+import type { IdentityType, LoginInput, RegisterInput } from '@app/types';
 
 export type LoginProps = {
   role?: IdentityType;
@@ -12,6 +12,7 @@ export type LoginProps = {
   onLogin?: (val: LoginInput) => void;
   onGoogleLogin: () => void;
   onFacebookLogin: () => void;
+  onRegister?: (val: RegisterInput) => void;
 }
 
 export const Login: React.FC<LoginProps> = ({
@@ -19,6 +20,7 @@ export const Login: React.FC<LoginProps> = ({
   onLogin,
   onGoogleLogin,
   onFacebookLogin,
+  onRegister,
 }) => {
   return (
     <AuthLayout
@@ -35,7 +37,9 @@ export const Login: React.FC<LoginProps> = ({
           />
         </div>
       }
-      right={<RegisterForm />}
+      right={<RegisterForm
+        onFinish={onRegister}
+      />}
     />
   );
 }
