@@ -4,8 +4,13 @@ import {
   AuthLayout,
   ProfessionalInformationForm,
 } from '@app/components';
+import { fakeInformationNext } from '@app/utils/demo';
+import { IDENTITY } from '@app/constants';
 
 const AuthIndex: NextPage = () => {
+  const handleOnNext = (values: any) => {
+    fakeInformationNext(values, IDENTITY.PROFESSIONAL);
+  }
   return (
     <>
       <Head>
@@ -18,7 +23,9 @@ const AuthIndex: NextPage = () => {
         title="Your account has been created"
         subtitle="We just need a bit more information before we can get you started if that’s ok with you :-)"
       >
-        <ProfessionalInformationForm />
+        <ProfessionalInformationForm
+          onFinish={handleOnNext}
+        />
       </AuthLayout>
     </>
   );

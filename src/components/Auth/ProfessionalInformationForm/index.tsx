@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { Button, Checkbox, Form, Input, Select } from 'antd';
+import type { FormProps } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import styles from './styles.module.scss';
 
@@ -25,14 +26,17 @@ const serviceTypeOptions = [
     label: type,
   }))
 
-export type ProfessionalInformationFormProps = {
-
-} & React.HTMLAttributes<HTMLDivElement>
+export type ProfessionalInformationFormProps = Omit<FormProps, 'layout'>
 
 export const ProfessionalInformationForm: React.FC<ProfessionalInformationFormProps> = ({
   className,
+  onFinish,
+  ...otherProps
 }) => {
   const [companyType, setCompanyType] = useState('');
+  const checkAndFinish = (values: any) => {
+    onFinish!({ ...values, companyType })
+  }
 
   return (
     <div className={classNames(styles.container, className)}>
@@ -45,6 +49,8 @@ export const ProfessionalInformationForm: React.FC<ProfessionalInformationFormPr
       <Form
         className="px-10 mt-4 overflow-auto"
         layout="vertical"
+        onFinish={checkAndFinish}
+        {...otherProps}
       >
         <Form.Item
           label={<span className={styles.labelPrimary}>Name</span>}
@@ -57,7 +63,6 @@ export const ProfessionalInformationForm: React.FC<ProfessionalInformationFormPr
         <Form.Item
           className="mt-6"
           label={<span className={classNames(styles.labelPrimary, 'mt-2')}>Type of company</span>}
-          name="companyType"
         >
           <div className="mt-3">
             <Checkbox
@@ -83,7 +88,7 @@ export const ProfessionalInformationForm: React.FC<ProfessionalInformationFormPr
         >
           <Select
             className="w-full mt-2"
-            defaultValue="Architecture"
+            placeholder="Select from the list"
             options={serviceTypeOptions}
           />
         </Form.Item>
@@ -100,6 +105,8 @@ export const ProfessionalInformationForm: React.FC<ProfessionalInformationFormPr
 
         <Button
           className={styles.button}
+          type="primary"
+          htmlType="submit"
           block
         >
           next

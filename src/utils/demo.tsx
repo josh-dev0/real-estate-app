@@ -401,3 +401,8 @@ export const fakeLogin = (val: any, identityType: IdentityType) => {
     }, 500);
   });
 }
+
+export const fakeInformationNext = (val: any, identityType: IdentityType) => {
+  console.log(`${identityType}.information1`, val);
+  Router.push(`/${identityType}/auth/information2`);
+}
