@@ -7,18 +7,28 @@ import { FacebookOutlined, GoogleOutlined } from '@ant-design/icons';
 export type LoginWithSocialProps = {
   googleKey?: string;
   facebookKey?: string;
+  onGoogleLogin?: () => void;
+  onFacebookLogin?: () => void;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const LoginWithSocial: React.FC<LoginWithSocialProps> = ({
   className,
+  onGoogleLogin,
+  onFacebookLogin,
 }) => {
   return (
-    <div className={classNames('bg-primary px-12 pt-[3.5rem] pb-[2.5rem]', className)}>
-      <Button className={styles.button}>
+    <div className={classNames(styles.container, className)}>
+      <Button
+        className={styles.button}
+        onClick={onGoogleLogin}
+      >
         <GoogleOutlined />
         <p className="grow">Login with google</p>
       </Button>
-      <Button className={styles.button}>
+      <Button
+        className={styles.button}
+        onClick={onFacebookLogin}
+      >
         <FacebookOutlined />
         <p className="grow">Login with facebook</p>
       </Button>

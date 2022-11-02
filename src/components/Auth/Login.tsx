@@ -3,25 +3,36 @@ import { AuthLayout } from './Layout';
 import { LoginForm } from './LoginForm';
 import { LoginWithSocial } from './LoginWithSocial';
 import { RegisterForm } from './RegisterForm';
+import { IDENTITY } from '@app/constants';
+import type { IdentityType, LoginInput } from '@app/types';
 
 export type LoginProps = {
-  role?: 'individual' | 'professiona';
+  role?: IdentityType;
+  value?: LoginInput;
+  onLogin?: (val: LoginInput) => void;
+  onGoogleLogin: () => void;
+  onFacebookLogin: () => void;
 }
 
 export const Login: React.FC<LoginProps> = ({
-  role = 'individual',
+  role = IDENTITY.INDIVIDUAL,
+  onLogin,
+  onGoogleLogin,
+  onFacebookLogin,
 }) => {
-
   return (
     <AuthLayout
       columns={2}
       title="Hello there!"
-      // title="Your account has been created"
-      // subtitle="We just need a bit more information before we can get you started if that’s ok with you :-)"
       left={
         <div>
-          <LoginForm />
-          <LoginWithSocial className="mt-[2.813rem]" />
+          <LoginForm
+            onFinish={onLogin}
+          />
+          <LoginWithSocial className="mt-[2.813rem]"
+            onGoogleLogin={onGoogleLogin}
+            onFacebookLogin={onFacebookLogin}
+          />
         </div>
       }
       right={<RegisterForm />}
