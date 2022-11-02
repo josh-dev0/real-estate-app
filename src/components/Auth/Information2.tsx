@@ -1,9 +1,7 @@
 import React from 'react';
 import { AuthLayout } from './Layout';
-import { LoginForm } from './LoginForm';
-import { LoginWithSocial } from './LoginWithSocial';
-import { RegisterForm } from './RegisterForm';
 import { InformationForm2 } from './InformationForm2';
+
 
 export type Information2Props = {
   role?: 'individual' | 'professiona';

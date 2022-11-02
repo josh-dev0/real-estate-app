@@ -116,11 +116,9 @@ export const InformationForm2: React.FC<InformationForm2Props> = ({
       >
         <Select
           className="w-full items-center"
-          // defaultValue="lucy"
-          // style={{ width: 120 }}
           loading={false}
         >
-          <Option value="lucy">Lucy</Option>
+          {countries.map(country => <Option key={country.name} value={country.name}>{country.name}</Option>)}
         </Select>
       </Form.Item>
 
