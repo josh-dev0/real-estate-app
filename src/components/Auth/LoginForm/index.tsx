@@ -44,6 +44,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   }
 
   const handleOnUsernameInputBlur: React.FocusEventHandler<HTMLInputElement> = (e: any) => {
+    if (!e.target.value) {
+      return validateUsername(e.target.value).then(setUsernameValidated);
+    };
     setUsernameValidated({ validateStatus: 'validating', hasFeedback: true });
     validateUsernameOnServer(e.target.value).then(setUsernameValidated);
   }
