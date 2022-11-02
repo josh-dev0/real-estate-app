@@ -24,3 +24,15 @@ export type ICountry = {
   code: string;
   flag: string;
 };
+
+export type LoginInput = {
+  username: string;
+  password: string;
+  remember: boolean;
+};
+
+export type ValidateResult = {
+  hasFeedback?: boolean;
+  validateStatus: "warning" | "success" | "error" | "validating";
+  help?: string;
+};
