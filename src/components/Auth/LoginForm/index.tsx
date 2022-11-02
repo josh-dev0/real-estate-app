@@ -69,6 +69,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       <Form.Item
         name="username"
         label="Username"
+        rules={[{ required: true }]}
         {...usernameValidated}
       >
         <Input
@@ -82,6 +83,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         className="mb-[5px]"
         name="password"
         label="Password"
+        rules={[{ required: true }]}
         {...passwordValidated}
       >
         <Input.Password
