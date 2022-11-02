@@ -1,10 +1,9 @@
 import React from 'react';
 import Link from 'next/link'
-import { Button, Checkbox, Col, Form, Input, InputNumber, Row, Typography } from 'antd';
+import classNames from 'classnames';
+import { Button, Checkbox, Form, Input } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import styles from './styles.module.scss';
-
-const { Text } = Typography;
 
 const layout = {
   labelCol: { span: 6 },
@@ -35,46 +34,53 @@ export const LoginForm: React.FC<LoginFormProps> = ({
 
   return (
     <Form
-      className="bg-primary px-12 py-10"
+      className={classNames(styles.form, className)}
       {...layout}
       name="nest-messages"
       onFinish={onFinish}
       validateMessages={validateMessages}
     >
-      <p className="text-center mb-[6.25rem]">Already a customer?</p>
+      <p className="leading-2xl text-lg text-secondary-dark text-center mb-[5.25rem]">Already a customer?</p>
       <Form.Item name={['user', 'name']} label="Username" rules={[{ required: true }]}>
-        <Input />
+        <Input
+          className="text-sm leading-[22px]"
+          placeholder="Enter username or email"
+        />
       </Form.Item>
-      <Form.Item name={['user', 'email']} label="Password" rules={[{ type: 'email', required: true }]}>
+      <Form.Item
+        className="mb-[5px]"
+        name={['user', 'email']}
+        label="Password"
+        rules={[{ type: 'email', required: true }]}
+      >
         <Input.Password
           iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
         />
       </Form.Item>
-      <Row>
-        <Col span={layout.labelCol.span}></Col>
-        <Col span={layout.wrapperCol.span}>
-          <Link
-            className="text-icon-1 font-sm leading-[22px]"
-            href="/forgot-password">
-            Forgot password?
-          </Link>
-        </Col>
-      </Row>
-      <Row className="mt-4">
-        <Col offset={layout.labelCol.span} span={layout.wrapperCol.span}>
-          <Checkbox className="text-sm leading-[22px] text-icon-1">Remember me</Checkbox>
-        </Col>
-      </Row>
-      <Row className="mt-6">
-        <Col offset={layout.labelCol.span} span={layout.wrapperCol.span}>
-          <Button
-            className={styles.button}
-            type="primary"
-          >
-            Login
-          </Button>
-        </Col>
-      </Row>
+      <Form.Item
+        className="mb-[5px]"
+        wrapperCol={{ offset: layout.labelCol.span, span: layout.wrapperCol.span }}>
+        <Link href="/forgot-password">
+          <span className="text-xs leading-[22px] underline text-primary">Forgot password?</span>
+        </Link>
+      </Form.Item>
+      <Form.Item
+        className="mb-6"
+        wrapperCol={{ offset: layout.labelCol.span, span: layout.wrapperCol.span }}
+      >
+        <Checkbox className="text-sm leading-[22px] text-icon-1">Remember me</Checkbox>
+      </Form.Item>
+      <Form.Item
+        wrapperCol={{ offset: layout.labelCol.span, span: layout.wrapperCol.span }}
+      >
+        <Button
+          className={styles.button}
+          type="primary"
+          htmlType="submit"
+        >
+          Login
+        </Button>
+      </Form.Item>
     </Form>
   );
 }
