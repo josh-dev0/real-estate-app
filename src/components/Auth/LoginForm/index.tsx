@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import Link from 'next/link'
 import classNames from 'classnames';
 import { Button, Checkbox, Form, Input } from 'antd';
@@ -17,20 +17,6 @@ const layout = {
   wrapperCol: { span: 18 },
 };
 
-const validateMessages = {
-  required: '${label} is required!',
-  types: {
-    number: '${label} is not a valid number!',
-  },
-  string: {
-    min: "'${label}' must be at leat ${min} characters",
-    max: "'${label}' cannot be longer than ${max} characters",
-  },
-  number: {
-    range: '${label} must be between ${min} and ${max}',
-  },
-};
-
 export type LoginFormProps = Omit<FormProps, 'layout'>
 
 export const LoginForm: React.FC<LoginFormProps> = ({
@@ -41,6 +27,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   const usernameInputRef = useRef<InputRef>(null);
   const [passwordValidated, setPasswordValidated] = useState<ValidateResult>();
   const [usernameValidated, setUsernameValidated] = useState<ValidateResult>();
+  const readyToFinish = useMemo(() =>
+    passwordValidated?.validateStatus === 'success' &&
+    usernameValidated?.validateStatus === 'success' &&
+    usernameValidated?.hasFeedback,
+    [usernameValidated, passwordValidated]
+  );
 
   const handleOnValuesChange = (changedValues: any) => {
     if (changedValues.hasOwnProperty('password')) {
@@ -56,13 +48,17 @@ export const LoginForm: React.FC<LoginFormProps> = ({
     validateUsernameOnServer(e.target.value).then(setUsernameValidated);
   }
 
+  const checkValidateAndFinish = useCallback((values: any) => {
+    if (readyToFinish) {
+      onFinish!(values);
+    }
+  }, [readyToFinish, onFinish])
+
   return (
     <Form
       className={classNames(styles.form, className)}
       {...layout}
-      name="nest-messages"
-      onFinish={onFinish}
-      validateMessages={validateMessages}
+      onFinish={checkValidateAndFinish}
       onValuesChange={handleOnValuesChange}
       {...otherProps}
     >
@@ -70,7 +66,6 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       <Form.Item
         name="username"
         label="Username"
-        // rules={[{ required: true, min: 8 }]}
         {...usernameValidated}
       >
         <Input
@@ -105,16 +100,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       >
         <Checkbox className="text-sm leading-[22px] text-icon-1">Remember me</Checkbox>
       </Form.Item>
-      <Form.Item
-        wrapperCol={{ offset: layout.labelCol.span, span: layout.wrapperCol.span }}
-      >
+      <Form.Item wrapperCol={{ offset: layout.labelCol.span, span: layout.wrapperCol.span }}>
         <Button
           className={styles.button}
           type="primary"
           htmlType="submit"
-        >
-          Login
-        </Button>
+          disabled={!readyToFinish}
+        >Login</Button>
       </Form.Item>
     </Form>
   );
