@@ -156,3 +156,21 @@ div.ant-select[class*="h-"] {
     }
   }
 }
+
+/**
+* @for: custom notification
+* @description: format the custom notification.
+*/
+.custom-notification {
+  max-width: 16.813rem;
+  padding: 17px;
+
+  .ant-notification-notice-with-icon .ant-notification-notice-description {
+    margin-left: 32px !important;
+    margin-right: 11px;
+  }
+
+  .ant-notification-notice-close {
+    right: 1rem;
+  }
+}

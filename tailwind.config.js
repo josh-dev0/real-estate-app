@@ -38,6 +38,7 @@ const textColor = {
     2: "var(--theme-color-fg-shadow-2)",
     3: "var(--theme-color-fg-shadow-3)",
   },
+  error: "var(--theme-color-fg-error)",
 };
 
 module.exports = {
