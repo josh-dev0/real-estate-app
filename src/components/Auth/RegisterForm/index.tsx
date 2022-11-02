@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
+import type { FormProps, InputRef } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import {
+  validatePassword,
+  validateUsername,
+  validateUsernameOnServer,
+} from '@app/utils/validators';
+import type { ValidateResult } from '@app/types';
 import styles from './styles.module.scss';
 
 
@@ -11,28 +18,46 @@ const layout = {
   wrapperCol: { span: 17 },
 };
 
-const validateMessages = {
-  required: '${label} is required!',
-  types: {
-    email: '${label} is not a valid email!',
-    number: '${label} is not a valid number!',
-  },
-  number: {
-    range: '${label} must be between ${min} and ${max}',
-  },
-};
-
-export type RegisterFormProps = {
-  className?: string;
-}
+export type RegisterFormProps = Omit<FormProps, 'layout'>
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({
   className,
+  onFinish,
+  ...otherProps
 }) => {
 
-  const onFinish = (values: any) => {
-    console.log(values);
-  };
+  const usernameInputRef = useRef<InputRef>(null);
+  const [passwordValidated, setPasswordValidated] = useState<ValidateResult>();
+  const [usernameValidated, setUsernameValidated] = useState<ValidateResult>();
+  const readyToFinish = useMemo(() =>
+    passwordValidated?.validateStatus === 'success' &&
+    usernameValidated?.validateStatus === 'success' &&
+    usernameValidated?.hasFeedback,
+    [usernameValidated, passwordValidated]
+  );
+
+  const handleOnValuesChange = (changedValues: any) => {
+    if (changedValues.hasOwnProperty('password')) {
+      setPasswordValidated(validatePassword(changedValues.password));
+    } else if (changedValues.hasOwnProperty('username')) {
+      validateUsername(changedValues.username).then(setUsernameValidated)
+        .then(() => usernameInputRef.current?.focus());
+    }
+  }
+
+  const handleOnUsernameInputBlur: React.FocusEventHandler<HTMLInputElement> = (e: any) => {
+    if (!e.target.value) {
+      return validateUsername(e.target.value).then(setUsernameValidated);
+    };
+    setUsernameValidated({ validateStatus: 'validating', hasFeedback: true });
+    validateUsernameOnServer(e.target.value).then(setUsernameValidated);
+  }
+
+  const checkValidateAndFinish = useCallback((values: any) => {
+    if (readyToFinish) {
+      onFinish!(values);
+    }
+  }, [readyToFinish, onFinish])
 
   return (
     <div className={classNames(styles.container, className)}>
@@ -46,14 +71,27 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
       <Form
         className="mt-9"
         {...layout}
-        name="nest-messages"
-        onFinish={onFinish}
-        validateMessages={validateMessages}
+        onFinish={checkValidateAndFinish}
+        onValuesChange={handleOnValuesChange}
+        {...otherProps}
       >
-        <Form.Item name={['user', 'name']} label="Username" rules={[{ required: true }]}>
-          <Input />
+        <Form.Item
+          name="username"
+          label="Username"
+          rules={[{ required: true }]}
+          {...usernameValidated}>
+          <Input
+            className="text-sm leading-[22px]"
+            ref={usernameInputRef}
+            placeholder="Enter username or email"
+            onBlur={handleOnUsernameInputBlur}
+          />
         </Form.Item>
-        <Form.Item name={['user', 'email']} label="Password" rules={[{ type: 'email', required: true }]}>
+        <Form.Item
+          name='password'
+          label="Password"
+          rules={[{ required: true }]}
+          {...passwordValidated}>
           <Input.Password
             iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
           />
@@ -78,6 +116,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
         <NonFormItem className="mt-8">
           <Button
             className={styles.button}
+            disabled={!readyToFinish}
           >Create my account</Button>
         </NonFormItem>
       </Form>
