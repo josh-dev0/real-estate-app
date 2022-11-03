@@ -1,18 +1,49 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { signIn } from 'next-auth/react';
+import Router from 'next/router';
 import type { LoginInput, RegisterInput } from '@app/types';
 import { Login } from '@app/components';
-import { IDENTITY } from '@app/constants';
-import { fakeLogin } from '@app/utils/demo';
+import { AUTH_TYPE, IDENTITY } from '@app/constants';
+import { notification } from '@app/utils/notification';
 
 const AuthIndex: NextPage = () => {
   const handleOnLogin = async (val: LoginInput) => {
-    fakeLogin(val, IDENTITY.PROFESSIONAL);
+    signIn('credentials', {
+      ...val,
+      type: AUTH_TYPE.LOGIN,
+      identity: IDENTITY.PROFESSIONAL,
+      redirect: false,
+    })
+      .then(res => {
+        if (res?.ok) {
+          Router.push('/');
+        } else {
+          showErrorNotification();
+        }
+      });
+  }
+  const showErrorNotification = () => {
+    notification.error({
+      description: <span>Either username or password is incorrect.<br /> Please try again!!</span>,
+    });
   }
   const handleGoogleLogin = () => { }
   const handleFacebookLogin = () => { }
   const handleOnRegister = async (val: RegisterInput) => {
-    fakeLogin(val, IDENTITY.PROFESSIONAL);
+    signIn('credentials', {
+      ...val,
+      type: AUTH_TYPE.REGISTER,
+      identity: IDENTITY.PROFESSIONAL,
+      redirect: false,
+    })
+      .then(res => {
+        if (res?.ok) {
+          Router.push(`/${IDENTITY.PROFESSIONAL}/auth/information1`);
+        } else {
+          showErrorNotification();
+        }
+      });
   }
   return (
     <>
