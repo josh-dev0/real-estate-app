@@ -1,4 +1,5 @@
 import Router from "next/router";
+import { signIn } from "next-auth/react"
 import { random } from "./index";
 import type {
   ProfessionalCardProps,
@@ -13,7 +14,7 @@ import {
   CrownOutlined,
 } from '@ant-design/icons';
 import { ICountry, IdentityType } from '@app/types';
-import { notification } from './notification';
+import { AUTH_TYPE } from "@app/constants";
 
 export const generateProperties = (n: number = 16) =>
   new Array(n).fill(null).map((_, i) => ({
@@ -390,16 +391,22 @@ export const getCountryList = (): ICountry[] => [
 
 export const fakeLogin = (val: any, identityType: IdentityType) => {
   console.log('submitting authentication...', val);
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const result = Math.random() > 0.5;
-      if (!result)
-        notification.error({
-          description: <span>Either username or password is incorrect.<br /> Please try again!!</span>,
-        });
-      else Router.push(`/${identityType}/auth/information1`);
-    }, 500);
-  });
+  return signIn('credentials', {
+    ...val,
+    type: AUTH_TYPE.LOGIN,
+    identity: identityType,
+    callbackUrl: `${window.location.origin}`,
+    redirect: false,
+  })
+    .then(res => {
+      if (res?.ok) {
+        Router.push(`/${identityType}/auth/information1`);
+      } else {
+
+      }
+      console.log('fakelogin.res', res)
+    })
+    .catch(error => console.log('[fakeLogin]', error));
 }
 
 export const fakeInformationNext = (val: any, identityType: IdentityType) => {

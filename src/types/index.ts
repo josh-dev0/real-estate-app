@@ -1,4 +1,5 @@
-import { IDENTITY } from "@app/constants";
+import { IDENTITY, AUTH_TYPE } from "@app/constants";
+import { ReverseMap } from "./general";
 
 export type BreadcrumbItem = {
   name: string;
@@ -9,8 +10,6 @@ export interface IUser {
   name: string;
   avatar: string;
 }
-
-type ReverseMap<T> = T[keyof T];
 
 export type IdentityType = ReverseMap<typeof IDENTITY>;
 
@@ -24,6 +23,8 @@ export type ICountry = {
   code: string;
   flag: string;
 };
+
+export type AuthType = ReverseMap<typeof AUTH_TYPE>;
 
 export type LoginInput = {
   username: string;

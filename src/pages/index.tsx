@@ -1,8 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Router from 'next/router';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { Col, Row } from 'antd';
+import { useSession } from 'next-auth/react';
+import { SESSION_STATUS } from '@app/constants';
 import {
   CozziCarousel,
   DealType,
@@ -36,8 +39,11 @@ import {
   getServices,
 } from '@app/utils/demo';
 import styles from '@app/styles/pages/Home.module.scss';
+import { IdentityType } from '@app/types';
 
 const Home: NextPage = () => {
+  const { status: sessionStatus } = useSession();
+  // --> Search bar props
   const [dealType, setDealType] = useState('');
   const [propertiesAroundMe, setPropertiesAroundMe] = useState<PropertyCardProps[]>([]);
   const [matchedProperties, setMatchedProperties] = useState<PropertyCardProps[]>([]);
@@ -51,6 +57,11 @@ const Home: NextPage = () => {
   const [featuredServices, setFeaturedServices] = useState<RewardCardProps[]>([]);
   const [lifeStyles, setLifeStyles] = useState<SimpleCardProps[]>([]);
   const [countries, setCountries] = useState<SimpleCardProps[]>([]);
+  // <-- Search bar props.
+
+  const handleOnIdentify = (identity: IdentityType) => {
+    Router.push(`/${identity}/auth`);
+  }
 
   useEffect(() => {
     setPropertiesAroundMe(generateProperties(10));
@@ -67,6 +78,9 @@ const Home: NextPage = () => {
     setCountries(getCountries());
   }, [])
 
+  // TODO: added the preloading page.
+  if (sessionStatus === SESSION_STATUS.LOADING) return <div>Loading...</div>
+
   return (
     <>
       <Head>
@@ -77,6 +91,7 @@ const Home: NextPage = () => {
       <main>
         <TopMenu
           locale="EN/EN"
+          onIdentify={handleOnIdentify}
         />
         <section className={classNames("min-h-[11.25rem]", styles.topImgContainer)}>
           <HCenter>

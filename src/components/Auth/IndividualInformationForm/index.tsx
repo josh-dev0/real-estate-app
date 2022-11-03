@@ -52,7 +52,6 @@ export const IndividualInformationForm: React.FC<IndividualInformationFormProps>
         >
           <Select
             className="w-full mt-2"
-            defaultValue="Architecture"
             options={serviceTypeOptions}
           />
         </Form.Item>
