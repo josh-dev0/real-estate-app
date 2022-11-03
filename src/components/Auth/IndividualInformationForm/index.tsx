@@ -30,6 +30,7 @@ export type IndividualInformationFormProps = Omit<FormProps, 'layout'>;
 
 export const IndividualInformationForm: React.FC<IndividualInformationFormProps> = ({
   className,
+  ...otherProps
 }) => {
   return (
     <div className={classNames(styles.container, className)}>
@@ -42,6 +43,7 @@ export const IndividualInformationForm: React.FC<IndividualInformationFormProps>
       <Form
         className="px-10 mt-4 overflow-auto"
         layout="vertical"
+        {...otherProps}
       >
         <Form.Item
           className="mt-[3.625rem]"
