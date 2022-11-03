@@ -8,17 +8,6 @@ import styles from './styles.module.scss';
 
 const { Option } = Select;
 
-const validateMessages = {
-  required: '${label} is required!',
-  types: {
-    email: '${label} is not a valid email!',
-    number: '${label} is not a valid number!',
-  },
-  number: {
-    range: '${label} must be between ${min} and ${max}',
-  },
-};
-
 export type InformationForm2Props = {
 
 } & React.HTMLAttributes<HTMLDivElement>;
@@ -82,7 +71,7 @@ export const InformationForm2: React.FC<InformationForm2Props> = ({
         </Input.Group>
       </Form.Item>
       <Form.Item
-        name={['user', 'street']}
+        name='street'
         rules={[{ required: true }]}
       >
         <Input
@@ -90,7 +79,7 @@ export const InformationForm2: React.FC<InformationForm2Props> = ({
         />
       </Form.Item>
       <Form.Item
-        name={['user', 'address2']}
+        name='address2'
         rules={[{ required: true }]}
       >
         <Input

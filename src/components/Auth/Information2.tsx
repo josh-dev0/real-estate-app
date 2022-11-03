@@ -1,14 +1,15 @@
 import React from 'react';
+import { IDENTITY } from '@app/constants';
+import type { IdentityType } from '@app/types';
 import { AuthLayout } from './Layout';
 import { InformationForm2 } from './InformationForm2';
 
-
 export type Information2Props = {
-  role?: 'individual' | 'professiona';
+  role?: IdentityType;
 }
 
 export const Information2: React.FC<Information2Props> = ({
-  role = 'individual',
+  role = IDENTITY.INDIVIDUAL,
 }) => {
 
   return (
