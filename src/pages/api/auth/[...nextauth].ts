@@ -24,6 +24,7 @@ const fakeAuthApi = async (credentials: AuthCredentials) => {
           ? {
               id: Math.ceil(Math.random() * 1000),
               name: "Josh",
+              image: "https://i.pravatar.cc/300",
               token: "JWT_TOKEN_HERE",
               username,
               identity,

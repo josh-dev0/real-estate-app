@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
+import React, { useMemo } from 'react';
+import { useSession } from 'next-auth/react';
 import {
   CaretDownOutlined,
   CrownOutlined,
@@ -13,10 +13,10 @@ import {
   ProfileOutlined,
   SearchOutlined,
 } from '@ant-design/icons';
-import { Dropdown, Menu, Space } from 'antd';
+import { Avatar, Dropdown, Menu, Space } from 'antd';
 import { locales } from '@app/constants/locale';
 import type { IUser, IdentityType } from '@app/types';
-import { IDENTITY } from '@app/constants';
+import { IDENTITY, SESSION_STATUS } from '@app/constants';
 import { OnlineIcon } from './icons/online';
 
 const loginDropdownMenu = (
@@ -77,10 +77,16 @@ const loginDropdownMenu = (
   />
 );
 
-const ProfileAvatar: React.FC = () => {
+type ProfileAvatarProps = {
+  image?: string | undefined;
+  name?: string;
+};
+
+const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ image, name }) => {
   return (
-    <div className="relative w-[2.5rem] h-[2.5rem] mt-[0.375]">
-      <Image src="/images/user.png" layout="responsive" width="40" height="40" />
+    <div className="relative flex w-[2.5rem] h-[2.5rem] mt-[0.375]">
+      {!image && name && <Avatar size={40} >{name.charAt(0)}</Avatar>}
+      {image && <Avatar size={40} src={image} />}
       <span className="absolute bottom-[0.094rem] right-[0.094rem] block w-[0.625rem] h-[0.625rem] rounded-full bg-green-400"></span>
     </div>
   )
@@ -94,7 +100,8 @@ type AuthLocaleProps = {
 };
 
 export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, user, onIdentify }) => {
-
+  const { data: session, status } = useSession();
+  const isAuthenticated = useMemo(() => status === SESSION_STATUS.AUTHENTICATED && session?.user, [session, status]);
   const logoutDropdownMenu = (
     <Menu
       items={[
@@ -124,7 +131,7 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
   return (
     <Space direction="horizontal" size="middle">
       {
-        !user && <Dropdown overlay={logoutDropdownMenu}>
+        !isAuthenticated && <Dropdown overlay={logoutDropdownMenu}>
           <a className="text-default" onClick={e => e.preventDefault()}>
             <div className="flex items-end">
               <p className="text-center leading-6 mb-0">Hello<br />Identify yourself</p>
@@ -134,14 +141,17 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
         </Dropdown>
       }
       {
-        user && <Dropdown
+        isAuthenticated && <Dropdown
           overlay={loginDropdownMenu}
           trigger={['click']}
         >
           <a className="text-default" onClick={e => e.preventDefault()}>
             <div className="flex items-center">
-              <ProfileAvatar />
-              <p className="text-center leading-6 mb-0 ml-4">{user.name}</p>
+              <ProfileAvatar
+                image={session?.user.image}
+                name={session?.user.name!}
+              />
+              <p className="text-center leading-6 mb-0 ml-4">{session?.user.name}</p>
               <CaretDownOutlined className="ml-1" />
             </div>
           </a>
