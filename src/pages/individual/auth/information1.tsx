@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import {
   AuthLayout,
-  InformationFormIndividual,
+  IndividualInformationForm,
 } from '@app/components';
 
 const AuthIndex: NextPage = () => {
@@ -18,7 +18,7 @@ const AuthIndex: NextPage = () => {
         title="Your account has been created"
         subtitle="We just need a bit more information before we can get you started if that’s ok with you :-)"
       >
-        <InformationFormIndividual />
+        <IndividualInformationForm />
       </AuthLayout>
     </>
   );

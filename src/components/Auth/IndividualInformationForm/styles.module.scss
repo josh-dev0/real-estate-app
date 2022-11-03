@@ -1,18 +1,26 @@
 .container {
-  @apply bg-primary pt-10 px-12 pb-12;
+  @apply w-full bg-primary pt-10 px-12 pb-12;
   max-width: 31.563rem;
   box-sizing: border-box;
-  /* width: 505px;
-  height: 717px; */
   border: 0.2px solid theme("colors.fg.secondary.4");
   box-shadow: 0px 1px 12px theme("colors.fg.shadow.2");
 }
 
 .button {
-  @apply bg-secondary-light text-bg-primary text-sm text-center mt-10;
+  @apply bg-secondary-light text-bg-primary text-sm text-center mt-48;
   align-items: center;
   padding: 0.313rem 1rem;
   box-shadow: 0px 2px 0px theme("colors.fg.shadow.1");
   border-radius: 2px;
+  line-height: 22px;
+}
+
+.labelCheckbox {
+  @apply text-sm text-icon-1;
+  line-height: 22px;
+}
+
+.labelSecondary {
+  @apply text-sm text-primary;
   line-height: 22px;
 }
