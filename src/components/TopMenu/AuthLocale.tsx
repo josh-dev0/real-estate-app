@@ -1,5 +1,7 @@
 import React, { useMemo } from 'react';
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
+import Router from 'next/router';
+import { Avatar, Dropdown, Menu, Space } from 'antd';
 import {
   CaretDownOutlined,
   CrownOutlined,
@@ -13,7 +15,6 @@ import {
   ProfileOutlined,
   SearchOutlined,
 } from '@ant-design/icons';
-import { Avatar, Dropdown, Menu, Space } from 'antd';
 import { locales } from '@app/constants/locale';
 import type { IUser, IdentityType } from '@app/types';
 import { IDENTITY, SESSION_STATUS } from '@app/constants';
@@ -71,6 +72,10 @@ const loginDropdownMenu = (
         key: 'dd:logout',
         label: 'Logout',
         icon: <LoginOutlined />,
+        onClick: () => signOut({
+          redirect: false,
+          callbackUrl: '/',
+        }).then(res => Router.push(res.url)),
       },
     ]}
     onClick={e => console.log(`Clicked ${e.key.replace('dd:', '')} menu. Will redirect to page properly.`)}
