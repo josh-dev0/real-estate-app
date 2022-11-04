@@ -7,6 +7,12 @@
   border-color: var(--theme-color-bg-secondary);
 }
 
+// for all checkboxes, change background color when selected.
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--theme-color-bg-secondary-light) !important;
+  border-color: var(--theme-color-bg-secondary-light);
+}
+
 // <-- General Styles Change
 
 
