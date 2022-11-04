@@ -1,5 +1,6 @@
 import React from 'react';
-import { Avatar, Card, Divider, Rate } from 'antd';
+import { Card, Divider, Rate } from 'antd';
+import { ProfileAvatar } from '@app/components';
 import styles from './styles.module.scss';
 import {
   ThumbupIcon,
@@ -33,13 +34,12 @@ export const AgencyCard: React.FC<AgencyCardProps> = ({
     >
       <div className="p-6 pb-0">
         <div className="flex items-top justify-between mb-6">
-          <Avatar
-            className="bg-secondary text-[3rem] align-middle"
+          <ProfileAvatar
             size={94}
+            className="text-[3rem] bg-secondary"
             src={avatar}
-          >
-            {name?.charAt(0)}
-          </Avatar>
+            name={name}
+          />
           <Rate
             disabled
             allowHalf={true}
