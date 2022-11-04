@@ -1,3 +1,16 @@
+// General Styles Change
+
+// button (primary) hover color;
+.ant-btn-primary:focus,
+.ant-btn-primary:hover {
+  background-color: var(--theme-color-bg-secondary);
+  border-color: var(--theme-color-bg-secondary);
+}
+
+// <-- General Styles Change
+
+
+
 .ant-switch {
   /* overwritten by tailwindcss */
   background-color: rgba(0, 0, 0, 0.25) !important;
