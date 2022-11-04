@@ -1,5 +1,4 @@
 export * from './Header';
-export * from './Information2';
 export * from './InformationForm2';
 export * from './IndividualInformationForm';
 export * from './ProfessionalInformationForm';
