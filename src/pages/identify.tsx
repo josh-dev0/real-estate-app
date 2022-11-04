@@ -5,7 +5,7 @@ import { useEffect, useMemo } from 'react';
 import { useSession, signIn } from "next-auth/react"
 import type { LoginInput, RegisterInput } from '@app/types';
 import { AuthLayout, LoginForm, LoginWithSocial, RegisterForm } from '@app/components';
-import { AUTH_TYPE, IDENTITY, ROUTES } from '@app/constants';
+import { AUTH_TYPE, IDENTITY, QUERY, ROUTES } from '@app/constants';
 import { notification } from '@app/utils/notification';
 
 const AuthIndex: NextPage = () => {
@@ -28,7 +28,7 @@ const AuthIndex: NextPage = () => {
     })
       .then(res => {
         if (res?.ok) {
-          Router.push('/');
+          Router.push(`/?${QUERY.justLoggedIn}=1`);
         } else {
           showErrorNotification();
         }

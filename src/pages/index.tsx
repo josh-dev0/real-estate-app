@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { Col, Row } from 'antd';
-import { ROUTES } from '@app/constants';
+import { Button, Col, Row } from 'antd';
+import { ROUTES, SESSION_STATUS, QUERY } from '@app/constants';
 import {
   CozziCarousel,
   DealType,
@@ -25,6 +26,7 @@ import type {
   SimpleCardProps,
 } from '@app/components';
 import { HCenter } from '@app/containers/HCenter';
+import { notification } from 'antd';
 import {
   generateProperties,
   getCountries,
@@ -39,8 +41,11 @@ import {
 } from '@app/utils/demo';
 import styles from '@app/styles/pages/Home.module.scss';
 import { IdentityType } from '@app/types';
+import { CloseCircleOutlined } from '@ant-design/icons';
 
 const Home: NextPage = () => {
+  const router = useRouter();
+  const { data: session, status: sessionStatus } = useSession();
   // --> Search bar props
   const [dealType, setDealType] = useState('');
   const [propertiesAroundMe, setPropertiesAroundMe] = useState<PropertyCardProps[]>([]);
@@ -56,6 +61,29 @@ const Home: NextPage = () => {
   const [lifeStyles, setLifeStyles] = useState<SimpleCardProps[]>([]);
   const [countries, setCountries] = useState<SimpleCardProps[]>([]);
   // <-- Search bar props.
+
+  const openNotification = () => {
+    const key = 'open-just-after-login';
+    const btn = (
+      <Button type="primary" size="small" onClick={() => close()}>
+        OK
+      </Button>
+    );
+    const close = () => {
+      console.log('notification.close');
+      notification.close(key)
+      Router.push('/')
+    }
+    notification.open({
+      message: `Welcome ${session?.user.name}`,
+      description:
+        'You can start browsing and creating a project with Freemium access.You can consult our plans here when your ready',
+      btn,
+      key,
+      onClose: close,
+      icon: <CloseCircleOutlined style={{ color: '#108ee9' }} />
+    });
+  };
 
   const handleOnIdentify = (identity: IdentityType) => {
     Router.push(`/${ROUTES.login}?role=${identity}`);
@@ -75,6 +103,12 @@ const Home: NextPage = () => {
     setLifeStyles(getLifeStyles());
     setCountries(getCountries());
   }, [])
+
+  useEffect(() => {
+    if (sessionStatus !== SESSION_STATUS.LOADING && router.query[QUERY.justLoggedIn]) {
+      openNotification();
+    }
+  }, [sessionStatus, router.query]);
 
   return (
     <>

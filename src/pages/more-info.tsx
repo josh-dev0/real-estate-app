@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Router from 'next/router';
 import Head from 'next/head'
+import { QUERY } from '@app/constants';
 import {
   AuthLayout,
   InformationForm2
@@ -10,10 +11,10 @@ import {
 
 const AuthIndex: NextPage = () => {
   const handleOnSubmit = (values: any) => {
-    Router.push('/');
+    Router.push(`/?${QUERY.justLoggedIn}=1`);
   }
   const handleOnSkip = () => {
-    Router.push('/');
+    Router.push(`/?${QUERY.justLoggedIn}=1`);
   }
 
   return (

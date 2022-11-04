@@ -20,3 +20,7 @@ export const ROUTES = {
   info1: "/info",
   info2: "/more-info",
 } as const;
+
+export const QUERY = {
+  justLoggedIn: "just",
+} as const;
