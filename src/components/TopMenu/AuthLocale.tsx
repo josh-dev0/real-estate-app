@@ -107,6 +107,7 @@ type AuthLocaleProps = {
 export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, user, onIdentify }) => {
   const { data: session, status } = useSession();
   const isAuthenticated = useMemo(() => status === SESSION_STATUS.AUTHENTICATED && session?.user, [session, status]);
+
   const logoutDropdownMenu = (
     <Menu
       items={[

@@ -13,3 +13,10 @@ export const SESSION_STATUS = {
   LOADING: "loading",
   UNAUTHENTICATED: "unauthenticated",
 };
+
+// use this constant to update the inner path dependency while navigating.
+export const ROUTES = {
+  login: "/identify",
+  info1: "/info",
+  info2: "/more-info",
+} as const;

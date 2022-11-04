@@ -4,8 +4,7 @@ import Router from 'next/router';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { Col, Row } from 'antd';
-import { useSession } from 'next-auth/react';
-import { SESSION_STATUS } from '@app/constants';
+import { ROUTES } from '@app/constants';
 import {
   CozziCarousel,
   DealType,
@@ -42,7 +41,6 @@ import styles from '@app/styles/pages/Home.module.scss';
 import { IdentityType } from '@app/types';
 
 const Home: NextPage = () => {
-  const { status: sessionStatus } = useSession();
   // --> Search bar props
   const [dealType, setDealType] = useState('');
   const [propertiesAroundMe, setPropertiesAroundMe] = useState<PropertyCardProps[]>([]);
@@ -60,7 +58,7 @@ const Home: NextPage = () => {
   // <-- Search bar props.
 
   const handleOnIdentify = (identity: IdentityType) => {
-    Router.push(`/${identity}/auth`);
+    Router.push(`/${ROUTES.login}?role=${identity}`);
   }
 
   useEffect(() => {
@@ -77,9 +75,6 @@ const Home: NextPage = () => {
     setLifeStyles(getLifeStyles());
     setCountries(getCountries());
   }, [])
-
-  // TODO: added the preloading page.
-  if (sessionStatus === SESSION_STATUS.LOADING) return <div>Loading...</div>
 
   return (
     <>

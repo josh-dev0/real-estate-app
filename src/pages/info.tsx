@@ -1,16 +1,21 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Router from 'next/router';
+import { useSession } from 'next-auth/react';
 import {
   AuthLayout,
+  IndividualInformationForm,
   ProfessionalInformationForm,
 } from '@app/components';
-import { fakeInformationNext } from '@app/utils/demo';
-import { IDENTITY } from '@app/constants';
+import { IDENTITY, ROUTES } from '@app/constants';
 
 const AuthIndex: NextPage = () => {
+  const { data: session } = useSession();
+
   const handleOnNext = (values: any) => {
-    fakeInformationNext(values, IDENTITY.PROFESSIONAL);
+    Router.push(`/${ROUTES.info2}`);
   }
+
   return (
     <>
       <Head>
@@ -23,9 +28,16 @@ const AuthIndex: NextPage = () => {
         title="Your account has been created"
         subtitle="We just need a bit more information before we can get you started if that’s ok with you :-)"
       >
-        <ProfessionalInformationForm
-          onFinish={handleOnNext}
-        />
+        {
+          session?.user.role === IDENTITY.INDIVIDUAL && <IndividualInformationForm
+            onFinish={handleOnNext}
+          />
+        }
+        {
+          session?.user.role === IDENTITY.PROFESSIONAL && <ProfessionalInformationForm
+            onFinish={handleOnNext}
+          />
+        }
       </AuthLayout>
     </>
   );

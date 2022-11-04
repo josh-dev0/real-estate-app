@@ -27,7 +27,7 @@ const fakeAuthApi = async (credentials: AuthCredentials) => {
               image: "https://i.pravatar.cc/300",
               token: "JWT_TOKEN_HERE",
               username,
-              identity,
+              role: identity,
             }
           : null
       );

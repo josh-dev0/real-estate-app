@@ -408,8 +408,3 @@ export const fakeLogin = (val: any, identityType: IdentityType) => {
     })
     .catch(error => console.log('[fakeLogin]', error));
 }
-
-export const fakeInformationNext = (val: any, identityType: IdentityType) => {
-  console.log(`${identityType}.information1`, val);
-  Router.push(`/${identityType}/auth/information2`);
-}
