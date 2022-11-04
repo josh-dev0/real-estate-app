@@ -33,8 +33,9 @@ export const DealType: React.FC<DealTypeProps> = ({
           options.map(option =>
             <Radio.Button
               key={option.value}
-              className={classNames(styles.radioButton, "text-black bg-[#f8f8f8] font-medium", {
-                "bg-secondary-focused": option.value === props.value,
+              className={classNames(styles.radioButton, "text-black font-medium", {
+                "bg-focused": option.value === props.value,
+                "bg-secondary-1": option.value !== props.value,
               })}
               value={option.value}
               onChange={onChange}

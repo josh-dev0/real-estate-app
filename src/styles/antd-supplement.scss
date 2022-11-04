@@ -22,6 +22,8 @@ div.ant-select[class*="h-"] {
 
 /* for `/components/DealType.tsx`, adjust the border radius of the Radio.Group */
 .deal-type-radio {
+
+  // --theme-color-bg-secondary-light
   .ant-radio-button-wrapper:first-child {
     border-radius: 0.25rem 0 0 0.25rem;
   }
@@ -33,6 +35,17 @@ div.ant-select[class*="h-"] {
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
     background-color: var(--theme-color-bg-focused) !important;
   }
+
+  // --> border color of selected button
+  label.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):before {
+    background-color: var(--theme-color-fg-secondary-2);
+  }
+
+  label.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    border-color: var(--theme-color-fg-secondary-2) !important;
+  }
+
+  // <-- border color of selected button
 }
 
 /* /components/Searchbar/components/PropertyTypeSelect2.tsx
