@@ -19,6 +19,12 @@
   * Refer to https://tailwindcss.com/blog/tailwindcss-v3-1#easier-css-variable-color-configuration
   */
 @layer base {
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    background-color: var(--ant-primary-color);
+  }
   :root {
     --theme-color-fg-primary: #{$theme-light-fg-primary};
     --theme-color-fg-secondary: #{$theme-light-fg-secondary};
@@ -59,6 +65,7 @@ body {
   font-family: "Roboto";
 }
 
+// this helps all images keep width/height ratio.
 img {
   object-fit: cover;
 }
