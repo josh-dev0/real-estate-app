@@ -18,6 +18,7 @@ import {
 import { locales } from '@app/constants/locale';
 import type { IUser, IdentityType } from '@app/types';
 import { IDENTITY, SESSION_STATUS } from '@app/constants';
+import { ProfileAvatar } from '@app/components';
 import { OnlineIcon } from './icons/online';
 
 const loginDropdownMenu = (
@@ -82,21 +83,6 @@ const loginDropdownMenu = (
   />
 );
 
-type ProfileAvatarProps = {
-  image?: string | undefined;
-  name?: string;
-};
-
-const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ image, name }) => {
-  return (
-    <div className="relative flex w-[2.5rem] h-[2.5rem] mt-[0.375]">
-      {!image && name && <Avatar size={40} >{name.charAt(0)}</Avatar>}
-      {image && <Avatar size={40} src={image} />}
-      <span className="absolute bottom-[0.094rem] right-[0.094rem] block w-[0.625rem] h-[0.625rem] rounded-full bg-green-400"></span>
-    </div>
-  )
-}
-
 type AuthLocaleProps = {
   user?: IUser;
   locale: string;
@@ -154,8 +140,10 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
           <a className="text-default" onClick={e => e.preventDefault()}>
             <div className="flex items-center">
               <ProfileAvatar
-                image={session?.user.image}
+                src={session?.user.image}
                 name={session?.user.name!}
+                size={40}
+                status='online'
               />
               <p className="text-center leading-6 mb-0 ml-4">{session?.user.name}</p>
               <CaretDownOutlined className="ml-1" />
