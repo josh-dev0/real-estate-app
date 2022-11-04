@@ -49,3 +49,31 @@ CustomSize.args = {
   src: 'images/user.png',
   size: 200
 };
+
+export const StatusOnline = Template.bind({});
+StatusOnline.args = {
+  src: 'images/user.png',
+  size: 200,
+  status: 'online',
+};
+
+export const StatusAway = Template.bind({});
+StatusAway.args = {
+  src: 'images/user.png',
+  size: 200,
+  status: 'away',
+};
+
+export const StatusHidden = Template.bind({});
+StatusHidden.args = {
+  src: 'images/user.png',
+  size: 200,
+  status: 'hidden',
+};
+
+export const StatusDontDisturb = Template.bind({});
+StatusDontDisturb.args = {
+  src: 'images/user.png',
+  size: 200,
+  status: 'dontdisturb',
+};
