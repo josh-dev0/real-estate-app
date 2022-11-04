@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { useEffect, useMemo } from 'react';
 import { useSession, signIn } from "next-auth/react"
 import type { LoginInput, RegisterInput } from '@app/types';
-import { Login } from '@app/components';
+import { AuthLayout, LoginForm, LoginWithSocial, RegisterForm } from '@app/components';
 import { AUTH_TYPE, IDENTITY, ROUTES } from '@app/constants';
 import { notification } from '@app/utils/notification';
 
@@ -71,11 +71,23 @@ const AuthIndex: NextPage = () => {
         <meta name="description" content="Home page of Cozzinest" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Login
-        onLogin={handleOnLogin}
-        onGoogleLogin={handleGoogleLogin}
-        onFacebookLogin={handleFacebookLogin}
-        onRegister={handleOnRegister}
+      <AuthLayout
+        columns={2}
+        title="Hello there!"
+        left={
+          <div>
+            <LoginForm
+              onFinish={handleOnLogin}
+            />
+            <LoginWithSocial className="mt-[2.813rem]"
+              onGoogleLogin={handleGoogleLogin}
+              onFacebookLogin={handleFacebookLogin}
+            />
+          </div>
+        }
+        right={<RegisterForm
+          onFinish={handleOnRegister}
+        />}
       />
     </>
   );
