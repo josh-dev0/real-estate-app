@@ -59,6 +59,16 @@ export const validateUsername = async (
 ): Promise<ValidateResult> => {
   if (!username)
     return { ...errorResultTemplate, help: "Username must not be empty!" };
+  if (username.length < 3)
+    return {
+      ...errorResultTemplate,
+      help: "Should be 8 alphanumeric characters minimum",
+    };
+  if (username.length > 50)
+    return {
+      ...errorResultTemplate,
+      help: "Should be 50 alphanumeric characters maximum",
+    };
 
   return { ...successResult, hasFeedback: false };
 };
