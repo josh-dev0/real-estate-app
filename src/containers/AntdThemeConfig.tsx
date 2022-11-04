@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { ConfigProvider } from 'antd';
-import themeColors from '@app/styles/variables.module.scss';
+// import themeColors from '@app/styles/variables.module.scss';
 
 type ThemeProviderProps = {
   children: ReactNode | ReactNode[] | null;
@@ -14,7 +14,7 @@ export const AntdThemeConfig: React.FC<ThemeProviderProps> = (props) => {
   useEffect(() => {
     ConfigProvider.config({
       theme: {
-        primaryColor: themeColors[`${theme}BgSecondaryLight`],
+        // primaryColor: themeColors[`${theme}BgSecondaryLight`],
       }
     })
   }, [theme]);
