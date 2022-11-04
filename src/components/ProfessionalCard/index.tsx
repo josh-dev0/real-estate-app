@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, Card, Divider, Rate } from 'antd';
+import { Card, Divider, Rate } from 'antd';
 import randomColor from 'randomcolor';
+import { ProfileAvatar } from '@app/components';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
 
@@ -40,16 +41,13 @@ export const ProfessionalCard: React.FC<ProfessionalCardProps> = ({
     >
       <section className="p-6 pb-0">
         <div className="mb-6">
-          <Avatar
-            className="text-[3rem] align-middle"
+          <ProfileAvatar
+            className="text-[3rem]"
             size={94}
+            name={name}
             src={avatar}
-            style={{
-              backgroundColor: backgroundColor || color
-            }}
-          >
-            {name?.charAt(0)}
-          </Avatar>
+            backgroundColor={backgroundColor || color}
+          />
         </div>
         <p className="text-primary font-medium text-xl leading-xs mb-5">{company}</p>
       </section>
