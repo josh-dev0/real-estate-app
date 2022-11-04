@@ -1,3 +1,9 @@
+.container {
+  @apply relative inline-block leading-none bg-primary rounded-full;
+  border: 1px solid #DADADA;
+  box-sizing: border-box;
+}
+
 .status {
   @apply rounded-full;
   --abs-precent: 4.5%;

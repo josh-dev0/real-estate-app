@@ -28,7 +28,7 @@ export const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
   }
 
   return (
-    <div className={classNames("relative inline-block", containerClassName)}>
+    <div className={classNames(styles.container, containerClassName)}>
       <Avatar
         style={{ backgroundColor }}
         icon={!src && !srcSet && !name ? <UserOutlined /> : null}
