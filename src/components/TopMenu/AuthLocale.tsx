@@ -21,58 +21,60 @@ import { IDENTITY, SESSION_STATUS } from '@app/constants';
 import { ProfileAvatar } from '@app/components';
 import { OnlineIcon } from './icons/online';
 
+const loginMenuIconClassName = "w-[1rem] mr-5 text-lg";
 const loginDropdownMenu = (
   <Menu
+    className="py-4 px-6"
     items={[
       {
         key: 'dd:my-profile',
         label: 'My Profile',
-        icon: <ProfileOutlined />
+        icon: <ProfileOutlined className={loginMenuIconClassName} />
       },
       {
         key: 'dd:status',
         label: 'Status',
-        icon: <OnlineIcon className="mr-2" />
+        icon: <OnlineIcon className={loginMenuIconClassName} />
       },
       {
         key: 'dd:my-messages',
         label: 'My Messages',
-        icon: <MessageOutlined />
+        icon: <MessageOutlined className={loginMenuIconClassName} />
       },
       {
         key: 'dd:my-ads',
         label: 'My ads',
-        icon: <NotificationOutlined />
+        icon: <NotificationOutlined className={loginMenuIconClassName} />
       },
       {
         key: 'dd:saved-searches',
         label: 'My Saved Searches',
-        icon: <SearchOutlined />,
+        icon: <SearchOutlined className={loginMenuIconClassName} />,
       },
       {
         key: 'dd:my-favorites',
         label: 'My Favorites',
-        icon: <HeartOutlined />,
+        icon: <HeartOutlined className={loginMenuIconClassName} />,
       },
       {
         key: 'dd:my-hidden-ads',
         label: 'My Hidden Ads',
-        icon: <EyeInvisibleFilled />,
+        icon: <EyeInvisibleFilled className={loginMenuIconClassName} />,
       },
       {
         key: 'dd:my-subscriptions',
         label: 'My Subscriptons',
-        icon: <FormOutlined />,
+        icon: <FormOutlined className={loginMenuIconClassName} />,
       },
       {
         key: 'dd:loyalty-program',
         label: 'Loyalty Program',
-        icon: <CrownOutlined />,
+        icon: <CrownOutlined className={loginMenuIconClassName} />,
       },
       {
         key: 'dd:logout',
         label: 'Logout',
-        icon: <LoginOutlined />,
+        icon: <LoginOutlined className={loginMenuIconClassName} />,
         onClick: () => signOut({
           redirect: false,
           callbackUrl: '/',
@@ -123,7 +125,8 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
   return (
     <Space direction="horizontal" size="middle">
       {
-        !isAuthenticated && <Dropdown overlay={logoutDropdownMenu}>
+        !isAuthenticated &&
+        <Dropdown overlay={logoutDropdownMenu}>
           <a className="text-default" onClick={e => e.preventDefault()}>
             <div className="flex items-end">
               <p className="text-center leading-6 mb-0">Hello<br />Identify yourself</p>
@@ -133,9 +136,12 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
         </Dropdown>
       }
       {
-        isAuthenticated && <Dropdown
+        isAuthenticated &&
+        <Dropdown
+          placement="top"
           overlay={loginDropdownMenu}
           trigger={['click']}
+          open={true}
         >
           <a className="text-default" onClick={e => e.preventDefault()}>
             <div className="flex items-center">
@@ -145,7 +151,7 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
                 size={40}
                 status='online'
               />
-              <p className="text-center leading-6 mb-0 ml-4">{session?.user.name}</p>
+              <p className="text-center leading-6 mb-0 ml-4 w-[5rem] mt-1">{session?.user.name}</p>
               <CaretDownOutlined className="ml-1" />
             </div>
           </a>
