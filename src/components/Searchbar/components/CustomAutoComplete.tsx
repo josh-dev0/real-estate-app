@@ -29,6 +29,13 @@ export const CustomAutoComplete: React.FC<CustomAutoCompleteProps> = ({
         {value}</p>
     </div>)
   })), [optionValues]);
+  useEffect(() => {
+    console.log('option.values', optionValues);
+  }, [optionValues]);
+
+  useEffect(() => {
+    console.log('[open]', open);
+  }, [open])
 
   const handleOnFocus = () => options.length && setOpen(true);
   const handleOnSelect = useCallback((val: string) => {
@@ -37,7 +44,8 @@ export const CustomAutoComplete: React.FC<CustomAutoCompleteProps> = ({
   }, [prevInputValue, inputValue]);
 
   useEffect(() => {
-    if (inputValue && inputValue.length > 3) onSearch!(inputValue);
+    // if (inputValue && inputValue.length > 3) 
+    onSearch!(inputValue);
   }, [inputValue]);
 
   return (
@@ -48,7 +56,10 @@ export const CustomAutoComplete: React.FC<CustomAutoCompleteProps> = ({
       open={open}
       options={options}
       placeholder={placeholder}
-      onChange={val => setInputValue(val)}
+      onChange={val => {
+        setInputValue(val);
+        setOpen(true)
+      }}
       onFocus={handleOnFocus}
       onSelect={handleOnSelect}
       onBlur={() => setOpen(false)}
