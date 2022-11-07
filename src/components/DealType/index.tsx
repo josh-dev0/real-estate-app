@@ -25,7 +25,7 @@ export const DealType: React.FC<DealTypeProps> = ({
   ...props
 }) => {
   return (
-    <div className={classNames("deal-type-radio", className)}>
+    <div className={classNames("deal-type-radio", styles.container, className)}>
       <Radio.Group
         {...props}
       >
