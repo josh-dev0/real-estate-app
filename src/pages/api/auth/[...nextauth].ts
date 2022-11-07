@@ -1,5 +1,6 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import randomColor from "randomcolor";
 // import GoogleProvider from "next-auth/providers/google";
 // import FacebookProvider from "next-auth/providers/facebook";
 
@@ -28,6 +29,7 @@ const fakeAuthApi = async (credentials: AuthCredentials) => {
               token: "JWT_TOKEN_HERE",
               username,
               role: identity,
+              backgrondColor: randomColor({ luminosity: "dark" }),
             }
           : null
       );
@@ -39,7 +41,6 @@ const fakeAuthApi = async (credentials: AuthCredentials) => {
 // https://next-auth.js.org/configuration/options
 export const authOptions: NextAuthOptions = {
   // https://next-auth.js.org/configuration/providers/oauth
-  session: {},
   providers: [
     CredentialsProvider({
       credentials: {
@@ -65,6 +66,10 @@ export const authOptions: NextAuthOptions = {
     //   clientSecret: process.env.GOOGLE_SECRET,
     // }),
   ],
+  session: {
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
   theme: {
     colorScheme: "light",
   },

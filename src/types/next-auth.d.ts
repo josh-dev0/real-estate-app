@@ -11,6 +11,7 @@ declare module "next-auth" {
       accessToken: string;
       name: string;
       avatar: string;
+      backgroundColor: string;
       [key: string]: string;
     };
   }
