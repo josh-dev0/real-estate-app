@@ -29,13 +29,6 @@ export const CustomAutoComplete: React.FC<CustomAutoCompleteProps> = ({
         {value}</p>
     </div>)
   })), [optionValues]);
-  useEffect(() => {
-    console.log('option.values', optionValues);
-  }, [optionValues]);
-
-  useEffect(() => {
-    console.log('[open]', open);
-  }, [open])
 
   const handleOnFocus = () => options.length && setOpen(true);
   const handleOnSelect = useCallback((val: string) => {
