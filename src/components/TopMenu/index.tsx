@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
+import { useSession } from 'next-auth/react';
 import type { IUser, IdentityType } from '@app/types';
 import { leftMenuItems, getRightMenuItems } from './menus';
 import { AuthLocale } from './AuthLocale';
@@ -18,10 +19,11 @@ type TopMenuProps = {
 export const TopMenu: React.FC<TopMenuProps> = ({
   locale,
   user,
-  notifications,
+  notifications = 10,
   onLocaleChange,
   onIdentify,
 }) => {
+  const { data: session } = useSession();
   const [currentL, setCurrentL] = useState('mail');
 
   const onClickLeftMenu: MenuProps['onClick'] = e => {
@@ -51,12 +53,11 @@ export const TopMenu: React.FC<TopMenuProps> = ({
           className="border-none"
           mode='horizontal'
           disabledOverflow={true}
-          items={getRightMenuItems(user, notifications)}
+          items={getRightMenuItems(session?.user, notifications)}
         />
         <AuthLocale
           locale={locale}
           onLocaleChange={onLocaleChange}
-          user={user}
           onIdentify={onIdentify}
         />
       </div>

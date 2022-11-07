@@ -86,13 +86,12 @@ const loginDropdownMenu = (
 );
 
 type AuthLocaleProps = {
-  user?: IUser;
   locale: string;
   onLocaleChange?: (locale: string) => void;
   onIdentify?: (identity: IdentityType) => void;
 };
 
-export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, user, onIdentify }) => {
+export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, onIdentify }) => {
   const { data: session, status } = useSession();
   const isAuthenticated = useMemo(() => status === SESSION_STATUS.AUTHENTICATED && session?.user, [session, status]);
 
