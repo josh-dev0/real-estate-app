@@ -141,9 +141,8 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
           placement="top"
           overlay={loginDropdownMenu}
           trigger={['click']}
-          open={true}
         >
-          <a className="text-default" onClick={e => e.preventDefault()}>
+          <div className="text-default cursor-pointer" onClick={e => e.preventDefault()}>
             <div className="flex items-center">
               <ProfileAvatar
                 src={session?.user.image}
@@ -154,7 +153,7 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
               <p className="text-center leading-6 mb-0 ml-4 w-[5rem] mt-1">{session?.user.name}</p>
               <CaretDownOutlined className="ml-1" />
             </div>
-          </a>
+          </div>
         </Dropdown>
       }
       <Dropdown overlay={localeMenu}>
