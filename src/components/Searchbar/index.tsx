@@ -16,6 +16,14 @@ import {
 import type { IRange } from '../../types';
 import styles from './styles.module.scss';
 
+const basis = {
+  location: '17%',
+  radius: '17%',
+  propertyType: '17%',
+  bedrooms: '30%',
+  price: '17%',
+};
+
 type SearchbarProps = {
   locationOptions?: string[];
   radius?: string | number | null;
@@ -60,13 +68,13 @@ export const Searchbar: React.FC<SearchbarProps> = ({
     <div className={classNames("max-w-[65.938rem] w-full", className)}>
       <div className={styles.topFilter}>
         <CustomAutoComplete
-          className="h-[3.25rem] basis-1/6"
+          className="h-[3.25rem] basis-[17%]"
           placeholder={<div className="flex items-center h-full px-[0.438rem]"><EnvironmentFilled className="text-base" /><p className="grow text-xs text-secondary text-center">Location</p></div>}
           optionValues={locationOptions}
           onSearch={onLocationSearch!}
         />
         <NumberSelect
-          className="basis-1/6"
+          className="basis-[17%]"
           icon={<AimOutlined className={styles.filterIcon} />}
           label="Radius"
           unit="km"
@@ -74,7 +82,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           onChange={onRadiusChange}
         />
         <PropertyTypeSelect2
-          className="min-w-[6.25rem] h-[52px] bg-primary grow"
+          className="min-w-[6.25rem] basis-[17%] h-[52px] bg-primary grow"
           placeholder="Property Type"
           value={propertyType}
           onChange={val => onPropertyTypeChange!(val)}
@@ -102,7 +110,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           ]}
         />
         <NumberSelect
-          className="basis-1/6"
+          className="basis-[23%]"
           icon={<BedFilled className={styles.filterIcon} />}
           label="Bedrooms"
           unit="Bedrooms"
@@ -110,7 +118,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           onChange={onBedroomsChange}
         />
         <PriceSelect
-          className="basis-1/6"
+          className="basis-[17%]"
           icon={<EuroCircleOutlined className={styles.filterIcon} />}
           label="Price"
           value={price}
