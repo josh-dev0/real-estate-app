@@ -7,3 +7,4 @@ export * from './Layout';
 export * from './LoginForm';
 export * from './LoginWithSocial';
 export * from './RegisterForm';
+export * from './ResetPasswordForm';
