@@ -35,7 +35,7 @@ export const validatePassword = (password: string): ValidateResult => {
       ...errorResultTemplate,
       help: "Should include at least 1 special character",
     };
-  return successResult;
+  return { ...successResult, hasFeedback: false };
 };
 
 // TODO: update this validate by integrating API.
