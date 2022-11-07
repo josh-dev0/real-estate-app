@@ -27,9 +27,9 @@ type SearchbarProps = {
   landSurface?: IRange;
   onLocationSearch?: (val: string) => void;
   onRadiusChange?: (val: string | number | null) => void;
-  onPropertyTypeChange?: (val?: string[]) => void;
+  onPropertyTypeChange?: (val: string[]) => void;
   onBedroomsChange?: (val: string | number | null) => void;
-  onPriceChange?: (val?: IRange) => void;
+  onPriceChange?: (val: IRange) => void;
   onChangeOfIncludeResultsWithoutPictures?: (val: boolean) => void;
   onHabitableSurfaceChange?: (val?: IRange) => void;
   onLandSurfaceChange?: (val?: IRange) => void;

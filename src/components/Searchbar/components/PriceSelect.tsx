@@ -12,7 +12,7 @@ type PriceSelectProps = Partial<Omit<InputNumberProps, 'value' | 'onChange'>> & 
   label: string;
   icon?: ReactNode;
   position?: string;
-  onChange: (val?: IRange) => void;
+  onChange: (val: IRange) => void;
 };
 
 export const PriceSelect: React.FC<PriceSelectProps> = ({

@@ -40,13 +40,27 @@ import {
   getServices,
 } from '@app/utils/demo';
 import styles from '@app/styles/pages/Home.module.scss';
-import { IdentityType } from '@app/types';
+import { IdentityType, IRange } from '@app/types';
 import { CloseCircleOutlined } from '@ant-design/icons';
 
 const Home: NextPage = () => {
   const router = useRouter();
   const { data: session, status: sessionStatus } = useSession();
   // --> Search bar props
+  const [includeResultsWithoutPictures, setIncludeResultsWithoutPictures] = useState(false);
+  const [locationOptions, setLocationOptions] = useState<string[]>([]);
+  const [propertyType, setPropertyType] = useState<string[]>([]);
+  const [price, setPrice] = useState<IRange>();
+  const [habitableSurface, setHabitableSurface] = useState<IRange>();
+  const [landSurface, setLandSurface] = useState<IRange>();
+  const handleOnLocationSearch = (val: string) => {
+    console.log('[val]', val);
+    if (val.length < 3)
+      setLocationOptions([]);
+    else
+      setLocationOptions(new Array(10).fill(null).map((_, i) => `${val}-${i}`))
+  }
+  // <-- Search bar props.
   const [dealType, setDealType] = useState('');
   const [propertiesAroundMe, setPropertiesAroundMe] = useState<PropertyCardProps[]>([]);
   const [matchedProperties, setMatchedProperties] = useState<PropertyCardProps[]>([]);
@@ -60,7 +74,6 @@ const Home: NextPage = () => {
   const [featuredServices, setFeaturedServices] = useState<RewardCardProps[]>([]);
   const [lifeStyles, setLifeStyles] = useState<SimpleCardProps[]>([]);
   const [countries, setCountries] = useState<SimpleCardProps[]>([]);
-  // <-- Search bar props.
 
   const openNotification = () => {
     const key = 'open-just-after-login';
@@ -129,7 +142,21 @@ const Home: NextPage = () => {
               onChange={e => setDealType(e.target.value)}
             />
           </HCenter>
-          <HCenter><Searchbar /></HCenter>
+          <HCenter>
+            <Searchbar
+              includeResultsWithoutPictures={includeResultsWithoutPictures}
+              onChangeOfIncludeResultsWithoutPictures={setIncludeResultsWithoutPictures}
+              locationOptions={locationOptions}
+              onLocationSearch={handleOnLocationSearch}
+              propertyType={propertyType}
+              onPropertyTypeChange={setPropertyType}
+              price={price}
+              onPriceChange={setPrice}
+              habitableSurface={habitableSurface}
+              onHabitableSurfaceChange={setHabitableSurface}
+              landSurface={landSurface}
+              onLandSurfaceChange={setLandSurface}
+            /></HCenter>
         </section>
 
         <section className="max-w-[66.125rem] mx-auto">
