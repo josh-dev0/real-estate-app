@@ -26,6 +26,13 @@ const serviceTypeOptions = [
     label: type,
   }))
 
+const validateMessages = {
+  required: '${label} must not be empty!',
+  number: {
+    range: '${label} must be between ${min} and ${max}',
+  },
+};
+
 export type ProfessionalInformationFormProps = Omit<FormProps, 'layout'>
 
 export const ProfessionalInformationForm: React.FC<ProfessionalInformationFormProps> = ({
@@ -34,8 +41,34 @@ export const ProfessionalInformationForm: React.FC<ProfessionalInformationFormPr
   ...otherProps
 }) => {
   const [companyType, setCompanyType] = useState('');
+  const [companyTypeValidation, setCompanyTypeValidation] = useState<{
+    validateStatus: 'error' | 'success',
+    help: string,
+  }>({
+    validateStatus: 'success',
+    help: '',
+  });
+  const handleOnClickSubmit = () => {
+    // validate company type.
+    if (!companyType) {
+      return setCompanyTypeValidation({
+        help: "Please select a company type!",
+        validateStatus: "error",
+      })
+    }
+  }
   const checkAndFinish = (values: any) => {
     onFinish!({ ...values, companyType })
+  }
+  const handleOnCompanyTypeChange = (type: string, checked: boolean) => {
+    setCompanyType(checked
+      ? type
+      : type === 'agency' ? 'other' : 'other'
+    );
+    return setCompanyTypeValidation({
+      help: "",
+      validateStatus: "success",
+    })
   }
 
   return (
@@ -50,24 +83,46 @@ export const ProfessionalInformationForm: React.FC<ProfessionalInformationFormPr
         className="px-10 mt-4 overflow-auto"
         layout="vertical"
         onFinish={checkAndFinish}
+        validateMessages={validateMessages}
         {...otherProps}
       >
         <Form.Item
-          label={<span className={styles.labelPrimary}>Name</span>}
+          // label={<span className={styles.labelPrimary}>Brand Name</span>}
+          label="Brand Name"
+          name='brandName'
+          rules={[{ required: true }]}
+        >
+          <Input
+            placeholder="Brand name"
+          />
+        </Form.Item>
+        <Form.Item
+          label="Name"
           name='companyName'
+          rules={[{ required: true }]}
         >
           <Input
             placeholder="Company name"
           />
         </Form.Item>
         <Form.Item
+          label="Company Number"
+          name='companyNumber'
+          rules={[{ required: true }]}
+        >
+          <Input
+            placeholder="Company number"
+          />
+        </Form.Item>
+        <Form.Item
           className="mt-6"
           label={<span className={classNames(styles.labelPrimary, 'mt-2')}>Type of company</span>}
+          {...companyTypeValidation}
         >
-          <div className="mt-3">
+          <div className="mt-0">
             <Checkbox
               checked={companyType === 'agency'}
-              onChange={(e: CheckboxChangeEvent) => setCompanyType(e.target.checked ? 'agency' : 'other')}
+              onChange={(e: CheckboxChangeEvent) => handleOnCompanyTypeChange('agency', e.target.checked)}
             >
               <span className={styles.labelCheckbox}>Real Estate Agency</span>
             </Checkbox>
@@ -75,7 +130,7 @@ export const ProfessionalInformationForm: React.FC<ProfessionalInformationFormPr
           <div className="mt-1">
             <Checkbox
               checked={companyType === 'other'}
-              onChange={(e: CheckboxChangeEvent) => setCompanyType(e.target.checked ? 'other' : 'agency')}
+              onChange={(e: CheckboxChangeEvent) => handleOnCompanyTypeChange('other', e.target.checked)}
             >
               <span className={styles.labelCheckbox}>Other</span>
             </Checkbox>
@@ -83,8 +138,9 @@ export const ProfessionalInformationForm: React.FC<ProfessionalInformationFormPr
         </Form.Item>
         <Form.Item
           className="mt-10"
-          label={<span className={styles.labelSecondary}>Type of service you provide</span>}
+          label="Type of service you provide"
           name="serviceType"
+          rules={[{ required: true }]}
         >
           <Select
             className="w-full mt-2"
@@ -108,6 +164,7 @@ export const ProfessionalInformationForm: React.FC<ProfessionalInformationFormPr
           type="primary"
           htmlType="submit"
           block
+          onClick={handleOnClickSubmit}
         >
           next
         </Button>
