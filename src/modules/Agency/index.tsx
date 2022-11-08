@@ -4,5 +4,6 @@
  * @describes all components and related things in agencies dashboard.
  */
 
+export * from './AgencyCard';
 export * from './Filterbar';
 export * from './Statusbar';

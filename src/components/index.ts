@@ -1,4 +1,3 @@
-export * from "./AgencyCard";
 export * from "./Auth";
 export * from "./Breadcrumb";
 export * from "./CozziCarousel";

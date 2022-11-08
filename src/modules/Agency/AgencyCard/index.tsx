@@ -27,7 +27,6 @@ export const AgencyCard: React.FC<AgencyCardProps> = ({
   return (
     <Card
       className={styles.container}
-      style={{ width: 333 }}
       bodyStyle={{
         padding: 0,
       }}

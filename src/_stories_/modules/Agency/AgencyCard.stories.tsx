@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { AgencyCard } from '@app/components';
+import { AgencyCard } from '@app/modules/Agency';
 
 export default {
-  title: 'Components/AgencyCard',
+  title: 'Agency/AgencyCard',
   component: AgencyCard,
 } as ComponentMeta<typeof AgencyCard>;
 
