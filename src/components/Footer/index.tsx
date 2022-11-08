@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link'
+import { useSession } from 'next-auth/react';
 import { Col, Divider, Row, Layout, Space, Typography, Input, Button } from 'antd';
 import type { LayoutProps } from 'antd';
 import classNames from 'classnames';
@@ -11,6 +12,12 @@ const AntdFooter = Layout.Footer;
 const { Text } = Typography;
 
 export const Footer: React.FC<LayoutProps> = ({ className }) => {
+  const { data: session, status } = useSession();
+  // This is for the development only.
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development')
+      console.log('footer.session', session, status);
+  }, [session, status]);
   return (
     <AntdFooter className={classNames("w-full bg-secondary", className)}
     >
