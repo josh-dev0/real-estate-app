@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import Router, { useRouter } from 'next/router';
 import Head from 'next/head'
-import { useEffect, useMemo } from 'react';
-import { useSession, signIn } from "next-auth/react"
+import { useMemo } from 'react';
+import { signIn } from "next-auth/react"
 import type { LoginInput, RegisterInput } from '@app/types';
 import { AuthLayout, LoginForm, LoginWithSocial, RegisterForm } from '@app/components';
 import { AUTH_TYPE, IDENTITY, QUERY, ROUTES } from '@app/constants';
@@ -16,8 +16,6 @@ const AuthIndex: NextPage = () => {
       ? IDENTITY.PROFESSIONAL
       : IDENTITY.INDIVIDUAL,
     [router.query]);
-
-  const { data: session } = useSession()
 
   const handleOnLogin = async (val: LoginInput) => {
     signIn('credentials', {
@@ -59,10 +57,6 @@ const AuthIndex: NextPage = () => {
         }
       });
   }
-
-  useEffect(() => {
-    console.log('session', session);
-  }, [session]);
 
   return (
     <>

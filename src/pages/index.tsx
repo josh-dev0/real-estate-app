@@ -54,10 +54,10 @@ const Home: NextPage = () => {
   const [habitableSurface, setHabitableSurface] = useState<IRange>();
   const [landSurface, setLandSurface] = useState<IRange>();
   const handleOnLocationSearch = (val: string) => {
-    console.log('[val]', val);
     if (val.length < 3)
       setLocationOptions([]);
     else
+      // TODO: update this part with API integration.
       setLocationOptions(new Array(10).fill(null).map((_, i) => `${val}-${i}`))
   }
   // <-- Search bar props.
@@ -99,7 +99,7 @@ const Home: NextPage = () => {
   };
 
   const handleOnIdentify = (identity: IdentityType) => {
-    Router.push(`/${ROUTES.login}?role=${identity}`);
+    Router.push(`${ROUTES.login}?role=${identity}`);
   }
 
   useEffect(() => {
