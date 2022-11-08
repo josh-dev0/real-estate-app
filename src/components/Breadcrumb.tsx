@@ -1,14 +1,15 @@
 import React from 'react';
 import { Breadcrumb as AntdBreadcrumb } from 'antd';
+import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
 import { BreadcrumbItem } from '@app/types';
 
 type BreadcrumbProps = {
   items: BreadcrumbItem[];
-};
+} & AntdBreadcrumbProps;
 
-export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
+export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, ...otherProps }) => {
   return (
-    <AntdBreadcrumb>
+    <AntdBreadcrumb {...otherProps}>
       {
         items.slice(0, items.length - 1).map(item => (
           <AntdBreadcrumb.Item
