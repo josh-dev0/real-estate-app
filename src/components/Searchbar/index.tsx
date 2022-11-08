@@ -82,7 +82,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           onChange={onRadiusChange}
         />
         <PropertyTypeSelect2
-          className="min-w-[6.25rem] basis-[17%] h-[52px] bg-primary grow"
+          className="min-w-[6.25rem] basis-[21%] h-[52px] bg-primary grow"
           placeholder="Property Type"
           value={propertyType}
           onChange={val => onPropertyTypeChange!(val)}
@@ -110,7 +110,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
           ]}
         />
         <NumberSelect
-          className="basis-[23%]"
+          className="basis-[19%]"
           icon={<BedFilled className={styles.filterIcon} />}
           label="Bedrooms"
           unit="Bedrooms"
