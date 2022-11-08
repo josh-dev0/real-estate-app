@@ -20,6 +20,7 @@ import type { IUser, IdentityType } from '@app/types';
 import { IDENTITY, SESSION_STATUS } from '@app/constants';
 import { ProfileAvatar } from '@app/components';
 import { OnlineIcon } from './icons/online';
+import styles from './styles.module.scss';
 
 const loginMenuIconClassName = "w-[1rem] mr-5 text-lg";
 const loginDropdownMenu = (
@@ -97,14 +98,15 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
 
   const logoutDropdownMenu = (
     <Menu
+      className={styles.logoutMenuDropDown}
       items={[
         {
           key: IDENTITY.INDIVIDUAL,
-          label: "I'm an individual",
+          label: <span className={styles.logoutMenuItem}>I'm an individual</span>,
         },
         {
           key: IDENTITY.PROFESSIONAL,
-          label: "I'm a Professional"
+          label: <span className={styles.logoutMenuItem}>I'm a Professional</span>
         },
       ]}
       onClick={e => onIdentify!(e.key as IdentityType)}
@@ -126,7 +128,7 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
       {
         !isAuthenticated &&
         <Dropdown overlay={logoutDropdownMenu}>
-          <a className="text-default" onClick={e => e.preventDefault()}>
+          <a className="text-bg-secondary" onClick={e => e.preventDefault()}>
             <div className="flex items-end">
               <p className="text-center leading-6 mb-0">Hello<br />Identify yourself</p>
               <CaretDownOutlined className="ml-3 mb-1" />
