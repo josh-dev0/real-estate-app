@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
 import { useSession } from 'next-auth/react';
-import type { IUser, IdentityType } from '@app/types';
+import type { IdentityType } from '@app/types';
 import { leftMenuItems, getRightMenuItems } from './menus';
 import { AuthLocale } from './AuthLocale';
 
@@ -10,7 +11,6 @@ const { Header } = Layout;
 
 type TopMenuProps = {
   locale: string;
-  user?: IUser;
   notifications?: number;
   onLocaleChange?: (locale: string) => void;
   onIdentify?: (identity: IdentityType) => void;
@@ -18,7 +18,6 @@ type TopMenuProps = {
 
 export const TopMenu: React.FC<TopMenuProps> = ({
   locale,
-  user,
   notifications = 10,
   onLocaleChange,
   onIdentify,
@@ -38,7 +37,7 @@ export const TopMenu: React.FC<TopMenuProps> = ({
       }}
     >
       <div className="flex items-center">
-        <img src="/logo.png" alt="Logo" />
+        <Link href="/"><img className="w-[65px] h-[65px] cursor-pointer" src="/logo.png" alt="Logo" /></Link>
         <Menu
           className="border-none"
           mode="horizontal"
