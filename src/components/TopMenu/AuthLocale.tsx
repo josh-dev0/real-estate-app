@@ -4,6 +4,7 @@ import Router from 'next/router';
 import { Dropdown, Menu, Space } from 'antd';
 import {
   CaretDownOutlined,
+  CaretRightOutlined,
   CrownOutlined,
   EyeInvisibleFilled,
   FormOutlined,
@@ -22,10 +23,11 @@ import { ProfileAvatar } from '@app/components';
 import { OnlineIcon } from './icons/online';
 import styles from './styles.module.scss';
 
-const loginMenuIconClassName = "w-[1rem] mr-5 text-lg";
+const loginMenuIconClassName = "w-[1rem] mr-5 text-lg inline-block";
 const loginDropdownMenu = (
   <Menu
     className="py-4 px-6"
+    mode="horizontal"
     items={[
       {
         key: 'dd:my-profile',
@@ -35,7 +37,26 @@ const loginDropdownMenu = (
       {
         key: 'dd:status',
         label: 'Status',
-        icon: <OnlineIcon className={loginMenuIconClassName} />
+        icon: <OnlineIcon className={loginMenuIconClassName} />,
+        expandIcon: <CaretRightOutlined className="ant-dropdown-menu-submenu-expand-icon top-[.5rem]" />,
+        children: [
+          {
+            label: "Online",
+            key: 'menu:online',
+          },
+          {
+            label: "Away",
+            key: 'menu:away',
+          },
+          {
+            label: "Hidden",
+            key: 'menu:hidden',
+          },
+          {
+            label: "Don't disturbe",
+            key: 'menu:dontdisturb',
+          },
+        ]
       },
       {
         key: 'dd:my-messages',
