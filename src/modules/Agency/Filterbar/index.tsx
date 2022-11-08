@@ -30,6 +30,7 @@ type AgencyFilterbarProps = {
 } & Omit<React.HTMLAttributes<HTMLDivElement>, 'onRateChange'>;
 
 export const AgencyFilterbar: React.FC<AgencyFilterbarProps> = ({
+  className,
   isSeniority,
   data,
   onIsSeniorityChange,
@@ -46,7 +47,7 @@ export const AgencyFilterbar: React.FC<AgencyFilterbarProps> = ({
   onLocationChange,
 }) => {
   return (
-    <div className={styles.container}>
+    <div className={classNames(styles.container, className)}>
       <Text className="text-sm leading-2xl font-bold text-bg-secondary-light">Total Agencies Found ({data.total})</Text>
       <Divider />
       <section>
