@@ -132,7 +132,6 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <TopMenu
-          locale="EN/EN"
           onIdentify={handleOnIdentify}
         />
         <section className={classNames("min-h-[11.25rem]", styles.topImgContainer)}>

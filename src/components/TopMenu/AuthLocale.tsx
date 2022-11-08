@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import Router from 'next/router';
-import { Avatar, Dropdown, Menu, Space } from 'antd';
+import { Dropdown, Menu, Space } from 'antd';
 import {
   CaretDownOutlined,
   CrownOutlined,
@@ -16,7 +16,7 @@ import {
   SearchOutlined,
 } from '@ant-design/icons';
 import { locales } from '@app/constants/locale';
-import type { IUser, IdentityType } from '@app/types';
+import type { IdentityType } from '@app/types';
 import { IDENTITY, SESSION_STATUS } from '@app/constants';
 import { ProfileAvatar } from '@app/components';
 import { OnlineIcon } from './icons/online';
@@ -115,9 +115,10 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
 
   const localeMenu = (
     <Menu
+      className={styles.localeMenuDropDown}
       items={locales.map(locale => ({
         key: locale,
-        label: locale,
+        label: <span className={styles.localeMenuItem}>{locale}</span>,
       }))}
       onClick={(e) => onLocaleChange!(e.key)}
     />
@@ -158,14 +159,12 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
         </Dropdown>
       }
       <Dropdown overlay={localeMenu}>
-        <div>
-          <div className="leading-4 flex items-center">
-            <div>
-              <GlobalOutlined className="text-3xl" />
-              <span className="block leading-4 text-center text-xs">{locale}</span>
-            </div>
-            <CaretDownOutlined className="ml-2" />
+        <div className="leading-4 flex items-center text-bg-secondary cursor-pointer">
+          <div className="min-w-[2.5rem] text-center">
+            <GlobalOutlined className="text-3xl" />
+            <span className="block leading-4 text-center text-xs">{locale}</span>
           </div>
+          <CaretDownOutlined className="ml-2" />
         </div>
       </Dropdown>
     </Space>
