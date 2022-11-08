@@ -12,7 +12,7 @@ type SelectOption = {
   label: string;
 }
 
-type FilterbarProps = {
+type AgencyFilterbarProps = {
   data: FilterResult;
   isSeniority: boolean;
   onIsSeniorityChange: (checked: boolean) => void;
@@ -29,7 +29,7 @@ type FilterbarProps = {
   onLocationChange: (val: string[]) => void;
 } & Omit<React.HTMLAttributes<HTMLDivElement>, 'onRateChange'>;
 
-export const Filterbar: React.FC<FilterbarProps> = ({
+export const AgencyFilterbar: React.FC<AgencyFilterbarProps> = ({
   isSeniority,
   data,
   onIsSeniorityChange,

@@ -3,7 +3,6 @@ export * from "./Auth";
 export * from "./Breadcrumb";
 export * from "./CozziCarousel";
 export * from "./DealType";
-export * from "./Filterbar";
 export * from "./Footer";
 export * from "./ProfileAvatar";
 export * from "./ProfessionalCard";

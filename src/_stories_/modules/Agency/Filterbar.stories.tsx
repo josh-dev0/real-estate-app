@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Filterbar } from '@app/components';
+import { AgencyFilterbar } from '@app/modules/Agency';
 
 export default {
-  title: 'Components/Filterbar',
-  component: Filterbar,
-} as ComponentMeta<typeof Filterbar>;
+  title: 'Components/Agency/Filterbar',
+  component: AgencyFilterbar,
+} as ComponentMeta<typeof AgencyFilterbar>;
 
-const Template: ComponentStory<typeof Filterbar> = (args) => <Filterbar {...args} />;
+const Template: ComponentStory<typeof AgencyFilterbar> = (args) => <AgencyFilterbar {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
