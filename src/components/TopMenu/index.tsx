@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
 import { useSession } from 'next-auth/react';
 import type { IdentityType } from '@app/types';
+import { ROUTES } from '@app/constants';
 import { locales } from '@app/constants/locale';
 import { leftMenuItems, getRightMenuItems } from './menus';
 import { AuthLocale } from './AuthLocale';
@@ -12,16 +14,18 @@ const { Header } = Layout;
 
 type TopMenuProps = {
   notifications?: number;
-  onIdentify?: (identity: IdentityType) => void;
 }
 
 export const TopMenu: React.FC<TopMenuProps> = ({
   notifications = 10,
-  onIdentify,
 }) => {
   const { data: session } = useSession();
   const [currentL, setCurrentL] = useState('mail');
   const [locale, setLocale] = useState(locales[0]); // set first locale as default locale.
+
+  const handleOnIdentify = (identity: IdentityType) => {
+    Router.push(`${ROUTES.login}?role=${identity}`);
+  }
 
   const onClickLeftMenu: MenuProps['onClick'] = e => {
     setCurrentL(e.key);
@@ -55,7 +59,7 @@ export const TopMenu: React.FC<TopMenuProps> = ({
         <AuthLocale
           locale={locale}
           onLocaleChange={setLocale}
-          onIdentify={onIdentify}
+          onIdentify={handleOnIdentify}
         />
       </div>
     </Header>

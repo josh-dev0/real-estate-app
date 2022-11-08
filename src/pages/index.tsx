@@ -131,9 +131,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <TopMenu
-          onIdentify={handleOnIdentify}
-        />
+        <TopMenu />
         <section className={classNames("min-h-[11.25rem]", styles.topImgContainer)}>
           <HCenter>
             <DealType className="mt-[7.125rem] mb-3"
