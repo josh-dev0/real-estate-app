@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Statusbar } from '@app/components';
+import { AgencyStatusbar } from '@app/modules/Agency';
 
 export default {
-  title: 'Components/Statusbar',
-  component: Statusbar,
-} as ComponentMeta<typeof Statusbar>;
+  title: 'Agency/Statusbar',
+  component: AgencyStatusbar,
+} as ComponentMeta<typeof AgencyStatusbar>;
 
-const Template: ComponentStory<typeof Statusbar> = (args) => <Statusbar {...args} />;
+const Template: ComponentStory<typeof AgencyStatusbar> = (args) => <AgencyStatusbar {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

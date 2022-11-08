@@ -18,7 +18,7 @@ const viewModeOptions = [
 
 export type StatusbarViewMode = 'card' | 'list';
 
-type StatusbarProps = {
+type AgencyStatusbarProps = {
   viewMode: SegmentedValue,
   onViewModeChange: (val: SegmentedValue) => void;
   keyword: string;
@@ -28,7 +28,7 @@ type StatusbarProps = {
   onSortByChange: (val: string) => void;
 }
 
-export const Statusbar: React.FC<StatusbarProps> = ({
+export const AgencyStatusbar: React.FC<AgencyStatusbarProps> = ({
   viewMode,
   onViewModeChange,
   keyword,

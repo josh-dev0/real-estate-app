@@ -5,3 +5,4 @@
  */
 
 export * from './Filterbar';
+export * from './Statusbar';

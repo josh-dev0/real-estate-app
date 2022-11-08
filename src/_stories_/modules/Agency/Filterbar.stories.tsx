@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { AgencyFilterbar } from '@app/modules/Agency';
 
 export default {
-  title: 'Components/Agency/Filterbar',
+  title: 'Agency/Filterbar',
   component: AgencyFilterbar,
 } as ComponentMeta<typeof AgencyFilterbar>;
 
