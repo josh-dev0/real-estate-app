@@ -408,3 +408,24 @@ export const fakeLogin = (val: any, identityType: IdentityType) => {
     })
     .catch(error => console.log('[fakeLogin]', error));
 }
+
+export const generateRandomAgencies = async (count: number = 9): Promise<any[]> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(
+        new Array(count).fill(null).map((_, i) => {
+          const bool = Math.random() > 0.5;
+          const names = ['Neudorf', 'Bascharage', 'Glacis', 'Lamadeleine', 'Rodange', 'Petange'];
+          const nameIndex = Math.floor(Math.random() * names.length);
+          return {
+            key: Math.random() + i,
+            avatar: bool ? "/images/user.png" : '',
+            company: bool ? "Deco-home Inc" : 'Lotinest Inc',
+            name: names[nameIndex],
+            rate: 3 + Math.random() * 2,
+            summary: "A tout juste cinq minutes du quartier des nutes du quartier des...",
+          }
+        }));
+    }, 500);
+  });
+}

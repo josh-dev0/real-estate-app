@@ -1,7 +1,10 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import { useState } from 'react';
-import { Col, Row } from "antd";
+import { useEffect, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { Col, Row, Spin } from "antd";
+import { SegmentedValue } from "antd/lib/segmented";
+import { LoadingOutlined } from '@ant-design/icons';
 import { PageBody } from '@app/containers';
 import { Breadcrumb, Footer, TopMenu } from "@app/components";
 import {
@@ -9,7 +12,7 @@ import {
   AgencyFilterbar,
   AgencyStatusbar,
 } from '@app/modules/Agency';
-import { SegmentedValue } from "antd/lib/segmented";
+import { generateRandomAgencies } from '@app/utils/demo';
 
 const AgenciesDirectory: NextPage = () => {
   // --> Filter bar
@@ -77,6 +80,29 @@ const AgenciesDirectory: NextPage = () => {
     { value: 'highestPrice', label: 'Highest Price' },
   ]);
   // <-- Status Bar
+  const [agencies, setAgencies] = useState<any[]>([]);
+  const [hasMore, setHasMore] = useState(true);
+  const handleLoadMore = () => {
+    generateRandomAgencies()
+      .then(res => setAgencies([...agencies, ...res]))
+      .finally(() => {
+        if (agencies.length > 27) setHasMore(false);
+      });
+  }
+  const LoadMore = () =>
+    <div className="flex items-center justify-center gap-[3rem] mt-16">
+      <Spin
+        indicator={<LoadingOutlined
+          style={{ fontSize: 60 }}
+          spin
+        />}
+      />
+      <span className="text-primary text-lg leading-[21px]">Loading more...</span>
+    </div>
+  useEffect(() => {
+    generateRandomAgencies().then(setAgencies);
+  }, []);
+
   return (
     <>
       <Head>
@@ -112,7 +138,14 @@ const AgenciesDirectory: NextPage = () => {
               locationOptions={locationOptions}
               onLocationChange={setLocation}
             />
-            <section className="grow">
+            <InfiniteScroll
+              className="grow px-6 -mx-6 pb-16"
+              next={handleLoadMore}
+              hasMore={hasMore}
+              loader={<LoadMore />}
+              dataLength={agencies.length}
+            >
+              {/* <section className="grow"> */}
               <AgencyStatusbar
                 viewMode={statusbarViewMode}
                 onViewModeChange={setStatusbarViewMode}
@@ -122,13 +155,12 @@ const AgenciesDirectory: NextPage = () => {
                 onSortByChange={setSortBy}
                 sortByOptions={sortByOptions}
               />
-
               <Row
                 className="mt-5"
                 gutter={[27, 27]}
               >
                 {
-                  new Array(18).fill(null).map((_, i) =>
+                  agencies.map((_, i) =>
                     <Col key={i} span={8}>
                       <AgencyCard
                         avatar="/images/user.png"
@@ -141,13 +173,12 @@ const AgenciesDirectory: NextPage = () => {
                   )
                 }
               </Row>
-
-            </section>
+              {/* </section> */}
+            </InfiniteScroll>
           </div>
         </PageBody>
       </main>
       <Footer className="mt-[6.625rem]" />
-
     </>
   );
 }
