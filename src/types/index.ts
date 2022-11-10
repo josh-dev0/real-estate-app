@@ -57,3 +57,13 @@ export type Agency = {
   description: string;
   rate: number;
 };
+
+export type TeamMember = {
+  id: string;
+  name: string;
+  avatar?: string;
+  department: string;
+  job: string;
+  country: string;
+  flag: string;
+};

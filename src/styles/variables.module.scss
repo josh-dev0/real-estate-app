@@ -8,6 +8,7 @@
 $theme-light-fg-primary: #000000;
 $theme-light-fg-secondary: #828282;
 $theme-light-fg-secondary-light: #40a9ff; // filter/select: focused highlight border;
+$theme-light-fg-dark: #222222; // team member card name.
 $theme-light-fg-secondary-1: #575656;
 /* carousel handle border color*/
 $theme-light-fg-secondary-2: #bdbdbd;
@@ -44,6 +45,7 @@ $theme-light-bg-focused: #bdd1e8;
   lightFgPrimary: $theme-light-fg-primary;
   lightFgSecondary: $theme-light-fg-secondary;
   lightFgSecondaryLight: $theme-light-fg-secondary-light;
+  lightFgDark: $theme-light-fg-dark;
   lightFgSecondary1: $theme-light-fg-secondary-1;
   lightFgSecondary2: $theme-light-fg-secondary-2;
   lightFgSecondary3: $theme-light-fg-secondary-3;
