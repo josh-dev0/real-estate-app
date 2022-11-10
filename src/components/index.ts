@@ -1,6 +1,7 @@
 export * from "./Auth";
 export * from "./Breadcrumb";
 export * from "./CozziCarousel";
+export * from "./CozziTabs";
 export * from "./DealType";
 export * from "./Footer";
 export * from "./ProfileAvatar";
