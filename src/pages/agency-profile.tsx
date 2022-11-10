@@ -12,9 +12,10 @@ import {
   AgencyFilterbar,
   AgencyStatusbar,
   AgencyDetails,
+  AgencyTeamList,
 } from '@app/modules/Agency';
 import type { Agency } from '@app/types';
-import { generateRandomAgencies } from '@app/utils/demo';
+import { generateRandomAgencies, getTeamMembers } from '@app/utils/demo';
 
 const agency: Agency = {
   id: '',
@@ -63,7 +64,7 @@ const AgencyProfile: NextPage = () => {
             {
               label: `Team`,
               key: 'team',
-              children: `Team content here`,
+              children: <AgencyTeamList members={getTeamMembers()} />,
             },
             {
               label: `Ads`,

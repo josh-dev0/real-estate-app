@@ -13,7 +13,7 @@ import {
   ClusterOutlined,
   CrownOutlined,
 } from '@ant-design/icons';
-import { ICountry, IdentityType } from '@app/types';
+import { ICountry, IdentityType, TeamMember } from '@app/types';
 import { AUTH_TYPE } from "@app/constants";
 
 export const generateProperties = (n: number = 16) =>
@@ -429,3 +429,69 @@ export const generateRandomAgencies = async (count: number = 9): Promise<any[]> 
     }, 500);
   });
 }
+
+export const getTeamMembers = (): TeamMember[] => [
+  {
+    id: '1',
+    name: 'Suzanne Becker',
+    avatar: '/images/demo/members/suzanne.png',
+    department: 'Accounts',
+    job: 'Account Manager',
+    country: 'United Kingdom',
+    flag: '/images/flags/gb.png',
+  },
+  {
+    id: '2',
+    name: 'Christina Wocin',
+    avatar: '/images/demo/members/christina.png',
+    department: 'Accounts',
+    job: 'Account Manager',
+    country: 'United Kingdom',
+    flag: '/images/flags/gb.png',
+  },
+  {
+    id: '3',
+    name: 'Mateus Campos',
+    avatar: '/images/demo/members/mateus.png',
+    department: 'Accounts',
+    job: 'Account Manager',
+    country: 'United Kingdom',
+    flag: '/images/flags/gb.png',
+  },
+  {
+    id: '4',
+    name: 'Lucinda Alvarez',
+    avatar: '/images/demo/members/lucinda.png',
+    department: 'Accounts',
+    job: 'Account Manager',
+    country: 'United Kingdom',
+    flag: '/images/flags/gb.png',
+  },
+  {
+    id: '1',
+    name: 'Suzanne Becker',
+    avatar: '/images/demo/members/suzanne.png',
+    department: 'Accounts',
+    job: 'Account Manager',
+    country: 'United Kingdom',
+    flag: '/images/flags/gb.png',
+  },
+  {
+    id: '2',
+    name: 'Christina Wocin',
+    avatar: '/images/demo/members/christina.png',
+    department: 'Accounts',
+    job: 'Account Manager',
+    country: 'United Kingdom',
+    flag: '/images/flags/gb.png',
+  },
+  {
+    id: '3',
+    name: 'Mateus Campos',
+    avatar: '/images/demo/members/mateus.png',
+    department: 'Accounts',
+    job: 'Account Manager',
+    country: 'United Kingdom',
+    flag: '/images/flags/gb.png',
+  },
+]

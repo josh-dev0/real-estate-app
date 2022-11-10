@@ -8,3 +8,4 @@ export * from './AgencyCard';
 export * from './AgencyDetails';
 export * from './Filterbar';
 export * from './Statusbar';
+export * from './TeamList';
