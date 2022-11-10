@@ -19,12 +19,14 @@
   * Refer to https://tailwindcss.com/blog/tailwindcss-v3-1#easier-css-variable-color-configuration
   */
 @layer base {
+
   button,
   [type="button"],
   [type="reset"],
   [type="submit"] {
     background-color: var(--ant-primary-color);
   }
+
   :root {
     --theme-color-fg-primary: #{$theme-light-fg-primary};
     --theme-color-fg-secondary: #{$theme-light-fg-secondary};
@@ -36,6 +38,7 @@
     --theme-color-fg-secondary-5: #{$theme-light-fg-secondary-5};
     --theme-color-fg-secondary-6: #{$theme-light-fg-secondary-6};
     --theme-color-fg-secondary-7: #{$theme-light-fg-secondary-7};
+    --theme-color-fg-tab: #{$theme-light-fg-tab};
     --theme-color-fg-icon: #{$theme-light-fg-icon};
     --theme-color-fg-icon-1: #{$theme-light-fg-icon-1};
     --theme-color-fg-icon-2: #{$theme-light-fg-icon-2};

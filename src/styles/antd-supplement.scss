@@ -206,3 +206,21 @@ div.ant-select[class*="h-"] {
     right: 1rem;
   }
 }
+
+/**
+* @for: formatting tabs.
+* @description: to format selected color of active item.
+*/
+.ant-tabs {
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: var(--theme-color-fg-tab);
+  }
+
+  .ant-tabs-ink-bar {
+    background-color: var(--theme-color-bg-secondary-3);
+  }
+
+  .ant-tabs-tab:hover {
+    color: var(--theme-color-fg-tab);
+  }
+}

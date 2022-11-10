@@ -27,6 +27,9 @@ const textColor = {
     6: "var(--theme-color-fg-secondary-6)",
     7: "var(--theme-color-fg-secondary-7)",
   },
+  tab: {
+    DEFAULT: "var(--theme-color-fg-tab)",
+  },
   icon: {
     DEFAULT: "var(--theme-color-fg-icon)",
     1: "var(--theme-color-fg-icon-1)",

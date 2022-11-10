@@ -7,33 +7,36 @@
 // Light Theme(default)
 $theme-light-fg-primary: #000000;
 $theme-light-fg-secondary: #828282;
-$theme-light-fg-secondary-light: #40A9FF; // filter/select: focused highlight border;
+$theme-light-fg-secondary-light: #40a9ff; // filter/select: focused highlight border;
 $theme-light-fg-secondary-1: #575656;
 /* carousel handle border color*/
 $theme-light-fg-secondary-2: #bdbdbd;
 $theme-light-fg-secondary-3: #d9d9d9;
 $theme-light-fg-secondary-4: #ededed; // filter border color.
 $theme-light-fg-secondary-5: #535151; // filter sub-title(seniority, ratings, etc)
-$theme-light-fg-secondary-6: rgba(0, 0, 0, 0.65); // filter bar/select/option text color.
+// filter bar/select/option text color.
+$theme-light-fg-secondary-6: rgba(0, 0, 0, 0.65);
 $theme-light-fg-secondary-7: #393838; // professional card summary color.
+$theme-light-fg-tab: #466588; // tab selected color;
 /* box shadow color */
 $theme-light-fg-shadow: rgba(0, 0, 0, 0.1);
 $theme-light-fg-shadow-1: rgba(0, 0, 0, 0.043);
 $theme-light-fg-shadow-2: rgba(10, 9, 9, 0.08); // filter box shadow.
-$theme-light-fg-shadow-3: rgba(0, 0, 0, 0.15); // status bar/search input: inner box shadow
+// status bar/search input: inner box shadow
+$theme-light-fg-shadow-3: rgba(0, 0, 0, 0.15);
 // Icon colors
 $theme-light-fg-icon: rgba(174, 173, 173, 0.85);
 $theme-light-fg-icon-1: rgba(0, 0, 0, 0.85);
 $theme-light-fg-icon-2: rgba(0, 0, 0, 0.25);
-$theme-light-fg-error: #F5222D;
+$theme-light-fg-error: #f5222d;
 
 $theme-light-bg-primary: #ffffff;
 $theme-light-bg-secondary: #365272;
 $theme-light-bg-secondary-light: #55708f;
-$theme-light-bg-secondary-dark: #132C4A; // auth title color
+$theme-light-bg-secondary-dark: #132c4a; // auth title color
 $theme-light-bg-secondary-1: #f5f5f5;
 $theme-light-bg-secondary-2: #5784b8; // footer submit button
-$theme-light-bg-secondary-3: #7899BF; // background color of filter switch.
+$theme-light-bg-secondary-3: #7899bf; // background color of filter switch.
 $theme-light-bg-secondary-4: #979797;
 $theme-light-bg-focused: #bdd1e8;
 
@@ -48,6 +51,7 @@ $theme-light-bg-focused: #bdd1e8;
   lightFgSecondary5: $theme-light-fg-secondary-5;
   lightFgSecondary6: $theme-light-fg-secondary-6;
   lightFgSecondary7: $theme-light-fg-secondary-7;
+  lightFgTab: $theme-light-fg-tab;
   lightFgShadow: $theme-light-fg-shadow;
   lightFgShadow1: $theme-light-fg-shadow-1;
   lightFgShadow2: $theme-light-fg-shadow-2;
