@@ -27,6 +27,20 @@ export const AgencyDetails: React.FC<AgencyDetailsProps> = ({
   profile,
   ...otherProps
 }) => {
+  const {
+    address2,
+    companyName,
+    companyType,
+    country,
+    description,
+    location,
+    phone,
+    rate,
+    street,
+    title,
+    website,
+    avatar,
+  } = profile;
   return (
     <Card
       className={classNames(styles.container, className)}
@@ -40,38 +54,33 @@ export const AgencyDetails: React.FC<AgencyDetailsProps> = ({
           <ProfileAvatar
             className="text-[3rem]"
             size={94}
+            src={avatar}
             backgroundColor="#365272"
-            name="Neudorf A"
+            name={companyName}
             status="online"
           />
-          <p className="text-primary font-medium text-2xl leading-0 mt-5">{profile.companyName}</p>
+          <p className="text-primary font-medium text-2xl leading-0 mt-5">{companyName}</p>
           <section className="pl-3">
-            <p className="text-bg-secondary text-base leading-xs mt-5">{profile.name}</p>
-            <p className="text-bg-secondary text-xs leading-xs font-medium mt-2">{profile.street}</p>
-            <p className="text-bg-secondary text-xs leading-xs font-medium mt-2">{profile.address2}</p>
+            <p className="text-bg-secondary text-base leading-xs mt-5">{location}</p>
+            <p className="text-bg-secondary text-xs leading-xs font-medium mt-2">{street}</p>
+            <p className="text-bg-secondary text-xs leading-xs font-medium mt-2">{address2}</p>
             <p className="text-bg-secondary text-xs leading-xs font-medium mt-2 flex items-center gap-[10px]">
               <img className="h-[10px]" src="/images/flags/gb.png" width="14" />
-              {profile.phone}
+              {phone}
             </p>
           </section>
         </Col>
         <Col span={18}>
           <div className="w-full flex items-center justify-between mb-11">
-            <p className="font-medium text-base leading-xs text-bg-secondary-light">Real Estate</p>
+            <p className="font-medium text-base leading-xs text-bg-secondary-light">{companyType}</p>
             <Rate
               disabled={true}
               allowHalf={true}
-              value={4.6}
+              value={rate}
             />
           </div>
-          <h3 className="font-bold text-lg leading-xs text-primary mb-6">10 years of experience in Real Estate Management</h3>
-          <p className="text-[0.813rem] leading-sm text-secondary-7">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore
-            magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+          <h3 className="font-bold text-lg leading-xs text-primary mb-6">{title}</h3>
+          <p className="text-[0.813rem] leading-sm text-secondary-7">{description}</p>
         </Col>
       </Row>
       <Divider />
@@ -79,10 +88,10 @@ export const AgencyDetails: React.FC<AgencyDetailsProps> = ({
         <div className="flex items-center gap-[1rem] text-bg-secondary">
           <MailOutlined />
           <a
-            className="font-medium text-[0.813rem] leading-xs"
-            href="http://www.immoclean.com"
+            className="font-medium text-[0.813rem] leading-xs underline"
+            href={website}
           >
-            http://www.immoclean.com
+            {website}
           </a>
         </div>
         <div className="flex gap-[1.5rem]">

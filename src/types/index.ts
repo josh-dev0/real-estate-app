@@ -44,10 +44,10 @@ export type ValidateResult = {
 
 export type Agency = {
   id: string;
-  name: string;
   avatar?: string;
   companyName: string;
   country: string;
+  location?: string;
   street: string;
   address2: string;
   phone: string;

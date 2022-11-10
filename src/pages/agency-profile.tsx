@@ -1,25 +1,16 @@
 import { NextPage } from "next";
-import Head from "next/head";
-import { useEffect, useMemo, useState } from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { Col, Row, Spin, Tabs } from "antd";
-import { SegmentedValue } from "antd/lib/segmented";
-import { LoadingOutlined } from '@ant-design/icons';
-import { PageBody, ReversibleLayout } from '@app/containers';
-import { Breadcrumb, CozziTabs, Footer, TopMenu } from "@app/components";
+import { ReversibleLayout } from '@app/containers';
+import { Breadcrumb, CozziTabs } from "@app/components";
 import {
-  AgencyCard,
-  AgencyFilterbar,
-  AgencyStatusbar,
   AgencyDetails,
   AgencyTeamList,
 } from '@app/modules/Agency';
 import type { Agency } from '@app/types';
-import { generateRandomAgencies, getTeamMembers } from '@app/utils/demo';
+import { getTeamMembers } from '@app/utils/demo';
 
 const agency: Agency = {
   id: '',
-  name: 'Neudorf',
+  location: 'Neudorf',
   avatar: '',
   street: '30 rue du bois fleurit',
   address2: 'L10023 Luxembourg',
@@ -67,9 +58,9 @@ const AgencyProfile: NextPage = () => {
               children: <AgencyTeamList members={getTeamMembers()} />,
             },
             {
-              label: `Ads`,
-              key: 'ads',
-              children: `Ads content here`,
+              label: `Properties`,
+              key: 'properties',
+              children: `Properties content here`,
             },
             {
               label: `Contact`,
