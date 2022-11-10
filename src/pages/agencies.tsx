@@ -120,7 +120,7 @@ const AgenciesDirectory: NextPage = () => {
     console.log('collective.filter', collectiveFilter)
     if (collectiveFilter.keyword) {
       setHasMore(false);
-    } else { setHasMore(false) }
+    } else { setHasMore(true) }
     // TODO: process loading agencies based on new filter settings.
   }, [collectiveFilter])
 
