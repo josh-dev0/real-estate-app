@@ -41,3 +41,19 @@ export type ValidateResult = {
   validateStatus: "warning" | "success" | "error" | "validating";
   help?: string;
 };
+
+export type Agency = {
+  id: string;
+  name: string;
+  avatar?: string;
+  companyName: string;
+  country: string;
+  street: string;
+  address2: string;
+  phone: string;
+  website: string;
+  companyType: string;
+  title: string;
+  description: string;
+  rate: number;
+};
