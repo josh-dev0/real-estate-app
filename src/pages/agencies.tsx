@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Col, Row, Spin } from "antd";
 import { SegmentedValue } from "antd/lib/segmented";
@@ -79,9 +79,23 @@ const AgenciesDirectory: NextPage = () => {
     { value: 'lowestPrice', label: 'Lowest Price' },
     { value: 'highestPrice', label: 'Highest Price' },
   ]);
+  const handleOnSearch = (val: string) => setKeyword(val)
   // <-- Status Bar
   const [agencies, setAgencies] = useState<any[]>([]);
+  // this is for dev only to check the empty results.
+  const filteredAgencies = useMemo(() => keyword ? [] : agencies, [keyword, agencies]);
   const [hasMore, setHasMore] = useState(true);
+
+  // collective filter of this page.
+  const collectiveFilter = useMemo(() => ({
+    isSeniority,
+    rate,
+    serviceType,
+    region,
+    location,
+    keyword,
+  }), [isSeniority, rate, serviceType, region, location, keyword]);
+
   const handleLoadMore = () => {
     generateRandomAgencies()
       .then(res => setAgencies([...agencies, ...res]))
@@ -102,6 +116,13 @@ const AgenciesDirectory: NextPage = () => {
   useEffect(() => {
     generateRandomAgencies().then(setAgencies);
   }, []);
+  useEffect(() => {
+    console.log('collective.filter', collectiveFilter)
+    if (collectiveFilter.keyword) {
+      setHasMore(false);
+    } else { setHasMore(false) }
+    // TODO: process loading agencies based on new filter settings.
+  }, [collectiveFilter])
 
   return (
     <>
@@ -138,43 +159,57 @@ const AgenciesDirectory: NextPage = () => {
               locationOptions={locationOptions}
               onLocationChange={setLocation}
             />
-            <InfiniteScroll
-              className="grow px-6 -mx-6 pb-16"
-              next={handleLoadMore}
-              hasMore={hasMore}
-              loader={<LoadMore />}
-              dataLength={agencies.length}
-            >
-              {/* <section className="grow"> */}
-              <AgencyStatusbar
-                viewMode={statusbarViewMode}
-                onViewModeChange={setStatusbarViewMode}
-                keyword={keyword}
-                onKeywordChange={setKeyword}
-                sortBy={sortBy}
-                onSortByChange={setSortBy}
-                sortByOptions={sortByOptions}
-              />
-              <Row
-                className="mt-5"
-                gutter={[27, 27]}
+            <section className="grow">
+              <InfiniteScroll
+                className="grow px-6 -mx-6 pb-16"
+                next={handleLoadMore}
+                hasMore={hasMore}
+                loader={<LoadMore />}
+                dataLength={agencies.length}
               >
+                <AgencyStatusbar
+                  onSearch={handleOnSearch}
+                  viewMode={statusbarViewMode}
+                  onViewModeChange={setStatusbarViewMode}
+                  // keyword={keyword}
+                  // onKeywordChange={setKeyword}
+                  sortBy={sortBy}
+                  onSortByChange={setSortBy}
+                  sortByOptions={sortByOptions}
+                />
                 {
-                  agencies.map((_, i) =>
-                    <Col key={i} span={8}>
-                      <AgencyCard
-                        avatar="/images/user.png"
-                        company="Deco-home Inc"
-                        name="Neudorf"
-                        rate={4.6}
-                        summary="A tout juste cinq minutes du quartier des nutes du quartier des..."
-                      />
+                  !filteredAgencies.length &&
+                  <Row className="mt-[12rem]" gutter={0}>
+                    <Col span={24}>
+                      <div className="w-full flex flex-col items-center justify-center">
+                        <img src="/images/empty-search-results.png" alt="No result found. Try again!" />
+                        <span className="text-center pr-8 mt-10 text-icon-1 text-sm leading-[22px]">
+                          No result found<br /> for '{keyword}'.<br />Please try again.
+                        </span>
+                      </div>
                     </Col>
-                  )
+                  </Row>
                 }
-              </Row>
-              {/* </section> */}
-            </InfiniteScroll>
+
+                {
+                  filteredAgencies.length > 0 &&
+                  <Row
+                    className="mt-5"
+                    gutter={[27, 27]}
+                  >
+                    {
+                      filteredAgencies.map((agency, i) =>
+                        <Col key={i} span={8}>
+                          <AgencyCard
+                            {...agency}
+                          />
+                        </Col>
+                      )
+                    }
+                  </Row>
+                }
+              </InfiniteScroll>
+            </section>
           </div>
         </PageBody>
       </main>
