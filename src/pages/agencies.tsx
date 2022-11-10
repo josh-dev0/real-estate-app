@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useMemo, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { Col, Row, Spin } from "antd";
+import { Col, Empty, Row, Spin } from "antd";
 import { SegmentedValue } from "antd/lib/segmented";
 import { LoadingOutlined } from '@ant-design/icons';
 import { PageBody } from '@app/containers';
@@ -171,8 +171,6 @@ const AgenciesDirectory: NextPage = () => {
                   onSearch={handleOnSearch}
                   viewMode={statusbarViewMode}
                   onViewModeChange={setStatusbarViewMode}
-                  // keyword={keyword}
-                  // onKeywordChange={setKeyword}
                   sortBy={sortBy}
                   onSortByChange={setSortBy}
                   sortByOptions={sortByOptions}
@@ -182,10 +180,11 @@ const AgenciesDirectory: NextPage = () => {
                   <Row className="mt-[12rem]" gutter={0}>
                     <Col span={24}>
                       <div className="w-full flex flex-col items-center justify-center">
-                        <img src="/images/empty-search-results.png" alt="No result found. Try again!" />
-                        <span className="text-center pr-8 mt-10 text-icon-1 text-sm leading-[22px]">
-                          No result found<br /> for '{keyword}'.<br />Please try again.
-                        </span>
+                        <Empty
+                          description={<div className="text-center mt-10 text-icon-1 text-sm leading-[22px]">
+                            No result found<br /> for '{keyword}'.<br />Please try again.
+                          </div>}
+                        />
                       </div>
                     </Col>
                   </Row>
