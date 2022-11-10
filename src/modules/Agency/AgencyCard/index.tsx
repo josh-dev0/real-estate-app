@@ -7,7 +7,7 @@ import {
   HeartIcon,
   ShareIcon,
   ChatIcon,
-} from './icons';
+} from '../icons';
 
 type AgencyCardProps = {
   company: string;
