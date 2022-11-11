@@ -7,5 +7,7 @@
 export * from './AgencyCard';
 export * from './AgencyDetails';
 export * from './Filterbar';
+export * from './PropertySearch';
+export * from './PropertyStatusbar';
 export * from './Statusbar';
 export * from './TeamList';
