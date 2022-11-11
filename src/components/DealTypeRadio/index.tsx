@@ -9,19 +9,18 @@ type DealItem = {
   label: string;
 }
 
-export type DealTypeProps = {
-  options?: DealItem[];
-} & RadioGroupProps;
-
 const defaultOptions = [
   { value: 'rent', label: 'Rent' },
   { value: 'buy', label: 'Buy' },
   { value: 'sell', label: 'Sell' },
 ]
 
-export const DealType: React.FC<DealTypeProps> = ({
+export type DealTypeRadioProps = {
+  options?: DealItem[];
+} & RadioGroupProps;
+
+export const DealTypeRadio: React.FC<DealTypeRadioProps> = ({
   className,
-  onChange,
   ...props
 }) => {
   return (
@@ -38,7 +37,6 @@ export const DealType: React.FC<DealTypeProps> = ({
                 "bg-secondary-1": option.value !== props.value,
               })}
               value={option.value}
-              onChange={onChange}
             >
               {option.label}
             </Radio.Button>
