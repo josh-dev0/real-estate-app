@@ -53,15 +53,17 @@ div.ant-select[class*="h-"] {
 
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
     background-color: var(--theme-color-bg-focused) !important;
+    border-color: var(--theme-color-fg-secondary-2) !important;
+    color: var(--theme-color-fg-primary) !important;
+  }
+
+  label.ant-radio-button-wrapper:hover {
+    color: var(--theme-color-fg-secondary) !important;
   }
 
   // --> border color of selected button
   label.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):before {
     background-color: var(--theme-color-fg-secondary-2);
-  }
-
-  label.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
-    border-color: var(--theme-color-fg-secondary-2) !important;
   }
 
   // <-- border color of selected button

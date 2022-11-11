@@ -1,5 +1,5 @@
 import React from 'react';
-import type { RadioProps } from 'antd';
+import type { RadioProps, RadioGroupProps } from 'antd';
 import { Radio } from 'antd';
 import classNames from 'classnames';
 import styles from './styles.module.scss';
@@ -11,9 +11,9 @@ type DealItem = {
 
 export type DealTypeProps = {
   options?: DealItem[];
-} & RadioProps;
+} & RadioGroupProps;
 
-const options = [
+const defaultOptions = [
   { value: 'rent', label: 'Rent' },
   { value: 'buy', label: 'Buy' },
   { value: 'sell', label: 'Sell' },
@@ -30,7 +30,7 @@ export const DealType: React.FC<DealTypeProps> = ({
         {...props}
       >
         {
-          options.map(option =>
+          defaultOptions.map(option =>
             <Radio.Button
               key={option.value}
               className={classNames(styles.radioButton, "text-black font-medium", {
