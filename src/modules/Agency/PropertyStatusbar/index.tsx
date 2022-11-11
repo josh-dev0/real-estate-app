@@ -69,7 +69,7 @@ export const AgencyPropertyStatusbar: React.FC<AgencyPropertyStatusbarProps> = (
         />}
         <p className={styles.title}>Buyout Listing</p>
       </div>
-      <div className="flex items-center gap-[2.5rem]">
+      <div className="flex items-center gap-[20px]">
         <div className="flex items-center gap-[1.813rem]">
           <div className="flex items-center gap-[1.125rem]">
             <Tooltip
