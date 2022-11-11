@@ -13,5 +13,6 @@ export * from "./RewardCard";
 export * from "./Searchbar";
 export * from "./ServiceCard";
 export * from "./SimpleCard";
+export * from "./StatCheckbox";
 export * from "./TeamMemberCard";
 export * from "./TopMenu";
