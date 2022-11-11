@@ -3,6 +3,7 @@ export * from "./Breadcrumb";
 export * from "./CozziCarousel";
 export * from "./CozziTabs";
 export * from "./DealTypeRadio";
+export * from "./FilterSelect";
 export * from "./Footer";
 export * from "./ProfileAvatar";
 export * from "./ProfessionalCard";

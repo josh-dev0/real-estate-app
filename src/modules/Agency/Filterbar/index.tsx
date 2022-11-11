@@ -1,6 +1,6 @@
 import React from 'react';
-import { Divider, Rate, Space, Switch, Typography } from 'antd';
-import { FilterSelect } from './components/FilterSelect';
+import { Divider, Rate, Switch, Typography } from 'antd';
+import { FilterSelect } from '@app/components';
 import type { FilterResult } from './types';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
