@@ -11,6 +11,11 @@ export type StatCheckboxProps = {
   stat: number;
 } & Omit<CheckboxProps, 'children'>;
 
+/**
+ * @name StatCheckbox
+ * @description A checkbox with statistic number on the right side.
+ * @usedAt Agency properties tab/filter bar
+ */
 export const StatCheckbox: React.FC<StatCheckboxProps> = ({
   wrapperClassName,
   labelClassName,
