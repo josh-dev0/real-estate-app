@@ -11,6 +11,7 @@ const backgroundColor = {
     2: "var(--theme-color-bg-secondary-2)",
     3: "var(--theme-color-bg-secondary-3)",
     4: "var(--theme-color-bg-secondary-4)",
+    5: "var(--theme-color-bg-secondary-5)",
   },
 };
 
