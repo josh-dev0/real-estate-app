@@ -9,6 +9,11 @@ export type StatInputNumberProps = {
   stat: number;
 } & InputNumberProps;
 
+/**
+ * @name StatInputNumber
+ * @description Input number with stat count.
+ * @usedAt agency properties/filter bar
+ */
 export const StatInputNumber: React.FC<StatInputNumberProps> = ({
   wrapperClassName,
   label,
