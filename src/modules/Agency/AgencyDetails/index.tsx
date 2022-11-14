@@ -19,7 +19,7 @@ export type AgencyDetailsProps = {
 
 /**
  * @name AgencyDetails
- * @descripton to be sued to show the full profile of agencies
+ * @descripton to be used to show the full profile of agencies
  * @todo: country flags.
  */
 export const AgencyDetails: React.FC<AgencyDetailsProps> = ({

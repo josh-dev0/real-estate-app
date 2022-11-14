@@ -16,10 +16,10 @@ export const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
   name,
   backgroundColor,
   status,
+  src,
   ...otherProps
 }) => {
-  const { src, srcSet } = otherProps;
-
+  const { srcSet } = otherProps;
   const getInitials = (max: number = 2) => {
     return name?.split(' ')
       .map(piece => piece.charAt(0).toUpperCase())
@@ -33,6 +33,7 @@ export const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
         style={{ backgroundColor }}
         icon={!src && !srcSet && !name ? <UserOutlined /> : null}
         children={getInitials()}
+        src={!!src ?? undefined}
         {...otherProps}
       />
       <span
