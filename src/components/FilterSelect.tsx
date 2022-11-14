@@ -9,6 +9,11 @@ type FilterSelectProps = {
   stat?: number;
 } & Omit<SelectProps, 'maxTagCount' | 'mode' | 'showArrow' | 'suffixIcon'>;
 
+/**
+ * @name FilterSelect
+ * @description select box used in filter bars.
+ * @usedAt agencies page/filter bar
+ */
 export const FilterSelect: React.FC<FilterSelectProps> = ({
   className,
   children,
