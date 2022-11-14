@@ -1,21 +1,17 @@
 import { ReactNode } from 'react';
 import classNames from 'classnames';
 import { InputNumber, Slider } from 'antd';
-import type { SliderSingleProps, InputNumberProps } from 'antd';
+import type { InputNumberProps } from 'antd';
 import type { SliderRangeProps } from 'antd/lib/slider';
 import styles from './styles.module.scss';
 
-
-const sliderWrapperId = "Hello-mac"
-
-type InputNumberPropsNeeded = Omit<InputNumberProps, 'value' | 'onChange'>;
+// type InputNumberPropsNeeded = Omit<InputNumberProps, 'value' | 'onChange'>;
 
 export type CozziRangeProps = {
   labelClassName?: string;
-  from?: InputNumberPropsNeeded;
-  to?: InputNumberPropsNeeded;
-  labels?: { min: ReactNode, max: ReactNode }
-} & Omit<SliderRangeProps, 'range'>;
+  labels?: { min: ReactNode, max: ReactNode };
+  onChange?: (val: [number, number]) => void;
+} & Omit<SliderRangeProps, 'range' | 'onChange'>;
 
 /**
  * @name CozziRange
@@ -26,12 +22,11 @@ export const CozziRange: React.FC<CozziRangeProps> = ({
   className,
   labelClassName,
   labels,
-  from,
-  to,
+  value,
+  onChange,
   ...otherProps
 }) => {
-  const { value, max, onChange } = otherProps;
-
+  const { max } = otherProps;
   return (
     <div className={className}>
       <div className="flex items-center justify-between">
@@ -41,7 +36,6 @@ export const CozziRange: React.FC<CozziRangeProps> = ({
             size="small"
             value={value![0]}
             onChange={(val) => onChange!([val as number, value![1]])}
-            {...from}
           />
         </div>
         <div>
@@ -50,18 +44,18 @@ export const CozziRange: React.FC<CozziRangeProps> = ({
             size="small"
             value={value![1]}
             onChange={(val) => onChange!([value![0], val as number])}
-            {...to}
           />
         </div>
       </div>
-      <div className="relative pt-2 mt-1" id={sliderWrapperId}>
+      <div className="relative pt-2 mt-1">
         <Slider
           className="mx-0"
           range={true}
-          defaultValue={[0, 1000000]}
           tooltip={{
             open: false,
           }}
+          value={value}
+          onChange={onChange}
           {...otherProps}
         />
         <p className={styles.maxValue}>{max?.toLocaleString()}</p>
