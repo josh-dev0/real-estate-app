@@ -247,3 +247,30 @@ div.ant-select[class*="h-"] {
 .ant-tabs-top>div>.ant-tabs-nav:before {
   border: none;
 }
+
+/**
+* @for: Slider
+* @link: https://ant.design/components/slider
+*/
+
+.ant-slider {
+  &:hover {
+    .ant-slider-track {
+      background-color: var(--theme-color-bg-secondary-light);
+    }
+
+    .ant-slider-handle:not(.ant-tooltip-open) {
+      border: 2px solid var(--theme-color-bg-secondary-light);
+
+    }
+
+  }
+
+  .ant-slider-track {
+    background-color: var(--theme-color-bg-secondary-5);
+  }
+
+  .ant-slider-handle {
+    border: 2px solid var(--theme-color-bg-secondary-5);
+  }
+}
