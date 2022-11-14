@@ -46,6 +46,7 @@ const textColor = {
     3: "var(--theme-color-fg-shadow-3)",
   },
   error: "var(--theme-color-fg-error)",
+  warning: "var(--theme-color-fg-warning)",
 };
 
 module.exports = {

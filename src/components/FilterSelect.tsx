@@ -5,13 +5,16 @@ import classNames from 'classnames';
 
 const { Option } = Select;
 
-type FilterSelectProps = Omit<SelectProps, 'maxTagCount' | 'mode' | 'showArrow' | 'suffixIcon'>;
+type FilterSelectProps = {
+  stat?: number;
+} & Omit<SelectProps, 'maxTagCount' | 'mode' | 'showArrow' | 'suffixIcon'>;
 
 export const FilterSelect: React.FC<FilterSelectProps> = ({
   className,
   children,
   options,
   placeholder,
+  stat,
   ...otherProps
 }) => {
   return (

@@ -30,6 +30,7 @@ $theme-light-fg-icon: rgba(174, 173, 173, 0.85);
 $theme-light-fg-icon-1: rgba(0, 0, 0, 0.85);
 $theme-light-fg-icon-2: rgba(0, 0, 0, 0.25);
 $theme-light-fg-error: #f5222d;
+$theme-light-fg-warning: #F28B13; // CozziSlider: max value color.
 
 $theme-light-bg-primary: #ffffff;
 $theme-light-bg-secondary: #365272;
@@ -63,6 +64,7 @@ $theme-light-bg-focused: #bdd1e8;
   lightFgIcon1: $theme-light-fg-icon-1;
   lightFgIcon2: $theme-light-fg-icon-2;
   lightFgError: $theme-light-fg-error;
+  lightFgWarning: $theme-light-fg-warning;
 
   lightBgPrimary: $theme-light-bg-primary;
   lightBgSecondary: $theme-light-bg-secondary;

@@ -1,6 +1,7 @@
 export * from "./Auth";
 export * from "./Breadcrumb";
 export * from "./CozziCarousel";
+export * from "./CozziRange";
 export * from "./CozziTabs";
 export * from "./DealTypeRadio";
 export * from "./FilterSelect";
