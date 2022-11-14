@@ -14,5 +14,6 @@ export * from "./Searchbar";
 export * from "./ServiceCard";
 export * from "./SimpleCard";
 export * from "./StatCheckbox";
+export * from "./StatInputNumber";
 export * from "./TeamMemberCard";
 export * from "./TopMenu";
