@@ -8,6 +8,11 @@ export type SimpleCardProps = {
   link?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
+/**
+ * @name SimpleCard
+ * @description A simple card with title and image only.
+ * @usedAt landing page
+ */
 export const SimpleCard: React.FC<SimpleCardProps> = ({
   className,
   title,
