@@ -10,6 +10,11 @@ export type TeamMemberCard = {
   data: TeamMember;
 } & CardProps;
 
+/**
+ * @name TeamMemberCard
+ * @description a card for agency team members
+ * @usedAt agency profile page/`Team` tab
+ */
 export const TeamMemberCard: React.FC<TeamMemberCard> = ({
   className,
   data,
