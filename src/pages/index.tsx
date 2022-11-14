@@ -8,7 +8,7 @@ import { Button, Col, Row } from 'antd';
 import { ROUTES, SESSION_STATUS, QUERY } from '@app/constants';
 import {
   CozziCarousel,
-  DealType,
+  DealTypeRadio,
   Footer,
   ProfessionalCard,
   PropertyCard,
@@ -134,9 +134,9 @@ const Home: NextPage = () => {
         <TopMenu />
         <section className={classNames("min-h-[11.25rem]", styles.topImgContainer)}>
           <HCenter>
-            <DealType className="mt-[7.125rem] mb-3"
+            <DealTypeRadio className="mt-[7.125rem] mb-3"
               value={dealType}
-              onChange={e => setDealType(e.target.value)}
+              onChange={(e: any) => setDealType(e.target.value)}
             />
           </HCenter>
           <HCenter>
