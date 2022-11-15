@@ -1,6 +1,11 @@
 import { IDENTITY, AUTH_TYPE } from "@app/constants";
 import { ReverseMap } from "./general";
 
+export type Surface = {
+  unit: string;
+  value: number | null;
+};
+
 export type BreadcrumbItem = {
   name: string;
   link?: string;

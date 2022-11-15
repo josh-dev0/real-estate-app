@@ -24,3 +24,10 @@ export const formatNumber = (val: any): string => {
 export const random = (min: number, max: number): number => {
   return min + Math.floor(Math.random() * (max - min));
 }
+
+export function toggleInArray<T>(array: T[] | undefined, item: T): T[] {
+  if (!array) return [item];
+  return array.includes(item)
+    ? array.filter((it, i) => array.indexOf(item) !== i)
+    : [...array, item];
+}
