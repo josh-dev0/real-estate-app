@@ -22,7 +22,7 @@ export const StatInputNumber: React.FC<StatInputNumberProps> = ({
 }) => {
   return (
     <div className={classNames(styles.container, wrapperClassName)}>
-      <label className="text-[0.938rem] leading-2xl text-secondary-5">{label}</label>
+      <label className="text-[0.938rem] leading-2xl text-secondary">{label}</label>
       <div className="flex items-center gap-[15px]">
         <InputNumber {...otherProps} />
         <span className="text-sm leading-2xl text-secondary">{stat}</span>
