@@ -33,7 +33,7 @@ export const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
         style={{ backgroundColor }}
         icon={!src && !srcSet && !name ? <UserOutlined /> : null}
         children={getInitials()}
-        src={!!src ?? undefined}
+        src={src}
         {...otherProps}
       />
       <span
