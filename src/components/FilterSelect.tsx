@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 const { Option } = Select;
 
-type FilterSelectProps = {
+export type FilterSelectProps = {
   stat?: number;
 } & Omit<SelectProps, 'maxTagCount' | 'mode' | 'showArrow' | 'suffixIcon'>;
 
@@ -24,7 +24,7 @@ export const FilterSelect: React.FC<FilterSelectProps> = ({
 }) => {
   return (
     <Select
-      className={classNames("custom-filter-select text-icon-1 text-xs leading-2xl w-full mt-5", className)} // custom-filter-select: Don't remove it. Used in antd-supplement.scss
+      className={classNames("custom-filter-select text-icon-1 text-xs leading-2xl w-full", className)} // custom-filter-select: Don't remove it. Used in antd-supplement.scss
       maxTagCount="responsive"
       mode="multiple"
       placeholder={<span className="text-secondary text-xs font-medium leading-[22px]">{placeholder}</span>}
