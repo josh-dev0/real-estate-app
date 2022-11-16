@@ -89,7 +89,7 @@ export const AgencyFilterbar: React.FC<AgencyFilterbarProps> = ({
       <Text className={styles.filterTitle}>Agency Name <span className="text-xs">(226)</span></Text>
       <div className="pl-3 mt-4">
         {
-          ['Gonesto inc', 'Immolot inc', 'Immo inc', 'ImmoSoft inc', 'ImmoSphere inc', 'Lotinest inc', 'Monesto inc', 'Sinesto inc'].map(name =>
+          ['Gonesto inc', 'Immolot inc', 'Immo inc', 'ImmoSoft inc', 'ImmoSphere inc', 'Lotinest inc', 'Monesto inc', 'Sinesto inc'].sort().map(name =>
             <div className="mb-2" key={name}>
               <Checkbox
                 checked={values?.[whitelistKey]?.includes(name)}
