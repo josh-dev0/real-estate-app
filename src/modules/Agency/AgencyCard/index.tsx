@@ -15,6 +15,7 @@ type AgencyCardProps = {
   summary: string;
   rate: number;
   avatar?: string;
+  properties?: number;
 }
 
 export const AgencyCard: React.FC<AgencyCardProps> = ({
@@ -23,6 +24,7 @@ export const AgencyCard: React.FC<AgencyCardProps> = ({
   rate,
   summary,
   avatar,
+  properties,
 }) => {
   return (
     <Card
@@ -50,11 +52,14 @@ export const AgencyCard: React.FC<AgencyCardProps> = ({
         <p className="text-[0.813rem] leading-xs font-light text-secondary-5 text-ellipsis overflow-hidden whitespace-nowrap">{summary}</p>
       </div>
       <Divider />
-      <div className="flex items-center justify-center gap-[26px] pb-6">
-        <ThumbupIcon className={styles.actionIcon} />
-        <HeartIcon className={styles.actionIcon} />
-        <ShareIcon className={styles.actionIcon} />
-        <ChatIcon className={styles.actionIcon} />
+      <div className="flex items-center justify-between pb-6 px-6">
+        <p className="font-light text-xs leading-xs text-bg-secondary-light">View {properties || 0} ads</p>
+        <div className="flex items-center gap-[26px]">
+          <ThumbupIcon className={styles.actionIcon} />
+          <HeartIcon className={styles.actionIcon} />
+          <ShareIcon className={styles.actionIcon} />
+          <ChatIcon className={styles.actionIcon} />
+        </div>
       </div>
     </Card>
   );

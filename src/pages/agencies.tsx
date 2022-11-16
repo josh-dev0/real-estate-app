@@ -113,9 +113,11 @@ const AgenciesDirectory: NextPage = () => {
       />
       <span className="text-primary text-lg leading-[21px]">Loading more...</span>
     </div>
+
   useEffect(() => {
     generateRandomAgencies().then(setAgencies);
   }, []);
+
   useEffect(() => {
     console.log('collective.filter', collectiveFilter)
     if (collectiveFilter.keyword) {

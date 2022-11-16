@@ -17,6 +17,7 @@ WithAvatar.args = {
   name: "Neudorf",
   rate: 4,
   summary: "A tout juste cinq minutes du quartier des nutes du quartier des...",
+  properties: 134,
 };
 
 export const WithoutAvatar = Template.bind({});
@@ -25,4 +26,5 @@ WithoutAvatar.args = {
   name: "Neudorf",
   rate: 3.6,
   summary: "A tout juste cinq minutes du quartier des nutes du quartier des...",
+  properties: 134,
 };

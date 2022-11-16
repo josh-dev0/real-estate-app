@@ -424,6 +424,7 @@ export const generateRandomAgencies = async (count: number = 9): Promise<any[]> 
             name: names[nameIndex],
             rate: 3 + Math.random() * 2,
             summary: "A tout juste cinq minutes du quartier des nutes du quartier des...",
+            properties: random(10, 500),
           }
         }));
     }, 500);
