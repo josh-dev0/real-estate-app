@@ -1,0 +1,8 @@
+.ant-switch {
+  /* overwritten by tailwindcss */
+  background-color: rgba(0, 0, 0, 0.25) !important;
+
+  &.ant-switch-checked {
+    background-color: var(--theme-color-bg-secondary-3) !important;
+  }
+}
