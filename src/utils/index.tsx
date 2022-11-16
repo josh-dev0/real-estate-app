@@ -31,3 +31,5 @@ export function toggleInArray<T>(array: T[] | undefined, item: T): T[] {
     ? array.filter((it, i) => array.indexOf(item) !== i)
     : [...array, item];
 }
+
+export const toCamelcase = (val: string) => val.charAt(0).toUpperCase() + val.substring(1, val.length);

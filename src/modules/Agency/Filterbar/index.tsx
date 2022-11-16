@@ -1,9 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
+import pluralize from 'pluralize';
 import { Checkbox, Divider, Rate, Switch, Typography } from 'antd';
 import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import { FilterSelect } from '@app/components';
-import { toggleInArray } from '@app/utils';
+import { toCamelcase, toggleInArray } from '@app/utils';
 import type { FilterResult } from './types';
 import styles from './styles.module.scss';
 
@@ -20,10 +21,12 @@ export type AgencyFilterValue = {
   serviceType?: string[];
   region?: string[];
   location?: string[];
-  agencies: string[];
+  agencies?: string[];
+  partners?: string[];
 }
 
 export type AgencyFilterbarProps = {
+  searchType?: 'partner' | 'agency';
   data: FilterResult;
   values?: AgencyFilterValue;
   onChange?: (val: AgencyFilterValue) => void;
@@ -32,8 +35,13 @@ export type AgencyFilterbarProps = {
   locationOptions: SelectOption[];
 } & Omit<React.HTMLAttributes<HTMLDivElement>, 'onRateChange' | 'onChange'>;
 
+/**
+ * @name AgencyStatusbar
+ * @description filter bar agency/partner search.
+ */
 export const AgencyFilterbar: React.FC<AgencyFilterbarProps> = ({
   className,
+  searchType = "agency",
   values,
   onChange,
   data,
@@ -41,9 +49,11 @@ export const AgencyFilterbar: React.FC<AgencyFilterbarProps> = ({
   regionOptions,
   locationOptions,
 }) => {
+  const whitelistKey = searchType === 'partner' ? 'partners' : 'agencies';
+
   return (
     <div className={classNames(styles.container, className)}>
-      <Text className="text-sm leading-2xl font-bold text-bg-secondary-light">Total Agencies Found ({data.total})</Text>
+      <Text className="text-sm leading-2xl font-bold text-bg-secondary-light">Total {toCamelcase(pluralize(searchType))} Found ({data.total})</Text>
       <Divider />
       <section>
         <Text className="text-lg leading-2xl font-bold text-bg-secondary-light">Filter by</Text>
@@ -68,7 +78,7 @@ export const AgencyFilterbar: React.FC<AgencyFilterbarProps> = ({
           <div className="flex items-end gap-[13px]">
             <Rate
               allowHalf={true}
-              value={values?.rate}
+              value={values?.rate || 0}
               onChange={(rate) => onChange!({ ...values!, rate })}
             />
             <span className="text-secondary-1 text-xl leading-2xl pb-[2px]">{Math.floor(values?.rate!)}+</span>
@@ -79,16 +89,16 @@ export const AgencyFilterbar: React.FC<AgencyFilterbarProps> = ({
       <Text className={styles.filterTitle}>Agency Name <span className="text-xs">(226)</span></Text>
       <div className="pl-3 mt-4">
         {
-          ['Gonesto inc', 'Immolot inc', 'Immo inc', 'ImmoSoft inc', 'ImmoSphere inc', 'Lotinest inc', 'Monesto inc', 'Sinesto inc'].map(agencyName =>
-            <div className="mb-2">
+          ['Gonesto inc', 'Immolot inc', 'Immo inc', 'ImmoSoft inc', 'ImmoSphere inc', 'Lotinest inc', 'Monesto inc', 'Sinesto inc'].map(name =>
+            <div className="mb-2" key={name}>
               <Checkbox
-                checked={values?.agencies.includes(agencyName)}
+                checked={values?.[whitelistKey]?.includes(name)}
                 onChange={(e: CheckboxChangeEvent) => onChange!({
                   ...values!,
-                  agencies: toggleInArray(values?.agencies, agencyName),
+                  [whitelistKey]: toggleInArray(values?.[whitelistKey], name),
                 })}
               >
-                <span className="pl-2 text-[0.938rem] leading-2xl text-primary">{agencyName}</span>
+                <span className="pl-2 text-[0.938rem] leading-2xl text-primary">{name}</span>
               </Checkbox>
             </div>
           )

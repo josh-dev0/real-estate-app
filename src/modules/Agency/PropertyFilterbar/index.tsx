@@ -56,29 +56,24 @@ export const AgencyPropertyFilterbar: React.FC<AgencyPropertyFilterbarProps> = (
         </div>
         <Divider className="mt-10 mb-8" />
         <div>
-          <Title2
-            title="Ratings"
-            count={205}
-          />
+          <Title2 title="Ratings" count={205} />
           <div className="flex items-center justify-between mt-[1.25rem]">
             <div>
               <Rate
                 allowHalf={true}
-                value={values?.rate}
+                value={values?.rate || 0}
                 onChange={rate => onChange!({ ...values!, rate })}
               />
-              <span className="ml-4 text-base leading-2xl">4+</span>
+              <span className="ml-4 text-base leading-2xl">{Math.floor(values?.rate || 0)}+</span>
             </div>
             <span className="text-[0.688rem] leading-2xl text-secondary-5">(205)</span>
           </div>
         </div>
         <Divider className="mt-10 mb-8" />
         <div className="">
-          <Title2
-            title="Budget"
-            count={226}
-          />
+          <Title2 title="Budget" count={226} />
           <CozziRange
+            className="mt-[1.25rem]"
             min={0}
             max={10000000}
             step={100}
@@ -96,6 +91,7 @@ export const AgencyPropertyFilterbar: React.FC<AgencyPropertyFilterbarProps> = (
           <Title2 title="Property Type" count={226} />
           <FilterSelect
             className="mt-5"
+            placeholder="Select property type"
             options={[
               { key: 'apartment', label: 'Apartment' },
               { key: 'house', label: 'House' },
@@ -111,6 +107,7 @@ export const AgencyPropertyFilterbar: React.FC<AgencyPropertyFilterbarProps> = (
           <Title2 title="Location" count={176} />
           <FilterSelect
             className="mt-5"
+            placeholder="Select location"
             options={[
               { key: 'luxemburg-north', label: 'Luxemburg North' },
               { key: 'luxemburg-south', label: 'Luxemburg South' },
@@ -167,6 +164,7 @@ export const AgencyPropertyFilterbar: React.FC<AgencyPropertyFilterbarProps> = (
         <Title2 title="Energy" count={163} />
         <StatFilterSelect
           wrapperClassName='mt-4'
+          placeholder="Select energy"
           stat={163}
           options={[
             { key: 'electricity', label: 'Electricity' },

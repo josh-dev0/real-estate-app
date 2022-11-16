@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import pluralize from 'pluralize';
 import { Input, Segmented, Select } from 'antd';
 import type { SegmentedValue } from 'antd/lib/segmented';
 import { CaretDownFilled } from "@ant-design/icons";
 import { CardModeIcon, ListModeIcon } from '@app/components/SVGs';
+import { toCamelcase } from '@app/utils';
 import styles from './styles.module.scss';
 
 const VCenter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children }) =>
@@ -19,6 +21,7 @@ const viewModeOptions = [
 export type StatusbarViewMode = 'card' | 'list';
 
 type AgencyStatusbarProps = {
+  searchType?: 'partner' | 'agency';
   viewMode: SegmentedValue,
   onViewModeChange: (val: SegmentedValue) => void;
   sortBy: string;
@@ -27,7 +30,12 @@ type AgencyStatusbarProps = {
   onSearch: (val: string) => void;
 }
 
+/**
+ * @name AgencyStatusbar
+ * @description status bar agency/partner search.
+ */
 export const AgencyStatusbar: React.FC<AgencyStatusbarProps> = ({
+  searchType = "agency",
   viewMode,
   onViewModeChange,
   sortBy,
@@ -41,7 +49,7 @@ export const AgencyStatusbar: React.FC<AgencyStatusbarProps> = ({
       className={classNames("flex items-center justify-between w-full bg-primary", styles.container)}
       id="custom-status-bar"
     >
-      <p className={styles.title}>Agencies Directory</p>
+      <p className={styles.title}>{toCamelcase(pluralize(searchType))} Directory</p>
       <div className="flex items-center gap-[2.5rem]">
         <Input.Search
           className={styles.searchInput}
