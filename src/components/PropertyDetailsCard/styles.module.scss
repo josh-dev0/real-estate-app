@@ -2,12 +2,13 @@
   @apply bg-primary flex p-6;
   border: 0.2px solid theme("colors.fg.secondary.4");
   box-shadow: 0px 1px 12px theme("colors.fg.shadow.2");
-  column-gap: 2.5rem;
 }
 
 .imageWrapper {
   @apply shrink-0;
   width: 15.5rem;
+  border: 0.2px solid theme("colors.fg.secondary.4");
+  filter: drop-shadow(0px 1px 12px theme("colors.fg.shadow.2"));
 }
 
 .primaryImage {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import type { SegmentedValue } from 'antd/lib/segmented';
 import { PropertyDetailsCard } from '@app/components';
@@ -21,6 +21,7 @@ export const AgencyPropertySearch: React.FC<AgencyPropertySearchProps> = ({
   // --> status bar
   const [isSelecting, setIsSelecting] = useState(false);
   const [allSelected, setAllSelected] = useState(false);
+  const [selected, setSelected] = useState<Array<string | number>>([]);
   const [viewMode, setViewMode] = useState<SegmentedValue>('list');
   const [dealType, setDealType] = useState<DealType>('buy');
   const [dealPosition, setDealPosition] = useState<DealPosition>('supply');
@@ -36,6 +37,16 @@ export const AgencyPropertySearch: React.FC<AgencyPropertySearchProps> = ({
 
   // <-- status bar.
   const [propertyFilter, setPropertyFilter] = useState<PropertyFilter>();
+
+  const handleOnAllSelectedChange = (val: boolean) => {
+    setSelected(val ? new Array(10).fill(null).map((_, i) => i) : []);
+    setAllSelected(val);
+  }
+
+  // when selected cards change.
+  useEffect(() => {
+    setAllSelected(selected.length === 10 ? true : false);
+  }, [selected])
 
   React.useEffect(() => {
     console.log('property.filter', propertyFilter);
@@ -61,9 +72,18 @@ export const AgencyPropertySearch: React.FC<AgencyPropertySearchProps> = ({
           isSelecting={isSelecting}
           onToggleSelecting={() => setIsSelecting(!isSelecting)}
           allSelected={allSelected}
-          onAllSelectedChange={setAllSelected}
+          onAllSelectedChange={handleOnAllSelectedChange}
         />
-        {new Array(10).fill(null).map((_, i) => <PropertyDetailsCard key={i} className="mt-7" />)}
+        {new Array(10).fill(null).map((_, i) =>
+          // TODO: needs to replace the `i` with proper ID.
+          <PropertyDetailsCard
+            key={i}
+            className="mt-7"
+            checkable={isSelecting}
+            checked={selected.includes(i)}
+            onChange={checked => setSelected(checked ? [...selected, i] : selected.filter(it => it !== i))}
+          />
+        )}
         <Pagination
           className="mt-9 bg-primary py-3 px-9"
           showQuickJumper

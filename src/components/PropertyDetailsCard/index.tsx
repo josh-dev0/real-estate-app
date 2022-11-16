@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { Card, Col, Rate, Row, Typography } from 'antd';
+import { Card, Checkbox, Col, Rate, Row, Typography } from 'antd';
 import type { CardProps } from 'antd';
+import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import { ProfileAvatar } from '@app/components';
 import {
   ThumbupIcon,
@@ -15,11 +16,17 @@ import styles from './styles.module.scss';
 
 
 export type PropertyDetailsCardProps = {
-
+  checkable?: boolean;
+  checked?: boolean;
+  onChange?: (checked: boolean) => void;
 } & CardProps;
 
 export const PropertyDetailsCard: React.FC<PropertyDetailsCardProps> = ({
   className,
+  checkable,
+  checked,
+  onChange,
+  ...otherProps
 }) => {
 
 
@@ -27,9 +34,16 @@ export const PropertyDetailsCard: React.FC<PropertyDetailsCardProps> = ({
     <Card className={className}
       bodyStyle={{
         padding: 0,
-      }}>
+      }}
+      {...otherProps}
+    >
       <div className={styles.container}>
-        <section className={styles.imageWrapper}>
+        {
+          checkable && <section className="shrink-0 mr-6">
+            <Checkbox checked={checked} onChange={(e: CheckboxChangeEvent) => onChange!(e.target.checked)} />
+          </section>
+        }
+        <section className={classNames(styles.imageWrapper, "mr-8")}>
           <img
             className={styles.primaryImage}
             src="/images/demo/properties/property-1.png" alt="property 1" />
