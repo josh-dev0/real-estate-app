@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { Card, Checkbox, Col, Rate, Row, Typography } from 'antd';
+import { Card, Checkbox, Col, Rate, Row, Tooltip, Typography } from 'antd';
 import type { CardProps } from 'antd';
 import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import { ProfileAvatar } from '@app/components';
@@ -130,7 +130,12 @@ export const PropertyDetailsCard: React.FC<PropertyDetailsCardProps> = ({
             <HeartIcon className={styles.actionIcon} width="13.5" height="12.1" />
             <ShareIcon className={styles.actionIcon} width="10.5" height="11.6" />
             <EyeHiddenIcon className={styles.actionIcon} width="16.5" height="14.3" />
-            <ChatIcon className={styles.actionIcon} width="14" height="14" />
+            <Tooltip
+              overlayClassName="custom-tootip-gradient" // this class is a handle in /styles/antd/Tooltip.custom.scss
+              title="Contact Owner"
+            >
+              <ChatIcon className={styles.actionIcon} width="14" height="14" />
+            </Tooltip>
             <CalendarIcon className={styles.actionIcon} width="14" height="11" />
           </div>
         </section>

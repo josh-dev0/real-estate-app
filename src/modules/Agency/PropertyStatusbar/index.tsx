@@ -74,8 +74,8 @@ export const AgencyPropertyStatusbar: React.FC<AgencyPropertyStatusbarProps> = (
           <div className="flex items-center gap-[1.125rem]">
             <Tooltip
               className="cursor-pointer"
+              overlayClassName="custom-tootip-gradient"
               title="Add to Favorites"
-              color="linear-gradient(180deg, #526882 0%, rgba(70, 96, 126, 0) 100%), linear-gradient(180deg, rgba(73, 110, 152, 0.66) 0%, rgba(68, 96, 129, 0.66) 0.01%, rgba(87, 132, 184, 0.66) 32.29%, rgba(124, 164, 210, 0.66) 82.81%, rgba(134, 181, 235, 0.66) 93.75%), linear-gradient(180deg, rgba(255, 255, 255, 0) 39.58%, #CCDCEE 76.56%, #A7CDF8 100%)"
             >
               <HeartIcon
                 className={classNames({
