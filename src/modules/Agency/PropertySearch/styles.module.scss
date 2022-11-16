@@ -1,2 +1,4 @@
 .container {
+  @apply flex justify-between;
+  column-gap: 2.813rem;
 }

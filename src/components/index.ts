@@ -9,6 +9,7 @@ export * from "./Footer";
 export * from "./ProfileAvatar";
 export * from "./ProfessionalCard";
 export * from "./PropertyCard";
+export * from "./PropertyDetailsCard";
 export * from "./PropertyCarousel";
 export * from "./RewardCard";
 export * from "./Searchbar";

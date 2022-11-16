@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import type { SegmentedValue } from 'antd/lib/segmented';
-import { AgencyPropertyStatusbar } from '@app/modules/Agency';
-import type { DealType, DealPosition } from '@app/modules/Agency';
+import { PropertyDetailsCard } from '@app/components';
+import {
+  AgencyPropertyFilterbar,
+  AgencyPropertyStatusbar
+} from '@app/modules/Agency';
+import type { DealType, DealPosition, PropertyFilter } from '@app/modules/Agency';
 import styles from './styles.module.scss';
+import { Pagination } from 'antd';
 
 export type AgencyPropertySearchProps = {
 
@@ -30,24 +35,44 @@ export const AgencyPropertySearch: React.FC<AgencyPropertySearchProps> = ({
   const [sortBy, setSortBy] = useState('relevance');
 
   // <-- status bar.
+  const [propertyFilter, setPropertyFilter] = useState<PropertyFilter>();
+
+  React.useEffect(() => {
+    console.log('property.filter', propertyFilter);
+  }, [propertyFilter])
 
   return (
-    <div className={classNames(styles.container, className)}>
-      <AgencyPropertyStatusbar
-        viewMode={viewMode}
-        onViewModeChange={setViewMode}
-        sortByOptions={sortByOptions}
-        sortBy={sortBy}
-        onSortByChange={setSortBy}
-        dealType={dealType}
-        onDealTypeChange={(t) => { setDealType(t); console.log('deal.type.change', t) }}
-        dealPosition={dealPosition}
-        onDealPositionChange={setDealPosition}
-        isSelecting={isSelecting}
-        onToggleSelecting={() => setIsSelecting(!isSelecting)}
-        allSelected={allSelected}
-        onAllSelectedChange={setAllSelected}
+    <div className={classNames(styles.container, className)} {...otherProps}>
+      <AgencyPropertyFilterbar
+        values={propertyFilter}
+        onChange={setPropertyFilter}
       />
+      <section>
+        <AgencyPropertyStatusbar
+          viewMode={viewMode}
+          onViewModeChange={setViewMode}
+          sortByOptions={sortByOptions}
+          sortBy={sortBy}
+          onSortByChange={setSortBy}
+          dealType={dealType}
+          onDealTypeChange={(t) => { setDealType(t); console.log('deal.type.change', t) }}
+          dealPosition={dealPosition}
+          onDealPositionChange={setDealPosition}
+          isSelecting={isSelecting}
+          onToggleSelecting={() => setIsSelecting(!isSelecting)}
+          allSelected={allSelected}
+          onAllSelectedChange={setAllSelected}
+        />
+        {new Array(10).fill(null).map((_, i) => <PropertyDetailsCard key={i} className="mt-7" />)}
+        <Pagination
+          className="mt-9 bg-primary py-3 px-9"
+          showQuickJumper
+          total={85}
+          showTotal={total => <span className="pr-3">Total {total} Advertisements</span>}
+          defaultPageSize={10}
+          defaultCurrent={1}
+        />
+      </section>
     </div>
   )
 }

@@ -33,7 +33,7 @@ const AgencyProfile: NextPage = () => {
     <ReversibleLayout
       title="Agencies Directory"
     >
-      <div className="w-full mx-auto max-w-[1200px]">
+      <div className="w-full mx-auto max-w-[1260px]">
         <Breadcrumb
           items={[
             { name: 'Home', link: '/' },
