@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Input, Segmented, Select } from 'antd';
 import type { SegmentedValue } from 'antd/lib/segmented';
 import { CaretDownFilled } from "@ant-design/icons";
-import { CardModeIcon, ListModeIcon } from '../icons';
+import { CardModeIcon, ListModeIcon } from '@app/components/SVGs';
 import styles from './styles.module.scss';
 
 const VCenter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children }) =>

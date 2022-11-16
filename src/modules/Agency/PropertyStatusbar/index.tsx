@@ -3,7 +3,7 @@ import { Checkbox, Radio, Segmented, Select, Tooltip } from 'antd';
 import type { SegmentedValue } from 'antd/lib/segmented';
 import { CaretDownFilled } from '@ant-design/icons';
 import { DealTypeRadio } from '@app/components';
-import { CardModeIcon, HeartIcon, ListModeIcon } from '../icons';
+import { CardModeIcon, HeartIcon, ListModeIcon } from '@app/components/SVGs';
 import { DealType, DealPosition } from './types';
 import styles from './styles.module.scss';
 

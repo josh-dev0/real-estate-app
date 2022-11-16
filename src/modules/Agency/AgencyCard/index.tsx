@@ -7,7 +7,7 @@ import {
   HeartIcon,
   ShareIcon,
   ChatIcon,
-} from '../icons';
+} from '@app/components/SVGs';
 
 type AgencyCardProps = {
   company: string;

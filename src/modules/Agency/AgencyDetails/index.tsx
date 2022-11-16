@@ -8,7 +8,7 @@ import {
   HeartIcon,
   ShareIcon,
   ChatIcon,
-} from '../icons';
+} from '@app/components/SVGs';
 import styles from './styles.module.scss';
 import { MailOutlined } from '@ant-design/icons';
 import { profile } from 'console';
