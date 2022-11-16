@@ -12,6 +12,7 @@ import {
   AgencyFilterbar,
   AgencyStatusbar,
 } from '@app/modules/Agency';
+import { AgencyFilterValue } from '@app/modules/Agency';
 import { generateRandomAgencies } from '@app/utils/demo';
 
 const AgenciesDirectory: NextPage = () => {
@@ -24,9 +25,7 @@ const AgenciesDirectory: NextPage = () => {
     region: 176,
     location: 176,
   });
-  const [isSeniority, setIsSeniority] = useState(true);
-  const [rate, setRate] = useState<number>(3.3);
-  const [serviceType, setServiceType] = useState<string[]>([]);
+  const [filter, setFilter] = useState<AgencyFilterValue>();
   const [serviceTypeOptions, setServiceTypeOptions] = useState<any[]>([
     { key: 'key1', label: 'Service Type I' },
     { key: 'key2', label: 'Service Type II' },
@@ -39,7 +38,6 @@ const AgenciesDirectory: NextPage = () => {
     { key: 'key9', label: 'Service Type IX' },
     { key: 'key10', label: 'Service Type X' },
   ]);
-  const [region, setRegion] = useState<string[]>([]);
   const [regionOptions, setRegionOptions] = useState<any[]>([
     { key: 'key1', label: 'Region I' },
     { key: 'key2', label: 'Region II' },
@@ -52,7 +50,6 @@ const AgenciesDirectory: NextPage = () => {
     { key: 'key9', label: 'Region IX' },
     { key: 'key10', label: 'Region X' },
   ]);
-  const [location, setLocation] = useState<string[]>([]);
   const [locationOptions, setLocationOptions] = useState<any[]>([
     { key: 'key1', label: 'Location I' },
     { key: 'key2', label: 'Location II' },
@@ -88,13 +85,9 @@ const AgenciesDirectory: NextPage = () => {
 
   // collective filter of this page.
   const collectiveFilter = useMemo(() => ({
-    isSeniority,
-    rate,
-    serviceType,
-    region,
-    location,
+    ...filter,
     keyword,
-  }), [isSeniority, rate, serviceType, region, location, keyword]);
+  }), [filter, keyword]);
 
   const handleLoadMore = () => {
     generateRandomAgencies()
@@ -147,19 +140,11 @@ const AgenciesDirectory: NextPage = () => {
             <AgencyFilterbar
               className="shrink-0"
               data={found}
-              isSeniority={isSeniority}
-              onIsSeniorityChange={setIsSeniority}
-              rate={rate}
-              onRateChange={setRate}
-              serviceType={serviceType}
+              values={filter}
+              onChange={setFilter}
               serviceTypeOptions={serviceTypeOptions}
-              onServiceTypeChange={setServiceType}
-              region={region}
               regionOptions={regionOptions}
-              onRegionChange={setRegion}
-              location={location}
               locationOptions={locationOptions}
-              onLocationChange={setLocation}
             />
             <section className="grow">
               <InfiniteScroll
