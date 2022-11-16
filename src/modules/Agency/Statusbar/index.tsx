@@ -45,7 +45,7 @@ export const AgencyStatusbar: React.FC<AgencyStatusbarProps> = ({
       <div className="flex items-center gap-[2.5rem]">
         <Input.Search
           className={styles.searchInput}
-          placeholder="Search Agency"
+          placeholder="Search by keyword"
           value={keyword}
           onChange={e => setKeyword(e.target.value)}
           onSearch={onSearch}
