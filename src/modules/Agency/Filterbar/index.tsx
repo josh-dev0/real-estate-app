@@ -6,6 +6,7 @@ import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import { FilterSelect } from '@app/components';
 import { toCamelcase, toggleInArray } from '@app/utils';
 import type { FilterResult } from './types';
+import { QuickMenu } from './components/QuickMenu';
 import styles from './styles.module.scss';
 
 const { Text } = Typography;
@@ -30,6 +31,7 @@ export type AgencyFilterbarProps = {
   data: FilterResult;
   values?: AgencyFilterValue;
   onChange?: (val: AgencyFilterValue) => void;
+  onReset?: () => void;
   serviceTypeOptions: SelectOption[];
   regionOptions: SelectOption[];
   locationOptions: SelectOption[];
@@ -48,11 +50,13 @@ export const AgencyFilterbar: React.FC<AgencyFilterbarProps> = ({
   serviceTypeOptions,
   regionOptions,
   locationOptions,
+  onReset,
 }) => {
   const whitelistKey = searchType === 'partner' ? 'partners' : 'agencies';
 
   return (
     <div className={classNames(styles.container, className)}>
+      <QuickMenu className={styles.quickMenu} onReset={onReset} />
       <Text className="text-sm leading-2xl font-bold text-bg-secondary-light">Total {toCamelcase(pluralize(searchType))} Found ({data.total})</Text>
       <Divider />
       <section>

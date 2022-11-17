@@ -122,7 +122,7 @@ const AgenciesDirectory: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Agencies | Cozzinest</title>
+        <title>Partners | Cozzinest</title>
         <meta name="description" content="Home page of Cozzinest" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -133,7 +133,7 @@ const AgenciesDirectory: NextPage = () => {
             className="ml-10"
             items={[
               { name: 'Home', link: '/' },
-              { name: 'Agencies Directory' }
+              { name: 'Partners Directory' }
             ]}
           />
           <div className="flex items-start gap-[1.75rem] mt-6">
@@ -146,6 +146,7 @@ const AgenciesDirectory: NextPage = () => {
               serviceTypeOptions={serviceTypeOptions}
               regionOptions={regionOptions}
               locationOptions={locationOptions}
+              onReset={() => setFilter({})}
             />
             <section className="grow">
               <InfiniteScroll

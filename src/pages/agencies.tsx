@@ -145,6 +145,7 @@ const AgenciesDirectory: NextPage = () => {
               serviceTypeOptions={serviceTypeOptions}
               regionOptions={regionOptions}
               locationOptions={locationOptions}
+              onReset={() => setFilter({})}
             />
             <section className="grow">
               <InfiniteScroll
