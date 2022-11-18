@@ -1,0 +1,6 @@
+mutation verifySecondaryEmail($token: String!) {
+  verifySecondaryEmail(token: $token) {
+    success
+    errors
+  }
+}

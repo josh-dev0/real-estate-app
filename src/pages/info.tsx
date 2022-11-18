@@ -14,9 +14,9 @@ const AuthIndex: NextPage = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const role = useMemo(() => session?.user.role || router.query.role, [session, router]);
-
+  console.log('info1.role', session, role)
   const handleOnNext = (values: any) => {
-    Router.push(`/${ROUTES.info2}`);
+    Router.push(`${ROUTES.info2}`);
   }
 
   return (

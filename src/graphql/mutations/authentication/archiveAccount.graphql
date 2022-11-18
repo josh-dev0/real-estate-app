@@ -1,0 +1,6 @@
+mutation archiveAccount($password: String!) {
+  archiveAccount(password: $password) {
+    success
+    errors
+  }
+}
