@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes';
 import { SessionProvider } from "next-auth/react"
 import type { Session } from "next-auth"
+import { RecoilRoot } from 'recoil';
 import { AntdThemeConfig } from '../containers/AntdThemeConfig';
 import { Preloader } from '@app/containers/Preloader';
 import MyApolloProvider from '../graphql/apollo'
@@ -14,9 +15,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps<{ s
       <AntdThemeConfig>
         <SessionProvider session={session}>
           <MyApolloProvider>
-            <Preloader>
-              <Component {...pageProps} />
-            </Preloader>
+            <RecoilRoot>
+              <Preloader>
+                <Component {...pageProps} />
+              </Preloader>
+            </RecoilRoot>
           </MyApolloProvider>
         </SessionProvider>
       </AntdThemeConfig>
