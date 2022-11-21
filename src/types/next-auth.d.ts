@@ -11,6 +11,7 @@ declare module "next-auth" {
     token: string;
     refreshToken: string;
     role?: string; // for registration only
+    email?: string; // for registration only
     user: PublicUserProfile;
   }
 
@@ -30,6 +31,7 @@ declare module "next-auth" {
     token: string;
     refreshToken: string;
     role?: string; // for registration only
+    email?: string; // for registration only
     profile?: PublicUserProfile;
   }
 }
@@ -38,5 +40,6 @@ declare module "next-auth/jwt" {
   export interface JWT extends NAJWT {
     user: User;
     role?: string;
+    email?: string;
   }
 }

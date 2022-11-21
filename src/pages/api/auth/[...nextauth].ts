@@ -16,6 +16,7 @@ const loginDocument = gql`
       user {
         id
         username
+        email
         firstName
         lastName
         avatar
@@ -88,11 +89,12 @@ const login = async (credentials: AuthCredentials) => {
 
 const register = async (credentials: AuthCredentials) => {
   const { identity, username, password } = credentials!;
+  const email = `temp.${Math.random() * Math.pow(10, 10)}@fake.com`; // generate fake email.
   return request({
     url: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!,
     document: registerDocument,
     variables: {
-      email: `temp.${Math.random() * Math.pow(10, 10)}@fake.com`, // generate fake email.
+      email,
       username,
       password1: password,
       password2: password,
@@ -100,14 +102,21 @@ const register = async (credentials: AuthCredentials) => {
   })
     .then((res) => res.register)
     .then((res) => {
-      if (!res.success) throw new Error(res.errors.nonFieldErrors[0].message);
+      // console.log("register.error0", res.errors.username);
+      // if (!res.success) throw new Error(res.errors.nonFieldErrors[0].message);
+      if (!res.success) throw new Error(res.errors);
       return {
         token: res.token,
         refreshToken: res.refreshToken,
         role: identity,
+        email,
       } as User;
     })
-    .catch((err) => null);
+    .catch((err) => {
+      console.log("register.error", err);
+      return null;
+    });
+  // .catch((err) => null);
 };
 
 const authenticate = async (credentials: AuthCredentials) => {
@@ -162,6 +171,7 @@ export const authOptions: NextAuthOptions = {
         token: token.accessToken as string,
         refreshToken: token.refreshToken as string,
         role: token.role,
+        email: token.email,
         user: {
           ...session.user,
           ...token.user,
@@ -170,10 +180,11 @@ export const authOptions: NextAuthOptions = {
     },
     async jwt({ token, user }) {
       if (user) {
-        const { token: accessToken, refreshToken, role, profile } = user;
+        const { token: accessToken, refreshToken, role, email, profile } = user;
         token.accessToken = accessToken;
         token.refreshToken = refreshToken;
         token.role = role;
+        token.email = email;
         token.user = profile;
       }
       return token;

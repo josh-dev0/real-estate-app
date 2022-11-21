@@ -20,6 +20,9 @@ export const ROUTES = {
   confirmEmail: "/confirm-email",
   info1: "/info",
   info2: "/more-info",
+  api: {
+    confirmRegistrationEmail: "/api/confirm-registration-email",
+  },
 } as const;
 
 export const QUERY = {

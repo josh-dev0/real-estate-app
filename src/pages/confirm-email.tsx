@@ -1,23 +1,40 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Router, { useRouter } from 'next/router';
+import Router from 'next/router';
 import { useSession } from 'next-auth/react';
-import { useMemo } from 'react';
 import {
   AuthLayout,
-  IndividualInformationForm,
-  ProfessionalInformationForm,
   SendActivationEmail,
 } from '@app/modules/Auth';
-import { IDENTITY, ROUTES } from '@app/constants';
+import { ROUTES, SESSION_STATUS } from '@app/constants';
+import { useResendActivationEmailMutation } from '@app/graphql/types';
+import { notification } from '@app/utils/notification';
 
 const AuthIndex: NextPage = () => {
-  const { data: session } = useSession();
-  const router = useRouter();
-  const role = useMemo(() => session?.role || router.query.role, [session, router]);
+  const { data: session, status: sessionStatus } = useSession();
 
-  const handleOnNext = (values: any) => {
-    Router.push(`${ROUTES.info2}`);
+  const [resendActivationEmailMutation, { loading }] = useResendActivationEmailMutation();
+
+  const handleOnResendEmail = () => {
+    if (sessionStatus !== SESSION_STATUS.LOADING &&
+      sessionStatus === SESSION_STATUS.AUTHENTICATED &&
+      session?.email
+    ) {
+      return resendActivationEmailMutation({ variables: { email: session?.email } })
+        .then(res => res.data?.resendActivationEmail)
+        .then(res => {
+          if (res?.errors) {
+            return notification.error({ message: 'Failed to sent an activation email!' });
+          }
+          if (res?.success) {
+            notification.success({
+              message: 'Activiation email has been sent successfully!',
+              onClose: () => Router.push(ROUTES.api.confirmRegistrationEmail + "?test=true&token=anytoken"), // TODO: this is temporary. User must be redirected from email verification.
+            });
+          }
+        })
+        .catch(err => notification.error({ message: err.message }));
+    }
   }
 
   return (
@@ -32,7 +49,10 @@ const AuthIndex: NextPage = () => {
         title="Hello there!"
         subtitle=""
       >
-        <SendActivationEmail />
+        <SendActivationEmail
+          onResend={handleOnResendEmail}
+          loading={loading}
+        />
       </AuthLayout>
     </>
   );

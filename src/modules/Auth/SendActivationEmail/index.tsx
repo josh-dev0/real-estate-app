@@ -1,19 +1,22 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Button } from 'antd';
-import { CheckCircleFilled, CheckCircleOutlined } from '@ant-design/icons';
+import { CheckCircleFilled } from '@ant-design/icons';
 
 import styles from './styles.module.scss';
 
 export type SendActivationEmailProps = {
-
+  onResend?: () => void;
+  loading?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const SendActivationEmail: React.FC<SendActivationEmailProps> = ({
   className,
+  loading,
+  onResend,
   ...otherProps
 }) => {
-  return <div className={classNames(styles.container, className)}>
+  return <div className={classNames(styles.container, className)} {...otherProps}>
     <p className={styles.hooray}>Hooray!</p>
     <CheckCircleFilled className={styles.checkmark} />
     <p className={styles.title}>
@@ -25,6 +28,10 @@ export const SendActivationEmail: React.FC<SendActivationEmailProps> = ({
     <p className={styles.resend}>
       Didn’t receive the email?
     </p>
-    <Button className={styles.button}>Resend email</Button>
+    <Button
+      className={styles.button}
+      loading={loading}
+      onClick={onResend}
+    >Resend email</Button>
   </div>
 }
