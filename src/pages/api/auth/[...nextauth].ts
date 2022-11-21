@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthOptions, Session } from "next-auth";
+import NextAuth, { NextAuthOptions, Session, User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import randomColor from "randomcolor";
 import { request, gql } from "graphql-request";
@@ -19,6 +19,7 @@ const loginDocument = gql`
         firstName
         lastName
         avatar
+        verified
       }
     }
   }
@@ -39,6 +40,8 @@ const registerDocument = gql`
     ) {
       errors
       success
+      refreshToken
+      token
     }
   }
 `;
@@ -64,15 +67,20 @@ const login = async (credentials: AuthCredentials) => {
     .then((res) => {
       if (!res.success) throw new Error(res.errors.nonFieldErrors[0].message);
       return {
-        id: res.user.id,
-        name: `${res.user.firstName} ${res.user.lastName}`.trim(),
-        image: res.user.avatar,
         token: res.token,
         refreshToken: res.refreshToken,
-        username: res.user.username,
-        role: identity,
-        backgrondColor: randomColor({ luminosity: "dark" }),
-      };
+        profile: {
+          id: res.user.id as any,
+          username: res.user.username,
+          firstName: res.user.firstName,
+          lastName: res.user.lastName,
+          name: `${res.user.firstName} ${res.user.lastName}`.trim(),
+          avatar: res.user.avatar,
+          verified: res.user.verified,
+          role: identity,
+          backgrondColor: randomColor({ luminosity: "dark" }),
+        },
+      } as User;
     })
     .catch((err) => null);
 };
@@ -95,8 +103,7 @@ const register = async (credentials: AuthCredentials) => {
       return {
         token: res.token,
         refreshToken: res.refreshToken,
-        role: identity,
-      };
+      } as User;
     })
     .catch((err) => null);
 };
@@ -160,10 +167,10 @@ export const authOptions: NextAuthOptions = {
     },
     async jwt({ token, user }) {
       if (user) {
-        const { token: accessToken, refreshToken, ...userInfo } = user;
+        const { token: accessToken, refreshToken, profile } = user;
         token.accessToken = accessToken;
         token.refreshToken = refreshToken;
-        token.user = userInfo;
+        token.user = profile;
       }
       return token;
     },

@@ -21,8 +21,22 @@ declare module "next-auth" {
     };
   }
 
+  export interface PublicUserProfile {
+    id: string;
+    username: string;
+    firstName: string;
+    lastName: string;
+    name: string;
+    avatar: string;
+    verified: boolean;
+    role: string;
+    backgrondColor: string;
+  }
+
   export interface User extends NextAuthUser {
-    [key: string]: string;
+    token: string;
+    refreshToken: string;
+    profile?: PublicUserProfile;
   }
 }
 
