@@ -30,7 +30,9 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-relay": "^14.1.0",
     "recoil": "^0.7.6",
+    "recoil-gear": "^1.0.2",
     "recoil-relay": "^0.1.0",
+    "redux": "^4.2.0",
     "storybook": "^6.5.12"
   },
   "devDependencies": {
