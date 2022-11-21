@@ -5,11 +5,23 @@ import {
   AuthLayout,
   ForgotPasswordForm
 } from '@app/modules/Auth';
+import { notification } from '@app/utils/notification';
+import { useSendPasswordResetEmailMutation } from '@app/graphql/types';
 
 const AuthIndex: NextPage = () => {
-  const handleOnSubmit = () => {
+  const [sendPasswordResetEmailMutation, { loading }] = useSendPasswordResetEmailMutation();
+  const handleOnSubmit = (values: any) => {
     // Router.push('/reset-password');
-    console.log('forgot.password.submitted');
+    return sendPasswordResetEmailMutation({ variables: { email: values.email } })
+      .then(res => res.data?.sendPasswordResetEmail)
+      .then(res => {
+        if (res?.success) {
+          notification.success({ message: 'Email has been sent successfully!' });
+          Router.push('/emails/reset-password.html')
+        } else {
+          notification.error({ message: 'Failed to send an email' });
+        }
+      })
   }
 
   return (

@@ -25,7 +25,10 @@ export const ForgotPasswordForm: React.FC<FormProps> = ({
           label={<span className="w-20 text-left">Email</span>}
           name="email"
           colon={false}
-          rules={[{ required: true, message: 'Please input your email!' }]}
+          rules={[
+            { required: true, message: 'Please input your email!' },
+            { type: 'email', message: 'Please input valid email' },
+          ]}
         >
           <Input />
         </Form.Item>

@@ -25,18 +25,22 @@ export const ResetPasswordForm: React.FC<FormProps> = ({
           label="New Password"
           name="password"
           colon={false}
-          rules={[{ required: true, message: 'Please input new password!' }]}
+          rules={[
+            { required: true, message: 'Please input new password!' }
+          ]}
         >
-          <Input />
+          <Input type="password" />
         </Form.Item>
         <Form.Item
           className={styles.formItem}
           label="Confirm Password"
           name="cpassword"
           colon={false}
-          rules={[{ required: true, message: 'Please confirm your password!' }]}
+          rules={[
+            { required: true, message: 'Please confirm your password!' }
+          ]}
         >
-          <Input />
+          <Input type="password" />
         </Form.Item>
         <Form.Item
           className={styles.formItem}

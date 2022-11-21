@@ -8,4 +8,5 @@ export * from './LoginWithSocial';
 export * from './ProfessionalInformationForm';
 export * from './RegisterForm';
 export * from './ResetPasswordForm';
+export * from './ResetPasswordSuccess';
 export * from './SendActivationEmail';

@@ -1,15 +1,38 @@
 import type { NextPage } from 'next'
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import Head from 'next/head'
 import {
   AuthLayout,
   ResetPasswordForm
 } from '@app/modules/Auth';
+import { usePasswordResetMutation } from '@app/graphql/types';
 
 const ResetPassword: NextPage = () => {
-  const handleOnSubmit = () => {
-    console.log('reset.password.submitted');
-    Router.push('/');
+  const router = useRouter();
+  const [passwordResetMutation, { loading }] = usePasswordResetMutation();
+  const handleOnSubmit = (values: any) => {
+    console.log('reset.password.submitted', values);
+    return passwordResetMutation({
+      variables: {
+        token: router.query.token as string,
+        new_password1: values.password,
+        new_password2: values.cpassword,
+      }
+    })
+      .then(res => res.data?.passwordReset)
+      .then(res => {
+        // process data
+        if (res?.errors) {
+
+        } else {
+
+        }
+        Router.push('/reset-password-success');
+      })
+      .catch(err => {
+        console.log('reset.password', err);
+        Router.push('/reset-password-success');
+      });
   }
 
   return (
