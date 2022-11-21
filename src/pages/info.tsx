@@ -7,14 +7,14 @@ import {
   AuthLayout,
   IndividualInformationForm,
   ProfessionalInformationForm,
-} from '@app/components';
+} from '@app/modules/Auth';
 import { IDENTITY, ROUTES } from '@app/constants';
 
 const AuthIndex: NextPage = () => {
   const { data: session } = useSession();
   const router = useRouter();
-  const role = useMemo(() => session?.user.role || router.query.role, [session, router]);
-  console.log('info1.role', session, role)
+  const role = useMemo(() => session?.role || router.query.role, [session, router]);
+
   const handleOnNext = (values: any) => {
     Router.push(`${ROUTES.info2}`);
   }

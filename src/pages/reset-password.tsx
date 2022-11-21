@@ -4,7 +4,7 @@ import Head from 'next/head'
 import {
   AuthLayout,
   ResetPasswordForm
-} from '@app/components';
+} from '@app/modules/Auth';
 
 const ResetPassword: NextPage = () => {
   const handleOnSubmit = () => {

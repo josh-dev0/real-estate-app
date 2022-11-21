@@ -1,4 +1,3 @@
-export * from "./Auth";
 export * from "./Breadcrumb";
 export * from "./CozziCarousel";
 export * from "./CozziRange";

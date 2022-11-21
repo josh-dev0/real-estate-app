@@ -4,7 +4,7 @@ import Head from 'next/head'
 import {
   AuthLayout,
   ForgotPasswordForm
-} from '@app/components';
+} from '@app/modules/Auth';
 
 const AuthIndex: NextPage = () => {
   const handleOnSubmit = () => {

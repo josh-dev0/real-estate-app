@@ -69,6 +69,7 @@ const login = async (credentials: AuthCredentials) => {
       return {
         token: res.token,
         refreshToken: res.refreshToken,
+        role: identity,
         profile: {
           id: res.user.id as any,
           username: res.user.username,
@@ -103,6 +104,7 @@ const register = async (credentials: AuthCredentials) => {
       return {
         token: res.token,
         refreshToken: res.refreshToken,
+        role: identity,
       } as User;
     })
     .catch((err) => null);
@@ -159,6 +161,7 @@ export const authOptions: NextAuthOptions = {
         ...session,
         token: token.accessToken as string,
         refreshToken: token.refreshToken as string,
+        role: token.role,
         user: {
           ...session.user,
           ...token.user,
@@ -167,9 +170,10 @@ export const authOptions: NextAuthOptions = {
     },
     async jwt({ token, user }) {
       if (user) {
-        const { token: accessToken, refreshToken, profile } = user;
+        const { token: accessToken, refreshToken, role, profile } = user;
         token.accessToken = accessToken;
         token.refreshToken = refreshToken;
+        token.role = role;
         token.user = profile;
       }
       return token;

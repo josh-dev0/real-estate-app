@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { useMemo } from 'react';
 import { signIn } from "next-auth/react"
 import type { LoginInput, RegisterInput } from '@app/types';
-import { AuthLayout, LoginForm, LoginWithSocial, RegisterForm } from '@app/components';
+import { AuthLayout, LoginForm, LoginWithSocial, RegisterForm } from '@app/modules/Auth';
 import { AUTH_TYPE, IDENTITY, QUERY, ROUTES } from '@app/constants';
 import { notification } from '@app/utils/notification';
 

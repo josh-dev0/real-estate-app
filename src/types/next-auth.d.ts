@@ -10,6 +10,7 @@ declare module "next-auth" {
   export interface Session extends NextAuthSession {
     token: string;
     refreshToken: string;
+    role?: string; // for registration only
     user: PublicUserProfile;
   }
 
@@ -28,6 +29,7 @@ declare module "next-auth" {
   export interface User extends NextAuthUser {
     token: string;
     refreshToken: string;
+    role?: string; // for registration only
     profile?: PublicUserProfile;
   }
 }
@@ -35,5 +37,6 @@ declare module "next-auth" {
 declare module "next-auth/jwt" {
   export interface JWT extends NAJWT {
     user: User;
+    role?: string;
   }
 }

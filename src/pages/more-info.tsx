@@ -5,7 +5,7 @@ import { QUERY } from '@app/constants';
 import {
   AuthLayout,
   InformationForm2
-} from '@app/components';
+} from '@app/modules/Auth';
 // import { getCountryList } from '@app/utils/demo';
 // import type { ICountry } from '@app/types';
 
