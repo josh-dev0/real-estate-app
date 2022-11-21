@@ -47,6 +47,7 @@ const textColor = {
   },
   error: "var(--theme-color-fg-error)",
   warning: "var(--theme-color-fg-warning)",
+  success: "var(--theme-color-fg-success)",
 };
 
 module.exports = {

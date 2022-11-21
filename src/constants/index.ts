@@ -17,6 +17,7 @@ export const SESSION_STATUS = {
 // use this constant to update the inner path dependency while navigating.
 export const ROUTES = {
   login: "/identify",
+  confirmEmail: "/confirm-email",
   info1: "/info",
   info2: "/more-info",
 } as const;

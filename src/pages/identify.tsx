@@ -51,7 +51,7 @@ const AuthIndex: NextPage = () => {
     })
       .then(res => {
         if (res?.ok) {
-          Router.push(`${ROUTES.info1}`);
+          Router.push(`${ROUTES.confirmEmail}`);
         } else {
           showErrorNotification();
         }

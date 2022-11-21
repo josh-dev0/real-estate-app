@@ -1,9 +1,7 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import {
-  AuthHeader,
-  Footer,
-} from '@app/components';
+import { Footer } from '@app/components';
+import { AuthHeader } from '@app/modules/Auth';
 import { withExtraClass } from '@app/utils';
 import styles from './styles.module.scss';
 
