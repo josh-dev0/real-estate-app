@@ -94,7 +94,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         className="mb-[5px]"
         wrapperCol={{ offset: layout.labelCol.span, span: layout.wrapperCol.span }}>
         <Link href="/forgot-password">
-          <span className="text-xs leading-[22px] underline text-primary">Forgot password?</span>
+          <span className="cursor-pointer text-xs leading-[22px] underline text-primary">Forgot password?</span>
         </Link>
       </Form.Item>
       <Form.Item
