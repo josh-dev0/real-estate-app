@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { TopMenu } from '../../components/TopMenu';
+import { TopMenu } from '@app/components';
 
 export default {
   title: 'Components/TopMenu',

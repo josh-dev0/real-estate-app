@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { DealTypeRadio } from '../../components/DealTypeRadio';
+import { DealTypeRadio } from '@app/components';
 
 export default {
   title: 'Components/DealTypeRadio',

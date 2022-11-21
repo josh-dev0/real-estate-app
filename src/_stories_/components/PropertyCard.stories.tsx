@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { PropertyCard } from '../../components/PropertyCard';
+import { PropertyCard } from '@app/components';
 
 export default {
   title: 'Components/PropertyCard',

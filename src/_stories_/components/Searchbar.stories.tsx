@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Searchbar } from '../../components/Searchbar';
+import { Searchbar } from '@app/components';
 
 export default {
   title: 'Components/Searchbar',
