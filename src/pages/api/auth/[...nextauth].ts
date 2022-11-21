@@ -78,7 +78,7 @@ const login = async (credentials: AuthCredentials) => {
           avatar: res.user.avatar,
           verified: res.user.verified,
           role: identity,
-          backgrondColor: randomColor({ luminosity: "dark" }),
+          backgroundColor: randomColor({ luminosity: "dark" }),
         },
       } as User;
     })

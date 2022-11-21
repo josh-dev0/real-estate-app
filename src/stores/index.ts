@@ -1,13 +1,13 @@
 import { atom, selector } from "recoil";
 // import type { UserNode } from "@app/graphql/types";
-import { User } from "next-auth";
+import { PublicUserProfile } from "next-auth";
 
-export const jwtState = atom<string | undefined>({
+export const jwtState = atom<string | null>({
   key: "jwt",
-  default: "",
+  default: null,
 });
 
-export const publicProfileState = atom<Partial<User> | null>({
+export const publicProfileState = atom<PublicUserProfile | null>({
   key: "profile",
   default: null,
 });

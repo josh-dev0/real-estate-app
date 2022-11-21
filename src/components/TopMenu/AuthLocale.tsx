@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
-import { useSession, signOut } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
 import Router from 'next/router';
 import { Dropdown, Menu, Space } from 'antd';
+import { useRecoilState } from 'recoil';
 import {
   CaretDownOutlined,
   CaretRightOutlined,
@@ -18,94 +19,13 @@ import {
 } from '@ant-design/icons';
 import { locales } from '@app/constants/locale';
 import type { IdentityType } from '@app/types';
-import { IDENTITY, SESSION_STATUS } from '@app/constants';
+import { IDENTITY } from '@app/constants';
 import { ProfileAvatar } from '@app/components';
+import { jwtState, publicProfileState } from '@app/stores';
 import { OnlineIcon } from './icons/online';
 import styles from './styles.module.scss';
 
 const loginMenuIconClassName = "w-[1rem] mr-5 text-lg inline-block";
-const loginDropdownMenu = (
-  <Menu
-    className="py-4 px-6"
-    mode="horizontal"
-    items={[
-      {
-        key: 'dd:my-profile',
-        label: 'My Profile',
-        icon: <ProfileOutlined className={loginMenuIconClassName} />
-      },
-      {
-        key: 'dd:status',
-        label: 'Status',
-        icon: <OnlineIcon className={loginMenuIconClassName} />,
-        expandIcon: <CaretRightOutlined className="ant-dropdown-menu-submenu-expand-icon top-[.5rem]" />,
-        children: [
-          {
-            label: "Online",
-            key: 'menu:online',
-          },
-          {
-            label: "Away",
-            key: 'menu:away',
-          },
-          {
-            label: "Hidden",
-            key: 'menu:hidden',
-          },
-          {
-            label: "Don't disturbe",
-            key: 'menu:dontdisturb',
-          },
-        ]
-      },
-      {
-        key: 'dd:my-messages',
-        label: 'My Messages',
-        icon: <MessageOutlined className={loginMenuIconClassName} />
-      },
-      {
-        key: 'dd:my-ads',
-        label: 'My ads',
-        icon: <NotificationOutlined className={loginMenuIconClassName} />
-      },
-      {
-        key: 'dd:saved-searches',
-        label: 'My Saved Searches',
-        icon: <SearchOutlined className={loginMenuIconClassName} />,
-      },
-      {
-        key: 'dd:my-favorites',
-        label: 'My Favorites',
-        icon: <HeartOutlined className={loginMenuIconClassName} />,
-      },
-      {
-        key: 'dd:my-hidden-ads',
-        label: 'My Hidden Ads',
-        icon: <EyeInvisibleFilled className={loginMenuIconClassName} />,
-      },
-      {
-        key: 'dd:my-subscriptions',
-        label: 'My Subscriptons',
-        icon: <FormOutlined className={loginMenuIconClassName} />,
-      },
-      {
-        key: 'dd:loyalty-program',
-        label: 'Loyalty Program',
-        icon: <CrownOutlined className={loginMenuIconClassName} />,
-      },
-      {
-        key: 'dd:logout',
-        label: 'Logout',
-        icon: <LoginOutlined className={loginMenuIconClassName} />,
-        onClick: () => signOut({
-          redirect: false,
-          callbackUrl: '/',
-        }).then(res => Router.push(res.url)),
-      },
-    ]}
-    onClick={e => console.log(`Clicked ${e.key.replace('dd:', '')} menu. Will redirect to page properly.`)}
-  />
-);
 
 type AuthLocaleProps = {
   locale: string;
@@ -114,8 +34,21 @@ type AuthLocaleProps = {
 };
 
 export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, onIdentify }) => {
-  const { data: session, status } = useSession();
-  const isAuthenticated = useMemo(() => status === SESSION_STATUS.AUTHENTICATED && session?.user, [session, status]);
+  const [jwt, setJWT] = useRecoilState(jwtState);
+  const [profile, setProfile] = useRecoilState(publicProfileState);
+  const isAuthenticated = useMemo(() => jwt && profile, [jwt, profile]);
+  const displayName = useMemo(() => profile?.name || profile?.username, [profile]);
+
+  const handleOnLogout = () => {
+    return signOut({
+      redirect: false,
+      callbackUrl: '/',
+    }).then(res => {
+      setJWT(null);
+      setProfile(null);
+      Router.push(res.url)
+    });
+  }
 
   const logoutDropdownMenu = (
     <Menu
@@ -131,6 +64,86 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
         },
       ]}
       onClick={e => onIdentify!(e.key as IdentityType)}
+    />
+  );
+
+  const loginDropdownMenu = (
+    <Menu
+      className="py-4 px-6"
+      mode="horizontal"
+      items={[
+        {
+          key: 'dd:my-profile',
+          label: 'My Profile',
+          icon: <ProfileOutlined className={loginMenuIconClassName} />
+        },
+        {
+          key: 'dd:status',
+          label: 'Status',
+          icon: <OnlineIcon className={loginMenuIconClassName} />,
+          expandIcon: <CaretRightOutlined className="ant-dropdown-menu-submenu-expand-icon top-[.5rem]" />,
+          children: [
+            {
+              label: "Online",
+              key: 'menu:online',
+            },
+            {
+              label: "Away",
+              key: 'menu:away',
+            },
+            {
+              label: "Hidden",
+              key: 'menu:hidden',
+            },
+            {
+              label: "Don't disturbe",
+              key: 'menu:dontdisturb',
+            },
+          ]
+        },
+        {
+          key: 'dd:my-messages',
+          label: 'My Messages',
+          icon: <MessageOutlined className={loginMenuIconClassName} />
+        },
+        {
+          key: 'dd:my-ads',
+          label: 'My ads',
+          icon: <NotificationOutlined className={loginMenuIconClassName} />
+        },
+        {
+          key: 'dd:saved-searches',
+          label: 'My Saved Searches',
+          icon: <SearchOutlined className={loginMenuIconClassName} />,
+        },
+        {
+          key: 'dd:my-favorites',
+          label: 'My Favorites',
+          icon: <HeartOutlined className={loginMenuIconClassName} />,
+        },
+        {
+          key: 'dd:my-hidden-ads',
+          label: 'My Hidden Ads',
+          icon: <EyeInvisibleFilled className={loginMenuIconClassName} />,
+        },
+        {
+          key: 'dd:my-subscriptions',
+          label: 'My Subscriptons',
+          icon: <FormOutlined className={loginMenuIconClassName} />,
+        },
+        {
+          key: 'dd:loyalty-program',
+          label: 'Loyalty Program',
+          icon: <CrownOutlined className={loginMenuIconClassName} />,
+        },
+        {
+          key: 'dd:logout',
+          label: 'Logout',
+          icon: <LoginOutlined className={loginMenuIconClassName} />,
+          onClick: handleOnLogout,
+        },
+      ]}
+      onClick={e => console.log(`Clicked ${e.key.replace('dd:', '')} menu. Will redirect to page properly.`)}
     />
   );
 
@@ -168,12 +181,13 @@ export const AuthLocale: React.FC<AuthLocaleProps> = ({ locale, onLocaleChange, 
           <div className="text-default cursor-pointer" onClick={e => e.preventDefault()}>
             <div className="flex items-center">
               <ProfileAvatar
-                src={session?.user.image}
-                name={session?.user.name!}
+                src={profile?.avatar}
+                name={displayName}
                 size={40}
                 status='online'
+                backgroundColor={profile?.backgroundColor}
               />
-              <p className="text-center leading-6 mb-0 ml-4 w-[5rem] mt-1">{session?.user.name}</p>
+              <p className="text-center leading-6 mb-0 ml-4 w-[5rem] mt-1">{displayName}</p>
               <CaretDownOutlined className="ml-1" />
             </div>
           </div>

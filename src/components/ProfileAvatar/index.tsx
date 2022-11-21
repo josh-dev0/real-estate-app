@@ -9,7 +9,7 @@ export type ProfileAvatarProps = {
   name?: string;
   backgroundColor?: string; // to be applied when there's no image url;
   status?: 'online' | 'away' | 'hidden' | 'dontdisturb';
-} & AvatarProps;
+} & Omit<AvatarProps, 'backgroundColor'>;
 
 export const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
   containerClassName,
@@ -30,8 +30,8 @@ export const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
   return (
     <div className={classNames(styles.container, containerClassName)}>
       <Avatar
-        style={{ backgroundColor }}
         icon={!src && !srcSet && !name ? <UserOutlined /> : null}
+        style={{ backgroundColor }}
         children={getInitials()}
         src={src}
         {...otherProps}

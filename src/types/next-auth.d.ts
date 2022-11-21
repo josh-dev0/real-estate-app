@@ -10,15 +10,7 @@ declare module "next-auth" {
   export interface Session extends NextAuthSession {
     token: string;
     refreshToken: string;
-    user: {
-      username: string;
-      role: string;
-      accessToken: string;
-      name: string;
-      avatar: string;
-      backgroundColor: string;
-      [key: string]: string;
-    };
+    user: PublicUserProfile;
   }
 
   export interface PublicUserProfile {
@@ -30,7 +22,7 @@ declare module "next-auth" {
     avatar: string;
     verified: boolean;
     role: string;
-    backgrondColor: string;
+    backgroundColor: string;
   }
 
   export interface User extends NextAuthUser {
