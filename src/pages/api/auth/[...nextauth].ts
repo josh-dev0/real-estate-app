@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
+import NextAuth, { NextAuthOptions, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import randomColor from "randomcolor";
 import { request, gql } from "graphql-request";
@@ -143,9 +143,15 @@ export const authOptions: NextAuthOptions = {
     colorScheme: "light",
   },
   callbacks: {
-    async session({ session, user, token }) {
+    /**
+     * @description `jwt` runs first, and then runs `session` callback next.
+     * All useful data is from `user` param in `jwt` callback.
+     */
+    async session({ session, user, token }): Promise<Session> {
       return {
         ...session,
+        token: token.accessToken as string,
+        refreshToken: token.refreshToken as string,
         user: {
           ...session.user,
           ...token.user,
@@ -154,8 +160,10 @@ export const authOptions: NextAuthOptions = {
     },
     async jwt({ token, user }) {
       if (user) {
-        token.accessToken = user.id;
-        token.user = user;
+        const { token: accessToken, refreshToken, ...userInfo } = user;
+        token.accessToken = accessToken;
+        token.refreshToken = refreshToken;
+        token.user = userInfo;
       }
       return token;
     },
