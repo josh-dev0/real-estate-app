@@ -1,0 +1,13 @@
+// for all checkboxes, change background color when selected.
+.ant-checkbox {
+  &-checked .ant-checkbox-inner {
+    background-color: var(--theme-color-bg-secondary-light) !important;
+    border-color: var(--theme-color-bg-secondary-light);
+  }
+
+  .ant-checkbox-inner {
+    background-color: var(--theme-color-bg-secondary-1);
+    border: 1px solid var(--theme-color-fg-secondary-3);
+    border-radius: 2px;
+  }
+}

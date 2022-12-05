@@ -1,0 +1,161 @@
+<html>
+
+<head>
+  <title>Welcome to Cozzinest</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap">
+  <style>
+    #cowel-body {
+      background-color: #F5F5F5;
+    }
+
+    #cowel-logo-container {
+      display: flex;
+      justify-content: center;
+      padding-top: 127px;
+    }
+
+    #cowel-logo {
+      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+    }
+
+    #cowel-content {
+      background-color: #fff;
+      margin: auto;
+      margin-top: 204px;
+      max-width: 1109px;
+      padding-bottom: 136px;
+      padding-top: 80px;
+      text-align: center;
+      width: 100%;
+    }
+
+    #cowel-title {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 20px;
+      text-align: center;
+      color: #6D6D6D;
+      margin-bottom: 0;
+    }
+
+    #cowel-description {
+      max-width: 500px;
+      margin: auto;
+      margin-top: 130px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      color: #828282;
+    }
+
+    #cowel-username {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 20px;
+      margin-top: 60px;
+      /* identical to box height, or 91% */
+
+      text-align: center;
+
+      color: #000000;
+    }
+
+    #cowel-link-text {
+      margin-top: 78px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 20px;
+      text-align: center;
+      color: #828282;
+      text-decoration: none;
+    }
+
+    #cowel-link-text:hover {
+      opacity: 0.7;
+    }
+
+    #cowel-activate-button {
+      background: #2D9CDB;
+      border: none;
+      border-radius: 4px;
+      color: #FFFFFF;
+      cursor: pointer;
+      filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.14)) drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.12)) drop-shadow(0px 1px 5px rgba(0, 0, 0, 0.2));
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      height: 47px;
+      letter-spacing: 0.16px;
+      line-height: 24px;
+      margin-top: 38px;
+      width: 198px;
+      text-align: center;
+    }
+
+    #cowel-button-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 0.75rem;
+    }
+
+    #cowel-footer {
+      margin-top: 209px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      color: #828282;
+    }
+  </style>
+</head>
+
+<body id="cowel-body">
+  <div id="cowel-logo-container">
+    <img id="cowel-logo" src="http://localhost:3000/logo.png" alt="Cozzinest" />
+  </div>
+  <div id="cowel-content">
+    <h3 id="cowel-title">Almost there!</h3>
+    <p id="cowel-description">
+      You need to activate your account so you can start creating<br />
+      and/or subscribing to Cozzinest’s or your providers’ plans and services.<br />
+      You’ll also receive offers, discounts and coupons from your providers if you agree!
+    </p>
+    <p id="cowel-username">Saad</p>
+    <a id="cowel-link-text" href="http://localhost:3000/api/confirm-registration-email?token=faketoken&otherparam=temp"
+      target="_blank">
+      Click here to activate Cozzinest account.</a><br />
+    <button id="cowel-activate-button">
+      <span id="cowel-button-content">
+        Activate your Account
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM8 12.17L14.59 5.58L16 7L8 15L4 11L5.41 9.59L8 12.17Z"
+            fill="white" />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div id="cowel-footer">
+    <p className=""><strong>@ 2022 Cozzinest</strong> </p>
+    <p>Terms of Service | Privacy & Cookies policy | Sitemap | Cozzinest LTD @copyright 2022 | 16 rue de la gare Glacis,
+      L-1640 Luxembourg</p>
+  </div>
+</body>
+
+</html>

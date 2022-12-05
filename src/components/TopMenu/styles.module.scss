@@ -1,0 +1,29 @@
+.logoutMenuDropDown {
+  @apply mt-4 py-3 bg-primary;
+  border: 0.2px solid theme("colors.bg.secondary.4");
+  border-radius: 5px;
+}
+
+.logoutMenuItem {
+  @apply px-16 text-sm;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 11px;
+  color: theme("colors.bg.secondary.DEFAULT");
+}
+
+.localeMenuDropDown {
+  @apply mt-4 py-3 bg-primary;
+  border: 0.2px solid theme("colors.bg.secondary.4");
+  border-radius: 5px;
+}
+
+.localeMenuItem {
+  @apply px-8 text-sm;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 11px;
+  color: theme("colors.bg.secondary.DEFAULT");
+}

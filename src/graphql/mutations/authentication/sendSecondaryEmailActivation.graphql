@@ -1,0 +1,6 @@
+mutation sendSecondaryEmailActivation($email: String!, $password: String!) {
+  sendSecondaryEmailActivation(email: $email, password: $password) {
+    success
+    errors
+  }
+}

@@ -1,0 +1,6 @@
+mutation resendActivationEmail($email: String!) {
+  resendActivationEmail(email: $email) {
+    success
+    errors
+  }
+}

@@ -1,0 +1,30 @@
+/**
+* @for: formatting tabs.
+* @description: to format selected color of active item.
+*/
+.ant-tabs {
+
+  // text color
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: var(--theme-color-fg-tab);
+  }
+
+  // active text color.
+  .ant-tabs-tab:hover {
+    color: var(--theme-color-fg-tab);
+  }
+
+  // animated bottom-border color;
+  .ant-tabs-ink-bar {
+    background-color: var(--theme-color-bg-secondary-3);
+  }
+
+}
+
+// remove tabs bar border-bottom;
+.ant-tabs-bottom>.ant-tabs-nav:before,
+.ant-tabs-bottom>div>.ant-tabs-nav:before,
+.ant-tabs-top>.ant-tabs-nav:before,
+.ant-tabs-top>div>.ant-tabs-nav:before {
+  border: none;
+}

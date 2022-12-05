@@ -1,0 +1,12 @@
+.container {}
+
+.title3 {
+  @apply text-sm leading-2xl text-secondary;
+}
+
+.maxValue {
+  @apply text-2xs leading-2xl text-warning;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

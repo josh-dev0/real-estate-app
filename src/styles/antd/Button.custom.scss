@@ -1,0 +1,6 @@
+// button (primary) hover color;
+.ant-btn-primary:focus,
+.ant-btn-primary:hover {
+  background-color: var(--theme-color-bg-secondary);
+  border-color: var(--theme-color-bg-secondary);
+}

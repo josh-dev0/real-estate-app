@@ -1,0 +1,15 @@
+.container {
+  @apply w-full bg-primary cursor-pointer p-10;
+  min-width: 15rem;
+  border: 0.2px solid theme("colors.fg.secondary.4");
+  box-shadow: 0px 1px 12px theme("colors.fg.shadow.2");
+
+  // &:hover {
+  //   border: 0.2px solid var(--ant-primary-color);
+  //   box-shadow: 0px 4px 12px rgba(24, 144, 255, 0.15);
+  // }
+}
+
+.actionIcon {
+  @apply cursor-pointer;
+}

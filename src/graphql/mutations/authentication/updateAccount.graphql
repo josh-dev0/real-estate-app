@@ -1,0 +1,6 @@
+mutation updateAccount($first_name: String!, $last_name: String!) {
+  updateAccount(firstName: $first_name, lastName: $last_name) {
+    success
+    errors
+  }
+}

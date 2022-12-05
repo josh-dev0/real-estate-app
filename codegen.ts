@@ -7,9 +7,9 @@ loadEnvConfig(projectDir);
 const config: CodegenConfig = {
   overwrite: true,
   schema: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT,
-  documents: ["graphql/**/*.graphql"],
+  documents: ["src/graphql/**/*.graphql"],
   generates: {
-    "graphql/types.tsx": {
+    "src/graphql/types.tsx": {
       plugins: [
         "typescript",
         "typescript-operations",

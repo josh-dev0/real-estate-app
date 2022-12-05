@@ -1,0 +1,6 @@
+mutation removeSecondaryEmail($password: String!) {
+  removeSecondaryEmail(password: $password) {
+    success
+    errors
+  }
+}

@@ -1,0 +1,82 @@
+/* added due to the auto complete component in search component */
+div.ant-select[class*="h-"] {
+  .ant-select-selector {
+    height: 100% !important;
+
+    .ant-select-selection-search {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
+/* /components/Searchbar/components/PropertyTypeSelect2.tsx
+ * remove the background color of the selected options.
+ */
+.custom-property-type-select-2 {
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background-color: var(--theme-color-bg-primary) !important;
+    font-weight: normal;
+  }
+
+  .ant-select.ant-select-open {
+    .ant-select-selection-overflow {
+      border-radius: 2px;
+      box-shadow: 0px 0px 0px 2px rgba(24, 144, 255, 0.2);
+      border: 1px solid var(--theme-color-fg-secondary-light);
+    }
+  }
+
+  // remove suffix space
+  .ant-select-selection-overflow-item.ant-select-selection-overflow-item-suffix {
+    width: 0 !important;
+  }
+}
+
+/* 
+ * /components/Searchbar/components/Filterbar/index.tsx
+ * remove border of select box of Select.custom-filter-select
+ */
+.ant-select {
+  &.custom-filter-select {
+    &:not(.ant-select-open)>.ant-select-selector {
+      border: none !important;
+    }
+
+    &.ant-select-open>.ant-select-selector {
+      border: 1px solid var(--theme-color-fg-secondary-light) !important;
+      box-shadow: 0px 0px 0px 2px rgba(24, 144, 255, 0.2);
+    }
+  }
+}
+
+.ant-select-dropdown {
+  .custom-filter-select-option {
+    padding-left: 17px;
+    padding-right: 17px;
+
+    &.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+      background-color: var(--theme-color-bg-primary) !important;
+      font-weight: 400;
+    }
+
+    &.ant-select-item-option-selected:not(.ant-select-item-option-disabled) .ant-select-item-option-state {
+      color: var(--theme-color-bg-secondary-light) !important;
+    }
+  }
+}
+
+.custom-property-type-select {
+  .ant-select-selector {
+    height: 3.25rem;
+  }
+}
+
+// select for 'sort by'
+.custom-statusbar-select-option {
+  &.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background: rgba(223, 237, 252, 0.4);
+    font-weight: normal;
+  }
+}

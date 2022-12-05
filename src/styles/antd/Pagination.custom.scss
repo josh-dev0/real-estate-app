@@ -1,0 +1,35 @@
+/**
+* @for: Pagination
+* @link: https://ant.design/components/pagination
+*/
+.ant-pagination {
+
+  // focused color.
+  li.ant-pagination-item-active {
+    border-color: var(--theme-color-bg-secondary-2);
+
+    a {
+      color: var(--theme-color-bg-secondary-2);
+    }
+  }
+
+  // hover color
+  li.ant-pagination-item:hover {
+    border-color: var(--theme-color-bg-secondary-2);
+
+    a {
+      color: var(--theme-color-bg-secondary-2);
+    }
+  }
+
+  // prev button. icon position.
+  li.ant-pagination-prev,
+  li.ant-pagination-next {
+    button.ant-pagination-item-link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

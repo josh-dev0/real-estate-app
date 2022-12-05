@@ -1,0 +1,27 @@
+.container {
+  @apply bg-primary shrink-0;
+  width: 17.063rem;
+  padding-left: 1.5rem;
+  padding-right: 1rem;
+  padding-top: 2.25rem;
+}
+
+.title1 {
+  @apply font-bold leading-2xl text-bg-secondary-light;
+  font-size: 0.938rem;
+}
+
+.title2 {
+  @apply font-bold leading-2xl text-secondary-5;
+  font-size: 0.938rem;
+}
+
+.title3 {
+  @apply text-sm leading-2xl text-secondary;
+}
+
+.switch {
+  @apply bg-secondary-3;
+  box-shadow: inset 0px 3px 4px theme("colors.fg.icon.2");
+  border-radius: 1rem;
+}

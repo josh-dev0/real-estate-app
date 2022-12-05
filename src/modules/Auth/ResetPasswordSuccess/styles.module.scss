@@ -1,0 +1,71 @@
+.container {
+  @apply bg-primary flex flex-col items-center;
+  max-width: 997px;
+  border: 0.2px solid theme('colors.fg.secondary.4');
+  box-shadow: 0px 1px 12px theme('colors.fg.shadow.2');
+  padding-bottom: 3.5rem;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+
+  @screen lg {
+    padding-bottom: 7.125rem;
+    padding-left: 7.125rem;
+    padding-right: 7.125rem;
+  }
+}
+
+.hooray {
+  @apply text-lg leading-2xl text-bg-secondary-dark mt-10;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+}
+
+.checkmark {
+  @apply text-success;
+  font-size: 4.375rem;
+  margin-top: 5rem;
+
+  @screen lg {
+    margin-top: 10.6rem;
+  }
+}
+
+.title {
+  @apply font-medium text-2xl text-icon-1 text-center mt-7;
+  font-family: 'Roboto';
+  font-style: normal;
+  line-height: 2rem;
+  order: 0;
+}
+
+.description {
+  @apply text-primary text-base text-center font-medium leading-none mt-1;
+  font-family: 'Roboto';
+  font-style: normal;
+}
+
+.resend {
+  @apply text-icon-1 text-2xl leading-2xl;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 8.3rem;
+}
+
+.button {
+  @apply text-bg-primary text-sm leading-2xl;
+  width: 14.6rem;
+  height: 2rem;
+  margin-top: 12.6rem;
+  padding: 5px 16px;
+
+  background: theme('colors.bg.secondary.light');
+  box-shadow: 0px 2px 0px theme('colors.fg.shadow.1');
+  border-radius: 2px;
+
+  &:hover {
+    background-color: theme('colors.bg.secondary.DEFAULT');
+    color: theme('colors.bg.primary');
+  }
+}

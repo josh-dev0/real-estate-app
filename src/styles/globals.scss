@@ -1,0 +1,78 @@
+/* --> Tailwind CSS Config */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* <-- Tailwind CSS Config */
+
+/* import google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+/* --> Ant Design Configuration */
+@import "../../node_modules/antd/dist/antd.variable.min.css";
+@import "./antd-supplement.scss";
+/* <-- Ant Design Configuration */
+
+/* import customized colors */
+@import "./variables.module.scss";
+
+/** Define the different themes here 
+  * Refer to https://tailwindcss.com/blog/tailwindcss-v3-1#easier-css-variable-color-configuration
+  */
+@layer base {
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    background-color: var(--ant-primary-color);
+  }
+
+  :root {
+    --theme-color-fg-primary: #{$theme-light-fg-primary};
+    --theme-color-fg-secondary: #{$theme-light-fg-secondary};
+    --theme-color-fg-dark: #{$theme-light-fg-dark};
+    --theme-color-fg-secondary-light: #{$theme-light-fg-secondary-light};
+    --theme-color-fg-secondary-1: #{$theme-light-fg-secondary-1};
+    --theme-color-fg-secondary-2: #{$theme-light-fg-secondary-2};
+    --theme-color-fg-secondary-3: #{$theme-light-fg-secondary-3};
+    --theme-color-fg-secondary-4: #{$theme-light-fg-secondary-4};
+    --theme-color-fg-secondary-5: #{$theme-light-fg-secondary-5};
+    --theme-color-fg-secondary-6: #{$theme-light-fg-secondary-6};
+    --theme-color-fg-secondary-7: #{$theme-light-fg-secondary-7};
+    --theme-color-fg-tab: #{$theme-light-fg-tab};
+    --theme-color-fg-icon: #{$theme-light-fg-icon};
+    --theme-color-fg-icon-1: #{$theme-light-fg-icon-1};
+    --theme-color-fg-icon-2: #{$theme-light-fg-icon-2};
+    --theme-color-fg-shadow: #{$theme-light-fg-shadow};
+    --theme-color-fg-shadow-1: #{$theme-light-fg-shadow-1};
+    --theme-color-fg-shadow-2: #{$theme-light-fg-shadow-2};
+    --theme-color-fg-shadow-3: #{$theme-light-fg-shadow-3};
+    --theme-color-fg-error: #{$theme-light-fg-error};
+    --theme-color-fg-warning: #{$theme-light-fg-warning};
+    --theme-color-fg-success: #{$theme-light-fg-success};
+
+    --theme-color-bg-primary: #{$theme-light-bg-primary};
+    --theme-color-bg-secondary: #{$theme-light-bg-secondary};
+    --theme-color-bg-secondary-light: #{$theme-light-bg-secondary-light};
+    --theme-color-bg-secondary-dark: #{$theme-light-bg-secondary-dark};
+    --theme-color-bg-secondary-1: #{$theme-light-bg-secondary-1};
+    --theme-color-bg-secondary-2: #{$theme-light-bg-secondary-2};
+    --theme-color-bg-secondary-3: #{$theme-light-bg-secondary-3};
+    --theme-color-bg-secondary-4: #{$theme-light-bg-secondary-4};
+    --theme-color-bg-secondary-5: #{$theme-light-bg-secondary-5};
+    --theme-color-bg-focused: #{$theme-light-bg-focused};
+  }
+
+  [data-theme="light"] {
+    // describe your theme here
+  }
+}
+
+body {
+  font-family: "Roboto";
+}
+
+// this helps all images keep width/height ratio.
+img {
+  object-fit: cover;
+}

@@ -1,0 +1,81 @@
+/**
+ * Here, define the different theme colors.
+ * @naming: theme-[theme-name]-[color-name]. eg. "theme-light-primary".
+ * @export name: [themeName][colorName]
+ */
+
+// Light Theme(default)
+$theme-light-fg-primary: #000000;
+$theme-light-fg-secondary: #828282;
+$theme-light-fg-secondary-light: #40a9ff; // filter/select: focused highlight border;
+$theme-light-fg-dark: #222222; // team member card name.
+$theme-light-fg-secondary-1: #575656;
+/* carousel handle border color*/
+$theme-light-fg-secondary-2: #bdbdbd;
+$theme-light-fg-secondary-3: #d9d9d9;
+$theme-light-fg-secondary-4: #ededed; // filter border color.
+$theme-light-fg-secondary-5: #535151; // filter sub-title(seniority, ratings, etc)
+// filter bar/select/option text color.
+$theme-light-fg-secondary-6: rgba(0, 0, 0, 0.65);
+$theme-light-fg-secondary-7: #393838; // professional card summary color.
+$theme-light-fg-tab: #466588; // tab selected color;
+/* box shadow color */
+$theme-light-fg-shadow: rgba(0, 0, 0, 0.1);
+$theme-light-fg-shadow-1: rgba(0, 0, 0, 0.043);
+$theme-light-fg-shadow-2: rgba(10, 9, 9, 0.08); // filter box shadow.
+// status bar/search input: inner box shadow
+$theme-light-fg-shadow-3: rgba(0, 0, 0, 0.15);
+// Icon colors
+$theme-light-fg-icon: rgba(174, 173, 173, 0.85);
+$theme-light-fg-icon-1: rgba(0, 0, 0, 0.85);
+$theme-light-fg-icon-2: rgba(0, 0, 0, 0.25);
+$theme-light-fg-error: #f5222d;
+$theme-light-fg-warning: #F28B13; // CozziSlider: max value color.
+$theme-light-fg-success: #52C41A; // Activation email icon color.
+
+$theme-light-bg-primary: #ffffff;
+$theme-light-bg-secondary: #365272;
+$theme-light-bg-secondary-light: #55708f;
+$theme-light-bg-secondary-dark: #132c4a; // auth title color
+$theme-light-bg-secondary-1: #f5f5f5;
+$theme-light-bg-secondary-2: #5784b8; // footer submit button
+$theme-light-bg-secondary-3: #7899bf; // background color of filter switch.
+$theme-light-bg-secondary-4: #979797;
+$theme-light-bg-secondary-5: rgba(85, 112, 143, 0.65); // background of slider.
+$theme-light-bg-focused: #bdd1e8;
+
+:export {
+  lightFgPrimary: $theme-light-fg-primary;
+  lightFgSecondary: $theme-light-fg-secondary;
+  lightFgSecondaryLight: $theme-light-fg-secondary-light;
+  lightFgDark: $theme-light-fg-dark;
+  lightFgSecondary1: $theme-light-fg-secondary-1;
+  lightFgSecondary2: $theme-light-fg-secondary-2;
+  lightFgSecondary3: $theme-light-fg-secondary-3;
+  lightFgSecondary4: $theme-light-fg-secondary-4;
+  lightFgSecondary5: $theme-light-fg-secondary-5;
+  lightFgSecondary6: $theme-light-fg-secondary-6;
+  lightFgSecondary7: $theme-light-fg-secondary-7;
+  lightFgTab: $theme-light-fg-tab;
+  lightFgShadow: $theme-light-fg-shadow;
+  lightFgShadow1: $theme-light-fg-shadow-1;
+  lightFgShadow2: $theme-light-fg-shadow-2;
+  lightFgShadow3: $theme-light-fg-shadow-3;
+  lightFgIcon: $theme-light-fg-icon;
+  lightFgIcon1: $theme-light-fg-icon-1;
+  lightFgIcon2: $theme-light-fg-icon-2;
+  lightFgError: $theme-light-fg-error;
+  lightFgWarning: $theme-light-fg-warning;
+  lightFgSuccess: $theme-light-fg-success;
+
+  lightBgPrimary: $theme-light-bg-primary;
+  lightBgSecondary: $theme-light-bg-secondary;
+  lightBgSecondaryLight: $theme-light-bg-secondary-light;
+  lightBgSecondaryDark: $theme-light-bg-secondary-dark;
+  lightBgSecondary1: $theme-light-bg-secondary-1;
+  lightBgSecondary2: $theme-light-bg-secondary-2;
+  lightBgSecondary3: $theme-light-bg-secondary-3;
+  lightBgSecondary4: $theme-light-bg-secondary-4;
+  lightBgSecondary5: $theme-light-bg-secondary-5;
+  lightBgFocused: $theme-light-bg-focused;
+}

@@ -1,0 +1,21 @@
+.container {
+  @apply bg-primary px-12;
+  border: 0.2px solid theme("colors.fg.secondary.3");
+  box-shadow: 0px 1px 12px theme("colors.fg.shadow.2");
+  padding-top: 3.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.button {
+  @apply w-full flex items-center py-3 bg-primary text-bg-secondary-light text-lg leading-2xl;
+  height: 55px !important;
+
+  &:not(:first-child) {
+    margin-top: 2.25rem;
+  }
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}

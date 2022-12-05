@@ -1,0 +1,7 @@
+.container {
+  @apply flex items-center justify-between;
+}
+
+.label {
+  @apply text-sm leading-2xl text-secondary pl-2;
+}

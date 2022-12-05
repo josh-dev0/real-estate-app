@@ -1,0 +1,11 @@
+.container {
+  backdrop-filter: blur(2px);
+}
+
+.radioButton {
+  border: 0.2px solid var(--theme-color-fg-secondary-4);
+
+  &::before {
+    bacground-color: black;
+  }
+}
